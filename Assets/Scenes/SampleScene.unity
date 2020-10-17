@@ -327,7 +327,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 78.19, y: 15.34, z: 62.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -345,6 +345,7 @@ GameObject:
   - component: {fileID: 770669781}
   - component: {fileID: 770669780}
   - component: {fileID: 770669779}
+  - component: {fileID: 770669782}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -379,7 +380,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd5df6775049d3c4bbf3d57edef03054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  movementSpeed: 5
+  rotationSpeed: 10
 --- !u!54 &770669780
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -394,7 +396,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &770669781
 CapsuleCollider:
@@ -410,6 +412,25 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!95 &770669782
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770669777}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 65c4fb76e2e3f574baaadcded510bcf2, type: 3}
+  m_Controller: {fileID: 9100000, guid: 6832195d974a2e1438998c7d9662a18b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,8 +507,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.14, z: -4.85}
+  m_LocalRotation: {x: -0.36096972, y: -0.0022418797, z: 0.0008628033, w: -0.93257445}
+  m_LocalPosition: {x: -0.10801795, y: 4.995616, z: -4.6576962}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

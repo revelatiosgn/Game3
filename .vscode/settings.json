@@ -43,6 +43,8 @@
         "**/*.meta":true,
         "**/*.prefab":true,
         "**/*.unity":true,
+        "**/*.controller":true,
+        "**/*.inputactions":true,
         "build/":true,
         "Build/":true,
         "Library/":true,
