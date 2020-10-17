@@ -27,12 +27,13 @@ namespace DSRPG
 
         void HandleMovement()
         {
-            Vector3 direction = new Vector3(InputHandler.movementInput.x, 0f, InputHandler.movementInput.y);
+            Vector3 direction = Vector3.zero;
+            direction += Camera.main.transform.right * InputHandler.movementInput.x;
+            direction += Camera.main.transform.forward * InputHandler.movementInput.y;
+            direction.y = 0f;
             direction.Normalize();
 
             rb.velocity = direction * movementSpeed;
-            //rb.velocity = Vector3.SmoothDamp(rb.velocity, direction * speed, ref vl, 0.2f);
-
             animator.SetFloat("vertical", direction.magnitude, 0.1f, Time.deltaTime);
         }
 
