@@ -9,9 +9,20 @@ namespace DSRPG
     {
         public float movementSpeed = 5f;
         public float rotationSpeed = 5f;
+        public float fallingSpeed = 5f;
+        public float minSpeedToLand = 5f;
+        public float jumpingSpeed = 5f;
+
+        public float groundRaycastOrigin = 0.1f;
+        public float groundRaycastOffset = 0.2f;
 
         private Rigidbody rb;
         private Animator animator;
+
+        public bool isOnGround = false;
+        public bool isFalling = false;
+
+        private float freezeDuration = 0f;
 
         void Awake()
         {
@@ -21,20 +32,89 @@ namespace DSRPG
 
         void Update()
         {
-            HandleMovement();
+            if (freezeDuration > 0f)
+                freezeDuration -= Time.deltaTime;
+        }
+
+        void FixedUpdate()
+        {
+            HandleVerticalMovement();
+            HandleHorizontalMovement();
             HandleRotation();
         }
 
-        void HandleMovement()
+        void HandleVerticalMovement()
         {
+            if (InputHandler.jumpInput)
+            {
+                rb.velocity = new Vector3(rb.velocity.x, jumpingSpeed, rb.velocity.z);
+            }
+
+            RaycastHit hitInfo;
+            if (rb.velocity.y <= 0f && RaycastGround(out hitInfo))
+            {
+                if (isFalling)
+                {
+                    if (Mathf.Abs(rb.velocity.y) > minSpeedToLand)
+                    {
+                        animator.CrossFade("Landing", 0.2f);
+                        FreezeMovement(0.3f);
+                    }
+                    else
+                    {
+                        animator.CrossFade("Moving", 0.2f);
+                    }
+                }
+
+                isOnGround = true;
+                isFalling = false;
+
+                Vector3 pos = rb.position;
+                pos.y = hitInfo.point.y;
+                rb.MovePosition(pos);
+            }
+            else
+            {
+                if (isOnGround)
+                {
+                    animator.CrossFade("Falling", 0.5f);
+                }
+
+                isOnGround = false;
+                isFalling = true;
+                rb.AddForce(Vector3.down * fallingSpeed);
+            }
+        }
+
+        void FreezeMovement(float duration)
+        {
+            freezeDuration = duration;
+        }
+
+        bool RaycastGround(out RaycastHit hitInfo)
+        {
+            return Physics.Raycast(transform.position + Vector3.up * groundRaycastOrigin, Vector3.down, out hitInfo, groundRaycastOrigin + groundRaycastOffset);
+        }
+
+        void HandleHorizontalMovement()
+        {
+            if (!isOnGround)
+                return;
+
             Vector3 direction = Vector3.zero;
             direction += Camera.main.transform.right * InputHandler.movementInput.x;
             direction += Camera.main.transform.forward * InputHandler.movementInput.y;
             direction.y = 0f;
             direction.Normalize();
 
-            rb.velocity = direction * movementSpeed;
-            animator.SetFloat("vertical", direction.magnitude, 0.1f, Time.deltaTime);
+            if (freezeDuration > 0f)
+                direction = Vector3.zero;
+
+            Vector3 movementVelocity = direction * movementSpeed;
+            var velocity = new Vector3(movementVelocity.x, 0f, movementVelocity.z);
+            rb.velocity = velocity;
+
+            animator.SetFloat("vertical", direction.magnitude, 0.1f, Time.fixedDeltaTime);
         }
 
         void HandleRotation()
@@ -46,7 +126,13 @@ namespace DSRPG
                 return;
 
             Quaternion targetRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
+        }
+
+        void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(transform.position + Vector3.up * groundRaycastOrigin, transform.position + Vector3.down * groundRaycastOffset);
         }
     }
 }

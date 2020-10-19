@@ -12,7 +12,7 @@ namespace DSRPG
 
         public float speed = 10f;
 
-        void Update()
+        void LateUpdate()
         {
             transform.position = targetTransform.position;
             cameraTransform.position = pivotTransform.position;

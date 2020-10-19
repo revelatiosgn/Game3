@@ -2,7 +2,7 @@
     "name": "InputActions",
     "maps": [
         {
-            "name": "Player",
+            "name": "Player Movement",
             "id": "8e278639-aeae-4b86-91a3-f84a046a612d",
             "actions": [
                 {
@@ -86,6 +86,33 @@
                     "processors": "",
                     "groups": "",
                     "action": "Camera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Player Actions",
+            "id": "c1b88483-5889-4c6e-b369-3d6455cc3f73",
+            "actions": [
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "635d3e13-22b3-4b57-a98c-dabdfc975875",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "bb2268c5-a944-416a-ae4d-afb650482a05",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
