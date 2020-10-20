@@ -8,6 +8,7 @@ namespace DSRPG
     {
         public static Vector2 movementInput;
         public static Vector2 cameraInput;
+        public static Vector3 zoomInput;
         public static bool jumpInput;
 
         private InputActions inputActions;
@@ -17,6 +18,7 @@ namespace DSRPG
             inputActions = new InputActions();
             inputActions.PlayerMovement.Movement.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
             inputActions.PlayerMovement.Camera.performed += ctx => cameraInput = ctx.ReadValue<Vector2>();
+            inputActions.PlayerMovement.Zoom.performed += ctx => zoomInput = ctx.ReadValue<Vector2>();
         }
 
         void OnEnable()

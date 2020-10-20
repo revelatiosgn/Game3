@@ -47,7 +47,7 @@ namespace DSRPG
         {
             if (InputHandler.jumpInput)
             {
-                rb.velocity = new Vector3(rb.velocity.x, jumpingSpeed, rb.velocity.z);
+                rb.velocity =   new Vector3(rb.velocity.x, jumpingSpeed, rb.velocity.z);
             }
 
             RaycastHit hitInfo;
@@ -71,7 +71,7 @@ namespace DSRPG
 
                 Vector3 pos = rb.position;
                 pos.y = hitInfo.point.y;
-                rb.MovePosition(pos);
+                // rb.MovePosition(pos);
             }
             else
             {
@@ -133,6 +133,33 @@ namespace DSRPG
         {
             Gizmos.color = Color.red;
             Gizmos.DrawLine(transform.position + Vector3.up * groundRaycastOrigin, transform.position + Vector3.down * groundRaycastOffset);
+        }
+    
+        public float footDist = 0f;
+        public int mask = 0;
+
+        void OnAnimatorIK(int layerIndex) 
+        {
+            // animator.SetIKPositionWeight(AvatarIKGoal.LeftFoot, 1.0f);
+            // animator.SetIKRotationWeight(AvatarIKGoal.LeftFoot, 1.0f);
+            // Vector3 pos = animator.GetIKPosition(AvatarIKGoal.LeftFoot);
+
+            // RaycastHit hit;
+            // Ray ray = new Ray(pos + Vector3.up, Vector3.down);
+            // if (Physics.Raycast(ray, out hit, footDist))
+            // {
+            //     pos.y = hit.point.y - footDist + 1.0f;
+            //     // animator.SetIKPosition(AvatarIKGoal.LeftFoot, pos);
+            // }
+        }
+
+        
+
+        void RayCastLegs()
+        {
+            // Vector3 footPos = animator.GetIKPosition(AvatarIKGoal.LeftFoot);
+            // RaycastHit hit;
+            // Ray ray = new Ray(pos + Vector3.up, Vector3.down);
         }
     }
 }
