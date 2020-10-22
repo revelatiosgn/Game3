@@ -10,6 +10,7 @@ namespace DSRPG
         public static Vector2 cameraInput;
         public static Vector3 zoomInput;
         public static bool jumpInput;
+        public static bool testInput;
 
         private InputActions inputActions;
 
@@ -34,6 +35,7 @@ namespace DSRPG
         void FixedUpdate()
         {
             jumpInput = inputActions.PlayerActions.Jump.triggered;
+            testInput = inputActions.Debug.Test.triggered;
             
             // jumpInput = inputActions.PlayerActions.Jump.phase == UnityEngine.InputSystem.InputActionPhase.Started;
         }

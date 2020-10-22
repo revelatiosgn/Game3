@@ -12,14 +12,17 @@ namespace DSRPG
         public float fallingSpeed = 5f;
         public float minSpeedToLand = 5f;
         public float jumpingSpeed = 5f;
+        public float climbingSpeed = 5f;
 
         public float groundRaycastOrigin = 0.1f;
-        public float groundRaycastOffset = 0.2f;
+
+        public Transform[] footTransforms;
+        public float footRaycastOffset = 0f;
 
         private Rigidbody rb;
-        private Animator animator;
+        private Animator anim;
 
-        public bool isOnGround = false;
+        public bool isOnGround = true;
         public bool isFalling = false;
 
         private float freezeDuration = 0f;
@@ -27,7 +30,7 @@ namespace DSRPG
         void Awake()
         {
             rb = GetComponent<Rigidbody>();
-            animator = GetComponent<Animator>();
+            anim = GetComponent<Animator>();
         }
 
         void Update()
@@ -41,48 +44,40 @@ namespace DSRPG
             HandleVerticalMovement();
             HandleHorizontalMovement();
             HandleRotation();
+
+            // updateRB();
         }
 
         void HandleVerticalMovement()
         {
-            if (InputHandler.jumpInput)
+            if (!isOnGround)
             {
-                rb.velocity =   new Vector3(rb.velocity.x, jumpingSpeed, rb.velocity.z);
+                rb.AddForce(Vector3.down * 100f);
             }
 
-            RaycastHit hitInfo;
-            if (rb.velocity.y <= 0f && RaycastGround(out hitInfo))
+            Vector3 groundPosition = Vector3.zero;
+            if (RaycastGround(transform.position, groundRaycastOrigin, 0.01f, ref groundPosition))
             {
-                if (isFalling)
+                List<float> results = new List<float>();
+                results.Add(groundPosition.y);
+                foreach (Transform footTransform in footTransforms)
                 {
-                    if (Mathf.Abs(rb.velocity.y) > minSpeedToLand)
-                    {
-                        animator.CrossFade("Landing", 0.2f);
-                        FreezeMovement(0.3f);
-                    }
-                    else
-                    {
-                        animator.CrossFade("Moving", 0.2f);
-                    }
+                    Vector3 footPosition = footTransform.position;
+                    footPosition.y = rb.position.y;
+                    if (RaycastGround(footPosition, groundRaycastOrigin, footRaycastOffset, ref groundPosition))
+                        results.Add(groundPosition.y);
                 }
 
-                isOnGround = true;
-                isFalling = false;
+                Vector3 rbPosition = rb.position;
+                float targetY = Mathf.Min(results.ToArray());
+                rbPosition.y = Mathf.Lerp(rb.position.y, targetY, fallingSpeed * Time.deltaTime);
+                rb.position = rbPosition;
 
-                Vector3 pos = rb.position;
-                pos.y = hitInfo.point.y;
-                // rb.MovePosition(pos);
+                isOnGround = true;
             }
             else
             {
-                if (isOnGround)
-                {
-                    animator.CrossFade("Falling", 0.5f);
-                }
-
                 isOnGround = false;
-                isFalling = true;
-                rb.AddForce(Vector3.down * fallingSpeed);
             }
         }
 
@@ -91,15 +86,22 @@ namespace DSRPG
             freezeDuration = duration;
         }
 
-        bool RaycastGround(out RaycastHit hitInfo)
+        bool RaycastGround(Vector3 position, float originY, float offsetY, ref Vector3 result)
         {
-            return Physics.Raycast(transform.position + Vector3.up * groundRaycastOrigin, Vector3.down, out hitInfo, groundRaycastOrigin + groundRaycastOffset);
+            RaycastHit hit;
+            if (Physics.Raycast(position + Vector3.up * originY, Vector3.down, out hit, originY + offsetY))
+            {
+                result = hit.point;
+                return true;
+            }
+
+            return false;
         }
 
         void HandleHorizontalMovement()
         {
-            if (!isOnGround)
-                return;
+            // if (!isOnGround)
+            //     return;
 
             Vector3 direction = Vector3.zero;
             direction += Camera.main.transform.right * InputHandler.movementInput.x;
@@ -114,7 +116,7 @@ namespace DSRPG
             var velocity = new Vector3(movementVelocity.x, 0f, movementVelocity.z);
             rb.velocity = velocity;
 
-            animator.SetFloat("vertical", direction.magnitude, 0.1f, Time.fixedDeltaTime);
+            anim.SetFloat("vertical", direction.magnitude, 0.1f, Time.fixedDeltaTime);
         }
 
         void HandleRotation()
@@ -132,34 +134,81 @@ namespace DSRPG
         void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawLine(transform.position + Vector3.up * groundRaycastOrigin, transform.position + Vector3.down * groundRaycastOffset);
-        }
-    
-        public float footDist = 0f;
-        public int mask = 0;
+            Gizmos.DrawLine(transform.position + Vector3.up * groundRaycastOrigin, transform.position);
 
-        void OnAnimatorIK(int layerIndex) 
-        {
-            // animator.SetIKPositionWeight(AvatarIKGoal.LeftFoot, 1.0f);
-            // animator.SetIKRotationWeight(AvatarIKGoal.LeftFoot, 1.0f);
-            // Vector3 pos = animator.GetIKPosition(AvatarIKGoal.LeftFoot);
+            Gizmos.color = Color.blue;
+            foreach (Transform footTransform in footTransforms)
+            {
+                Vector3 footPosition = footTransform.position;
+                footPosition.y = rb.position.y;
+                Gizmos.DrawLine(footPosition + Vector3.up * groundRaycastOrigin, footPosition + Vector3.down * footRaycastOffset);
+            }
 
-            // RaycastHit hit;
-            // Ray ray = new Ray(pos + Vector3.up, Vector3.down);
-            // if (Physics.Raycast(ray, out hit, footDist))
-            // {
-            //     pos.y = hit.point.y - footDist + 1.0f;
-            //     // animator.SetIKPosition(AvatarIKGoal.LeftFoot, pos);
-            // }
+            Gizmos.color = Color.yellow;
+            // Gizmos.DrawLine(leftLastFootPosition + Vector3.up * footIKRayOrigin, leftLastFootPosition + Vector3.down * footIKRayOffset);
+            // Gizmos.DrawLine(rightLastFootPosition + Vector3.up * footIKRayOrigin, rightLastFootPosition + Vector3.down * footIKRayOffset);
+
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawWireSphere(debug, 0.1f);
         }
 
-        
+        [Header("FootIK")]
+        [Range(0f, 1f)][SerializeField] float footIKRayOrigin = 0.5f;
+        [Range(0f, 1f)][SerializeField] float footIKRayOffset = 0.5f;
+        [Range(0f, 100f)][SerializeField] float footIKPositioningSpeed = 0.5f;
+        [Range(0f, 5f)][SerializeField] float footIKOffset = 0.5f;
+        [SerializeField] LayerMask layerMask;
 
-        void RayCastLegs()
+        Vector3 leftLastFootPosition, rightLastFootPosition;
+        Vector3 leftFootPosition, rightFootPosition;
+
+        Vector3 debug;
+        [Range(0f, 1f)] public float debugSpeed;
+
+        public float rby, hy;
+
+        void OnAnimatorIK(int layerIndex)
         {
-            // Vector3 footPos = animator.GetIKPosition(AvatarIKGoal.LeftFoot);
-            // RaycastHit hit;
-            // Ray ray = new Ray(pos + Vector3.up, Vector3.down);
+            anim.speed = debugSpeed;
+
+            HandleIKFoot(AvatarIKGoal.LeftFoot, AvatarIKHint.LeftKnee, ref leftLastFootPosition);
+            HandleIKFoot(AvatarIKGoal.RightFoot, AvatarIKHint.RightKnee, ref rightLastFootPosition);
+
+            // HandleGrounded();
+
+            // Vector3 bodyPositision = anim.bodyPosition;
+            // bodyPositision.y = 0.5f;
+            // debug = bodyPositision;
+            // Debug.Log(bodyPositision.y);
+
+            // anim.bodyPosition = bodyPositision;
+        }
+
+        void HandleIKFoot(AvatarIKGoal avatarIKGoal, AvatarIKHint avatarIKHint, ref Vector3 lastFootIKPosition)
+        {
+            anim.SetIKPositionWeight(avatarIKGoal, 1.0f);
+            anim.SetIKRotationWeight(avatarIKGoal, 1.0f);
+            anim.SetIKHintPositionWeight(avatarIKHint, 1.0f);
+
+            Vector3 footIKPosition = anim.GetIKPosition(avatarIKGoal);
+            Vector3 kneeIKPosition = anim.GetIKHintPosition(avatarIKHint);
+
+            float kneeOffset = kneeIKPosition.y - footIKPosition.y;
+            kneeIKPosition.y += kneeOffset;
+            anim.SetIKHintPosition(avatarIKHint, kneeIKPosition);
+            debug = kneeIKPosition;
+
+            Ray ray = new Ray(footIKPosition + Vector3.up * footIKRayOrigin, Vector3.down);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, footIKRayOrigin + footIKRayOffset, layerMask))
+            {
+                footIKPosition.y = hit.point.y + footIKOffset;
+                anim.SetIKRotation(avatarIKGoal, Quaternion.FromToRotation(Vector3.up, hit.normal) * transform.rotation);
+            }
+
+            footIKPosition.y = Mathf.Lerp(lastFootIKPosition.y, footIKPosition.y, footIKPositioningSpeed * Time.deltaTime);
+            anim.SetIKPosition(avatarIKGoal, footIKPosition);
+            lastFootIKPosition = footIKPosition;
         }
     }
 }
