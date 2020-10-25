@@ -10,6 +10,7 @@ namespace DSRPG
         public static Vector2 cameraInput;
         public static Vector3 zoomInput;
         public static bool jumpInput;
+        public static bool runInput;
         public static bool testInput;
 
         private InputActions inputActions;
@@ -20,6 +21,8 @@ namespace DSRPG
             inputActions.PlayerMovement.Movement.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
             inputActions.PlayerMovement.Camera.performed += ctx => cameraInput = ctx.ReadValue<Vector2>();
             inputActions.PlayerMovement.Zoom.performed += ctx => zoomInput = ctx.ReadValue<Vector2>();
+            inputActions.PlayerMovement.Run.started += ctx => runInput = true;
+            inputActions.PlayerMovement.Run.canceled += ctx => runInput = false;
         }
 
         void OnEnable()
@@ -36,8 +39,6 @@ namespace DSRPG
         {
             jumpInput = inputActions.PlayerActions.Jump.triggered;
             testInput = inputActions.Debug.Test.triggered;
-            
-            // jumpInput = inputActions.PlayerActions.Jump.phase == UnityEngine.InputSystem.InputActionPhase.Started;
         }
 
         // void Update()

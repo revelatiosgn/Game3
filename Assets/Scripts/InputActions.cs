@@ -41,6 +41,14 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Run"",
+                    ""type"": ""Value"",
+                    ""id"": ""7b80a0fd-87e3-449d-8df5-ad4060c76ce6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -120,6 +128,17 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""action"": ""Zoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""845a58f2-d79b-4369-8ef4-d542e05a7488"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Run"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -185,6 +204,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         m_PlayerMovement_Movement = m_PlayerMovement.FindAction("Movement", throwIfNotFound: true);
         m_PlayerMovement_Camera = m_PlayerMovement.FindAction("Camera", throwIfNotFound: true);
         m_PlayerMovement_Zoom = m_PlayerMovement.FindAction("Zoom", throwIfNotFound: true);
+        m_PlayerMovement_Run = m_PlayerMovement.FindAction("Run", throwIfNotFound: true);
         // Player Actions
         m_PlayerActions = asset.FindActionMap("Player Actions", throwIfNotFound: true);
         m_PlayerActions_Jump = m_PlayerActions.FindAction("Jump", throwIfNotFound: true);
@@ -243,6 +263,7 @@ public class @InputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerMovement_Movement;
     private readonly InputAction m_PlayerMovement_Camera;
     private readonly InputAction m_PlayerMovement_Zoom;
+    private readonly InputAction m_PlayerMovement_Run;
     public struct PlayerMovementActions
     {
         private @InputActions m_Wrapper;
@@ -250,6 +271,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         public InputAction @Movement => m_Wrapper.m_PlayerMovement_Movement;
         public InputAction @Camera => m_Wrapper.m_PlayerMovement_Camera;
         public InputAction @Zoom => m_Wrapper.m_PlayerMovement_Zoom;
+        public InputAction @Run => m_Wrapper.m_PlayerMovement_Run;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -268,6 +290,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Zoom.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnZoom;
                 @Zoom.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnZoom;
                 @Zoom.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnZoom;
+                @Run.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnRun;
+                @Run.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnRun;
+                @Run.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnRun;
             }
             m_Wrapper.m_PlayerMovementActionsCallbackInterface = instance;
             if (instance != null)
@@ -281,6 +306,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Zoom.started += instance.OnZoom;
                 @Zoom.performed += instance.OnZoom;
                 @Zoom.canceled += instance.OnZoom;
+                @Run.started += instance.OnRun;
+                @Run.performed += instance.OnRun;
+                @Run.canceled += instance.OnRun;
             }
         }
     }
@@ -356,6 +384,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnCamera(InputAction.CallbackContext context);
         void OnZoom(InputAction.CallbackContext context);
+        void OnRun(InputAction.CallbackContext context);
     }
     public interface IPlayerActionsActions
     {
