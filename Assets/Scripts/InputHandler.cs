@@ -10,7 +10,7 @@ namespace DSRPG
         public static Vector2 cameraInput;
         public static Vector3 zoomInput;
         public static bool jumpInput;
-        public static bool runInput;
+        public static bool walkInput;
         public static bool testInput;
 
         private InputActions inputActions;
@@ -21,8 +21,12 @@ namespace DSRPG
             inputActions.PlayerMovement.Movement.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
             inputActions.PlayerMovement.Camera.performed += ctx => cameraInput = ctx.ReadValue<Vector2>();
             inputActions.PlayerMovement.Zoom.performed += ctx => zoomInput = ctx.ReadValue<Vector2>();
-            inputActions.PlayerMovement.Run.started += ctx => runInput = true;
-            inputActions.PlayerMovement.Run.canceled += ctx => runInput = false;
+            inputActions.PlayerMovement.Walk.started += ctx => walkInput = true;
+            inputActions.PlayerMovement.Walk.canceled += ctx => walkInput = false;
+
+            inputActions.PlayerActions.Jump.started += ctx => jumpInput = true;
+
+            inputActions.Debug.Test.started += ctx => testInput = true;
         }
 
         void OnEnable()
@@ -35,29 +39,11 @@ namespace DSRPG
             inputActions.Disable();
         }
 
-        void FixedUpdate()
+        void LateUpdate()
         {
-            jumpInput = inputActions.PlayerActions.Jump.triggered;
-            testInput = inputActions.Debug.Test.triggered;
+            jumpInput = false;
+            testInput = false;
         }
-
-        // void Update()
-        // {
-        //     movementInput.x = 0f;
-        //     movementInput.x += Input.GetKey(KeyCode.D) ? 1f : 0f;
-        //     movementInput.x += Input.GetKey(KeyCode.A) ? -1f : 0f;
-        //     movementInput.y = 0f;
-        //     movementInput.y += Input.GetKey(KeyCode.W) ? 1f : 0f;
-        //     movementInput.y += Input.GetKey(KeyCode.S) ? -1f : 0f;
-
-        //     cameraInput.x = 0f;
-        //     cameraInput.x += Input.GetKey(KeyCode.J) ? 1f : 0f;
-        //     cameraInput.x += Input.GetKey(KeyCode.L) ? -1f : 0f;
-
-        //     cameraInput.y = 0f;
-        //     cameraInput.y += Input.GetKey(KeyCode.I) ? 1f : 0f;
-        //     cameraInput.y += Input.GetKey(KeyCode.K) ? -1f : 0f;
-        // }
     }
 }
 

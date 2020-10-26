@@ -30,7 +30,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Run",
+                    "name": "Walk",
                     "type": "Value",
                     "id": "7b80a0fd-87e3-449d-8df5-ad4060c76ce6",
                     "expectedControlType": "",
@@ -123,7 +123,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Run",
+                    "action": "Walk",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
