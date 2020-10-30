@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DSRPG
+namespace ARPG
 {
     public class InputHandler : MonoBehaviour
     {
@@ -11,6 +11,7 @@ namespace DSRPG
         public static Vector3 zoomInput;
         public static bool jumpInput;
         public static bool walkInput;
+        public static bool attackInput;
         public static bool testInput;
 
         private InputActions inputActions;
@@ -25,6 +26,7 @@ namespace DSRPG
             inputActions.PlayerMovement.Walk.canceled += ctx => walkInput = false;
 
             inputActions.PlayerActions.Jump.started += ctx => jumpInput = true;
+            inputActions.PlayerActions.Attack.started += ctx => attackInput = true;
 
             inputActions.Debug.Test.started += ctx => testInput = true;
         }
@@ -42,6 +44,7 @@ namespace DSRPG
         void LateUpdate()
         {
             jumpInput = false;
+            attackInput = false;
             testInput = false;
         }
     }

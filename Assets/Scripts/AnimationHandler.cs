@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DSRPG
+namespace ARPG
 {
     public class AnimationHandler : MonoBehaviour
     {
@@ -26,9 +26,9 @@ namespace DSRPG
 
         void Update()
         {
-            Vector3 delta = transform.position - position;
-            Debug.Log(delta / Time.deltaTime);
+            Vector3 delta = (transform.position - position) / Time.deltaTime;
             position = transform.position;
+            // delta.Normalize();
 
             // Vector3 velocity = characterController.velocity.normalized;
 
@@ -36,10 +36,11 @@ namespace DSRPG
 
             // float ascending =  0.5f + velocity.y;
 
-            // Vector3 v = Vector3.ProjectOnPlane(characterController.velocity, Vector3.up);
-            // float m = v.magnitude / 5.0f;
+            // Vector3 v = Vector3.ProjectOnPlane(delta, Vector3.up);
+            // float m = v.magnitude / 5f;
 
             // anim.SetFloat("vertical", m);
+            // anim.SetFloat("ascending", delta.y);
         }
     }
 }

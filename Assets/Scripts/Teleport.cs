@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DSRPG
+namespace ARPG
 {
     public class Teleport : MonoBehaviour
     {

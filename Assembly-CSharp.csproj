@@ -39,17 +39,20 @@
      <Compile Include="Assets\Scripts\InputActions.cs" />
      <Compile Include="Assets\Scripts\FootIK.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\AIContoller.cs" />
+     <Compile Include="Assets\Scripts\QuaternionUtil.cs" />
      <Compile Include="Assets\Scripts\Movement.cs" />
      <Compile Include="Assets\Scripts\Teleport.cs" />
+     <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\InputHandler.cs" />
      <Compile Include="Assets\Scripts\AnimationHandler.cs" />
-     <Compile Include="Assets\Scripts\QuaternionUtil.cs" />
-     <Compile Include="Assets\Scripts\AIContoller.cs" />
-     <Compile Include="Assets\Scripts\PlayerController.cs" />
-     <None Include="Assets\PolygonPrototype\Shaders\Prototype_Glass_Global.shader" />
-     <None Include="Assets\PolygonPrototype\Shaders\Prototype_Object.shader" />
-     <None Include="Assets\PolygonPrototype\Shaders\Prototype_Global.shader" />
-     <None Include="Assets\PolygonPrototype\Shaders\Prototype_Glass_Object.shader" />
+     <Compile Include="Assets\Scripts\MovementBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Animators\Weapon.cs" />
+     <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Glass_Global.shader" />
+     <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Object.shader" />
+     <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Global.shader" />
+     <None Include="Assets\ExternalAssets\Free medieval weapons\README.txt" />
+     <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Glass_Object.shader" />
     <Reference Include="UnityEngine">
         <HintPath>D:/Tools/UnityEngine/2020.1.8f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

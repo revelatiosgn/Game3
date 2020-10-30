@@ -3,40 +3,69 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace DSRPG
+namespace ARPG
 {
     public class AIContoller : MonoBehaviour
     {
-        public Transform[] waypoints;
-        public int currentWaypoint = 0;
+        [SerializeField] float smoothTime;
+
+        public Transform targetTransform;
 
         NavMeshAgent navMeshAgent;
+        Animator animator;
+
+        float speed;
+        float smoothVelocity;
 
         void Awake()
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
+            animator = GetComponent<Animator>();
         }
 
         void Start()
         {
-            navMeshAgent.SetDestination(waypoints[currentWaypoint].position);
+            navMeshAgent.updatePosition = false;
+            navMeshAgent.updateRotation = false;
+            navMeshAgent.acceleration = float.MaxValue;
         }
 
         void Update()
         {
-            Move();
+            if (navMeshAgent.destination != targetTransform.position)
+                navMeshAgent.destination = targetTransform.position;
+
+            float distance = Vector3.Distance(navMeshAgent.destination, transform.position);
+            if (distance > 3f)
+            {
+                speed = Mathf.SmoothDamp(speed, 1f, ref smoothVelocity, smoothTime);
+                animator.SetFloat("vertical", speed);
+            }
+
+            if (distance < 3f)
+            {
+                speed = distance > 0.5f ? Mathf.SmoothDamp(speed, 0.3f, ref smoothVelocity, smoothTime) : Mathf.SmoothDamp(speed, 0f, ref smoothVelocity, smoothTime);
+                animator.SetFloat("vertical", speed);
+            }
         }
 
-        void Move()
+        void OnAnimatorMove ()
         {
-            if (waypoints.Length == 0)
-                return;
-            
-            Transform waypoint = waypoints[currentWaypoint];
-            if (Vector3.Distance(transform.position, waypoint.position) <= 2f)
+            Vector3 direction = navMeshAgent.steeringTarget - transform.position;
+            direction.y = 0f;
+
+            if (direction != Vector3.zero)
+                transform.rotation = Quaternion.LookRotation(direction);
+            transform.position = navMeshAgent.nextPosition;
+            navMeshAgent.speed = animator.deltaPosition.magnitude / Time.deltaTime;
+        }
+
+        void OnDrawGizmos()
+        {
+            if (navMeshAgent)
             {
-                currentWaypoint = (currentWaypoint + 1) % waypoints.Length;
-                navMeshAgent.SetDestination(waypoints[currentWaypoint].position);
+                Gizmos.color = Color.magenta;
+                Gizmos.DrawWireSphere(navMeshAgent.steeringTarget, 0.3f);
             }
         }
     }
