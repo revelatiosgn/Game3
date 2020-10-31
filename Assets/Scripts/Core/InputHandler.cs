@@ -49,6 +49,7 @@ namespace ARPG.Core
             inputActions.PlayerMovement.Walk.started += ctx => walkInput = true;
             inputActions.PlayerMovement.Walk.canceled += ctx => walkInput = false;
             inputActions.PlayerActions.Attack.started += ctx => attackInput = true;
+            inputActions.PlayerActions.Attack.canceled += ctx => attackInput = false;
 
             inputActions.UI.Inventory.started += ctx => inventoryInput = true;
 
@@ -65,7 +66,6 @@ namespace ARPG.Core
         void LateUpdate()
         {
             jumpInput = false;
-            attackInput = false;
 
             inventoryInput = false;
 

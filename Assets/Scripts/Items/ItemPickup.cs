@@ -10,7 +10,7 @@ namespace ARPG.Items
 
         void OnTriggerEnter(Collider other)
         {
-            if (other.tag == "Player")
+            if (other.tag == Constants.Tags.Player)
             {
                 other.GetComponent<Inventory>().AddItem(item);
                 Destroy(gameObject);

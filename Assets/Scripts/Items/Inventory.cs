@@ -7,7 +7,6 @@ namespace ARPG.Items
     public class Inventory : MonoBehaviour
     {
         [SerializeField] List<Item> items;
-        [SerializeField] Transform weaponSlot;
 
         Animator animator;
 
@@ -24,25 +23,13 @@ namespace ARPG.Items
         public void AddItem(Item item)
         {
             items.Add(item);
+
+            item.Use();
         }
 
         public void RemoveItem(Item item)
         {
             items.Remove(item);
-        }
-
-        public void Equip(WeaponItem item)
-        {
-            Unequip();
-
-            GameObject weapon = Instantiate(item.prefab, weaponSlot);
-            animator.runtimeAnimatorController = item.animatorOverrideController;
-        }
-
-        public void Unequip()
-        {
-            foreach(Transform weapon in weaponSlot)
-                Destroy(weapon.gameObject);
         }
     }
 }

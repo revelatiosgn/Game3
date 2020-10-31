@@ -32,6 +32,9 @@ namespace ARPG.Movement
 
         void Update()
         {
+            if (!targetTransform)
+                return;
+
             if (navMeshAgent.destination != targetTransform.position)
                 navMeshAgent.destination = targetTransform.position;
 
@@ -62,11 +65,11 @@ namespace ARPG.Movement
 
         void OnDrawGizmos()
         {
-            if (navMeshAgent)
-            {
-                Gizmos.color = Color.magenta;
-                Gizmos.DrawWireSphere(navMeshAgent.steeringTarget, 0.3f);
-            }
+            // if (navMeshAgent)
+            // {
+            //     Gizmos.color = Color.magenta;
+            //     Gizmos.DrawWireSphere(navMeshAgent.steeringTarget, 0.3f);
+            // }
         }
     }
 }

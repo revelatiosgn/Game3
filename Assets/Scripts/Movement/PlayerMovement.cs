@@ -33,7 +33,10 @@ namespace ARPG.Movement
         void Move()
         {
             if (playerController.isInteracting)
+            {
+                animator.SetFloat("vertical", 0f);
                 return;
+            }
 
             Vector3 direction = Vector3.zero;
             direction += Camera.main.transform.right * InputHandler.movementInput.x;

@@ -25,10 +25,33 @@ namespace ARPG.Combat
 
         void Attack()
         {
-            if (InputHandler.attackInput && !playerController.isInteracting)
+            Weapon currentWeapon = GetComponent<Equipment>().currentWeapon;
+            if (!currentWeapon)
+                return;
+            
+            if (currentWeapon.weaponType == Weapon.WeaponType.Melee)
             {
-                playerController.isInteracting = true;
-                animator.CrossFade("Attack", 0.2f);
+                if (InputHandler.attackInput && !playerController.isInteracting)
+                {
+                    playerController.isInteracting = true;
+                    animator.SetBool("meleeAttack", true);
+                }
+                else
+                {
+                    animator.SetBool("meleeAttack", false);
+                }
+            }
+            else if (currentWeapon.weaponType == Weapon.WeaponType.Ranged)
+            {
+                if (InputHandler.attackInput && !playerController.isInteracting && !animator.GetBool("rangedAttack"))
+                {
+                    playerController.isInteracting = true;
+                    animator.SetBool("rangedAttack", true);
+                }
+                else if (!InputHandler.attackInput && animator.GetBool("rangedAttack"))
+                {
+                    animator.SetBool("rangedAttack", false);
+                }
             }
         }
     }

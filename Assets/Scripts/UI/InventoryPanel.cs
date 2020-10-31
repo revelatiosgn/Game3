@@ -16,7 +16,7 @@ namespace ARPG.UI
 
         void Awake()
         {
-            playerInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+            playerInventory = GameObject.FindGameObjectWithTag(Constants.Tags.Player).GetComponent<Inventory>();
         }
 
         void OnEnable()

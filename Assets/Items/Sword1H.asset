@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Sword1H
   m_EditorClassIdentifier: 
   itemName: 1H sword
-  prefab: {fileID: 1037715513984232, guid: 259746fbc59909b4eb14377c46a80363, type: 3}
+  prefab: {fileID: 6364952361044605166, guid: 64c9fdfd0cfbf594081c251665cd7ba0, type: 3}
   animatorOverrideController: {fileID: 22100000, guid: 26c01a05cf92d624a9e3608296a93e86, type: 2}

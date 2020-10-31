@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using ARPG.Controller;
-
-namespace ARPG.Movement
+namespace ARPG.Controller
 {
-    public class MovementBehaviour : StateMachineBehaviour
+    public class InteractingBehaviour : StateMachineBehaviour
     {
-        override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             PlayerController playerController = animator.GetComponent<PlayerController>();
             if (playerController)

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 446b8fe765d88904bad846af4db2cc02, type: 3}
-  m_Name: Sword2H
+  m_Name: Bow
   m_EditorClassIdentifier: 
-  itemName: 2H sword
-  prefab: {fileID: 707715926206357918, guid: 95c03c465be17aa4e8b2242f2fa7a8ee, type: 3}
+  itemName: Bow
+  prefab: {fileID: 7247515202842409471, guid: dac93ac05de79af45bf7a46628311d9c, type: 3}
