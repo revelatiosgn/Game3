@@ -45,6 +45,7 @@
         "**/*.unity":true,
         "**/*.controller":true,
         "**/*.inputactions":true,
+        "**/*.overrideController":true,
         "build/":true,
         "Build/":true,
         "Library/":true,
