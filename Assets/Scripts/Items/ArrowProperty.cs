@@ -7,12 +7,13 @@ using ARPG.Combat;
 
 namespace ARPG.Items
 {
-    [CreateAssetMenu(fileName = "PotionItem", menuName = "Items/Potion", order = 1)]
-    public class PotionItemProperty : ItemProperty
+    [CreateAssetMenu(fileName = "ArrowItem", menuName = "Items/Arrow", order = 1)]
+    public class ArrowProperty : EquipmentProperty
     {
+        public float damage;
+
         public override void Use(Item item)
         {
-            Debug.Log("POTION USED");
         }
     }
 }

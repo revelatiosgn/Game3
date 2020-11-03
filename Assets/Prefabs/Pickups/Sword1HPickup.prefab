@@ -67,11 +67,15 @@ PrefabInstance:
     - target: {fileID: -2912462481529364922, guid: d656c0999f94bb3458f66e848c99e781, type: 3}
       propertyPath: item.itemProperty
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -2912462481529364922, guid: d656c0999f94bb3458f66e848c99e781, type: 3}
+      propertyPath: item.property
+      value: 
       objectReference: {fileID: 11400000, guid: 19cf5b323c81274418062e21561c2e64, type: 2}
     - target: {fileID: 7428202689590742065, guid: d656c0999f94bb3458f66e848c99e781, type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 11400000, guid: 19cf5b323c81274418062e21561c2e64, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 7428202689590742066, guid: d656c0999f94bb3458f66e848c99e781, type: 3}
       propertyPath: m_Name
       value: Sword1HPickup

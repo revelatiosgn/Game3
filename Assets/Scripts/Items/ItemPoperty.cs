@@ -7,9 +7,10 @@ namespace ARPG.Items
     public class ItemProperty : ScriptableObject
     {
         public Sprite icon;
-        public GameObject prefab;
 
-        public virtual void Use(Item item) {}
+        public virtual void Use(Item item)
+        {
+        }
     }
 }
 

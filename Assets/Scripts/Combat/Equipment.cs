@@ -9,9 +9,7 @@ namespace ARPG.Combat
 {
     public class Equipment : MonoBehaviour
     {
-        public List<WeaponHolder> weaponHolders;
-        public WeaponItemProperty defaultWeapon;
-        public WeaponBehaviour weaponBehaviour;
+        public List<EquipmentSlot> equipmentSlots;
 
         Animator animator;
 
@@ -23,68 +21,40 @@ namespace ARPG.Combat
             animator = GetComponent<Animator>();
         }
 
-        void Update()
+        public void Equip(Item item)
         {
-            EquipDefaultWeapon();
-        }
+            EquipmentProperty property = item.property as EquipmentProperty;
+            EquipmentSlot slot = GetEquipmentSlot(property.slotType);
 
-        void EquipDefaultWeapon()
-        {   
-            if (GetWeaponHolder(WeaponHolder.HolderType.LeftHand).item == null && GetWeaponHolder(WeaponHolder.HolderType.RightHand).item == null)
+            if (slot.Item == null)
             {
-                Item item = new Item();
-                item.property = defaultWeapon;
-                EquipWeapon(item);
+                slot.Item = item;
+                onEquip(item);
+            }
+            else
+            {
+                if (slot.Item == item)
+                {
+                    slot.Item = null;
+                    onUnequip(item);
+                }
+                else
+                {
+                    onUnequip(slot.Item);
+                    slot.Item = item;
+                    onEquip(item);
+                }
             }
         }
 
-        public void EquipWeapon(Item item)
+        EquipmentSlot GetEquipmentSlot(Item item)
         {
-            WeaponItemProperty property = item.GetItemProperty<WeaponItemProperty>();
-
-            Unequip(WeaponHolder.HolderType.LeftHand);
-            Unequip(WeaponHolder.HolderType.RightHand);
-
-            animator.runtimeAnimatorController = property.animatorOverrideController;
-            weaponBehaviour = (WeaponBehaviour) gameObject.AddComponent(property.behaviour.GetClass());
-
-            WeaponHolder weaponHolder = GetWeaponHolder(property.holderType);
-            weaponHolder.Equip(item);
-
-            onEquip(item);
+            return equipmentSlots.Find(equipmentSlot => equipmentSlot.Item == item);
         }
 
-        public void Unequip(WeaponHolder.HolderType holderType)
+        EquipmentSlot GetEquipmentSlot(EquipmentSlot.SlotType slotType)
         {
-            Item item = GetWeaponHolder(holderType).item;
-            GetWeaponHolder(holderType).Unequip();
-            if (weaponBehaviour)
-                Destroy(weaponBehaviour);
-                
-            if (item != null)
-                onUnequip(item);
-        }
-
-        public void EquipArrows(Item item)
-        {
-            MissileItemProperty property = item.GetItemProperty<MissileItemProperty>();
-
-            Unequip(WeaponHolder.HolderType.Back);
-
-            WeaponHolder weaponHolder = GetWeaponHolder(WeaponHolder.HolderType.Back);
-            weaponHolder.Equip(item);
-
-            onEquip(item);
-        }
-
-        public WeaponHolder GetWeaponHolder(WeaponHolder.HolderType holderType)
-        {
-            return weaponHolders.Find(holder => holder.holderType == holderType);
-        }
-        
-        public WeaponHolder GetWeaponHolder(Item item)
-        {
-            return weaponHolders.Find(holder => holder.item == item);
+            return equipmentSlots.Find(equipmentSlot => equipmentSlot.slotType == slotType);
         }
     }
 }

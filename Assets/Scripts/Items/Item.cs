@@ -14,13 +14,5 @@ namespace ARPG.Items
         {
             property.Use(this);
         }
-
-        public T GetItemProperty<T>()
-        {
-            if (typeof(T) == property.GetType())
-                return (T) (object) property;
-
-            return default(T);
-        }
     }
 }

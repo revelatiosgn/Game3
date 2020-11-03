@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 899407339}
-  - component: {fileID: 7355236601477001083}
+  - component: {fileID: 8465371474396225964}
   m_Layer: 0
-  m_Name: WeaponHolder
+  m_Name: RightHandSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 3922131558834590153}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 19.997, z: 0}
---- !u!114 &7355236601477001083
+--- !u!114 &8465371474396225964
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,10 +40,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 899407338}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a817065a61da634eb9d79a187fb90ba, type: 3}
+  m_Script: {fileID: 11500000, guid: c2c0baf8cb023a140b3bc66499213e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holderType: 1
+  slotType: 0
+  hand: 1
 --- !u!1 &1642198430242213914
 GameObject:
   m_ObjectHideFlags: 0
@@ -53,9 +54,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2462872685081614078}
-  - component: {fileID: 5032192557192209048}
+  - component: {fileID: 7538149979014564696}
   m_Layer: 0
-  m_Name: WeaponHolder
+  m_Name: LeftHandSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +76,7 @@ Transform:
   m_Father: {fileID: 2442950802990649939}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -9.276, z: 0}
---- !u!114 &5032192557192209048
+--- !u!114 &7538149979014564696
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -84,10 +85,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1642198430242213914}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a817065a61da634eb9d79a187fb90ba, type: 3}
+  m_Script: {fileID: 11500000, guid: c2c0baf8cb023a140b3bc66499213e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holderType: 0
+  slotType: 0
+  hand: 0
 --- !u!1 &6018887173270786872
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,6 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a5c67ed6f0e3694ea55ec35346546c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultWeapon: {fileID: 11400000, guid: bb6a58b7e295ca3428f067d43d8b28b8, type: 2}
 --- !u!114 &6018887173546567308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,12 +299,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58451a4874c21334db98d3e2a89e2d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponHolders:
-  - {fileID: 5032192557192209048}
-  - {fileID: 7355236601477001083}
-  - {fileID: 8853875632492055112}
-  defaultWeapon: {fileID: 11400000, guid: bb6a58b7e295ca3428f067d43d8b28b8, type: 2}
-  weaponBehaviour: {fileID: 0}
+  equipmentSlots:
+  - {fileID: 6030989376611733910}
+  - {fileID: 7538149979014564696}
+  - {fileID: 8465371474396225964}
 --- !u!1 &6883138582526747217
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,9 +312,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2467163717892672623}
-  - component: {fileID: 8853875632492055112}
+  - component: {fileID: 6030989376611733910}
   m_Layer: 0
-  m_Name: WeaponHolder
+  m_Name: ArrowsSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -333,7 +334,7 @@ Transform:
   m_Father: {fileID: 5081103504520017439}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8853875632492055112
+--- !u!114 &6030989376611733910
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -342,10 +343,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6883138582526747217}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a817065a61da634eb9d79a187fb90ba, type: 3}
+  m_Script: {fileID: 11500000, guid: c2c0baf8cb023a140b3bc66499213e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holderType: 2
+  slotType: 0
+  hand: 0
 --- !u!1001 &5819457806764654500
 PrefabInstance:
   m_ObjectHideFlags: 0

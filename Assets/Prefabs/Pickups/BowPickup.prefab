@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: item.itemProperty
       value: 
       objectReference: {fileID: 11400000, guid: 1c8d35adf91e10140bb99b0c02b890ba, type: 2}
+    - target: {fileID: -2912462481529364922, guid: d656c0999f94bb3458f66e848c99e781, type: 3}
+      propertyPath: item.property
+      value: 
+      objectReference: {fileID: 11400000, guid: 1c8d35adf91e10140bb99b0c02b890ba, type: 2}
     - target: {fileID: 7428202689590742065, guid: d656c0999f94bb3458f66e848c99e781, type: 3}
       propertyPath: item
       value: 
