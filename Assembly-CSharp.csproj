@@ -37,30 +37,38 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Core\InputActions.cs" />
+     <Compile Include="Assets\Scripts\Combat\RangedBehaviour.cs" />
      <Compile Include="Assets\Scripts\Movement\FootIK.cs" />
+     <Compile Include="Assets\Scripts\Inventory\ItemSlot.cs" />
      <Compile Include="Assets\Scripts\Core\CameraFollow.cs" />
-     <Compile Include="Assets\Scripts\Items\Item.cs" />
+     <Compile Include="Assets\Scripts\Items\ItemPoperty.cs" />
+     <Compile Include="Assets\Scripts\Combat\WeaponBehaviour.cs" />
      <Compile Include="Assets\Scripts\Controller\AIContoller.cs" />
-     <Compile Include="Assets\Scripts\Items\Inventory.cs" />
-     <Compile Include="Assets\Scripts\UI\InventoryItem.cs" />
+     <Compile Include="Assets\Scripts\Combat\WeaponHolder.cs" />
+     <Compile Include="Assets\Scripts\Inventory\ItemsContainer.cs" />
+     <Compile Include="Assets\Scripts\Movement\AIMovement.cs" />
+     <Compile Include="Assets\Scripts\Stats\Attributes.cs" />
+     <Compile Include="Assets\Scripts\UI\InventorySlot.cs" />
      <Compile Include="Assets\Scripts\Utils\QuaternionUtil.cs" />
      <Compile Include="Assets\Scripts\Movement\PlayerMovement.cs" />
-     <Compile Include="Assets\Scripts\Items\WeaponItem.cs" />
+     <Compile Include="Assets\Scripts\Constants.cs" />
+     <Compile Include="Assets\Scripts\Combat\Missile.cs" />
+     <Compile Include="Assets\Scripts\Items\PotionItemProperty.cs" />
+     <Compile Include="Assets\Scripts\Items\WeaponItemProperty.cs" />
+     <Compile Include="Assets\Scripts\Combat\Equipment.cs" />
      <Compile Include="Assets\Scripts\UI\InventoryPanel.cs" />
+     <Compile Include="Assets\Scripts\Combat\MeleeBehaviour.cs" />
      <Compile Include="Assets\Scripts\Utils\Teleport.cs" />
      <Compile Include="Assets\Scripts\Controller\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Core\InputHandler.cs" />
      <Compile Include="Assets\Scripts\Animation\AnimationHandler.cs" />
-     <Compile Include="Assets\Scripts\Items\ItemPickup.cs" />
-     <Compile Include="Assets\Scripts\Controller\InteractingBehaviour.cs" />
-     <Compile Include="Assets\Scripts\UI\UIController.cs" />
-     <Compile Include="Assets\Scripts\Combat\PlayerCombat.cs" />
-     <Compile Include="Assets\Scripts\Movement\AIMovement.cs" />
      <Compile Include="Assets\Scripts\Combat\Weapon.cs" />
-     <Compile Include="Assets\Scripts\Combat\Equipment.cs" />
-     <Compile Include="Assets\Scripts\Constants.cs" />
-     <Compile Include="Assets\Scripts\Stats\Attributes.cs" />
-     <Compile Include="Assets\Scripts\Combat\WeaponHolder.cs" />
+     <Compile Include="Assets\Scripts\Inventory\ItemPickup.cs" />
+     <Compile Include="Assets\Scripts\Combat\PlayerCombat.cs" />
+     <Compile Include="Assets\Scripts\Controller\InteractingBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Items\Item.cs" />
+     <Compile Include="Assets\Scripts\UI\UIController.cs" />
+     <Compile Include="Assets\Scripts\Items\MissileItemProperty.cs" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Glass_Global.shader" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Object.shader" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Global.shader" />
@@ -620,6 +628,9 @@
     </Reference>
     <Reference Include="Unity.Rider.Editor">
         <HintPath>D:/Projects/Game3/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+        <HintPath>D:/Projects/Game3/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
         <HintPath>D:/Projects/Game3/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>

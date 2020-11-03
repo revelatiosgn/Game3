@@ -8,17 +8,6 @@ namespace ARPG.Combat
 {
     public class Weapon : MonoBehaviour
     {
-        public enum WeaponType
-        {
-            Melee,
-            Ranged
-        }
-
-        public float damage;
-        public WeaponHolder.HolderType holderType;
-        public WeaponType weaponType;
-        public AnimatorOverrideController animatorOverrideController;
-
         Collider damagingCollider;
 
         public void SetDamaging(bool value)
@@ -42,7 +31,7 @@ namespace ARPG.Combat
 
         void MakeDamage(Attributes target)
         {
-            target.TakeDamage(damage);
+            // target.TakeDamage(damage);
         }
     }
 }

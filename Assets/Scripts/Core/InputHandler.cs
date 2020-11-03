@@ -12,7 +12,9 @@ namespace ARPG.Core
 
         public static bool jumpInput;
         public static bool walkInput;
-        public static bool attackInput;
+
+        public static bool attackBeginInput;
+        public static bool attackEndInput;
 
         public static bool inventoryInput;
 
@@ -48,8 +50,8 @@ namespace ARPG.Core
             inputActions.PlayerActions.Jump.started += ctx => jumpInput = true;
             inputActions.PlayerMovement.Walk.started += ctx => walkInput = true;
             inputActions.PlayerMovement.Walk.canceled += ctx => walkInput = false;
-            inputActions.PlayerActions.Attack.started += ctx => attackInput = true;
-            inputActions.PlayerActions.Attack.canceled += ctx => attackInput = false;
+            inputActions.PlayerActions.Attack.started += ctx => attackBeginInput = true;
+            inputActions.PlayerActions.Attack.canceled += ctx => attackEndInput = true;
 
             inputActions.UI.Inventory.started += ctx => inventoryInput = true;
 
@@ -66,6 +68,9 @@ namespace ARPG.Core
         void LateUpdate()
         {
             jumpInput = false;
+
+            attackBeginInput = false;
+            attackEndInput = false;
 
             inventoryInput = false;
 

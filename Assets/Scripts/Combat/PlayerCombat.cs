@@ -12,6 +12,7 @@ namespace ARPG.Combat
         Animator animator;
         PlayerController playerController;
 
+
         void Awake()
         {
             animator = GetComponent<Animator>();
@@ -25,33 +26,19 @@ namespace ARPG.Combat
 
         void Attack()
         {
-            Weapon currentWeapon = GetComponent<Equipment>().currentWeapon;
-            if (!currentWeapon)
+            WeaponBehaviour weaponBehaviour = GetComponent<Equipment>().weaponBehaviour;
+            if (!weaponBehaviour)
                 return;
-            
-            if (currentWeapon.weaponType == Weapon.WeaponType.Melee)
+
+            if (InputHandler.attackBeginInput && !playerController.isInteracting)
             {
-                if (InputHandler.attackInput && !playerController.isInteracting)
-                {
-                    playerController.isInteracting = true;
-                    animator.SetBool("meleeAttack", true);
-                }
-                else
-                {
-                    animator.SetBool("meleeAttack", false);
-                }
+                playerController.isInteracting = true;
+                weaponBehaviour.AttackBegin();
             }
-            else if (currentWeapon.weaponType == Weapon.WeaponType.Ranged)
+
+            if (InputHandler.attackEndInput)
             {
-                if (InputHandler.attackInput && !playerController.isInteracting && !animator.GetBool("rangedAttack"))
-                {
-                    playerController.isInteracting = true;
-                    animator.SetBool("rangedAttack", true);
-                }
-                else if (!InputHandler.attackInput && animator.GetBool("rangedAttack"))
-                {
-                    animator.SetBool("rangedAttack", false);
-                }
+                weaponBehaviour.AttackEnd();
             }
         }
     }

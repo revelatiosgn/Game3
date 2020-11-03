@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using ARPG.Items;
+
 namespace ARPG.Combat
 {
     public class WeaponHolder : MonoBehaviour
@@ -9,27 +11,30 @@ namespace ARPG.Combat
         public enum HolderType
         {
             LeftHand,
-            RightHand
+            RightHand,
+            Back
         }
 
         public HolderType holderType;
+        public Item item { get; private set; } = null;
 
-        Weapon currentWeapon;
-
-        public void Equip(Weapon weapon)
+        public void Equip(Item item)
         {
             Unequip();
-            
-            weapon.transform.parent = transform;
-            weapon.transform.localPosition = Vector3.zero;
-            weapon.transform.localRotation = Quaternion.identity;
-            currentWeapon = weapon;
+
+            GameObject gameObject = Instantiate(item.property.prefab);
+            gameObject.transform.parent = transform;
+            gameObject.transform.localPosition = Vector3.zero;
+            gameObject.transform.localRotation = Quaternion.identity;
+
+            this.item = item;
         }
 
         public void Unequip()
         {
-            if (currentWeapon)
-                Destroy(currentWeapon.gameObject);
+            item = null;
+            foreach (Transform child in transform)
+                Destroy(child.gameObject);
         }
     }
 }

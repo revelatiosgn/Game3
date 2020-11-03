@@ -1,15 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 namespace ARPG.Items
 {
-    public class Item : ScriptableObject
+    [System.Serializable]
+    public class Item
     {
-        public string itemName;
+        public ItemProperty property;
 
-        public virtual void Use() {}
+        public void UseItem()
+        {
+            property.Use(this);
+        }
+
+        public T GetItemProperty<T>()
+        {
+            if (typeof(T) == property.GetType())
+                return (T) (object) property;
+
+            return default(T);
+        }
     }
 }
-
-
