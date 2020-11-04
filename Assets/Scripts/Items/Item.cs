@@ -10,6 +10,13 @@ namespace ARPG.Items
     {
         public ItemProperty property;
 
+        public Item() {}
+
+        public Item(ItemProperty property)
+        {
+            this.property = property;
+        }
+
         public void UseItem()
         {
             property.Use(this);

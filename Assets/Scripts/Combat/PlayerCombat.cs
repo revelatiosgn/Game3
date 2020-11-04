@@ -22,9 +22,12 @@ namespace ARPG.Combat
             animator = GetComponent<Animator>();
             playerController = GetComponent<PlayerController>();
             equipment = GetComponent<Equipment>();
+        }
 
-            equipment.onEquip += OnEquip;
-            equipment.onUnequip += OnUnequip;
+        void Start()
+        {
+            equipment.onEquip.AddListener(OnEquip);
+            equipment.onUnequip.AddListener(OnUnequip);
         }
 
         void Update()
@@ -39,11 +42,10 @@ namespace ARPG.Combat
 
             if (InputHandler.attackBeginInput && !playerController.isInteracting)
             {
-                playerController.isInteracting = true;
-                weaponBehaviour.AttackBegin();
+                playerController.isInteracting = weaponBehaviour.AttackBegin();
             }
 
-            if (InputHandler.attackEndInput)
+            if (InputHandler.attackEndInput && playerController.isInteracting)
             {
                 weaponBehaviour.AttackEnd();
             }
@@ -52,13 +54,17 @@ namespace ARPG.Combat
         void OnEquip(Item item)
         {
             WeaponProperty property = item.property as WeaponProperty;
-            weaponBehaviour = (WeaponBehaviour) gameObject.AddComponent(property.behaviour.GetClass());
-            animator.runtimeAnimatorController = property.animatorController;
+            if (property)
+            {
+                weaponBehaviour = (WeaponBehaviour) gameObject.AddComponent(property.behaviour.GetClass());
+                animator.runtimeAnimatorController = property.animatorController;
+            }
         }
 
         void OnUnequip(Item item)
         {
-            if (weaponBehaviour)
+            WeaponProperty property = item.property as WeaponProperty;
+            if (property && weaponBehaviour)
             {
                 Destroy(weaponBehaviour);
                 weaponBehaviour = null;

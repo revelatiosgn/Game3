@@ -2,21 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using ARPG.Items;
-
 namespace ARPG.Inventory
 {
     public class ItemPickup : MonoBehaviour
     {
-        public Item item;
+        ItemsContainer itemsContainer;
+
+        void Awake()
+        {
+            itemsContainer = GetComponent<ItemsContainer>();
+        }
 
         void OnTriggerEnter(Collider other)
         {
             if (other.tag == Constants.Tags.Player)
             {
-                if (other.GetComponent<ItemsContainer>().AddItem(item))
-                    Destroy(gameObject);
+                Grab(other.GetComponent<ItemsContainer>());
             }
+        }
+
+        void Grab(ItemsContainer destination)
+        {
+            List<ItemSlot> itemSlots = itemsContainer.GetItemSlots();
+            foreach (ItemSlot itemSlot in itemSlots)
+            {
+                destination.AddItem(itemSlot.item, itemSlot.count);
+            }
+
+            Destroy(gameObject);
         }
     }
 }

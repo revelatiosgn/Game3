@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 using ARPG.Items;
+using ARPG.Inventory;
 
 namespace ARPG.Combat
 {
@@ -12,13 +12,21 @@ namespace ARPG.Combat
         public List<EquipmentSlot> equipmentSlots;
 
         Animator animator;
-
-        public UnityAction<Item> onEquip;
-        public UnityAction<Item> onUnequip;
+        ItemsContainer inventory;
+        
+        public ItemEvent onEquip = new ItemEvent();
+        public ItemEvent onUnequip = new ItemEvent();
 
         void Awake()
         {
             animator = GetComponent<Animator>();
+            inventory = GetComponent<ItemsContainer>();
+        }
+
+        void Start()
+        {
+            inventory.onRemoveItem.AddListener(OnRemoveItem);
+            EquipDefault(GetEquipmentSlot(EquipmentSlot.SlotType.Weapon));
         }
 
         public void Equip(Item item)
@@ -29,32 +37,62 @@ namespace ARPG.Combat
             if (slot.Item == null)
             {
                 slot.Item = item;
-                onEquip(item);
+                onEquip.Invoke(item);
             }
             else
             {
                 if (slot.Item == item)
                 {
                     slot.Item = null;
-                    onUnequip(item);
+                    onUnequip.Invoke(item);
                 }
                 else
                 {
-                    onUnequip(slot.Item);
+                    onUnequip.Invoke(slot.Item);
                     slot.Item = item;
-                    onEquip(item);
+                    onEquip.Invoke(item);
                 }
             }
+
+            if (slot.Item == null)
+                EquipDefault(slot);
         }
 
-        EquipmentSlot GetEquipmentSlot(Item item)
+        public bool IsEquipped(Item item)
+        {
+            return GetEquipmentSlot(item) != null;
+        }
+
+        public EquipmentSlot GetEquipmentSlot(Item item)
         {
             return equipmentSlots.Find(equipmentSlot => equipmentSlot.Item == item);
         }
 
-        EquipmentSlot GetEquipmentSlot(EquipmentSlot.SlotType slotType)
+        public EquipmentSlot GetEquipmentSlot(EquipmentSlot.SlotType slotType)
         {
             return equipmentSlots.Find(equipmentSlot => equipmentSlot.slotType == slotType);
+        }
+
+        void EquipDefault(EquipmentSlot equipmentSlot)
+        {
+            if (equipmentSlot.defaultEquipment)
+            {
+                equipmentSlot.Item = new Item(equipmentSlot.defaultEquipment);
+                onEquip.Invoke(equipmentSlot.Item);
+            }
+        }
+
+        void OnRemoveItem(Item item)
+        {
+            EquipmentProperty property = item.property as EquipmentProperty;
+            if (inventory.GetItemSlot(item) == null && property)
+            {
+                EquipmentSlot slot = GetEquipmentSlot(item);
+                slot.Item = null;
+                onUnequip.Invoke(item);
+                EquipDefault(slot);
+            }
+
         }
     }
 }

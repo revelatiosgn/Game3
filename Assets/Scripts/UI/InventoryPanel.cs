@@ -23,9 +23,6 @@ namespace ARPG.UI
             GameObject player = GameObject.FindGameObjectWithTag(Constants.Tags.Player);
             itemsContainer = player.GetComponent<ItemsContainer>();
             equipment = player.GetComponent<Equipment>();
-
-            equipment.onEquip += OnEquip;
-            equipment.onUnequip += OnUnequip;
         }
 
         void Start()
@@ -41,8 +38,22 @@ namespace ARPG.UI
             for (int i = 0; i < itemSlots.Count; i++)
             {
                 ItemSlot itemSlot = itemSlots[i];
-                grid.transform.GetChild(i).GetComponent<InventorySlot>().ItemSlot = itemSlot;
+                InventorySlot inventorySlot = grid.transform.GetChild(i).GetComponent<InventorySlot>();
+                inventorySlot.ItemSlot = itemSlot;
+                inventorySlot.SetEquipped(equipment.IsEquipped(itemSlot.item));
             }
+
+            equipment.onEquip.AddListener(OnEquip);
+            equipment.onUnequip.AddListener(OnUnequip);
+        }
+
+        void OnDisable()
+        {
+            foreach (Transform child in grid.transform)
+                child.GetComponent<InventorySlot>().ItemSlot = null;
+            
+            equipment.onEquip.RemoveListener(OnEquip);
+            equipment.onUnequip.RemoveListener(OnUnequip);
         }
 
         InventorySlot GetInventorySlot(Item item)

@@ -6,7 +6,8 @@ using ARPG.Items;
 
 namespace ARPG.Combat
 {
-    public class EquipmentSlot : MonoBehaviour
+    [System.Serializable]
+    public class EquipmentSlot
     {
         public enum SlotType
         {
@@ -15,9 +16,11 @@ namespace ARPG.Combat
             Shield
         }
 
-        public SlotType slotType { get; protected set; }
-        private Item item;
-        
+        public SlotType slotType;
+        public List<EquipmentHolder> holders;
+        public EquipmentProperty defaultEquipment;
+
+        Item item;   
         public Item Item
         {
             get => item;
@@ -25,13 +28,12 @@ namespace ARPG.Combat
             {
                 item = value;
 
-                DetachItem();
-                AttachItem(item);
+                foreach (EquipmentHolder holder in holders)
+                {
+                    holder.AttachItem(item);
+                }
             }
         }
-
-        protected virtual void AttachItem(Item item) {}
-        protected virtual void DetachItem() {}
     }
 }
 

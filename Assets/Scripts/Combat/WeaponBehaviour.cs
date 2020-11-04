@@ -13,7 +13,7 @@ namespace ARPG.Combat
             animator = GetComponent<Animator>();
         }
 
-        public virtual void AttackBegin() {}
+        public virtual bool AttackBegin() { return false; }
         public virtual void AttackEnd() {}
     }
 }

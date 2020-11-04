@@ -11,9 +11,11 @@ namespace ARPG.Items
     public class ArrowProperty : EquipmentProperty
     {
         public float damage;
+        public GameObject arrowPrefab;
 
         public override void Use(Item item)
         {
+            base.Use(item);
         }
     }
 }

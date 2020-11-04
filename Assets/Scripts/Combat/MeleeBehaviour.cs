@@ -11,9 +11,11 @@ namespace ARPG.Combat
 
         }
 
-        public override void AttackBegin()
+        public override bool AttackBegin()
         {
             animator.CrossFade("MeleeAttack", 0.2f);
+
+            return true;
         }
     }
 }

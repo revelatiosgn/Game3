@@ -13,6 +13,7 @@ namespace ARPG.Items
         public float damage;
         public MonoScript behaviour;
         public AnimatorOverrideController animatorController;
+        public WeaponHolder.Hand hand;
 
         public override void Use(Item item)
         {

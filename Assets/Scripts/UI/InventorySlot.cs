@@ -10,8 +10,9 @@ namespace ARPG.UI
 {
     public class InventorySlot : MonoBehaviour
     {
-        [SerializeField] GameObject selected;
         [SerializeField] Image icon;
+        [SerializeField] Text count;
+        [SerializeField] Image equipped;
 
         ItemSlot itemSlot;
         Button button;
@@ -22,8 +23,25 @@ namespace ARPG.UI
             set
             {
                 itemSlot = value;
+
+                if (itemSlot == null)
+                {
+                    Reset();
+                    return;
+                }
+
                 icon.sprite = itemSlot.item.property.icon;
                 icon.gameObject.SetActive(true);
+                
+                if (itemSlot.count > 1)
+                {
+                    count.gameObject.SetActive(true);
+                    count.text = itemSlot.count.ToString();
+                }
+                else
+                {
+                    count.gameObject.SetActive(false);
+                }
             }
         }
 
@@ -31,12 +49,17 @@ namespace ARPG.UI
         {
             button = GetComponent<Button>();
 
-            SetEquipped(false);
+            Reset();
         }
 
         void Start()
         {
             button.onClick.AddListener(() => UseItem());
+        }
+
+        public void SetEquipped(bool value)
+        {
+            equipped.gameObject.SetActive(value);
         }
 
         void UseItem()
@@ -45,9 +68,11 @@ namespace ARPG.UI
                 itemSlot.item.UseItem();
         }
 
-        public void SetEquipped(bool value)
+        void Reset()
         {
-            selected.SetActive(value);
+            icon.gameObject.SetActive(false);
+            count.gameObject.SetActive(false);
+            SetEquipped(false);
         }
     }
 }
