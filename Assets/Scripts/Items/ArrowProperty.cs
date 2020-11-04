@@ -12,6 +12,7 @@ namespace ARPG.Items
     {
         public float damage;
         public GameObject arrowPrefab;
+        public LayerMask layerMask;
 
         public override void Use(Item item)
         {

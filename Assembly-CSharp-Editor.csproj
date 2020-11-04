@@ -36,7 +36,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Editor\LevelScriptEditor.cs" />
+     <Compile Include="Assets\Scripts\Editor\TestWindow.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:/Tools/UnityEngine/2020.1.8f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -589,6 +589,9 @@
     <Reference Include="Unity.Timeline.Editor">
         <HintPath>D:/Projects/Game3/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Cinemachine">
+        <HintPath>D:/Projects/Game3/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VSCode.Editor">
         <HintPath>D:/Projects/Game3/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
@@ -606,6 +609,12 @@
     </Reference>
     <Reference Include="Unity.Rider.Editor">
         <HintPath>D:/Projects/Game3/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+        <HintPath>D:/Projects/Game3/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+        <HintPath>D:/Projects/Game3/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
         <HintPath>D:/Projects/Game3/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>

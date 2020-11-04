@@ -17,3 +17,6 @@ MonoBehaviour:
   prefab: {fileID: 8238387829111876496, guid: ea0fad37d4c0eaf4eac6f373528376e5, type: 3}
   damage: 5
   arrowPrefab: {fileID: 1356878736609052356, guid: fc72b6b868b246b49aa40735fb198229, type: 3}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256

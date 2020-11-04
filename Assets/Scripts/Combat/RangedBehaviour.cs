@@ -9,12 +9,56 @@ namespace ARPG.Combat
 {
     public class RangedBehaviour : WeaponBehaviour
     {
+        bool isAttackBegin = false;
         bool isAttackEneded;
         bool isReadyToLaunch;
         GameObject arrowPrefab;
+        LayerMask layerMask;
+
+        Vector3 hitV;
+
+        Quaternion q;
+
+        void Update()
+        {
+            if (isAttackBegin)
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, float.MaxValue, layerMask))
+                {
+                    hitV = hit.point;
+                }
+
+                // transform.rotation *= Quaternion.AngleAxis(Time.deltaTime * 10f, Vector3.up);
+            }
+
+            // Vector3 direction = Camera.main.transform.forward;
+            // direction += Camera.main.transform.forward;
+            // direction.y = 0f;
+            // direction.Normalize();
+
+            // Transform follow = transform.Find("CameraFollow");
+            // Vector3 rot = follow.localRotation.eulerAngles;
+            // rot.y = 0f;
+            // Debug.Log(rot);
+            // transform.rotation = Quaternion.LookRotation(rot);
+
+            transform.rotation = Utils.QuaternionUtil.SmoothDamp(transform.rotation, Camera.main.transform.rotation, ref q, 0.1f);
+        }
+
+        private void OnDrawGizmos()
+        {
+            if (isAttackBegin)
+            {
+                Gizmos.color = Color.magenta;
+                Gizmos.DrawWireSphere(hitV, 0.1f);
+            }
+        }
 
         public override bool AttackBegin()
         {
+            isAttackBegin = true;
+
             Equipment equipment = GetComponent<Equipment>();
             EquipmentSlot arrowsSlot = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Arrows);
 
@@ -23,6 +67,7 @@ namespace ARPG.Combat
 
             ArrowProperty arrowProperty = arrowsSlot.Item.property as ArrowProperty;
             arrowPrefab = arrowProperty.arrowPrefab;
+            layerMask = arrowProperty.layerMask;
 
             ItemsContainer inventory = GetComponent<ItemsContainer>();
             if (!inventory.RemoveItem(arrowsSlot.Item))
@@ -41,6 +86,8 @@ namespace ARPG.Combat
             isAttackEneded = true;
             if (isAttackEneded && isReadyToLaunch)
                 animator.Play("RangedAttackEnd");
+
+            isAttackBegin = false;
         }
 
         public void ReadyToLaunch()

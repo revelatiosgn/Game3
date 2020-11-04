@@ -6,28 +6,40 @@ namespace ARPG.Core
 {
     public class CameraFollow : MonoBehaviour
     {
-        public Transform targetTransform;
-        public Transform cameraTransform;
-        public Transform pivotTransform;
+        [SerializeField] GameObject mainCam;
+        [SerializeField] GameObject shootCam;
 
-        public float rotationSpeed = 10f;
-        public float zoomSpeed = 0.5f;
-        [Range(0.5f, 10f)] public float zoom = 4f;
+        [SerializeField][Range(1f, 10f)] float rotationSpeed = 5f;
+        [SerializeField][Range(0f, 90f)] float minY = 70f;
+        [SerializeField][Range(0f, 90f)] float maxY = 70f;
 
-        void LateUpdate()
+        Quaternion rotation = Quaternion.identity;
+
+        void Update()
         {
-            transform.position = targetTransform.position;
-            cameraTransform.position = pivotTransform.position;
-            cameraTransform.LookAt(targetTransform.position);
+            rotation *= Quaternion.AngleAxis(InputHandler.cameraInput.x * rotationSpeed * Time.deltaTime, Vector3.up);
+            rotation *= Quaternion.AngleAxis(-InputHandler.cameraInput.y * rotationSpeed * Time.deltaTime, Vector3.right);
 
-            Vector3 direction = transform.rotation.eulerAngles;
-            direction.x -= InputHandler.cameraInput.y * rotationSpeed * Time.deltaTime;
-            direction.y += InputHandler.cameraInput.x * rotationSpeed * Time.deltaTime;
-            transform.rotation = Quaternion.Euler(direction);
+            Vector3 angles = rotation.eulerAngles;
+            angles.z = 0f;
 
-            zoom = Mathf.Clamp(zoom - InputHandler.zoomInput.y * zoomSpeed * Time.deltaTime, 0.5f, 10f);
-            pivotTransform.LookAt(targetTransform.position);
-            pivotTransform.localPosition = Vector3.back * zoom;
+            if (angles.x > 180f && angles.x < 360f - minY)
+            {
+                angles.x = 360f - minY;
+            }
+            else if (angles.x < 180f && angles.x > maxY)
+            {
+                angles.x = maxY;
+            }
+
+            rotation = Quaternion.Euler(angles);
+            transform.rotation = rotation;
+
+            if (InputHandler.testInput)
+            {
+                mainCam.SetActive(!mainCam.activeSelf);
+                shootCam.SetActive(!mainCam.activeSelf);
+            }
         }
     }
 }

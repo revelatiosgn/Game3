@@ -46,11 +46,11 @@ namespace ARPG.Movement
 
             animator.SetFloat("vertical", direction.magnitude);
 
-            if (direction != Vector3.zero)
-            {
-                Quaternion targetRotation = Quaternion.LookRotation(direction);
-                transform.rotation = targetRotation;
-            }
+            // if (direction != Vector3.zero)
+            // {
+            //     Quaternion targetRotation = Quaternion.LookRotation(direction);
+            //     transform.rotation = targetRotation;
+            // }
 
             gravitySpeed += gravity * Time.deltaTime;
             velocity.y -= gravitySpeed;
