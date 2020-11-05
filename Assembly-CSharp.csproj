@@ -36,9 +36,9 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\TestPotionItem.cs" />
+     <Compile Include="Assets\Scripts\TestItems\TestPotionItem.cs" />
      <Compile Include="Assets\Scripts\Core\InputActions.cs" />
-     <Compile Include="Assets\Scripts\TestArmorItem.cs" />
+     <Compile Include="Assets\Scripts\TestItems\TestArmorItem.cs" />
      <Compile Include="Assets\Scripts\Combat\RangedBehaviour.cs" />
      <Compile Include="Assets\Scripts\Movement\FootIK.cs" />
      <Compile Include="Assets\Scripts\Inventory\ItemSlot.cs" />
@@ -47,7 +47,6 @@
      <Compile Include="Assets\Scripts\Combat\WeaponBehaviour.cs" />
      <Compile Include="Assets\Scripts\Controller\AIContoller.cs" />
      <Compile Include="Assets\Scripts\Items\ItemEvent.cs" />
-     <Compile Include="Assets\Scripts\TestItemContainer.cs" />
      <Compile Include="Assets\Scripts\Combat\EquipmentSlot.cs" />
      <Compile Include="Assets\Scripts\Inventory\ItemsContainer.cs" />
      <Compile Include="Assets\Scripts\Movement\AIMovement.cs" />
@@ -57,16 +56,14 @@
      <Compile Include="Assets\Scripts\Movement\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Constants.cs" />
      <Compile Include="Assets\Scripts\Combat\Missile.cs" />
-     <Compile Include="Assets\Scripts\TestWindow.cs" />
      <Compile Include="Assets\Scripts\Items\WeaponProperty.cs" />
      <Compile Include="Assets\Scripts\Combat\Equipment.cs" />
      <Compile Include="Assets\Scripts\UI\InventoryPanel.cs" />
      <Compile Include="Assets\Scripts\Combat\MeleeBehaviour.cs" />
-     <Compile Include="Assets\Scripts\TestWeaponItem.cs" />
+     <Compile Include="Assets\Scripts\TestItems\TestWeaponItem.cs" />
      <Compile Include="Assets\Scripts\Utils\Teleport.cs" />
      <Compile Include="Assets\Scripts\Combat\WeaponHolder.cs" />
      <Compile Include="Assets\Scripts\Controller\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\TestItem.cs" />
      <Compile Include="Assets\Scripts\Items\EquipmentProperty.cs" />
      <Compile Include="Assets\Scripts\Combat\ArrowsHolder.cs" />
      <Compile Include="Assets\Scripts\Core\InputHandler.cs" />
@@ -79,8 +76,12 @@
      <Compile Include="Assets\Scripts\Controller\InteractingBehaviour.cs" />
      <Compile Include="Assets\Scripts\Items\Item.cs" />
      <Compile Include="Assets\Scripts\UI\UIController.cs" />
-     <Compile Include="Assets\Scripts\CustomList.cs" />
-     <Compile Include="Assets\Scripts\CustomListEditor.cs" />
+     <Compile Include="Assets\Scripts\TestItems\TestEditor.cs" />
+     <Compile Include="Assets\Scripts\TestItems\TestItem.cs" />
+     <Compile Include="Assets\Scripts\TestItems\Test.cs" />
+     <Compile Include="Assets\Scripts\TestItems\TestMeleeWeaponItem.cs" />
+     <Compile Include="Assets\Scripts\TestItems\TestEquipmentItem.cs" />
+     <Compile Include="Assets\Scripts\TestItems\TestRangedWeaponItem.cs" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Glass_Global.shader" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Object.shader" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Global.shader" />

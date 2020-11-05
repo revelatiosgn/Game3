@@ -3548,6 +3548,7 @@ GameObject:
   - component: {fileID: 2080110862}
   - component: {fileID: 2080110861}
   - component: {fileID: 2080110860}
+  - component: {fileID: 2080110859}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -3555,6 +3556,44 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2080110859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080110858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8abc25328dacf9a4e955ae46bcb9b6c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - id: 0
+  - id: 1
+  - id: 2
+  - id: 3
+  references:
+    version: 1
+    00000000:
+      type: {class: TestArmorItem, ns: , asm: Assembly-CSharp}
+      data:
+        condition: 1
+        armor: 10
+    00000001:
+      type: {class: TestMeleeWeaponItem, ns: , asm: Assembly-CSharp}
+      data:
+        condition: 1
+        damage: 5
+    00000002:
+      type: {class: TestRangedWeaponItem, ns: , asm: Assembly-CSharp}
+      data:
+        condition: 1
+        power: 5
+    00000003:
+      type: {class: TestPotionItem, ns: , asm: Assembly-CSharp}
+      data:
+        health: 10
 --- !u!65 &2080110860
 BoxCollider:
   m_ObjectHideFlags: 0
