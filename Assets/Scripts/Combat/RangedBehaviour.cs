@@ -57,26 +57,26 @@ namespace ARPG.Combat
 
         public override bool AttackBegin()
         {
-            isAttackBegin = true;
+            // isAttackBegin = true;
 
-            Equipment equipment = GetComponent<Equipment>();
-            EquipmentSlot arrowsSlot = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Arrows);
+            // Equipment equipment = GetComponent<Equipment>();
+            // EquipmentSlot arrowsSlot = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Arrows);
 
-            if (arrowsSlot.Item == null)
-                return false;
+            // if (arrowsSlot.Item == null)
+            //     return false;
 
-            ArrowProperty arrowProperty = arrowsSlot.Item.property as ArrowProperty;
-            arrowPrefab = arrowProperty.arrowPrefab;
-            layerMask = arrowProperty.layerMask;
+            // ArrowProperty arrowProperty = arrowsSlot.Item.property as ArrowProperty;
+            // arrowPrefab = arrowProperty.arrowPrefab;
+            // layerMask = arrowProperty.layerMask;
 
-            ItemsContainer inventory = GetComponent<ItemsContainer>();
-            if (!inventory.RemoveItem(arrowsSlot.Item))
-                return false;
+            // ItemsContainer inventory = GetComponent<ItemsContainer>();
+            // if (!inventory.RemoveItem(arrowsSlot.Item))
+            //     return false;
 
-            isAttackEneded = false;
-            isReadyToLaunch = false;
+            // isAttackEneded = false;
+            // isReadyToLaunch = false;
 
-            animator.Play("RangedAttackGetMissile");
+            // animator.Play("RangedAttackGetMissile");
 
             return true;
         }
@@ -99,17 +99,17 @@ namespace ARPG.Combat
 
         public void LaunchMissile()
         {
-            Equipment equipment = GetComponent<Equipment>();
-            EquipmentSlot weaponSlot = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Weapon);
-            foreach (WeaponHolder holder in weaponSlot.holders)
-            {
-                if (holder.hand == WeaponHolder.Hand.Left)
-                {
-                    GameObject arrow = Instantiate(arrowPrefab);
-                    arrow.transform.position = holder.transform.position;
-                    arrow.transform.rotation = transform.rotation;
-                }
-            }
+            // Equipment equipment = GetComponent<Equipment>();
+            // EquipmentSlot weaponSlot = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Weapon);
+            // foreach (WeaponHolder holder in weaponSlot.holders)
+            // {
+            //     if (holder.hand == WeaponHolder.Hand.Left)
+            //     {
+            //         GameObject arrow = Instantiate(arrowPrefab);
+            //         arrow.transform.position = holder.transform.position;
+            //         arrow.transform.rotation = transform.rotation;
+            //     }
+            // }
         }
     }
 }

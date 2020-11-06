@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 
-[System.Serializable]
-public class TestItem
+public interface TestItem
 {
-    public string name;
 }
 
 [System.Serializable]

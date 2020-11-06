@@ -2,5 +2,5 @@
 
 namespace ARPG.Items
 {
-    public class ItemEvent : UnityEvent<Item> {};
+    public class ItemEvent : UnityEvent<IInventoryItem> {};
 }

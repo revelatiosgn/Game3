@@ -30,7 +30,7 @@ namespace ARPG.UI
                     return;
                 }
 
-                icon.sprite = itemSlot.item.property.icon;
+                icon.sprite = itemSlot.item.GetIcon();
                 icon.gameObject.SetActive(true);
                 
                 if (itemSlot.count > 1)
@@ -65,7 +65,7 @@ namespace ARPG.UI
         void UseItem()
         {
             if (itemSlot != null)
-                itemSlot.item.UseItem();
+                itemSlot.item.OnUse(null);
         }
 
         void Reset()

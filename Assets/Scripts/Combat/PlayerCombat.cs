@@ -10,24 +10,24 @@ namespace ARPG.Combat
 {
     public class PlayerCombat : MonoBehaviour
     {
-        [SerializeField] WeaponProperty defaultWeapon;
+        // [SerializeField] WeaponProperty defaultWeapon;
 
         Animator animator;
         PlayerController playerController;
-        Equipment equipment;
+        // Equipment equipment;
         WeaponBehaviour weaponBehaviour;
 
         void Awake()
         {
             animator = GetComponent<Animator>();
             playerController = GetComponent<PlayerController>();
-            equipment = GetComponent<Equipment>();
+            // equipment = GetComponent<Equipment>();
         }
 
         void Start()
         {
-            equipment.onEquip.AddListener(OnEquip);
-            equipment.onUnequip.AddListener(OnUnequip);
+            // equipment.onEquip.AddListener(OnEquip);
+            // equipment.onUnequip.AddListener(OnUnequip);
         }
 
         void Update()
@@ -51,25 +51,25 @@ namespace ARPG.Combat
             }
         }
 
-        void OnEquip(Item item)
-        {
-            WeaponProperty property = item.property as WeaponProperty;
-            if (property)
-            {
-                weaponBehaviour = (WeaponBehaviour) gameObject.AddComponent(property.behaviour.GetClass());
-                animator.runtimeAnimatorController = property.animatorController;
-            }
-        }
+        // void OnEquip(Item item)
+        // {
+        //     WeaponProperty property = item.property as WeaponProperty;
+        //     if (property)
+        //     {
+        //         weaponBehaviour = (WeaponBehaviour) gameObject.AddComponent(property.behaviour.GetClass());
+        //         animator.runtimeAnimatorController = property.animatorController;
+        //     }
+        // }
 
-        void OnUnequip(Item item)
-        {
-            WeaponProperty property = item.property as WeaponProperty;
-            if (property && weaponBehaviour)
-            {
-                Destroy(weaponBehaviour);
-                weaponBehaviour = null;
-            }
-        }
+        // void OnUnequip(Item item)
+        // {
+        //     WeaponProperty property = item.property as WeaponProperty;
+        //     if (property && weaponBehaviour)
+        //     {
+        //         Destroy(weaponBehaviour);
+        //         weaponBehaviour = null;
+        //     }
+        // }
     }
 }
 

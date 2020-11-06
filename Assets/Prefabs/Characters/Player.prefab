@@ -1,5 +1,100 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &431478246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 431478247}
+  - component: {fileID: 431478250}
+  - component: {fileID: 431478249}
+  - component: {fileID: 431478248}
+  m_Layer: 9
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &431478247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431478246}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_Children: []
+  m_Father: {fileID: 6018887173270786879}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &431478250
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431478246}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &431478249
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431478246}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &431478248
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431478246}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &899407338
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,7 +104,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 899407339}
-  - component: {fileID: 3701708861364298323}
   m_Layer: 9
   m_Name: RightHandHolder
   m_TagString: Untagged
@@ -31,19 +125,6 @@ Transform:
   m_Father: {fileID: 3922131558834590153}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 19.997, z: 0}
---- !u!114 &3701708861364298323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 899407338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2c0baf8cb023a140b3bc66499213e89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hand: 1
 --- !u!1 &1642198430242213914
 GameObject:
   m_ObjectHideFlags: 0
@@ -53,7 +134,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2462872685081614078}
-  - component: {fileID: 6025441736037941302}
   m_Layer: 9
   m_Name: LeftHandHolder
   m_TagString: Untagged
@@ -75,19 +155,6 @@ Transform:
   m_Father: {fileID: 2442950802990649939}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -9.276, z: 0}
---- !u!114 &6025441736037941302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1642198430242213914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2c0baf8cb023a140b3bc66499213e89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hand: 0
 --- !u!1 &6018887173270786872
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,8 +164,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6018887173270786879}
+  - component: {fileID: 1411337090}
   m_Layer: 9
-  m_Name: CameraTarget
+  m_Name: CameraFollow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,12 +180,30 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6018887173270786872}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.36, z: 0}
+  m_LocalPosition: {x: 0, y: 1.984, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 431478247}
   m_Father: {fileID: 6018887173546567305}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1411337090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6018887173270786872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e6c4b3ceca54b4e8e7f33f217ef102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCam: {fileID: 0}
+  shootCam: {fileID: 0}
+  rotationSpeed: 5
+  minY: 70
+  maxY: 70
 --- !u!1 &6018887173546567306
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,8 +220,8 @@ GameObject:
   - component: {fileID: 6018887173546567304}
   - component: {fileID: 868478394150096670}
   - component: {fileID: 6018887173546567308}
-  - component: {fileID: 500462051}
-  - component: {fileID: 335056461}
+  - component: {fileID: 21501819}
+  - component: {fileID: 1083458358}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -250,7 +336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a5c67ed6f0e3694ea55ec35346546c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultWeapon: {fileID: 11400000, guid: bb6a58b7e295ca3428f067d43d8b28b8, type: 2}
 --- !u!114 &6018887173546567308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,7 +356,7 @@ MonoBehaviour:
   footSmoothTime: 0.1
   bodySmoothTime: 0.05
   debugDraw: 0
---- !u!114 &500462051
+--- !u!114 &21501819
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -283,15 +368,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb7497650bba8084c80df37e1b06c880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  capacity: 16
   itemSlots:
-  - item:
-      property: {fileID: 11400000, guid: 1c8d35adf91e10140bb99b0c02b890ba, type: 2}
-    count: 1
-  - item:
-      property: {fileID: 11400000, guid: 211546aebbaa99e449a36f56137868cb, type: 2}
-    count: 2
---- !u!114 &335056461
+  - id: 0
+  - id: 1
+  references:
+    version: 1
+    00000000:
+      type: {class: ItemSlot, ns: ARPG.Inventory, asm: Assembly-CSharp}
+      data:
+        item:
+          id: 2
+        count: 1
+    00000001:
+      type: {class: ItemSlot, ns: ARPG.Inventory, asm: Assembly-CSharp}
+      data:
+        item:
+          id: 3
+        count: 1
+    00000002:
+      type: {class: MeleeWeaponItem, ns: ARPG.Items, asm: Assembly-CSharp}
+      data:
+        durability: 1
+        statement: {fileID: 11400000, guid: 26793953debf1ae47b37fa844339fb3a, type: 2}
+    00000003:
+      type: {class: MeleeWeaponItem, ns: ARPG.Items, asm: Assembly-CSharp}
+      data:
+        durability: 1
+        statement: {fileID: 11400000, guid: 1496418638e0fc44cbcf0651f4f0c480, type: 2}
+--- !u!114 &1083458358
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -304,18 +408,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equipmentSlots:
-  - slotType: 0
-    holders:
-    - {fileID: 6025441736037941302}
-    - {fileID: 3701708861364298323}
-    defaultEquipment: {fileID: 11400000, guid: bb6a58b7e295ca3428f067d43d8b28b8, type: 2}
-  - slotType: 1
-    holders:
-    - {fileID: 2107988681448804498}
-    defaultEquipment: {fileID: 0}
-  - slotType: 2
-    holders: []
-    defaultEquipment: {fileID: 0}
+  - id: 0
+  references:
+    version: 1
+    00000000:
+      type: {class: EquipmentWeaponSlot, ns: ARPG.Equipment, asm: Assembly-CSharp}
+      data:
+        leftHand: {fileID: 2462872685081614078}
+        rightHand: {fileID: 899407339}
 --- !u!1 &6883138582526747217
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,7 +425,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2467163717892672623}
-  - component: {fileID: 2107988681448804498}
   m_Layer: 9
   m_Name: ArrowsHolder
   m_TagString: Untagged
@@ -347,18 +446,6 @@ Transform:
   m_Father: {fileID: 5081103504520017439}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2107988681448804498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6883138582526747217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c06e84ca5ff45b45806fe958cc1ab05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5819457806764654500
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,30 +6,30 @@ namespace ARPG.Inventory
 {
     public class ItemPickup : MonoBehaviour
     {
-        ItemsContainer itemsContainer;
+        // ItemsContainer itemsContainer;
 
-        void Awake()
-        {
-            itemsContainer = GetComponent<ItemsContainer>();
-        }
+        // void Awake()
+        // {
+        //     itemsContainer = GetComponent<ItemsContainer>();
+        // }
 
-        void OnTriggerEnter(Collider other)
-        {
-            if (other.tag == Constants.Tags.Player)
-            {
-                Grab(other.GetComponent<ItemsContainer>());
-            }
-        }
+        // void OnTriggerEnter(Collider other)
+        // {
+        //     if (other.tag == Constants.Tags.Player)
+        //     {
+        //         Grab(other.GetComponent<ItemsContainer>());
+        //     }
+        // }
 
-        void Grab(ItemsContainer destination)
-        {
-            List<ItemSlot> itemSlots = itemsContainer.GetItemSlots();
-            foreach (ItemSlot itemSlot in itemSlots)
-            {
-                destination.AddItem(itemSlot.item, itemSlot.count);
-            }
+        // void Grab(ItemsContainer destination)
+        // {
+        //     List<ItemSlot> itemSlots = itemsContainer.GetItemSlots();
+        //     foreach (ItemSlot itemSlot in itemSlots)
+        //     {
+        //         destination.AddItem(itemSlot.item, itemSlot.count);
+        //     }
 
-            Destroy(gameObject);
-        }
+        //     Destroy(gameObject);
+        // }
     }
 }
