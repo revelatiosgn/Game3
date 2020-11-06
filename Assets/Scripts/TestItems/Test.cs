@@ -4,5 +4,5 @@ using UnityEngine;
 public class Test : MonoBehaviour
 {
     [SerializeReference]
-    public List<TestItem> items;
+    public List<TestItemSlot> itemSlots;
 }

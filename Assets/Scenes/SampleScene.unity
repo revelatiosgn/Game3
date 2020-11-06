@@ -3547,7 +3547,6 @@ GameObject:
   - component: {fileID: 2080110863}
   - component: {fileID: 2080110862}
   - component: {fileID: 2080110861}
-  - component: {fileID: 2080110860}
   - component: {fileID: 2080110859}
   m_Layer: 0
   m_Name: Chest
@@ -3568,45 +3567,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8abc25328dacf9a4e955ae46bcb9b6c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items:
+  itemSlots:
   - id: 0
   - id: 1
-  - id: 2
-  - id: 3
   references:
     version: 1
     00000000:
-      type: {class: TestArmorItem, ns: , asm: Assembly-CSharp}
+      type: {class: TestItemSlot, ns: , asm: Assembly-CSharp}
       data:
-        condition: 1
-        armor: 10
+        item:
+          id: 2
+        count: 0
     00000001:
-      type: {class: TestMeleeWeaponItem, ns: , asm: Assembly-CSharp}
+      type: {class: TestItemSlot, ns: , asm: Assembly-CSharp}
       data:
-        condition: 1
-        damage: 5
+        item:
+          id: 3
+        count: 0
     00000002:
-      type: {class: TestRangedWeaponItem, ns: , asm: Assembly-CSharp}
+      type: {class: TestPotion, ns: , asm: Assembly-CSharp}
       data:
-        condition: 1
-        power: 5
+        name: 
+        hp: 34
     00000003:
-      type: {class: TestPotionItem, ns: , asm: Assembly-CSharp}
+      type: {class: TestArmor, ns: , asm: Assembly-CSharp}
       data:
-        health: 10
---- !u!65 &2080110860
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2080110858}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+        name: 
+        armor: 0
 --- !u!23 &2080110861
 MeshRenderer:
   m_ObjectHideFlags: 0
