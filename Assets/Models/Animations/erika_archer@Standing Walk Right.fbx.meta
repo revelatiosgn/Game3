@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: e90992a370013f940b8c46f1d5cb56d7
+guid: 8d0ddbebe8cf6674f8a38709fc6709f2
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Standing Aim Idle 01
+    second: Standing Walk Right
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Standing Aim Idle 01
+      name: Standing Walk Right
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 225
+      lastFrame: 72
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -48,7 +48,7 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 1
+      loopBlendOrientation: 0
       loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 1

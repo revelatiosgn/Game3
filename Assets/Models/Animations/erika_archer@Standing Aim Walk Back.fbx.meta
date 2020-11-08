@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 928720cdbe04a884a8e7b1af6cbbc43b
+guid: a2ca82d6d80a33a418db3281c2e6998c
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Standing Aim Overdraw
+    second: Standing Aim Walk Back
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,22 +35,22 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Standing Aim Overdraw
+      name: Standing Aim Walk Back
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 226
+      lastFrame: 88
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 1
       loopBlendPositionY: 1
-      loopBlendPositionXZ: 1
+      loopBlendPositionXZ: 0
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1

@@ -1,21 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 namespace ARPG.Core
 {
     public class CameraFollow : MonoBehaviour
     {
-        [SerializeField] GameObject mainCam;
-        [SerializeField] GameObject shootCam;
+        public enum CameraState
+        {
+            Regular,
+            Aiming
+        }
+
+        [SerializeField] CinemachineVirtualCamera regularCamera;
+        [SerializeField] CinemachineVirtualCamera aimCamera;
 
         [SerializeField][Range(1f, 10f)] float rotationSpeed = 5f;
         [SerializeField][Range(0f, 90f)] float minY = 70f;
         [SerializeField][Range(0f, 90f)] float maxY = 70f;
 
+        public CameraState state = CameraState.Regular;
+        public CameraState State
+        {
+            get => state;
+            set
+            {
+                state = value;
+            }
+        }
+
         Quaternion rotation = Quaternion.identity;
 
-        void Update()
+        void LateUpdate()
         {
             rotation *= Quaternion.AngleAxis(InputHandler.cameraInput.x * rotationSpeed * Time.deltaTime, Vector3.up);
             rotation *= Quaternion.AngleAxis(-InputHandler.cameraInput.y * rotationSpeed * Time.deltaTime, Vector3.right);
@@ -37,8 +54,8 @@ namespace ARPG.Core
 
             if (InputHandler.testInput)
             {
-                mainCam.SetActive(!mainCam.activeSelf);
-                shootCam.SetActive(!mainCam.activeSelf);
+                regularCamera.gameObject.SetActive(!regularCamera.gameObject.activeSelf);
+                aimCamera.gameObject.SetActive(!regularCamera.gameObject.activeSelf);
             }
         }
     }

@@ -5,111 +5,83 @@ using UnityEngine;
 using ARPG.Items;
 using ARPG.Inventory;
 
+using ARPG.Movement;
+
 namespace ARPG.Combat
 {
     public class RangedBehaviour : WeaponBehaviour
     {
-        bool isAttackBegin = false;
-        bool isAttackEneded;
-        bool isReadyToLaunch;
-        GameObject arrowPrefab;
-        LayerMask layerMask;
+        private enum State
+        {
+            None,
+            Start,
+            Aim,
+        }
 
-        Vector3 hitV;
+        PlayerMovement movement;
+        State state = State.None;
+        Quaternion rotation;
+        Quaternion rotationSpeed;
 
-        Quaternion q;
+        void Start()
+        {
+            movement = GetComponent<PlayerMovement>();
+        }
 
         void Update()
         {
-            if (isAttackBegin)
-            {
-                RaycastHit hit;
-                if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, float.MaxValue, layerMask))
-                {
-                    hitV = hit.point;
-                }
-
-                // transform.rotation *= Quaternion.AngleAxis(Time.deltaTime * 10f, Vector3.up);
-            }
-
-            // Vector3 direction = Camera.main.transform.forward;
-            // direction += Camera.main.transform.forward;
-            // direction.y = 0f;
-            // direction.Normalize();
-
-            // Transform follow = transform.Find("CameraFollow");
-            // Vector3 rot = follow.localRotation.eulerAngles;
-            // rot.y = 0f;
-            // Debug.Log(rot);
-            // transform.rotation = Quaternion.LookRotation(rot);
-
-            // transform.rotation = Utils.QuaternionUtil.SmoothDamp(transform.rotation, Camera.main.transform.rotation, ref q, 0.1f);
-        }
-
-        private void OnDrawGizmos()
-        {
-            if (isAttackBegin)
-            {
-                Gizmos.color = Color.magenta;
-                Gizmos.DrawWireSphere(hitV, 0.1f);
-            }
         }
 
         public override bool AttackBegin()
         {
-            // isAttackBegin = true;
+            state = State.Start;
+            animator.Play("RangedAttackBegin");
 
-            // Equipment equipment = GetComponent<Equipment>();
-            // EquipmentSlot arrowsSlot = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Arrows);
-
-            // if (arrowsSlot.Item == null)
-            //     return false;
-
-            // ArrowProperty arrowProperty = arrowsSlot.Item.property as ArrowProperty;
-            // arrowPrefab = arrowProperty.arrowPrefab;
-            // layerMask = arrowProperty.layerMask;
-
-            // ItemsContainer inventory = GetComponent<ItemsContainer>();
-            // if (!inventory.RemoveItem(arrowsSlot.Item))
-            //     return false;
-
-            isAttackEneded = false;
-            isReadyToLaunch = false;
-
-            animator.Play("RangedAttackGetMissile");
+            movement.State = PlayerMovement.MovementState.Aim;
 
             return true;
         }
         
         public override void AttackEnd()
         {
-            isAttackEneded = true;
-            if (isAttackEneded && isReadyToLaunch)
+            if (state == State.Aim)
                 animator.Play("RangedAttackEnd");
-
-            isAttackBegin = false;
+            state = State.Aim;
         }
 
-        public void ReadyToLaunch()
+        public void OnAim()
         {
-            isReadyToLaunch = true;
-            if (isAttackEneded && isReadyToLaunch)
+            if (state == State.Aim)
                 animator.Play("RangedAttackEnd");
+            state = State.Aim;
         }
 
-        public void LaunchMissile()
+        public void OnLaunch()
         {
-            // Equipment equipment = GetComponent<Equipment>();
-            // EquipmentSlot weaponSlot = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Weapon);
-            // foreach (WeaponHolder holder in weaponSlot.holders)
-            // {
-            //     if (holder.hand == WeaponHolder.Hand.Left)
-            //     {
-            //         GameObject arrow = Instantiate(arrowPrefab);
-            //         arrow.transform.position = holder.transform.position;
-            //         arrow.transform.rotation = transform.rotation;
-            //     }
-            // }
+        }
+
+        public void OnEnd()
+        {
+            state = State.None;
+            movement.State = PlayerMovement.MovementState.Regular;
+        }
+
+        public void OnAnimatorIK(int layer)
+        {
+            Transform chestTransform = animator.GetBoneTransform(HumanBodyBones.UpperChest);
+            Quaternion targetRotation = chestTransform.localRotation;
+
+            if (state == State.Start || state == State.Aim)
+            {
+                
+                targetRotation = Quaternion.Inverse(chestTransform.parent.rotation) * Camera.main.transform.rotation;
+                targetRotation *= Quaternion.AngleAxis(90f, Vector3.up);
+                animator.SetBoneLocalRotation(HumanBodyBones.UpperChest, targetRotation);
+                
+            }
+
+            // rotation = Utils.QuaternionUtil.SmoothDamp(rotation, targetRotation, ref rotationSpeed, 0.1f);
+            // animator.SetBoneLocalRotation(HumanBodyBones.UpperChest, rotation);
         }
     }
 }

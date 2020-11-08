@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/InputActions.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/Core/InputActions.inputactions'
 
 using System;
 using System.Collections;
@@ -55,7 +55,7 @@ public class @InputActions : IInputActionCollection, IDisposable
                 {
                     ""name"": ""WASD"",
                     ""id"": ""405ddd2c-1c1c-4e33-a370-5701b8bbcf6e"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=1)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

@@ -4,11 +4,18 @@ using UnityEngine;
 
 using ARPG.Core;
 using ARPG.Controller;
+using System;
 
 namespace ARPG.Movement
 {
     public class PlayerMovement : MonoBehaviour
     {
+        public enum MovementState
+        {
+            Regular,
+            Aim
+        }
+
         [SerializeField][Range(0f, 20f)] float gravity = 5f;
         
         CharacterController characterController;
@@ -17,6 +24,16 @@ namespace ARPG.Movement
 
         Vector3 velocity;
         float gravitySpeed;
+
+        public MovementState state = MovementState.Regular;
+        public MovementState State
+        {
+            get => state;
+            set
+            {
+                state = value;
+            }
+        }
 
         void Awake()
         {
@@ -27,16 +44,39 @@ namespace ARPG.Movement
 
         void Update()
         {
-            Move();
+            if (state == MovementState.Regular)
+                RegularMovement();
+            else
+                AimMovement();
         }
 
-        void Move()
+        void AimMovement()
         {
-            if (playerController.isInteracting)
+            Vector3 direction = Camera.main.transform.rotation.eulerAngles;
+            direction.x = 0f;
+
+            Vector3 moveDirection = Vector3.zero;
+            moveDirection.x += InputHandler.movementInput.x;
+            moveDirection.z += InputHandler.movementInput.y;
+
+            animator.SetFloat("horizontal", moveDirection.x);
+            animator.SetFloat("vertical", moveDirection.z);
+
+            if (direction != Vector3.zero)
             {
-                animator.SetFloat("vertical", 0f);
-                return;
+                Quaternion targetRotation = Quaternion.Euler(direction);
+                transform.rotation = targetRotation;
             }
+        }
+
+        void RegularMovement()
+        {
+            // if (playerController.isInteracting)
+            // {
+            //     animator.SetFloat("vertical", 0f);
+            //     return;
+            // }
+
 
             Vector3 direction = Vector3.zero;
             direction += Camera.main.transform.right * InputHandler.movementInput.x;
@@ -44,7 +84,8 @@ namespace ARPG.Movement
             direction.y = 0f;
             direction.Normalize();
 
-            animator.SetFloat("vertical", direction.magnitude);
+            animator.SetFloat("horizontal", 0f);
+            animator.SetFloat("vertical", direction.magnitude * 2f);
 
             if (direction != Vector3.zero)
             {
@@ -61,7 +102,6 @@ namespace ARPG.Movement
 
             velocity = Vector3.zero;
         }
-
 
         // void Jump()
         // {
