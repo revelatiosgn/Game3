@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &431478247
 Transform:
   m_ObjectHideFlags: 0
@@ -220,8 +220,8 @@ GameObject:
   - component: {fileID: 6018887173546567304}
   - component: {fileID: 868478394150096670}
   - component: {fileID: 6018887173546567308}
-  - component: {fileID: 21501819}
-  - component: {fileID: 1083458358}
+  - component: {fileID: 3819620698841467159}
+  - component: {fileID: 723681389}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -356,7 +356,7 @@ MonoBehaviour:
   footSmoothTime: 0.1
   bodySmoothTime: 0.05
   debugDraw: 0
---- !u!114 &21501819
+--- !u!114 &3819620698841467159
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -371,31 +371,40 @@ MonoBehaviour:
   itemSlots:
   - id: 0
   - id: 1
+  - id: 2
   references:
     version: 1
     00000000:
       type: {class: ItemSlot, ns: ARPG.Inventory, asm: Assembly-CSharp}
       data:
         item:
-          id: 2
+          id: 3
         count: 1
     00000001:
       type: {class: ItemSlot, ns: ARPG.Inventory, asm: Assembly-CSharp}
       data:
         item:
-          id: 3
+          id: 4
         count: 1
     00000002:
-      type: {class: MeleeWeaponItem, ns: ARPG.Items, asm: Assembly-CSharp}
+      type: {class: ItemSlot, ns: ARPG.Inventory, asm: Assembly-CSharp}
       data:
-        durability: 1
-        statement: {fileID: 11400000, guid: 26793953debf1ae47b37fa844339fb3a, type: 2}
+        item:
+          id: 5
+        count: 1
     00000003:
+      type: {class: PotionItem, ns: ARPG.Items, asm: Assembly-CSharp}
+      data:
+        statement: {fileID: 11400000, guid: 38575d3503fd0e64b89217acb7b9f727, type: 2}
+    00000004:
       type: {class: MeleeWeaponItem, ns: ARPG.Items, asm: Assembly-CSharp}
       data:
-        durability: 1
-        statement: {fileID: 11400000, guid: 1496418638e0fc44cbcf0651f4f0c480, type: 2}
---- !u!114 &1083458358
+        statement: {fileID: 11400000, guid: 26793953debf1ae47b37fa844339fb3a, type: 2}
+    00000005:
+      type: {class: RangedWeaponItem, ns: ARPG.Items, asm: Assembly-CSharp}
+      data:
+        statement: {fileID: 11400000, guid: 8c0af99663ec9894b907c9436417a031, type: 2}
+--- !u!114 &723681389
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -412,10 +421,13 @@ MonoBehaviour:
   references:
     version: 1
     00000000:
-      type: {class: EquipmentWeaponSlot, ns: ARPG.Equipment, asm: Assembly-CSharp}
+      type: {class: EquipmentWeaponSlot, ns: ARPG.Gear, asm: Assembly-CSharp}
       data:
         leftHand: {fileID: 2462872685081614078}
         rightHand: {fileID: 899407339}
+        currentWeapon: {fileID: 0}
+        defaltWeaponItem:
+          statement: {fileID: 11400000, guid: cae61040674b19a499b6ce755342942c, type: 2}
 --- !u!1 &6883138582526747217
 GameObject:
   m_ObjectHideFlags: 0

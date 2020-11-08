@@ -65,7 +65,7 @@ namespace ARPG.UI
         void UseItem()
         {
             if (itemSlot != null)
-                itemSlot.item.OnUse(null);
+                itemSlot.item.OnUse();
         }
 
         void Reset()

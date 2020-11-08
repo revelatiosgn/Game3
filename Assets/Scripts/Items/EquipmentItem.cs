@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ARPG.Items
+using ARPG.Gear;
+
+public abstract class EquipmentItem : Item
 {
-    public class EquipmentItem
-    {
-        [Range(0f, 1f)] public float durability = 1f;
-    }
+    public abstract EquipmentSlot.SlotType GetSlotType();
+    public abstract void OnEquip(EquipmentSlot equipmentSlot);
+    public abstract void OnUnequip(EquipmentSlot equipmentSlot);
 }

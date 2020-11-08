@@ -7,9 +7,9 @@ using System;
 
 using ARPG.Items;
 using ARPG.Inventory;
-using ARPG.Equipment;
+using ARPG.Gear;
 
-[CustomEditor(typeof(Equipments))]
+[CustomEditor(typeof(Equipment))]
 public class EquipmentsEditor : Editor
 {
     ReorderableList reorderableList;

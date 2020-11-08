@@ -43,7 +43,7 @@ namespace ARPG.Combat
             // Debug.Log(rot);
             // transform.rotation = Quaternion.LookRotation(rot);
 
-            transform.rotation = Utils.QuaternionUtil.SmoothDamp(transform.rotation, Camera.main.transform.rotation, ref q, 0.1f);
+            // transform.rotation = Utils.QuaternionUtil.SmoothDamp(transform.rotation, Camera.main.transform.rotation, ref q, 0.1f);
         }
 
         private void OnDrawGizmos()
@@ -73,10 +73,10 @@ namespace ARPG.Combat
             // if (!inventory.RemoveItem(arrowsSlot.Item))
             //     return false;
 
-            // isAttackEneded = false;
-            // isReadyToLaunch = false;
+            isAttackEneded = false;
+            isReadyToLaunch = false;
 
-            // animator.Play("RangedAttackGetMissile");
+            animator.Play("RangedAttackGetMissile");
 
             return true;
         }

@@ -37,11 +37,12 @@ public class ItemsContainerEditor : Editor
 
     void OnAddDropdownCallback(Rect buttonRect, ReorderableList list)
     {
-        TypeCache.TypeCollection types = TypeCache.GetTypesDerivedFrom(typeof(IInventoryItem));
+        TypeCache.TypeCollection types = TypeCache.GetTypesDerivedFrom(typeof(Item));
         GenericMenu menu = new GenericMenu();
         foreach (Type type in types)
         {
-            menu.AddItem(new GUIContent(type.Name), false, AddItem, type);
+            if (type.IsSealed)
+                menu.AddItem(new GUIContent(type.Name), false, AddItem, type);
         }
         menu.ShowAsContext();
     }

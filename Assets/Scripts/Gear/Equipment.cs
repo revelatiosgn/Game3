@@ -5,9 +5,9 @@ using UnityEngine;
 using ARPG.Items;
 using ARPG.Inventory;
 
-namespace ARPG.Equipment
+namespace ARPG.Gear
 {
-    public class Equipments : MonoBehaviour
+    public class Equipment : MonoBehaviour
     {
         [SerializeReference] List<EquipmentSlot> equipmentSlots;
         
@@ -22,24 +22,31 @@ namespace ARPG.Equipment
         {
         }
 
-        public void Equip(IEquipmentItem item)
+        public void Equip(EquipmentItem item)
         {
             EquipmentSlot slot = GetEquipmentSlot(item.GetSlotType());
+
+            if (slot.Item != null)
+                onUnequip.Invoke(slot.Item);
+
             slot.Item = item;
+            onEquip.Invoke(item);
         }
-        
-        public void UnEquip(EquipmentSlot.SlotType slotType)
+
+        public void UnEquip(EquipmentItem item)
         {
-            EquipmentSlot slot = GetEquipmentSlot(slotType);
+            EquipmentSlot slot = GetEquipmentSlot(item.GetSlotType());
+
+            onUnequip.Invoke(slot.Item);
             slot.Item = null;
         }
-
-        public bool IsEquipped(IEquipmentItem item)
+        
+        public bool IsEquipped(Item item)
         {
-            return false;
+            return GetEquipmentSlot(item) != null;
         }
 
-        public EquipmentSlot GetEquipmentSlot(IEquipmentItem item)
+        public EquipmentSlot GetEquipmentSlot(Item item)
         {
             return equipmentSlots.Find(equipmentSlot => equipmentSlot.Item == item);
         }

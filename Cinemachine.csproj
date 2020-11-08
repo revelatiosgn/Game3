@@ -665,12 +665,10 @@
     <ProjectReference Include="Unity.Timeline.csproj">
       <Project>{f06f06a2-3a75-420d-b2de-2256193abbd2}</Project>
       <Name>Unity.Timeline</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="Unity.InputSystem.csproj">
       <Project>{5fe2777a-011b-40eb-b06b-ddbfaa98476d}</Project>
       <Name>Unity.InputSystem</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

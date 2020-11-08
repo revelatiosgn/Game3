@@ -8,30 +8,27 @@ namespace ARPG.Combat
 {
     public class Weapon : MonoBehaviour
     {
-        Collider damagingCollider;
+        public WeaponEvent onDamage = new WeaponEvent();
+
+        Collider damageCollider;
 
         public void SetDamaging(bool value)
         {
-            damagingCollider.enabled = value;
+            damageCollider.enabled = value;
         }
 
         void Awake()
         {
-            damagingCollider = GetComponent<Collider>();
-            damagingCollider.enabled = false;
+            damageCollider = GetComponent<Collider>();
+            damageCollider.enabled = false;
         }
 
         void OnTriggerEnter(Collider other)
         {
             if (other.tag == Constants.Tags.Enemy)
             {
-                MakeDamage(other.GetComponent<Attributes>());
+                onDamage.Invoke(other.transform);
             }
-        }
-
-        void MakeDamage(Attributes target)
-        {
-            // target.TakeDamage(damage);
         }
     }
 }

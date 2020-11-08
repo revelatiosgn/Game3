@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 3720f36b68c2f54429db161e00bb80a4, type: 3}
   prefab: {fileID: 6364952361044605166, guid: 64c9fdfd0cfbf594081c251665cd7ba0, type: 3}
-  damage: 10
+  baseDamage: 10
   animatorContoller: {fileID: 22100000, guid: 26c01a05cf92d624a9e3608296a93e86, type: 2}
+  hand: 1

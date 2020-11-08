@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using ARPG.Combat;
+
 namespace ARPG.Items
 {
-    [CreateAssetMenu(fileName = "MeleeWeapon", menuName = "MeleeWeapon", order = 1)]
-    public class MeleeWeaponStatement : ItemStatement
+    [CreateAssetMenu(fileName = "MeleeWeapon", menuName = "Statements/Weapon/MeleeWeapon", order = 1)]
+    public class MeleeWeaponStatement : WeaponStatement
     {
-        public GameObject prefab;
-        public float damage;
-        public AnimatorOverrideController animatorContoller;
     }
 }
 

@@ -660,27 +660,22 @@
     <ProjectReference Include="Cinemachine.csproj">
       <Project>{8d0abd08-7307-dfb6-09b6-4d08504d5123}</Project>
       <Name>Cinemachine</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="Unity.Timeline.csproj">
       <Project>{f06f06a2-3a75-420d-b2de-2256193abbd2}</Project>
       <Name>Unity.Timeline</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="Unity.Timeline.Editor.csproj">
       <Project>{442d4af1-2496-d754-8b81-206367ce1dca}</Project>
       <Name>Unity.Timeline.Editor</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
       <Project>{d440f09e-8074-245a-c832-eca2d9ee0069}</Project>
       <Name>UnityEditor.TestRunner</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.TestRunner.csproj">
       <Project>{34996f98-1b7b-e89a-0bb4-a40d203bb140}</Project>
       <Name>UnityEngine.TestRunner</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

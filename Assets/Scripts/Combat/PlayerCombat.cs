@@ -10,24 +10,17 @@ namespace ARPG.Combat
 {
     public class PlayerCombat : MonoBehaviour
     {
-        // [SerializeField] WeaponProperty defaultWeapon;
-
         Animator animator;
         PlayerController playerController;
-        // Equipment equipment;
-        WeaponBehaviour weaponBehaviour;
 
         void Awake()
         {
             animator = GetComponent<Animator>();
             playerController = GetComponent<PlayerController>();
-            // equipment = GetComponent<Equipment>();
         }
 
         void Start()
         {
-            // equipment.onEquip.AddListener(OnEquip);
-            // equipment.onUnequip.AddListener(OnUnequip);
         }
 
         void Update()
@@ -37,39 +30,20 @@ namespace ARPG.Combat
 
         void Attack()
         {
+            WeaponBehaviour weaponBehaviour = GetComponent<WeaponBehaviour>();
             if (!weaponBehaviour)
                 return;
 
-            if (InputHandler.attackBeginInput && !playerController.isInteracting)
+            if (InputHandler.attackBeginInput)
             {
                 playerController.isInteracting = weaponBehaviour.AttackBegin();
             }
 
-            if (InputHandler.attackEndInput && playerController.isInteracting)
+            if (InputHandler.attackEndInput)
             {
                 weaponBehaviour.AttackEnd();
             }
         }
-
-        // void OnEquip(Item item)
-        // {
-        //     WeaponProperty property = item.property as WeaponProperty;
-        //     if (property)
-        //     {
-        //         weaponBehaviour = (WeaponBehaviour) gameObject.AddComponent(property.behaviour.GetClass());
-        //         animator.runtimeAnimatorController = property.animatorController;
-        //     }
-        // }
-
-        // void OnUnequip(Item item)
-        // {
-        //     WeaponProperty property = item.property as WeaponProperty;
-        //     if (property && weaponBehaviour)
-        //     {
-        //         Destroy(weaponBehaviour);
-        //         weaponBehaviour = null;
-        //     }
-        // }
     }
 }
 

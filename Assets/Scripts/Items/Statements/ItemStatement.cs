@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ARPG.Items
 {
-    public class ItemStatement : ScriptableObject
+    public abstract class ItemStatement : ScriptableObject
     {
         public Sprite icon;
     }

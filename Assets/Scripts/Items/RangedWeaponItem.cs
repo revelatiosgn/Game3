@@ -8,9 +8,9 @@ using ARPG.Combat;
 namespace ARPG.Items
 {
     [System.Serializable]
-    public sealed class MeleeWeaponItem : WeaponItem
+    public sealed class RangedWeaponItem : WeaponItem
     {
-        [SerializeField] MeleeWeaponStatement statement;
+        [SerializeField] RangedWeaponStatement statement;
 
         public override WeaponStatement GetStatement()
         {
@@ -19,7 +19,7 @@ namespace ARPG.Items
 
         protected override void AddBehaviour(Transform target)
         {
-            target.gameObject.AddComponent<MeleeBehaviour>();
+            target.gameObject.AddComponent<RangedBehaviour>();
         }
     }
 }

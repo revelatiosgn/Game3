@@ -10,7 +10,7 @@ namespace ARPG.Inventory
     public class ItemSlot
     {
         [SerializeReference]
-        public IInventoryItem item;
+        public Item item = null;
         public int count = 1;
     }
 }
