@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using ARPG.Gear;
-
 namespace ARPG.Items
 {
     [CreateAssetMenu(fileName = "Potion", menuName = "Statements/Potion", order = 1)]

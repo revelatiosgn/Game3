@@ -22,13 +22,5 @@ namespace ARPG.Combat
             damageCollider = GetComponent<Collider>();
             damageCollider.enabled = false;
         }
-
-        void OnTriggerEnter(Collider other)
-        {
-            if (other.tag == Constants.Tags.Enemy)
-            {
-                onDamage.Invoke(other.transform);
-            }
-        }
     }
 }

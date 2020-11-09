@@ -21,13 +21,9 @@ namespace ARPG.Items
             Transform target = GameObject.FindGameObjectWithTag(Constants.Tags.Player).transform;
             Equipment equipment = target.GetComponent<Equipment>();
             if (equipment.IsEquipped(this))
-            {
                 equipment.UnEquip(this);
-            }
             else
-            {
                 equipment.Equip(this);
-            }
         }
 
         public override bool IsEquals(Item other)
@@ -51,8 +47,7 @@ namespace ARPG.Items
             Transform target = GameObject.FindGameObjectWithTag(Constants.Tags.Player).transform;
             target.GetComponent<Animator>().runtimeAnimatorController = GetStatement().animatorContoller;
 
-            WeaponBehaviour weaponBehaviour = target.GetComponent<WeaponBehaviour>();       
-            Debug.Log("add beh " + weaponBehaviour);
+            WeaponBehaviour weaponBehaviour = target.GetComponent<WeaponBehaviour>();
             if (weaponBehaviour)
                 GameObject.Destroy(weaponBehaviour);
             AddBehaviour(target);
@@ -62,21 +57,14 @@ namespace ARPG.Items
         {
             Transform target = GameObject.FindGameObjectWithTag(Constants.Tags.Player).transform;
             WeaponBehaviour weaponBehaviour = target.GetComponent<WeaponBehaviour>();
-            Debug.Log("remove beh " + weaponBehaviour);
             if (weaponBehaviour)
                 GameObject.Destroy(weaponBehaviour);
         }
 
         // Self
 
-        public virtual WeaponStatement GetStatement()
-        {
-            return null;
-        }
-
-        protected virtual void AddBehaviour(Transform target)
-        {
-        }
+        public virtual WeaponStatement GetStatement() { return null; }
+        protected virtual void AddBehaviour(Transform target) { }
     }
 }
 

@@ -20,6 +20,8 @@ namespace ARPG.Gear
 
         void Start()
         {
+            foreach (EquipmentSlot equipmentSlot in equipmentSlots)
+                equipmentSlot.Item = null;
         }
 
         public void Equip(EquipmentItem item)

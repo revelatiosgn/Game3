@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using ARPG.Items;
+
 namespace ARPG.Gear
 {
     [System.Serializable]
@@ -10,7 +12,7 @@ namespace ARPG.Gear
         public enum SlotType
         {
             Weapon,
-            Arrows,
+            Arrow,
             Shield
         }
 
@@ -30,7 +32,7 @@ namespace ARPG.Gear
 
                 item = value;
 
-                if (item == null)
+                if (item == null && GetDefaultItem() != null)
                     item = GetDefaultItem();
 
                 if (item != null)

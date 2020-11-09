@@ -1766,7 +1766,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: -1.2112781e-23, w: 1}
-  m_LocalPosition: {x: 11.04, y: 2.1139998, z: -3.8}
+  m_LocalPosition: {x: 11.64, y: 1.8139998, z: -1.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2281,7 +2281,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1394909705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2458,8 +2458,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1490480225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.97}
-  m_LocalScale: {x: 0.64279, y: 0.64279, z: 1.4962866}
+  m_LocalPosition: {x: 0, y: 0, z: 2.524}
+  m_LocalScale: {x: 0.28435647, y: 0.28435647, z: 5.4459653}
   m_Children: []
   m_Father: {fileID: 334820017}
   m_RootOrder: 0
@@ -3621,6 +3621,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 942183786235096072, guid: ab94b0feb760d654aa7e76453bb1bb49, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 952765649301605350, guid: ab94b0feb760d654aa7e76453bb1bb49, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -3841,6 +3845,18 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4086737586186215458, guid: ab94b0feb760d654aa7e76453bb1bb49, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086737586186215458, guid: ab94b0feb760d654aa7e76453bb1bb49, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086737586186215458, guid: ab94b0feb760d654aa7e76453bb1bb49, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5475117580339831552, guid: ab94b0feb760d654aa7e76453bb1bb49, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3940,6 +3956,14 @@ PrefabInstance:
     - target: {fileID: 6261271770210790671, guid: ab94b0feb760d654aa7e76453bb1bb49, type: 3}
       propertyPath: m_LocalPosition.z
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261271770210790671, guid: ab94b0feb760d654aa7e76453bb1bb49, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261271770210790671, guid: ab94b0feb760d654aa7e76453bb1bb49, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6490730830461195776, guid: ab94b0feb760d654aa7e76453bb1bb49, type: 3}
       propertyPath: m_AnchorMin.y
@@ -4094,6 +4118,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 723681389, guid: 9c0487a19763a60428175c1cba5b2b01, type: 3}
+      propertyPath: equipmentSlots.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 723681389, guid: 9c0487a19763a60428175c1cba5b2b01, type: 3}
+      propertyPath: equipmentSlots.Array.data[0].defaltWeaponItem.statement
+      value: 
+      objectReference: {fileID: 11400000, guid: 26793953debf1ae47b37fa844339fb3a, type: 2}
+    - target: {fileID: 723681389, guid: 9c0487a19763a60428175c1cba5b2b01, type: 3}
+      propertyPath: equipmentSlots.Array.data[2]
+      value: Assembly-CSharp ARPG.Gear.EquipmentWeaponSlot
+      objectReference: {fileID: 0}
+    - target: {fileID: 723681389, guid: 9c0487a19763a60428175c1cba5b2b01, type: 3}
+      propertyPath: equipmentSlots.Array.data[2].leftHand
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 723681389, guid: 9c0487a19763a60428175c1cba5b2b01, type: 3}
+      propertyPath: equipmentSlots.Array.data[2].rightHand
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 723681389, guid: 9c0487a19763a60428175c1cba5b2b01, type: 3}
+      propertyPath: equipmentSlots.Array.data[2].currentWeapon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1411337090, guid: 9c0487a19763a60428175c1cba5b2b01, type: 3}
       propertyPath: mainCam
       value: 

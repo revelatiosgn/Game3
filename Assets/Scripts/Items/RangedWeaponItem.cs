@@ -10,7 +10,7 @@ namespace ARPG.Items
     [System.Serializable]
     public sealed class RangedWeaponItem : WeaponItem
     {
-        [SerializeField] RangedWeaponStatement statement;
+        public RangedWeaponStatement statement;
 
         public override WeaponStatement GetStatement()
         {

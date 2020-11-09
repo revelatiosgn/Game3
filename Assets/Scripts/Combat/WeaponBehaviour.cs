@@ -11,7 +11,7 @@ namespace ARPG.Combat
         protected Animator animator;
         protected Equipment equipment;
 
-        void Awake()
+        protected virtual void Awake()
         {
             animator = GetComponent<Animator>();
             equipment = GetComponent<Equipment>();

@@ -179,13 +179,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6018887173270786872}
-  m_LocalRotation: {x: -0, y: -0, z: -1.2112781e-23, w: 1}
-  m_LocalPosition: {x: 0, y: 1.9839998, z: 0}
+  m_LocalRotation: {x: 1.0587912e-22, y: 4.2632574e-14, z: 2.2737368e-13, w: 1}
+  m_LocalPosition: {x: 0, y: 0.64809084, z: 0.006884721}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 431478247}
-  m_Father: {fileID: 6018887173546567305}
-  m_RootOrder: 1
+  m_Father: {fileID: 5081103504520017439}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1411337090
 MonoBehaviour:
@@ -242,7 +242,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6289390643159095375}
-  - {fileID: 6018887173270786879}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -374,38 +373,49 @@ MonoBehaviour:
   - id: 0
   - id: 1
   - id: 2
+  - id: 3
   references:
     version: 1
     00000000:
       type: {class: ItemSlot, ns: ARPG.Inventory, asm: Assembly-CSharp}
       data:
         item:
-          id: 3
+          id: 4
         count: 1
     00000001:
       type: {class: ItemSlot, ns: ARPG.Inventory, asm: Assembly-CSharp}
       data:
         item:
-          id: 4
+          id: 5
         count: 1
     00000002:
       type: {class: ItemSlot, ns: ARPG.Inventory, asm: Assembly-CSharp}
       data:
         item:
-          id: 5
+          id: 6
         count: 1
     00000003:
+      type: {class: ItemSlot, ns: ARPG.Inventory, asm: Assembly-CSharp}
+      data:
+        item:
+          id: 7
+        count: 5
+    00000004:
       type: {class: PotionItem, ns: ARPG.Items, asm: Assembly-CSharp}
       data:
         statement: {fileID: 11400000, guid: 38575d3503fd0e64b89217acb7b9f727, type: 2}
-    00000004:
+    00000005:
       type: {class: MeleeWeaponItem, ns: ARPG.Items, asm: Assembly-CSharp}
       data:
         statement: {fileID: 11400000, guid: 26793953debf1ae47b37fa844339fb3a, type: 2}
-    00000005:
+    00000006:
       type: {class: RangedWeaponItem, ns: ARPG.Items, asm: Assembly-CSharp}
       data:
         statement: {fileID: 11400000, guid: 8c0af99663ec9894b907c9436417a031, type: 2}
+    00000007:
+      type: {class: ArrowItem, ns: ARPG.Items, asm: Assembly-CSharp}
+      data:
+        statement: {fileID: 11400000, guid: ad72c44a9c973924eba4f810c53795a4, type: 2}
 --- !u!114 &723681389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,6 +430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equipmentSlots:
   - id: 0
+  - id: 1
   references:
     version: 1
     00000000:
@@ -428,8 +439,13 @@ MonoBehaviour:
         leftHand: {fileID: 2462872685081614078}
         rightHand: {fileID: 899407339}
         currentWeapon: {fileID: 0}
-        defaltWeaponItem:
-          statement: {fileID: 11400000, guid: cae61040674b19a499b6ce755342942c, type: 2}
+        defaultWeapon: {fileID: 11400000, guid: 8c0af99663ec9894b907c9436417a031, type: 2}
+    00000001:
+      type: {class: EquipmentArrowSlot, ns: ARPG.Gear, asm: Assembly-CSharp}
+      data:
+        back: {fileID: 2467163717892672623}
+        currentQuiver: {fileID: 0}
+        defaultArrow: {fileID: 11400000, guid: ad72c44a9c973924eba4f810c53795a4, type: 2}
 --- !u!1 &6883138582526747217
 GameObject:
   m_ObjectHideFlags: 0

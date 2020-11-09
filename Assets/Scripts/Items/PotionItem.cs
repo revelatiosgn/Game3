@@ -7,7 +7,7 @@ namespace ARPG.Items
     [System.Serializable]
     public sealed class PotionItem : Item
     {
-        [SerializeField] PotionStatement statement;
+        public PotionStatement statement;
 
         public override Sprite GetIcon()
         {

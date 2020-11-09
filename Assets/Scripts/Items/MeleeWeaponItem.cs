@@ -10,7 +10,7 @@ namespace ARPG.Items
     [System.Serializable]
     public sealed class MeleeWeaponItem : WeaponItem
     {
-        [SerializeField] MeleeWeaponStatement statement;
+        public MeleeWeaponStatement statement;
 
         public override WeaponStatement GetStatement()
         {

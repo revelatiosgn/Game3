@@ -54,8 +54,9 @@ namespace ARPG.Core
 
             if (InputHandler.testInput)
             {
-                regularCamera.gameObject.SetActive(!regularCamera.gameObject.activeSelf);
-                aimCamera.gameObject.SetActive(!regularCamera.gameObject.activeSelf);
+                // regularCamera.gameObject.SetActive(!regularCamera.gameObject.activeSelf);
+                // aimCamera.gameObject.SetActive(!regularCamera.gameObject.activeSelf);
+                aimCamera.gameObject.SetActive(true);
             }
         }
     }

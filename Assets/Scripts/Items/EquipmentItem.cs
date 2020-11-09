@@ -4,9 +4,12 @@ using UnityEngine;
 
 using ARPG.Gear;
 
-public abstract class EquipmentItem : Item
+namespace ARPG.Items
 {
-    public abstract EquipmentSlot.SlotType GetSlotType();
-    public abstract void OnEquip(EquipmentSlot equipmentSlot);
-    public abstract void OnUnequip(EquipmentSlot equipmentSlot);
+    public abstract class EquipmentItem : Item
+    {
+        public abstract EquipmentSlot.SlotType GetSlotType();
+        public abstract void OnEquip(EquipmentSlot equipmentSlot);
+        public abstract void OnUnequip(EquipmentSlot equipmentSlot);
+    }
 }

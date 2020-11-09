@@ -19,7 +19,7 @@ namespace ARPG.Gear
         [SerializeField] Transform rightHand;
 
         public GameObject currentWeapon;
-        public MeleeWeaponItem defaltWeaponItem;
+        public WeaponStatement defaultWeapon;
 
         public override SlotType GetSlotType()
         {
@@ -37,11 +37,15 @@ namespace ARPG.Gear
         {
             if (currentWeapon)
                 GameObject.Destroy(currentWeapon);
+            currentWeapon = null;
         }
 
         protected override EquipmentItem GetDefaultItem()
         {
-            return defaltWeaponItem;
+            if (defaultWeapon != null)
+                return defaultWeapon.CreateItem();
+
+            return null;
         }
     }
 }

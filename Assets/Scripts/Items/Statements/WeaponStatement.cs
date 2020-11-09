@@ -12,6 +12,8 @@ namespace ARPG.Items
         public float baseDamage;
         public AnimatorOverrideController animatorContoller;
         public EquipmentWeaponSlot.Hand hand;
+
+        public abstract WeaponItem CreateItem();
     }
 }
 
