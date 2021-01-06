@@ -20,17 +20,25 @@ namespace ARPG.Core
         [SerializeField][Range(0f, 90f)] float minY = 70f;
         [SerializeField][Range(0f, 90f)] float maxY = 70f;
 
+        Quaternion rotation = Quaternion.identity;
         public CameraState state = CameraState.Regular;
-        public CameraState State
+
+        public static CameraFollow instance = null;
+
+        void Awake()
         {
-            get => state;
-            set
-            {
-                state = value;
-            }
+            if (instance == null)
+                instance = this;
         }
 
-        Quaternion rotation = Quaternion.identity;
+        void Update()
+        {
+            if (InputHandler.testInput)
+            {
+                regularCamera.gameObject.SetActive(!regularCamera.gameObject.activeSelf);
+                aimCamera.gameObject.SetActive(!regularCamera.gameObject.activeSelf);
+            }
+        }
 
         void LateUpdate()
         {
@@ -51,13 +59,13 @@ namespace ARPG.Core
 
             rotation = Quaternion.Euler(angles);
             transform.rotation = rotation;
+        }
 
-            if (InputHandler.testInput)
-            {
-                // regularCamera.gameObject.SetActive(!regularCamera.gameObject.activeSelf);
-                // aimCamera.gameObject.SetActive(!regularCamera.gameObject.activeSelf);
-                aimCamera.gameObject.SetActive(true);
-            }
+        public static void SetState(CameraState cameraState)
+        {
+            instance.state = cameraState;
+            instance.regularCamera.gameObject.SetActive(cameraState == CameraState.Regular);
+            instance.aimCamera.gameObject.SetActive(cameraState == CameraState.Aiming);
         }
     }
 }

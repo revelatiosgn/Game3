@@ -33,6 +33,8 @@ namespace ARPG.Gear
 
             slot.Item = item;
             onEquip.Invoke(item);
+
+            ResolveConflict(item);
         }
 
         public void UnEquip(EquipmentItem item)
@@ -56,6 +58,35 @@ namespace ARPG.Gear
         public EquipmentSlot GetEquipmentSlot(EquipmentSlot.SlotType slotType)
         {
             return equipmentSlots.Find(equipmentSlot => equipmentSlot.GetSlotType() == slotType);
+        }
+
+        void ResolveConflict(EquipmentItem item)
+        {
+            if ((item as ShieldItem) != null)
+            {
+                EquipmentWeaponSlot weaponSlot = GetEquipmentSlot(EquipmentSlot.SlotType.Weapon) as EquipmentWeaponSlot;
+                if (weaponSlot != null)
+                {
+                    WeaponItem weaponItem = weaponSlot.Item as WeaponItem;
+                    if (weaponItem != null && weaponItem.GetStatement().type == WeaponStatement.Type.TwoHanded)
+                    {
+                        UnEquip(weaponItem);
+                    }
+                }
+            }
+
+            if ((item as WeaponItem) != null && (item as WeaponItem).GetStatement().type == WeaponStatement.Type.TwoHanded)
+            {
+                EquipmentShieldSlot shieldSlot = GetEquipmentSlot(EquipmentSlot.SlotType.Shield) as EquipmentShieldSlot;
+                if (shieldSlot != null)
+                {
+                    ShieldItem shieldItem = shieldSlot.Item as ShieldItem;
+                    if (shieldItem != null)
+                    {
+                        UnEquip(shieldItem);
+                    }
+                }
+            }
         }
     }
 }

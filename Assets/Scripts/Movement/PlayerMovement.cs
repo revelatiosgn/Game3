@@ -25,6 +25,9 @@ namespace ARPG.Movement
         Vector3 velocity;
         float gravitySpeed;
 
+        float velocityH;
+        float velocityV;
+
         public MovementState state = MovementState.Regular;
         public MovementState State
         {
@@ -42,12 +45,32 @@ namespace ARPG.Movement
             playerController = GetComponent<PlayerController>();
         }
 
+        void Start()
+        {
+            // animator.SetBool("aimMovement", true);
+        }
+
         void Update()
         {
+            // AimMovement();
+            // RegularMovement();
+
             if (state == MovementState.Regular)
                 RegularMovement();
             else
                 AimMovement();
+
+            // if (InputHandler.defenceBeginInput)
+            // {
+            //     animator.SetBool("aimMovement", true);
+            //     state = MovementState.Aim;
+            // }
+            
+            // if (InputHandler.defenceEndInput)
+            // {
+            //     animator.SetBool("aimMovement", false);
+            //     state = MovementState.Regular;
+            // }
         }
 
         void AimMovement()
@@ -59,8 +82,11 @@ namespace ARPG.Movement
             moveDirection.x += InputHandler.movementInput.x;
             moveDirection.z += InputHandler.movementInput.y;
 
-            animator.SetFloat("horizontal", moveDirection.x);
-            animator.SetFloat("vertical", moveDirection.z);
+            float h = Mathf.SmoothDamp(animator.GetFloat("horizontal"), moveDirection.x, ref velocityH, 0.1f);
+            float v = Mathf.SmoothDamp(animator.GetFloat("vertical"), moveDirection.z, ref velocityV, 0.1f);
+
+            animator.SetFloat("horizontal", h);
+            animator.SetFloat("vertical", v);
 
             if (direction != Vector3.zero)
             {
@@ -83,14 +109,17 @@ namespace ARPG.Movement
             direction += Camera.main.transform.forward * InputHandler.movementInput.y;
             direction.y = 0f;
             direction.Normalize();
+            
+            float v = Mathf.SmoothDamp(animator.GetFloat("vertical"), direction.magnitude, ref velocityV, 0.1f);
 
             animator.SetFloat("horizontal", 0f);
-            animator.SetFloat("vertical", direction.magnitude * 2f);
+            animator.SetFloat("vertical", v);
 
             if (direction != Vector3.zero)
             {
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
                 transform.rotation = targetRotation;
+                CameraFollow.SetState(CameraFollow.CameraState.Regular);
             }
 
             gravitySpeed += gravity * Time.deltaTime;

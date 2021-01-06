@@ -39,15 +39,15 @@ namespace ARPG.Movement
                 navMeshAgent.destination = targetTransform.position;
 
             float distance = Vector3.Distance(navMeshAgent.destination, transform.position);
-            if (distance > 3f)
+
+            if (distance > 0.1f)
             {
                 speed = Mathf.SmoothDamp(speed, 1f, ref smoothVelocity, smoothTime);
                 animator.SetFloat("vertical", speed);
             }
-
-            if (distance < 3f)
+            else
             {
-                speed = distance > 0.5f ? Mathf.SmoothDamp(speed, 0.3f, ref smoothVelocity, smoothTime) : Mathf.SmoothDamp(speed, 0f, ref smoothVelocity, smoothTime);
+                speed = Mathf.SmoothDamp(speed, 0f, ref smoothVelocity, smoothTime);
                 animator.SetFloat("vertical", speed);
             }
         }
@@ -65,11 +65,11 @@ namespace ARPG.Movement
 
         void OnDrawGizmos()
         {
-            // if (navMeshAgent)
-            // {
-            //     Gizmos.color = Color.magenta;
-            //     Gizmos.DrawWireSphere(navMeshAgent.steeringTarget, 0.3f);
-            // }
+            if (navMeshAgent)
+            {
+                Gizmos.color = Color.magenta;
+                Gizmos.DrawWireSphere(navMeshAgent.steeringTarget, 0.3f);
+            }
         }
     }
 }

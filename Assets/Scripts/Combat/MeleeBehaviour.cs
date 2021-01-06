@@ -3,24 +3,36 @@ using System.Collections.Generic;
 using ARPG.Gear;
 using UnityEngine;
 
+using ARPG.Core;
+using ARPG.Movement;
+
 namespace ARPG.Combat
 {
     public class MeleeBehaviour : WeaponBehaviour
     {
         public override bool AttackBegin()
         {
-            animator.CrossFade("MeleeAttack", 0.2f);
+            animator.SetTrigger("attackBegin");
 
             return true;
         }
 
-        void SetDamaging(int value)
+        public override void AttackEnd()
         {
         }
 
-        void OnDamage(Transform target)
+        public override bool DefenceBegin()
         {
-            
+            animator.SetBool("aim", true);
+            GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Aim;
+
+            return true;
+        }
+
+        public override void DefenceEnd()
+        {
+            animator.SetBool("aim", false);
+            GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Regular;
         }
     }
 }

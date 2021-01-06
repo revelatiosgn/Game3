@@ -15,6 +15,8 @@ namespace ARPG.Core
 
         public static bool attackBeginInput;
         public static bool attackEndInput;
+        public static bool defenceBeginInput;
+        public static bool defenceEndInput;
 
         public static bool inventoryInput;
 
@@ -52,6 +54,8 @@ namespace ARPG.Core
             inputActions.PlayerMovement.Walk.canceled += ctx => walkInput = false;
             inputActions.PlayerActions.Attack.started += ctx => attackBeginInput = true;
             inputActions.PlayerActions.Attack.canceled += ctx => attackEndInput = true;
+            inputActions.PlayerActions.Defence.started += ctx => defenceBeginInput = true;
+            inputActions.PlayerActions.Defence.canceled += ctx => defenceEndInput = true;
 
             inputActions.UI.Inventory.started += ctx => inventoryInput = true;
 
@@ -71,6 +75,8 @@ namespace ARPG.Core
 
             attackBeginInput = false;
             attackEndInput = false;
+            defenceBeginInput = false;
+            defenceEndInput = false;
 
             inventoryInput = false;
 

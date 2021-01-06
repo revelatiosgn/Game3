@@ -45,10 +45,12 @@ namespace ARPG.Items
         public override void OnEquip(EquipmentSlot slot)
         {
             Transform target = GameObject.FindGameObjectWithTag(Constants.Tags.Player).transform;
-            target.GetComponent<Animator>().runtimeAnimatorController = GetStatement().animatorContoller;
+            Animator animator = target.GetComponent<Animator>();
+            animator.runtimeAnimatorController = GetStatement().animatorContoller;
+            animator.SetLayerWeight(animator.GetLayerIndex(GetStatement().layerName), 1f);
 
             WeaponBehaviour weaponBehaviour = target.GetComponent<WeaponBehaviour>();
-            if (weaponBehaviour)
+            if (weaponBehaviour != null)
                 GameObject.Destroy(weaponBehaviour);
             AddBehaviour(target);
         }
@@ -56,8 +58,11 @@ namespace ARPG.Items
         public override void OnUnequip(EquipmentSlot slot)
         {
             Transform target = GameObject.FindGameObjectWithTag(Constants.Tags.Player).transform;
+            Animator animator = target.GetComponent<Animator>();
+            animator.SetLayerWeight(animator.GetLayerIndex(GetStatement().layerName), 0f);
+
             WeaponBehaviour weaponBehaviour = target.GetComponent<WeaponBehaviour>();
-            if (weaponBehaviour)
+            if (weaponBehaviour != null)
                 GameObject.Destroy(weaponBehaviour);
         }
 

@@ -3,21 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using ARPG.Gear;
+using ARPG.Controller;
 
 namespace ARPG.Combat
 {
-    public class WeaponBehaviour : MonoBehaviour
+    public abstract class WeaponBehaviour : MonoBehaviour
     {
         protected Animator animator;
         protected Equipment equipment;
+        protected PlayerController playerController;
 
         protected virtual void Awake()
         {
             animator = GetComponent<Animator>();
             equipment = GetComponent<Equipment>();
+            playerController = GetComponent<PlayerController>();
         }
 
-        public virtual bool AttackBegin() { return false; }
-        public virtual void AttackEnd() {}
+        public abstract bool AttackBegin();
+        public abstract void AttackEnd();
+
+        public abstract bool DefenceBegin();
+        public abstract void DefenceEnd();
     }
 }

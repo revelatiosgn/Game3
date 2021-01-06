@@ -19,30 +19,23 @@ namespace ARPG.Combat
             playerController = GetComponent<PlayerController>();
         }
 
-        void Start()
-        {
-        }
-
         void Update()
         {
-            Attack();
-        }
-
-        void Attack()
-        {
             WeaponBehaviour weaponBehaviour = GetComponent<WeaponBehaviour>();
-            if (!weaponBehaviour)
+            if (weaponBehaviour == null)
                 return;
 
             if (InputHandler.attackBeginInput)
-            {
-                playerController.isInteracting = weaponBehaviour.AttackBegin();
-            }
+                weaponBehaviour.AttackBegin();
 
             if (InputHandler.attackEndInput)
-            {
                 weaponBehaviour.AttackEnd();
-            }
+
+            if (InputHandler.defenceBeginInput)
+                weaponBehaviour.DefenceBegin();
+
+            if (InputHandler.defenceEndInput)
+                weaponBehaviour.DefenceEnd();
         }
     }
 }

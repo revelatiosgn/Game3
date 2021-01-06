@@ -5,6 +5,7 @@ using UnityEngine;
 using ARPG.Movement;
 using ARPG.Gear;
 using ARPG.Items;
+using ARPG.Core;
 
 namespace ARPG.Combat
 {
@@ -22,6 +23,7 @@ namespace ARPG.Combat
         State state = State.None;
         Quaternion rotation;
         Quaternion rotationSpeed;
+        bool attackTrigger = false;
 
         protected override void Awake()
         {
@@ -36,29 +38,52 @@ namespace ARPG.Combat
 
         public override bool AttackBegin()
         {
+            if (state != State.None)
+                return false;
+
             state = State.Start;
-            animator.Play("RangedAttackBegin");
+            attackTrigger = false;
+
+            animator.SetBool("aim", true);
+            animator.SetTrigger("rangedAttackBegin");
 
             movement.State = PlayerMovement.MovementState.Aim;
+            CameraFollow.SetState(CameraFollow.CameraState.Aiming);
 
             return true;
         }
         
         public override void AttackEnd()
         {
-            if (state == State.Aim)
-                animator.Play("RangedAttackEnd");
-            state = State.Aim;
+            if (state == State.Start || state == State.Aim)
+            {
+                attackTrigger = true;
+                TryAttack();
+            }
         }
 
-        public void OnAim()
+        public override bool DefenceBegin()
         {
-            if (state == State.Aim)
-                animator.Play("RangedAttackEnd");
-            state = State.Aim;
+            return false;
         }
 
-        public void OnLaunch()
+        public override void DefenceEnd()
+        {
+        }
+
+        void TryAttack()
+        {
+            if (state == State.Aim && attackTrigger)
+                animator.SetTrigger("rangedAttackEnd");
+        }
+
+        void OnAim()
+        {
+            state = State.Aim;
+            TryAttack();
+        }
+
+        void OnLaunch()
         {
             state = State.Launch;
 
@@ -89,13 +114,16 @@ namespace ARPG.Combat
             }
         }
 
-        public void OnEnd()
+        void OnEnd()
         {
             state = State.None;
             movement.State = PlayerMovement.MovementState.Regular;
+            CameraFollow.SetState(CameraFollow.CameraState.Regular);
+            animator.SetBool("aim", false);
+            playerController.isInteracting = false;
         }
 
-        public void OnAnimatorIK(int layer)
+        void OnAnimatorIK(int layer)
         {
             Transform chestTransform = animator.GetBoneTransform(HumanBodyBones.Spine);
             Quaternion targetRotation = chestTransform.localRotation;

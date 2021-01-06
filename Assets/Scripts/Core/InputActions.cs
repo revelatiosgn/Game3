@@ -161,6 +161,14 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""Defence"",
+                    ""type"": ""Button"",
+                    ""id"": ""15b152f6-cce3-4955-be4a-a892dd236caa"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
@@ -183,6 +191,17 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bd6125d9-5ed3-43d8-9123-2be32d4080f1"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Defence"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -255,6 +274,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         m_PlayerActions = asset.FindActionMap("Player Actions", throwIfNotFound: true);
         m_PlayerActions_Jump = m_PlayerActions.FindAction("Jump", throwIfNotFound: true);
         m_PlayerActions_Attack = m_PlayerActions.FindAction("Attack", throwIfNotFound: true);
+        m_PlayerActions_Defence = m_PlayerActions.FindAction("Defence", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Inventory = m_UI.FindAction("Inventory", throwIfNotFound: true);
@@ -369,12 +389,14 @@ public class @InputActions : IInputActionCollection, IDisposable
     private IPlayerActionsActions m_PlayerActionsActionsCallbackInterface;
     private readonly InputAction m_PlayerActions_Jump;
     private readonly InputAction m_PlayerActions_Attack;
+    private readonly InputAction m_PlayerActions_Defence;
     public struct PlayerActionsActions
     {
         private @InputActions m_Wrapper;
         public PlayerActionsActions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Jump => m_Wrapper.m_PlayerActions_Jump;
         public InputAction @Attack => m_Wrapper.m_PlayerActions_Attack;
+        public InputAction @Defence => m_Wrapper.m_PlayerActions_Defence;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -390,6 +412,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Attack.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnAttack;
+                @Defence.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnDefence;
+                @Defence.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnDefence;
+                @Defence.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnDefence;
             }
             m_Wrapper.m_PlayerActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -400,6 +425,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
+                @Defence.started += instance.OnDefence;
+                @Defence.performed += instance.OnDefence;
+                @Defence.canceled += instance.OnDefence;
             }
         }
     }
@@ -481,6 +509,7 @@ public class @InputActions : IInputActionCollection, IDisposable
     {
         void OnJump(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnDefence(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
