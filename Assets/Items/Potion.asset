@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ede4884ca3f531a42a6441eb7f20c2a0, type: 3}
   m_Name: Potion
   m_EditorClassIdentifier: 
+  title: Potion
   icon: {fileID: 21300000, guid: 9871b001bc476ce48892c7cebb0ae4d0, type: 3}
   hp: 20

@@ -7,45 +7,33 @@ using ARPG.Items;
 namespace ARPG.Gear
 {
     [System.Serializable]
-    public abstract class EquipmentSlot
+    public class EquipmentSlot
     {
         public enum SlotType
         {
+            None,
             Weapon,
             Arrow,
-            Shield
+            Shield,
+            Armor
         }
 
-        public abstract SlotType GetSlotType();
+        public EquipmentItem item;
 
-        private EquipmentItem item;
-        public virtual EquipmentItem Item
+        public virtual SlotType GetSlotType()
         {
-            get => item;
-            set
-            {
-                if (item != null)
-                {
-                    Unequip();
-                    item.OnUnequip(this);
-                }
-
-                item = value;
-
-                if (item == null && GetDefaultItem() != null)
-                    item = GetDefaultItem();
-
-                if (item != null)
-                {
-                    Equip();
-                    item.OnEquip(this);
-                }
-            }
+            return SlotType.None;
         }
 
-        protected abstract void Equip();
-        protected abstract void Unequip();
-        protected abstract EquipmentItem GetDefaultItem();
+        public virtual void Equip(EquipmentItem item, GameObject target)
+        {
+            this.item = item;
+        }
+
+        public virtual void Unequip(GameObject target)
+        {
+            this.item = null;
+        }
     }
 }
 

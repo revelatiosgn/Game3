@@ -9,34 +9,33 @@ namespace ARPG.Gear
     [System.Serializable]
     public class EquipmentShieldSlot : EquipmentSlot
     {
-        [SerializeField] Transform arm;
-
-        public GameObject currentShield;
-        public ShieldStatement defaultShield;
+        [SerializeField] Transform holder;
 
         public override SlotType GetSlotType()
         {
             return SlotType.Shield;
         }
 
-        protected override void Equip()
+        public override void Equip(EquipmentItem item, GameObject target)
         {
-            ShieldItem shieldItem = Item as ShieldItem;
-            currentShield = GameObject.Instantiate(shieldItem.GetStatement().shieldPrefab, arm);
+            base.Equip(item, target);
+
+            ShieldItem shieldItem = item as ShieldItem;
+
+            if (holder != null)
+                GameObject.Instantiate(shieldItem.shieldPrefab, holder);
+
+            ShieldBehaviour shieldBehaviour = target.GetComponent<ShieldBehaviour>();
+            if (shieldBehaviour != null)
+                GameObject.DestroyImmediate(shieldBehaviour);
         }
 
-        protected override void Unequip()
+        public override void Unequip(GameObject target)
         {
-            if (currentShield)
-                GameObject.Destroy(currentShield);
-        }
+            base.Unequip(target);
 
-        protected override EquipmentItem GetDefaultItem()
-        {
-            if (defaultShield != null)
-                return defaultShield.CreateItem();
-
-            return null;
+            while(holder.childCount != 0)
+                GameObject.DestroyImmediate(holder.GetChild(0).gameObject);
         }
     }
 }

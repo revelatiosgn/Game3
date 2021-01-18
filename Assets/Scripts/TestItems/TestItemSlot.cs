@@ -1,10 +1,9 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 [System.Serializable]
-public class TestItemSlot
+public abstract class TestItemSlot
 {
-    [SerializeReference] 
-    public TestItem item;
-
     public int count;
 }

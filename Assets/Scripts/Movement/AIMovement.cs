@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using ARPG.Controller;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,6 +14,7 @@ namespace ARPG.Movement
 
         NavMeshAgent navMeshAgent;
         Animator animator;
+        AIController aiController;
 
         float speed;
         float smoothVelocity;
@@ -21,6 +23,7 @@ namespace ARPG.Movement
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
             animator = GetComponent<Animator>();
+            aiController = GetComponent<AIController>();
         }
 
         void Start()
@@ -32,8 +35,13 @@ namespace ARPG.Movement
 
         void Update()
         {
-            if (!targetTransform)
+            targetTransform = aiController.targetTransform;
+
+            if (!targetTransform || aiController.state != AIController.State.Chase)
+            {
+                Stop();
                 return;
+            }
 
             if (navMeshAgent.destination != targetTransform.position)
                 navMeshAgent.destination = targetTransform.position;
@@ -42,14 +50,24 @@ namespace ARPG.Movement
 
             if (distance > 0.1f)
             {
-                speed = Mathf.SmoothDamp(speed, 1f, ref smoothVelocity, smoothTime);
-                animator.SetFloat("vertical", speed);
+                Move();
             }
             else
             {
-                speed = Mathf.SmoothDamp(speed, 0f, ref smoothVelocity, smoothTime);
-                animator.SetFloat("vertical", speed);
+                Stop();
             }
+        }
+
+        void Move()
+        {
+            speed = Mathf.SmoothDamp(speed, 1f, ref smoothVelocity, smoothTime);
+            animator.SetFloat("vertical", speed);
+        }
+
+        void Stop()
+        {
+            speed = Mathf.SmoothDamp(speed, 0f, ref smoothVelocity, smoothTime);
+            animator.SetFloat("vertical", speed);
         }
 
         void OnAnimatorMove ()

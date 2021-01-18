@@ -22,20 +22,30 @@ namespace ARPG.Combat
         void Update()
         {
             WeaponBehaviour weaponBehaviour = GetComponent<WeaponBehaviour>();
-            if (weaponBehaviour == null)
-                return;
+            if (weaponBehaviour != null)
+            {
+                if (InputHandler.attackBeginInput)
+                    weaponBehaviour.AttackBegin();
 
-            if (InputHandler.attackBeginInput)
-                weaponBehaviour.AttackBegin();
+                if (InputHandler.attackEndInput)
+                    weaponBehaviour.AttackEnd();
 
-            if (InputHandler.attackEndInput)
-                weaponBehaviour.AttackEnd();
+                if (InputHandler.defenceBeginInput)
+                    weaponBehaviour.DefenceBegin();
 
-            if (InputHandler.defenceBeginInput)
-                weaponBehaviour.DefenceBegin();
+                if (InputHandler.defenceEndInput)
+                    weaponBehaviour.DefenceEnd();
+            }
 
-            if (InputHandler.defenceEndInput)
-                weaponBehaviour.DefenceEnd();
+            ShieldBehaviour shieldBehaviour = GetComponent<ShieldBehaviour>();
+            if (shieldBehaviour != null)
+            {
+                if (InputHandler.defenceBeginInput)
+                    shieldBehaviour.DefenceBegin();
+
+                if (InputHandler.defenceEndInput)
+                    shieldBehaviour.DefenceEnd();
+            }
         }
     }
 }

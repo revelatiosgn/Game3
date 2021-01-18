@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using ARPG.Items;
+using ARPG.Combat;
 
 namespace ARPG.Gear
 {
@@ -15,37 +16,56 @@ namespace ARPG.Gear
             Right
         }
 
-        [SerializeField] Transform leftHand;
-        [SerializeField] Transform rightHand;
-
-        public GameObject currentWeapon;
-        public WeaponStatement defaultWeapon;
+        [SerializeField] Transform leftHolder;
+        [SerializeField] Transform rightHolder;
+        [SerializeField] WeaponItem defaultItem;
 
         public override SlotType GetSlotType()
         {
             return SlotType.Weapon;
         }
 
-        protected override void Equip()
+        public override void Equip(EquipmentItem item, GameObject target)
         {
-            WeaponItem weaponItem = Item as WeaponItem;
-            Transform parent = weaponItem.GetStatement().hand == Hand.Left ? leftHand : rightHand;
-            currentWeapon = GameObject.Instantiate(weaponItem.GetStatement().prefab, parent);
+            base.Equip(item, target);
+
+            WeaponItem weaponItem = item as WeaponItem;
+
+            Transform parent = weaponItem.hand == Hand.Left ? leftHolder : rightHolder;
+            
+            if (parent != null)
+                GameObject.Instantiate(weaponItem.prefab, parent);
+
+            WeaponBehaviour weaponBehaviour = target.GetComponent<WeaponBehaviour>();
+            if (weaponBehaviour != null)
+                GameObject.DestroyImmediate(weaponBehaviour);
+
+            if (weaponItem as MeleeWeaponItem)
+                target.AddComponent<MeleeBehaviour>();
+            else
+                target.AddComponent<RangedBehaviour>();
         }
 
-        protected override void Unequip()
+        public override void Unequip(GameObject target)
         {
-            if (currentWeapon)
-                GameObject.Destroy(currentWeapon);
-            currentWeapon = null;
+            base.Unequip(target);
+
+            while(leftHolder.childCount != 0)
+                GameObject.DestroyImmediate(leftHolder.GetChild(0).gameObject);
+
+            while(rightHolder.childCount != 0)
+                GameObject.DestroyImmediate(rightHolder.GetChild(0).gameObject);
+
+            WeaponBehaviour weaponBehaviour = target.GetComponent<WeaponBehaviour>();
+            if (weaponBehaviour != null)
+                GameObject.DestroyImmediate(weaponBehaviour);
+
+            Equip(defaultItem, target);
         }
-
-        protected override EquipmentItem GetDefaultItem()
+        
+        public Transform GetWeaponTransform()
         {
-            if (defaultWeapon != null)
-                return defaultWeapon.CreateItem();
-
-            return null;
+            return leftHolder.GetChild(0) != null ? leftHolder.GetChild(0) : rightHolder.GetChild(0);
         }
     }
 }

@@ -9,5 +9,5 @@ AnimatorOverrideController:
   m_Name: Weapon2h
   m_Controller: {fileID: 9100000, guid: 6832195d974a2e1438998c7d9662a18b, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7144149005208940387, guid: 0784f69741227b043a528226cccb58dd, type: 3}
-    m_OverrideClip: {fileID: 8706809541198408107, guid: 0784f69741227b043a528226cccb58dd, type: 3}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 422989118ae377b4687cbff7fdf05616, type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 4fa0413861c72d044a8e1dadb719a77e, type: 3}

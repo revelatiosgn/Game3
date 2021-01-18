@@ -7,7 +7,6 @@ namespace ARPG.Inventory
 {
     public class ItemsContainer : MonoBehaviour
     {
-        [SerializeReference]
         [SerializeField] List<ItemSlot> itemSlots;
 
         public List<ItemSlot> ItemSlots
@@ -18,7 +17,7 @@ namespace ARPG.Inventory
 
         public bool AddItemSlot(ItemSlot itemSlot)
         {
-            ItemSlot eqSlot = itemSlots.Find(slot => slot.item.IsEquals(itemSlot.item));
+            ItemSlot eqSlot = itemSlots.Find(slot => slot.item == itemSlot.item);
             if (eqSlot != null)
             {
                 eqSlot.count += itemSlot.count;

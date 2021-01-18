@@ -44,7 +44,7 @@ namespace ARPG.Combat
             state = State.Start;
             attackTrigger = false;
 
-            animator.SetBool("aim", true);
+            animator.SetBool("rangedAim", true);
             animator.SetTrigger("rangedAttackBegin");
 
             movement.State = PlayerMovement.MovementState.Aim;
@@ -91,18 +91,17 @@ namespace ARPG.Combat
             EquipmentWeaponSlot weaponSlot = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Weapon) as EquipmentWeaponSlot;
             if (arrowSlot != null && weaponSlot != null)
             {
-                ArrowItem arrowItem = arrowSlot.Item as ArrowItem;
-                GameObject bow = weaponSlot.currentWeapon;
+                ArrowItem arrowItem = arrowSlot.item as ArrowItem;
+                Transform bow = weaponSlot.GetWeaponTransform();
                 if (arrowItem != null && bow != null)
                 {
-                    ArrowStatement statement = arrowItem.GetStatement();
-                    GameObject arrowObject = Instantiate(statement.arrowPrefab);
-                    arrowObject.transform.position = bow.transform.position + statement.launchOffset;
+                    GameObject arrowObject = Instantiate(arrowItem.arrowPrefab);
+                    arrowObject.transform.position = bow.position + arrowItem.launchOffset;
                     arrowObject.transform.rotation = Camera.main.transform.rotation;
 
                     Arrow arrow = arrowObject.GetComponent<Arrow>();
-                    arrow.speed = statement.speed;
-                    arrow.gravity = statement.gravity;
+                    arrow.speed = arrowItem.speed;
+                    arrow.gravity = arrowItem.gravity;
 
                     RaycastHit hit;
                     if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.rotation * Vector3.forward, out hit))
@@ -119,7 +118,7 @@ namespace ARPG.Combat
             state = State.None;
             movement.State = PlayerMovement.MovementState.Regular;
             CameraFollow.SetState(CameraFollow.CameraState.Regular);
-            animator.SetBool("aim", false);
+            animator.SetBool("rangedAim", false);
             playerController.isInteracting = false;
         }
 
@@ -131,7 +130,7 @@ namespace ARPG.Combat
             if (state != State.None)
             {
                 targetRotation = Quaternion.Inverse(chestTransform.parent.rotation) * Camera.main.transform.rotation;
-                targetRotation *= Quaternion.AngleAxis(90f, Vector3.up);
+                targetRotation *= Quaternion.AngleAxis(-90f, Vector3.forward);
                 animator.SetBoneLocalRotation(HumanBodyBones.UpperChest, targetRotation);
             }
 

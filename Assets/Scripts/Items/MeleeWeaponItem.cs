@@ -1,25 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-using ARPG.Gear;
 using ARPG.Combat;
 
 namespace ARPG.Items
 {
-    [System.Serializable]
+    [CreateAssetMenu(fileName = "MeleeWeapon", menuName = "Items/Equipment/MeleeWeapon", order = 1)]
     public sealed class MeleeWeaponItem : WeaponItem
     {
-        public MeleeWeaponStatement statement;
-
-        public override WeaponStatement GetStatement()
-        {
-            return statement;
-        }
-
-        protected override void AddBehaviour(Transform target)
-        {
-            target.gameObject.AddComponent<MeleeBehaviour>();
-        }
+        [Range(0f, 10f)] public float range = 3f;
+        [Range(0f, 360f)] public float angle = 180f;
     }
 }
+

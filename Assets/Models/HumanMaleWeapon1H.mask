@@ -11,137 +11,188 @@ AvatarMask:
   m_Elements:
   - m_Path: 
     m_Weight: 1
-  - m_Path: Hips
+  - m_Path: Character
     m_Weight: 1
-  - m_Path: Hips/LeftUpLeg
+  - m_Path: Character/Character Pelvis
     m_Weight: 1
-  - m_Path: Hips/LeftUpLeg/LeftLeg
+  - m_Path: Character/Character Pelvis/Character L Thigh
     m_Weight: 1
-  - m_Path: Hips/LeftUpLeg/LeftLeg/LeftFoot
+  - m_Path: Character/Character Pelvis/Character L Thigh/Character L Calf
     m_Weight: 1
-  - m_Path: Hips/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase
+  - m_Path: Character/Character Pelvis/Character L Thigh/Character L Calf/Character
+      L Foot
     m_Weight: 1
-  - m_Path: Hips/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase/LeftToe_End
+  - m_Path: Character/Character Pelvis/Character L Thigh/Character L Calf/Character
+      L Foot/Character L Toe0
     m_Weight: 1
-  - m_Path: Hips/RightUpLeg
+  - m_Path: Character/Character Pelvis/Character R Thigh
     m_Weight: 1
-  - m_Path: Hips/RightUpLeg/RightLeg
+  - m_Path: Character/Character Pelvis/Character R Thigh/Character R Calf
     m_Weight: 1
-  - m_Path: Hips/RightUpLeg/RightLeg/RightFoot
+  - m_Path: Character/Character Pelvis/Character R Thigh/Character R Calf/Character
+      R Foot
     m_Weight: 1
-  - m_Path: Hips/RightUpLeg/RightLeg/RightFoot/RightToeBase
+  - m_Path: Character/Character Pelvis/Character R Thigh/Character R Calf/Character
+      R Foot/Character R Toe0
     m_Weight: 1
-  - m_Path: Hips/RightUpLeg/RightLeg/RightFoot/RightToeBase/RightToe_End
+  - m_Path: Character/Character Pelvis/Character Spine
     m_Weight: 1
-  - m_Path: Hips/Spine
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character L Clavicle
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/LeftShoulder
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character L Clavicle/Character L UpperArm
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character L Clavicle/Character L UpperArm/Character L Forearm
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character L Clavicle/Character L UpperArm/Character L Forearm/Character
+      L Hand
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character L Clavicle/Character L UpperArm/Character L Forearm/Character
+      L Hand/Character L Finger0
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character L Clavicle/Character L UpperArm/Character L Forearm/Character
+      L Hand/Character L Finger0/Character L Finger01
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character L Clavicle/Character L UpperArm/Character L Forearm/Character
+      L Hand/Character L Finger0/Character L Finger01/Character L Finger02
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2/LeftHandIndex3
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character L Clavicle/Character L UpperArm/Character L Forearm/Character
+      L Hand/Character L Finger1
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2/LeftHandIndex3/LeftHandIndex4
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character L Clavicle/Character L UpperArm/Character L Forearm/Character
+      L Hand/Character L Finger1/Character L Finger11
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandMiddle1
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character L Clavicle/Character L UpperArm/Character L Forearm/Character
+      L Hand/Character L Finger1/Character L Finger11/Character L Finger12
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandMiddle1/LeftHandMiddle2
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character L Clavicle/Character L UpperArm/Character L Forearm/Character
+      L Hand/Character L Finger2
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandMiddle1/LeftHandMiddle2/LeftHandMiddle3
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character L Clavicle/Character L UpperArm/Character L Forearm/Character
+      L Hand/Character L Finger2/Character L Finger21
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandMiddle1/LeftHandMiddle2/LeftHandMiddle3/LeftHandMiddle4
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character L Clavicle/Character L UpperArm/Character L Forearm/Character
+      L Hand/Character L Finger2/Character L Finger21/Character L Finger22
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandPinky1
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character L Clavicle/Character L UpperArm/Character L Forearm/Character
+      L Hand/Character L Finger3
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandPinky1/LeftHandPinky2
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character L Clavicle/Character L UpperArm/Character L Forearm/Character
+      L Hand/Character L Finger3/Character L Finger31
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandPinky1/LeftHandPinky2/LeftHandPinky3
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character L Clavicle/Character L UpperArm/Character L Forearm/Character
+      L Hand/Character L Finger3/Character L Finger31/Character L Finger32
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandPinky1/LeftHandPinky2/LeftHandPinky3/LeftHandPinky4
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character L Clavicle/Character L UpperArm/Character L Forearm/Character
+      L Hand/Character L Finger4
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandRing1
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character L Clavicle/Character L UpperArm/Character L Forearm/Character
+      L Hand/Character L Finger4/Character L Finger41
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandRing1/LeftHandRing2
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character L Clavicle/Character L UpperArm/Character L Forearm/Character
+      L Hand/Character L Finger4/Character L Finger41/Character L Finger42
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandRing1/LeftHandRing2/LeftHandRing3
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character Neck
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandRing1/LeftHandRing2/LeftHandRing3/LeftHandRing4
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character Neck/Character Head
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character R Clavicle
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character R Clavicle/Character R UpperArm
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2/LeftHandThumb3
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character R Clavicle/Character R UpperArm/Character R Forearm
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2/LeftHandThumb3/LeftHandThumb4
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character R Clavicle/Character R UpperArm/Character R Forearm/Character
+      R Hand
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/Neck
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character R Clavicle/Character R UpperArm/Character R Forearm/Character
+      R Hand/Character R Finger0
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/Neck/Head
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character R Clavicle/Character R UpperArm/Character R Forearm/Character
+      R Hand/Character R Finger0/Character R Finger01
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/Neck/Head/HeadTop_End
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character R Clavicle/Character R UpperArm/Character R Forearm/Character
+      R Hand/Character R Finger0/Character R Finger01/Character R Finger02
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/Neck/Head/LeftEye
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character R Clavicle/Character R UpperArm/Character R Forearm/Character
+      R Hand/Character R Finger1
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/Neck/Head/RightEye
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character R Clavicle/Character R UpperArm/Character R Forearm/Character
+      R Hand/Character R Finger1/Character R Finger11
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/RightShoulder
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character R Clavicle/Character R UpperArm/Character R Forearm/Character
+      R Hand/Character R Finger1/Character R Finger11/Character R Finger12
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character R Clavicle/Character R UpperArm/Character R Forearm/Character
+      R Hand/Character R Finger2
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character R Clavicle/Character R UpperArm/Character R Forearm/Character
+      R Hand/Character R Finger2/Character R Finger21
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character R Clavicle/Character R UpperArm/Character R Forearm/Character
+      R Hand/Character R Finger2/Character R Finger21/Character R Finger22
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character R Clavicle/Character R UpperArm/Character R Forearm/Character
+      R Hand/Character R Finger3
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character R Clavicle/Character R UpperArm/Character R Forearm/Character
+      R Hand/Character R Finger3/Character R Finger31
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2/RightHandIndex3
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character R Clavicle/Character R UpperArm/Character R Forearm/Character
+      R Hand/Character R Finger3/Character R Finger31/Character R Finger32
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2/RightHandIndex3/RightHandIndex4
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character R Clavicle/Character R UpperArm/Character R Forearm/Character
+      R Hand/Character R Finger4
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandMiddle1
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character R Clavicle/Character R UpperArm/Character R Forearm/Character
+      R Hand/Character R Finger4/Character R Finger41
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandMiddle1/RightHandMiddle2
+  - m_Path: Character/Character Pelvis/Character Spine/Character Spine1/Character
+      Spine2/Character R Clavicle/Character R UpperArm/Character R Forearm/Character
+      R Hand/Character R Finger4/Character R Finger41/Character R Finger42
     m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandMiddle1/RightHandMiddle2/RightHandMiddle3
-    m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandMiddle1/RightHandMiddle2/RightHandMiddle3/RightHandMiddle4
-    m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandPinky1
-    m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandPinky1/RightHandPinky2
-    m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandPinky1/RightHandPinky2/RightHandPinky3
-    m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandPinky1/RightHandPinky2/RightHandPinky3/RightHandPinky4
-    m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandRing1
-    m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandRing1/RightHandRing2
-    m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandRing1/RightHandRing2/RightHandRing3
-    m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandRing1/RightHandRing2/RightHandRing3/RightHandRing4
-    m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1
-    m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2
-    m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2/RightHandThumb3
-    m_Weight: 1
-  - m_Path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2/RightHandThumb3/RightHandThumb4
+  - m_Path: Female_Animation_Mesh (Hide)
     m_Weight: 1

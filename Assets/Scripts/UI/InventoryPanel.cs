@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using ARPG.Inventory;
 using ARPG.Gear;
 using ARPG.Core;
+using ARPG.Items;
 
 namespace ARPG.UI
 {

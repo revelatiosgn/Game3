@@ -4,6 +4,7 @@ using UnityEngine;
 
 using ARPG.Gear;
 using ARPG.Controller;
+using ARPG.Items;
 
 namespace ARPG.Combat
 {
@@ -18,6 +19,13 @@ namespace ARPG.Combat
             animator = GetComponent<Animator>();
             equipment = GetComponent<Equipment>();
             playerController = GetComponent<PlayerController>();
+            WeaponItem weaponItem = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Weapon).item as WeaponItem;
+            animator.runtimeAnimatorController = weaponItem.animatorContoller;
+            animator.SetLayerWeight(animator.GetLayerIndex(weaponItem.layerName), 1f);
+        }
+
+        protected virtual void Start()
+        {
         }
 
         public abstract bool AttackBegin();

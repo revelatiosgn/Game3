@@ -4,28 +4,13 @@ using UnityEngine;
 
 namespace ARPG.Items
 {
-    [System.Serializable]
+    [CreateAssetMenu(fileName = "Potion", menuName = "Items/Potion", order = 1)]
     public sealed class PotionItem : Item
     {
-        public PotionStatement statement;
+        public float hp;
 
-        public override Sprite GetIcon()
+        public override void OnUse(GameObject target)
         {
-            return statement.icon;
-        }
-
-        public override void OnUse()
-        {
-            Debug.Log("heal " + statement.hp);
-        }
-
-        public override bool IsEquals(Item other)
-        {
-            PotionItem potionItem = other as PotionItem;
-            if (potionItem != null && potionItem.statement == statement)
-                return true;
-
-            return false;
         }
     }
 }

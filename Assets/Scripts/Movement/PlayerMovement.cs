@@ -47,7 +47,7 @@ namespace ARPG.Movement
 
         void Start()
         {
-            // animator.SetBool("aimMovement", true);
+            animator.SetBool("aimMovement", true);
         }
 
         void Update()

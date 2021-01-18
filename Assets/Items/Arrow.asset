@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79cc7f207953f72468a4952a8ec25a4d, type: 3}
   m_Name: Arrow
   m_EditorClassIdentifier: 
+  title: Arrow
   icon: {fileID: 21300000, guid: 73bec1a4c2a7b2647b259852e8a906ee, type: 3}
   arrowPrefab: {fileID: 1356878736609052356, guid: fc72b6b868b246b49aa40735fb198229, type: 3}
   quiverPrefab: {fileID: 8238387829111876496, guid: ea0fad37d4c0eaf4eac6f373528376e5, type: 3}

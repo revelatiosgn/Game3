@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Item
+namespace ARPG.Items
 {
-    public abstract Sprite GetIcon();
-    public abstract void OnUse();
-    public abstract bool IsEquals(Item other);
+    public abstract class Item : ScriptableObject
+    {
+        public string title = "Unnamed Item";
+        public Sprite icon;
+
+        public abstract void OnUse(GameObject target);
+    }
 }
+

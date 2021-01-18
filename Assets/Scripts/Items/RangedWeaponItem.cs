@@ -1,25 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-
 using ARPG.Gear;
-using ARPG.Combat;
+using UnityEngine;
 
 namespace ARPG.Items
 {
-    [System.Serializable]
+    [CreateAssetMenu(fileName = "RangedWeapon", menuName = "Items/Equipment/RangedWeapon", order = 1)]
     public sealed class RangedWeaponItem : WeaponItem
     {
-        public RangedWeaponStatement statement;
-
-        public override WeaponStatement GetStatement()
-        {
-            return statement;
-        }
-
-        protected override void AddBehaviour(Transform target)
-        {
-            target.gameObject.AddComponent<RangedBehaviour>();
-        }
     }
 }
+

@@ -9,34 +9,29 @@ namespace ARPG.Gear
     [System.Serializable]
     public class EquipmentArrowSlot : EquipmentSlot
     {
-        [SerializeField] Transform back;
-
-        public GameObject currentQuiver;
-        public ArrowStatement defaultArrow;
+        [SerializeField] Transform holder;
 
         public override SlotType GetSlotType()
         {
             return SlotType.Arrow;
         }
 
-        protected override void Equip()
+        public override void Equip(EquipmentItem item, GameObject target)
         {
-            ArrowItem arrowItem = Item as ArrowItem;
-            currentQuiver = GameObject.Instantiate(arrowItem.GetStatement().quiverPrefab, back);
+            base.Equip(item, target);
+
+            ArrowItem arrowItem = item as ArrowItem;
+
+            if (holder != null)
+                GameObject.Instantiate(arrowItem.quiverPrefab, holder);
         }
 
-        protected override void Unequip()
+        public override void Unequip(GameObject target)
         {
-            if (currentQuiver)
-                GameObject.Destroy(currentQuiver);
-        }
+            base.Unequip(target);
 
-        protected override EquipmentItem GetDefaultItem()
-        {
-            if (defaultArrow != null)
-                return defaultArrow.CreateItem();
-
-            return null;
+            while(holder.childCount != 0)
+                GameObject.DestroyImmediate(holder.GetChild(0).gameObject);
         }
     }
 }

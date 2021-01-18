@@ -17,13 +17,13 @@ public class ShieldBehaviour : MonoBehaviour
 
     public void DefenceBegin()
     {
-        movement.State = PlayerMovement.MovementState.Aim;
-        animator.Play("ShieldDefenceBegin");
+        animator.SetBool("defence", true);
+        GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Aim;
     }
 
     public void DefenceEnd()
     {
-        movement.State = PlayerMovement.MovementState.Regular;
-        animator.Play("None", 2);
+        animator.SetBool("defence", false);
+        GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Regular;
     }
 }

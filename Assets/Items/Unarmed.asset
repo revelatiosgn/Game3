@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a64b31c59d2f2d64e912305924245175, type: 3}
   m_Name: Unarmed
   m_EditorClassIdentifier: 
+  title: default
   icon: {fileID: 0}
   prefab: {fileID: 8251791236666000215, guid: 23edae66f86e169409be3c7629e34074, type: 3}
   baseDamage: 3
-  animatorContoller: {fileID: 22100000, guid: b7c1ac72e6db6d747808523bc3658576, type: 2}
+  animatorContoller: {fileID: 22100000, guid: fb782573d387c424e80a8a3ce186892e, type: 2}
   hand: 0
+  type: 0
+  layerName: 
+  range: 3
+  angle: 180
