@@ -26,7 +26,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 942183786235096072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 200}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5475117580339831552}
@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5684962277806924394
 CanvasRenderer:
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca8d5dafcef3f054c8a4e578ada227dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputHandler: {fileID: 0}
+  inputHandler: {fileID: 11400000, guid: a10a1ac1e50546d49b9d0f160ebda2d6, type: 2}
   inventoryPanel: {fileID: 3605601528122881955}
 --- !u!1001 &3932337809289077129
 PrefabInstance:
@@ -245,6 +245,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 332091113661650474, guid: b05048472d2378a4e85903ce0c53d5d0, type: 3}
+      propertyPath: onEquip
+      value: 
+      objectReference: {fileID: 11400000, guid: ea11a6d0cae4981449a7ea75fedb660f, type: 2}
+    - target: {fileID: 332091113661650474, guid: b05048472d2378a4e85903ce0c53d5d0, type: 3}
+      propertyPath: onUnequip
+      value: 
+      objectReference: {fileID: 11400000, guid: bd584113acbab564c90f132f129aef2b, type: 2}
     - target: {fileID: 543557696075280164, guid: b05048472d2378a4e85903ce0c53d5d0, type: 3}
       propertyPath: m_Name
       value: InventoryPanel
@@ -465,6 +473,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5176516650069370022, guid: b05048472d2378a4e85903ce0c53d5d0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 5879248331372019176, guid: b05048472d2378a4e85903ce0c53d5d0, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -539,7 +551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6944215289801926588, guid: b05048472d2378a4e85903ce0c53d5d0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7521442307058267120, guid: b05048472d2378a4e85903ce0c53d5d0, type: 3}
       propertyPath: m_AnchorMin.y

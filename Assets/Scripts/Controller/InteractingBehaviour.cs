@@ -11,7 +11,6 @@ namespace ARPG.Controller
             PlayerController playerController = animator.GetComponent<PlayerController>();
             if (playerController)
             {
-                playerController.isInteracting = false;
             }
         }
     }

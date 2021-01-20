@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a64b31c59d2f2d64e912305924245175, type: 3}
+  m_Name: TwoHandedSword
+  m_EditorClassIdentifier: 
+  title: Two-handed sword
+  icon: {fileID: 21300000, guid: 31f71afa209b3ab4eb514ce34a804004, type: 3}
+  prefab: {fileID: 707715926206357918, guid: 95c03c465be17aa4e8b2242f2fa7a8ee, type: 3}
+  baseDamage: 20
+  animatorContoller: {fileID: 22100000, guid: 6415cd4033ce6384687a51e1d304f2a3, type: 2}
+  hand: 1
+  type: 1
+  maskLayer: DHand
+  range: 3
+  angle: 120

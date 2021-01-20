@@ -10,6 +10,7 @@ using ARPG.Inventory;
 using ARPG.Gear;
 
 [CustomEditor(typeof(Equipment))]
+
 public class EquipmentsEditor : Editor
 {
     Equipment equipment;
@@ -26,15 +27,16 @@ public class EquipmentsEditor : Editor
         equipmentList.onAddDropdownCallback = OnAddDropdownCallback;
         equipmentList.drawElementCallback = DrawElementCallback;
         equipmentList.elementHeightCallback = ElementHeightCallback;
+        equipmentList.footerHeight = 60f;
 
-        equipment.onEquip.AddListener(OnEquip);
-        equipment.onUnequip.AddListener(OnUnequip);
+        ((ItemEvent) serializedObject.FindProperty("onEquip").objectReferenceValue).OnEventRaised += OnEquip;
+        ((ItemEvent) serializedObject.FindProperty("onUnequip").objectReferenceValue).OnEventRaised += OnUnequip;
     }
 
     void OnDisable()
     {
-        equipment.onEquip.RemoveListener(OnEquip);
-        equipment.onUnequip.RemoveListener(OnUnequip);
+        ((ItemEvent) serializedObject.FindProperty("onEquip").objectReferenceValue).OnEventRaised -= OnEquip;
+        ((ItemEvent) serializedObject.FindProperty("onUnequip").objectReferenceValue).OnEventRaised -= OnUnequip;
     }
 
     void OnEquip(Item item)
@@ -49,19 +51,27 @@ public class EquipmentsEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        EditorGUI.BeginChangeCheck();
-
         serializedObject.Update();
+
         equipmentList.DoLayoutList();
+
+        float height = equipmentList.GetHeight() - 50f;
+
+        EditorGUI.LabelField(new Rect(20f, height, 100f, height: EditorGUIUtility.singleLineHeight), "On Equip");
+        EditorGUI.PropertyField(position:
+        new Rect(110f, height, 200f, height: EditorGUIUtility.singleLineHeight), property:
+            serializedObject.FindProperty("onEquip"), GUIContent.none, includeChildren: true);
+
+        height += 25f;
+        EditorGUI.LabelField(new Rect(20f, height, 100f, height: EditorGUIUtility.singleLineHeight), "On Unequip");
+        EditorGUI.PropertyField(position:
+        new Rect(110f, height, 200f, height: EditorGUIUtility.singleLineHeight), property:
+            serializedObject.FindProperty("onUnequip"), GUIContent.none, includeChildren: true);
+
         serializedObject.ApplyModifiedProperties();
-
-
-        if (EditorGUI.EndChangeCheck())
-        {
-        }
     }
 
-    private void DrawHeaderCallback(Rect rect)
+    void DrawHeaderCallback(Rect rect)
     {
         EditorGUI.LabelField(rect, "Equipments");
     }
@@ -72,7 +82,8 @@ public class EquipmentsEditor : Editor
         GenericMenu menu = new GenericMenu();
         foreach (Type type in types)
         {
-            menu.AddItem(new GUIContent(type.Name), false, AddItem, type);
+            if (type.IsSealed)
+                menu.AddItem(new GUIContent(type.Name), false, AddItem, type);
         }
         menu.ShowAsContext();
     }
@@ -97,7 +108,7 @@ public class EquipmentsEditor : Editor
             new Rect(rect.x += 10, rect.y, Screen.width * .8f, height: EditorGUIUtility.singleLineHeight), property:
             element, label: new GUIContent(equipmentSlot.GetSlotType().ToString()), includeChildren: true);
 
-        if (equipmentSlot.item && !isDefaultItem(element))
+        if (equipmentSlot.item != null)
         {
             float height = EditorGUI.GetPropertyHeight(equipmentList.serializedProperty.GetArrayElementAtIndex(index), true);
             GUI.Label(new Rect(rect.x + 10, rect.y + height + 5, Screen.width * .8f, height: EditorGUIUtility.singleLineHeight), equipmentSlot.item.title);
@@ -116,20 +127,11 @@ public class EquipmentsEditor : Editor
         float spacing = EditorGUIUtility.singleLineHeight / 2;
 
         EquipmentSlot equipmentSlot = equipment.EquipmentSlots[index];
-        if (equipmentSlot.item && !isDefaultItem(element))
+        if (equipmentSlot.item != null)
         {
             propertyHeight += EditorGUIUtility.singleLineHeight * 2.0f;
         }
 
         return propertyHeight + spacing;
-    }
-
-    bool isDefaultItem(SerializedProperty element)
-    {
-        SerializedProperty prop = element.FindPropertyRelative("defaultItem");
-        if (prop != null && prop.objectReferenceValue == element.FindPropertyRelative("item").objectReferenceValue)
-            return true;
-
-        return false;
     }
 }

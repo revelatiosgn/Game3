@@ -17,8 +17,8 @@ namespace ARPG.Gear
             private set { equipmentSlots = value; }
         }
         
-        public ItemEvent onEquip = new ItemEvent();
-        public ItemEvent onUnequip = new ItemEvent();
+        [SerializeField] ItemEvent onEquip = default;
+        [SerializeField] ItemEvent onUnequip = default;
 
         void Awake()
         {
@@ -37,12 +37,12 @@ namespace ARPG.Gear
 
             if (slot.item != null)
             {
-                onUnequip.Invoke(slot.item);
+                onUnequip.RaiseEvent(slot.item);
                 slot.Unequip(gameObject);
             }
 
             slot.Equip(item, gameObject);
-            onEquip.Invoke(item);
+            onEquip.RaiseEvent(item);
 
             ResolveConflict(item);
         }
@@ -51,8 +51,11 @@ namespace ARPG.Gear
         {
             EquipmentSlot slot = GetEquipmentSlot(item.GetSlotType());
 
-            onUnequip.Invoke(slot.item);
+            onUnequip.RaiseEvent(slot.item);
             slot.Unequip(gameObject);
+
+            slot.EquipDefault(gameObject);
+            onEquip.RaiseEvent(slot.item);
         }
         
         public bool IsEquipped(Item item)
@@ -72,38 +75,34 @@ namespace ARPG.Gear
 
         void ResolveConflict(EquipmentItem item)
         {
-            // if ((item as ShieldItem) != null)
-            // {
-            //     EquipmentWeaponSlot weaponSlot = GetEquipmentSlot(EquipmentSlot.SlotType.Weapon) as EquipmentWeaponSlot;
-            //     if (weaponSlot != null)
-            //     {
-            //         WeaponItem weaponItem = weaponSlot.Item as WeaponItem;
-            //         WeaponStatement statement = weaponItem.statement as WeaponStatement;
+            if ((item as ShieldItem) != null)
+            {
+                EquipmentWeaponSlot weaponSlot = GetEquipmentSlot(EquipmentSlot.SlotType.Weapon) as EquipmentWeaponSlot;
+                if (weaponSlot != null)
+                {
+                    WeaponItem weaponItem = weaponSlot.item as WeaponItem;
+                    if (weaponItem != null && weaponItem.type == WeaponItem.Type.TwoHanded)
+                    {
+                        UnEquip(weaponItem);
+                    }
+                }
+            }
 
-            //         if (weaponItem != null && statement.type == WeaponStatement.Type.TwoHanded)
-            //         {
-            //             UnEquip(weaponItem);
-            //         }
-            //     }
-            // }
-
-            // if ((item as WeaponItem) != null)
-            // {
-            //     WeaponStatement statement = item.statement as WeaponStatement;
-
-            //     if (statement.type == WeaponStatement.Type.TwoHanded)
-            //     {
-            //         EquipmentShieldSlot shieldSlot = GetEquipmentSlot(EquipmentSlot.SlotType.Shield) as EquipmentShieldSlot;
-            //         if (shieldSlot != null)
-            //         {
-            //             ShieldItem shieldItem = shieldSlot.Item as ShieldItem;
-            //             if (shieldItem != null)
-            //             {
-            //                 UnEquip(shieldItem);
-            //             }
-            //         }
-            //     }
-            // }
+            if ((item as WeaponItem) != null)
+            {
+                if ((item as WeaponItem).type == WeaponItem.Type.TwoHanded)
+                {
+                    EquipmentShieldSlot shieldSlot = GetEquipmentSlot(EquipmentSlot.SlotType.Shield) as EquipmentShieldSlot;
+                    if (shieldSlot != null)
+                    {
+                        ShieldItem shieldItem = shieldSlot.item as ShieldItem;
+                        if (shieldItem != null)
+                        {
+                            UnEquip(shieldItem);
+                        }
+                    }
+                }
+            }
         }
     }
 }

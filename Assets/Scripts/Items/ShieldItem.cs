@@ -10,7 +10,7 @@ namespace ARPG.Items
     {
         public GameObject shieldPrefab;
         public float baseArmor;
-        public string layerName = "";
+        public string actionLayer = "Shield";
 
         public override EquipmentSlot.SlotType GetSlotType()
         {

@@ -15,7 +15,8 @@ namespace ARPG.Gear
             Weapon,
             Arrow,
             Shield,
-            Armor
+            ChestArmor,
+            LegsArmor
         }
 
         public EquipmentItem item;
@@ -33,6 +34,18 @@ namespace ARPG.Gear
         public virtual void Unequip(GameObject target)
         {
             this.item = null;
+        }
+
+        public virtual void EquipDefault(GameObject target)
+        {
+        }
+
+        protected void Destroy(Object obj)
+        {
+            if (Application.isPlaying)
+                GameObject.Destroy(obj);
+            else
+                GameObject.DestroyImmediate(obj);
         }
     }
 }

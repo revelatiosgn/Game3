@@ -59,7 +59,7 @@
      <Compile Include="Assets\Scripts\UI\InventorySlot.cs" />
      <Compile Include="Assets\Scripts\Utils\QuaternionUtil.cs" />
      <Compile Include="Assets\Scripts\Movement\PlayerMovement.cs" />
-     <Compile Include="Assets\Scripts\Constants.cs" />
+     <Compile Include="Assets\Scripts\Utils\Constants.cs" />
      <Compile Include="Assets\Scripts\Combat\Arrow.cs" />
      <Compile Include="Assets\Scripts\Combat\WeaponEvent.cs" />
      <Compile Include="Assets\Scripts\Items\Item.cs" />
@@ -68,9 +68,9 @@
      <Compile Include="Assets\Scripts\UI\InventoryPanel.cs" />
      <Compile Include="Assets\Scripts\Combat\MeleeBehaviour.cs" />
      <Compile Include="Assets\Scripts\Utils\Teleport.cs" />
-     <Compile Include="Assets\Scripts\TestItems\TestInventory.cs" />
      <Compile Include="Assets\Scripts\Controller\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Items\WeaponItem.cs" />
+     <Compile Include="Assets\Scripts\Core\CameraSystem.cs" />
      <Compile Include="Assets\Scripts\Combat\AICombat.cs" />
      <Compile Include="Assets\Scripts\Items\ArmorItem.cs" />
      <Compile Include="Assets\Scripts\Items\RangedWeaponItem.cs" />
@@ -82,10 +82,15 @@
      <Compile Include="Assets\Scripts\Combat\Weapon.cs" />
      <Compile Include="Assets\Scripts\Inventory\ItemPickup.cs" />
      <Compile Include="Assets\Scripts\Combat\PlayerCombat.cs" />
-     <Compile Include="Assets\Scripts\TestItems\TestItemSlot.cs" />
+     <Compile Include="Assets\Scripts\Core\CameraEvent.cs" />
      <Compile Include="Assets\Scripts\Controller\InteractingBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Combat\EquipmentBehaviour.cs" />
      <Compile Include="Assets\Scripts\UI\UIController.cs" />
      <Compile Include="Assets\Scripts\Gear\EquipmentArmorSlot.cs" />
+     <Compile Include="Assets\Scripts\Items\ChestArmorItem.cs" />
+     <Compile Include="Assets\Scripts\Items\LegsArmorItem.cs" />
+     <Compile Include="Assets\Scripts\Gear\EquipmentChestArmorSlot.cs" />
+     <Compile Include="Assets\Scripts\Gear\EquipmentLegsArmorSlot.cs" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Glass_Global.shader" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Object.shader" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Global.shader" />

@@ -20,7 +20,7 @@ namespace ARPG.Items
         public AnimatorOverrideController animatorContoller;
         public EquipmentWeaponSlot.Hand hand;
         public Type type = Type.OneHanded;
-        public string layerName = "";
+        public string maskLayer = "";
 
         public override EquipmentSlot.SlotType GetSlotType()
         {

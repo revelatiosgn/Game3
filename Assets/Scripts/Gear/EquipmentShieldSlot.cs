@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using ARPG.Items;
+using ARPG.Combat;
 
 namespace ARPG.Gear
 {
     [System.Serializable]
-    public class EquipmentShieldSlot : EquipmentSlot
+    public sealed class EquipmentShieldSlot : EquipmentSlot
     {
         [SerializeField] Transform holder;
 
@@ -27,15 +28,22 @@ namespace ARPG.Gear
 
             ShieldBehaviour shieldBehaviour = target.GetComponent<ShieldBehaviour>();
             if (shieldBehaviour != null)
-                GameObject.DestroyImmediate(shieldBehaviour);
+                Destroy(shieldBehaviour);
+
+            target.AddComponent<ShieldBehaviour>();
         }
 
         public override void Unequip(GameObject target)
         {
-            base.Unequip(target);
+            int childCount = holder.childCount;
+            for (int i = childCount - 1; i >= 0; i--)
+                Destroy(holder.GetChild(i).gameObject);
 
-            while(holder.childCount != 0)
-                GameObject.DestroyImmediate(holder.GetChild(0).gameObject);
+            ShieldBehaviour weaponBehaviour = target.GetComponent<ShieldBehaviour>();
+            if (weaponBehaviour != null)
+                Destroy(weaponBehaviour);
+
+            base.Unequip(target);
         }
     }
 }

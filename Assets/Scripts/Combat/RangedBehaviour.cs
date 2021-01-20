@@ -6,6 +6,7 @@ using ARPG.Movement;
 using ARPG.Gear;
 using ARPG.Items;
 using ARPG.Core;
+using UnityEditor;
 
 namespace ARPG.Combat
 {
@@ -20,6 +21,8 @@ namespace ARPG.Combat
         }
 
         PlayerMovement movement;
+        PlayerCombat playerCombat;
+
         State state = State.None;
         Quaternion rotation;
         Quaternion rotationSpeed;
@@ -28,12 +31,25 @@ namespace ARPG.Combat
         protected override void Awake()
         {
             base.Awake();
+
             movement = GetComponent<PlayerMovement>();
+            playerCombat = GetComponent<PlayerCombat>();
         }
 
-        void Update()
+        protected override void OnEnable()
         {
-            
+            base.OnEnable();
+
+            RangedWeaponItem weaponItem = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Weapon).item as RangedWeaponItem;
+            animator.SetLayerWeight(animator.GetLayerIndex(weaponItem.actionLayer), 1f);
+        }
+
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+
+            RangedWeaponItem weaponItem = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Weapon).item as RangedWeaponItem;
+            animator.SetLayerWeight(animator.GetLayerIndex(weaponItem.actionLayer), 0f);
         }
 
         public override bool AttackBegin()
@@ -49,6 +65,9 @@ namespace ARPG.Combat
 
             movement.State = PlayerMovement.MovementState.Aim;
             CameraFollow.SetState(CameraFollow.CameraState.Aiming);
+
+            RangedWeaponItem weaponItem = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Weapon).item as RangedWeaponItem;
+            animator.SetLayerWeight(animator.GetLayerIndex(weaponItem.maskLayer), 0f);
 
             return true;
         }
@@ -119,7 +138,9 @@ namespace ARPG.Combat
             movement.State = PlayerMovement.MovementState.Regular;
             CameraFollow.SetState(CameraFollow.CameraState.Regular);
             animator.SetBool("rangedAim", false);
-            playerController.isInteracting = false;
+
+            RangedWeaponItem weaponItem = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Weapon).item as RangedWeaponItem;
+            animator.SetLayerWeight(animator.GetLayerIndex(weaponItem.maskLayer), 1f);
         }
 
         void OnAnimatorIK(int layer)

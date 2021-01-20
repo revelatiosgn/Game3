@@ -7,7 +7,7 @@ using ARPG.Items;
 namespace ARPG.Gear
 {
     [System.Serializable]
-    public class EquipmentArrowSlot : EquipmentSlot
+    public sealed class EquipmentArrowSlot : EquipmentSlot
     {
         [SerializeField] Transform holder;
 
@@ -30,8 +30,9 @@ namespace ARPG.Gear
         {
             base.Unequip(target);
 
-            while(holder.childCount != 0)
-                GameObject.DestroyImmediate(holder.GetChild(0).gameObject);
+            int childCount = holder.childCount;
+            for (int i = childCount - 1; i >= 0; i--)
+                Destroy(holder.GetChild(i).gameObject);
         }
     }
 }

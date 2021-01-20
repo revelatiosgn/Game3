@@ -3,27 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using ARPG.Movement;
+using ARPG.Items;
+using ARPG.Gear;
 
-public class ShieldBehaviour : MonoBehaviour
+namespace ARPG.Combat
 {
-    Animator animator;
-    PlayerMovement movement;
-
-    void Awake()
+    public class ShieldBehaviour : EquipmentBehaviour
     {
-        animator = GetComponent<Animator>();
-        movement = GetComponent<PlayerMovement>();
-    }
+        void OnEnable()
+        {
+            ShieldItem shieldItem = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Shield).item as ShieldItem;
+            animator.SetLayerWeight(animator.GetLayerIndex(shieldItem.actionLayer), 1f);
+            animator.SetFloat("shield", 1f);
+        }
 
-    public void DefenceBegin()
-    {
-        animator.SetBool("defence", true);
-        GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Aim;
-    }
+        void OnDisable()
+        {
+            ShieldItem shieldItem = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Shield).item as ShieldItem;
+            animator.SetLayerWeight(animator.GetLayerIndex(shieldItem.actionLayer), 0f);
+            animator.SetFloat("shield", 0f);
+        }
 
-    public void DefenceEnd()
-    {
-        animator.SetBool("defence", false);
-        GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Regular;
+        public void DefenceBegin()
+        {
+            animator.SetBool("defence", true);
+            GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Aim;
+        }
+
+        public void DefenceEnd()
+        {
+            animator.SetBool("defence", false);
+            GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Regular;
+        }
     }
 }

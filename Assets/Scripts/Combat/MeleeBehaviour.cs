@@ -61,8 +61,6 @@ namespace ARPG.Combat
         void OnComplete()
         {
             isAttacking = false;
-
-            Debug.Log("attack complete");
         }
 
         void OnWeaponEvent(Transform target)

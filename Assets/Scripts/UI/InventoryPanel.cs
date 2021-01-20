@@ -14,6 +14,8 @@ namespace ARPG.UI
     {
         [SerializeField] GridLayoutGroup grid;
         [SerializeField] Button close;
+        [SerializeField] ItemEvent onEquip;
+        [SerializeField] ItemEvent onUnequip;
 
         ItemsContainer itemsContainer;
         Equipment equipment;
@@ -43,17 +45,17 @@ namespace ARPG.UI
                 inventorySlot.SetEquipped(equipment.IsEquipped(itemSlot.item));
             }
 
-            equipment.onEquip.AddListener(OnEquip);
-            equipment.onUnequip.AddListener(OnUnequip);
+            onEquip.OnEventRaised += OnEquip;
+            onUnequip.OnEventRaised += OnUnequip;
         }
 
         void OnDisable()
         {
             foreach (Transform child in grid.transform)
                 child.GetComponent<InventorySlot>().ItemSlot = null;
-            
-            equipment.onEquip.RemoveListener(OnEquip);
-            equipment.onUnequip.RemoveListener(OnUnequip);
+
+            onEquip.OnEventRaised -= OnEquip;
+            onUnequip.OnEventRaised -= OnUnequip;
         }
 
         InventorySlot GetInventorySlot(Item item)

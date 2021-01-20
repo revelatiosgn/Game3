@@ -7,15 +7,15 @@
             "actions": [
                 {
                     "name": "Movement",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "567f8c8d-20ab-49c5-80a9-87daf8b74d5b",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 },
                 {
-                    "name": "Camera",
-                    "type": "PassThrough",
+                    "name": "RotateCamera",
+                    "type": "Value",
                     "id": "be29e7dd-9bc5-47cd-b8ab-14cf98194ff5",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -101,7 +101,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Camera",
+                    "action": "RotateCamera",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

@@ -7,24 +7,17 @@ using ARPG.Items;
 namespace ARPG.Gear
 {
     [System.Serializable]
-    public class EquipmentArmorSlot : EquipmentSlot
+    public abstract class EquipmentArmorSlot : EquipmentSlot
     {
         [SerializeField] Transform model;
+        [SerializeField] ArmorItem defaultItem;
 
         const string namePrefix = "Set Character_";
 
-        public enum BodyPart
-        {
-            Chest
-        }
-
-        public override SlotType GetSlotType()
-        {
-            return SlotType.Armor;
-        }
-
         public override void Equip(EquipmentItem item, GameObject target)
         {
+            base.Equip(item, target);
+
             ArmorItem armorItem = item as ArmorItem;
 
             GameObject itemInstance = GameObject.Instantiate(armorItem.prefab);
@@ -74,14 +67,22 @@ namespace ARPG.Gear
             ArmorItem armorItem = item as ArmorItem;
 
             Transform[] allChildren = model.GetComponentsInChildren<Transform>();
-            for (int i = 0; i < allChildren.Length; i++)
+            for (int i = allChildren.Length - 1; i >= 0 ; i--)
             {
                 Transform obj = allChildren[i];
                 if(obj.name.Contains(namePrefix) && obj.name.Contains(armorItem.prefab.name))
                 {
-                    GameObject.Destroy(obj.gameObject);
+                    Destroy(obj.gameObject);
                 }
             }
+
+            base.Unequip(target);
+        }
+
+        public override void EquipDefault(GameObject target)
+        {
+            base.Equip(defaultItem, target);
+            Equip(defaultItem, target);
         }
 
         private void MatchTransform(Transform obj, Transform target)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using ARPG.Core;
+using System;
 
 namespace ARPG.UI
 {
@@ -16,14 +17,20 @@ namespace ARPG.UI
             inventoryPanel.gameObject.SetActive(false);
         }
 
-        void Update()
+        void OnEnable()
         {
-            if (InputHandler.inventoryInput)
-            {
-                inventoryPanel.gameObject.SetActive(!inventoryPanel.gameObject.activeSelf);
-            }
+            inputHandler.inventoryEvent += OnInventoryEvent;
+        }
 
-            inputHandler.SetInUI(inventoryPanel.gameObject.activeSelf);
+        void OnDisable()
+        {
+            inputHandler.inventoryEvent -= OnInventoryEvent;
+        }
+
+        private void OnInventoryEvent()
+        {
+           inventoryPanel.gameObject.SetActive(!inventoryPanel.gameObject.activeSelf);
+           inputHandler.SetInUI(inventoryPanel.gameObject.activeSelf);
         }
     }
 }

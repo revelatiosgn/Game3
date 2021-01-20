@@ -10,42 +10,57 @@ namespace ARPG.Combat
 {
     public class PlayerCombat : MonoBehaviour
     {
+        [SerializeField] CameraEvent onCameraFreeLook, onCameraAim;
+        
         Animator animator;
-        PlayerController playerController;
 
         void Awake()
         {
             animator = GetComponent<Animator>();
-            playerController = GetComponent<PlayerController>();
         }
 
-        void Update()
+        public void AttackBegin()
         {
-            WeaponBehaviour weaponBehaviour = GetComponent<WeaponBehaviour>();
-            if (weaponBehaviour != null)
+            GetComponent<WeaponBehaviour>()?.AttackBegin();
+            if (GetComponent<RangedBehaviour>())
             {
-                if (InputHandler.attackBeginInput)
-                    weaponBehaviour.AttackBegin();
-
-                if (InputHandler.attackEndInput)
-                    weaponBehaviour.AttackEnd();
-
-                if (InputHandler.defenceBeginInput)
-                    weaponBehaviour.DefenceBegin();
-
-                if (InputHandler.defenceEndInput)
-                    weaponBehaviour.DefenceEnd();
+                StopAllCoroutines();
+                StartCoroutine(AimCamera());
             }
+        }
 
-            ShieldBehaviour shieldBehaviour = GetComponent<ShieldBehaviour>();
-            if (shieldBehaviour != null)
+        public void AttackEnd()
+        {
+            GetComponent<WeaponBehaviour>()?.AttackEnd();
+            if (GetComponent<RangedBehaviour>())
             {
-                if (InputHandler.defenceBeginInput)
-                    shieldBehaviour.DefenceBegin();
-
-                if (InputHandler.defenceEndInput)
-                    shieldBehaviour.DefenceEnd();
+                StopAllCoroutines();
+                StartCoroutine(FreeLookCamera());
             }
+        }
+
+        public void DefenceBegin()
+        {
+            GetComponent<WeaponBehaviour>()?.DefenceBegin();
+            GetComponent<ShieldBehaviour>()?.DefenceBegin();
+        }
+
+        public void DefenceEnd()
+        {
+            GetComponent<WeaponBehaviour>()?.DefenceEnd();
+            GetComponent<ShieldBehaviour>()?.DefenceEnd();
+        }
+
+        IEnumerator AimCamera()
+        {
+            yield return new WaitForSeconds(0f);
+            onCameraAim.RaiseEvent();
+        }
+
+        IEnumerator FreeLookCamera()
+        {
+            yield return new WaitForSeconds(2f);
+            onCameraFreeLook.RaiseEvent();
         }
     }
 }

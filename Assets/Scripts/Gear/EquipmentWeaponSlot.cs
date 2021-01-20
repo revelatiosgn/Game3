@@ -8,7 +8,7 @@ using ARPG.Combat;
 namespace ARPG.Gear
 {
     [System.Serializable]
-    public class EquipmentWeaponSlot : EquipmentSlot
+    public sealed class EquipmentWeaponSlot : EquipmentSlot
     {
         public enum Hand
         {
@@ -38,7 +38,7 @@ namespace ARPG.Gear
 
             WeaponBehaviour weaponBehaviour = target.GetComponent<WeaponBehaviour>();
             if (weaponBehaviour != null)
-                GameObject.DestroyImmediate(weaponBehaviour);
+                Destroy(weaponBehaviour);
 
             if (weaponItem as MeleeWeaponItem)
                 target.AddComponent<MeleeBehaviour>();
@@ -48,19 +48,19 @@ namespace ARPG.Gear
 
         public override void Unequip(GameObject target)
         {
-            base.Unequip(target);
+            int childCount = leftHolder.childCount;
+            for (int i = childCount - 1; i >= 0; i--)
+                Destroy(leftHolder.GetChild(i).gameObject);
 
-            while(leftHolder.childCount != 0)
-                GameObject.DestroyImmediate(leftHolder.GetChild(0).gameObject);
-
-            while(rightHolder.childCount != 0)
-                GameObject.DestroyImmediate(rightHolder.GetChild(0).gameObject);
+            childCount = rightHolder.childCount;
+            for (int i = childCount - 1; i >= 0; i--)
+                Destroy(rightHolder.GetChild(i).gameObject);
 
             WeaponBehaviour weaponBehaviour = target.GetComponent<WeaponBehaviour>();
             if (weaponBehaviour != null)
-                GameObject.DestroyImmediate(weaponBehaviour);
+                Destroy(weaponBehaviour);
 
-            Equip(defaultItem, target);
+            base.Unequip(target);
         }
         
         public Transform GetWeaponTransform()

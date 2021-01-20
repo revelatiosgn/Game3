@@ -8,26 +8,22 @@ using ARPG.Items;
 
 namespace ARPG.Combat
 {
-    public abstract class WeaponBehaviour : MonoBehaviour
+    public abstract class WeaponBehaviour : EquipmentBehaviour
     {
-        protected Animator animator;
-        protected Equipment equipment;
-        protected PlayerController playerController;
-
-        protected virtual void Awake()
+        protected virtual void OnEnable()
         {
-            animator = GetComponent<Animator>();
-            equipment = GetComponent<Equipment>();
-            playerController = GetComponent<PlayerController>();
             WeaponItem weaponItem = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Weapon).item as WeaponItem;
             animator.runtimeAnimatorController = weaponItem.animatorContoller;
-            animator.SetLayerWeight(animator.GetLayerIndex(weaponItem.layerName), 1f);
+            animator.SetLayerWeight(animator.GetLayerIndex(weaponItem.maskLayer), 1f);
         }
 
-        protected virtual void Start()
+        protected virtual void OnDisable()
         {
+            WeaponItem weaponItem = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Weapon).item as WeaponItem;
+            animator.runtimeAnimatorController = weaponItem.animatorContoller;
+            animator.SetLayerWeight(animator.GetLayerIndex(weaponItem.maskLayer), 0f);
         }
-
+        
         public abstract bool AttackBegin();
         public abstract void AttackEnd();
 

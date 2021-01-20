@@ -20,15 +20,15 @@ public class @InputActions : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Movement"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Value"",
                     ""id"": ""567f8c8d-20ab-49c5-80a9-87daf8b74d5b"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Camera"",
-                    ""type"": ""PassThrough"",
+                    ""name"": ""RotateCamera"",
+                    ""type"": ""Value"",
                     ""id"": ""be29e7dd-9bc5-47cd-b8ab-14cf98194ff5"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -114,7 +114,7 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Camera"",
+                    ""action"": ""RotateCamera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -267,7 +267,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         // Player Movement
         m_PlayerMovement = asset.FindActionMap("Player Movement", throwIfNotFound: true);
         m_PlayerMovement_Movement = m_PlayerMovement.FindAction("Movement", throwIfNotFound: true);
-        m_PlayerMovement_Camera = m_PlayerMovement.FindAction("Camera", throwIfNotFound: true);
+        m_PlayerMovement_RotateCamera = m_PlayerMovement.FindAction("RotateCamera", throwIfNotFound: true);
         m_PlayerMovement_Zoom = m_PlayerMovement.FindAction("Zoom", throwIfNotFound: true);
         m_PlayerMovement_Walk = m_PlayerMovement.FindAction("Walk", throwIfNotFound: true);
         // Player Actions
@@ -331,7 +331,7 @@ public class @InputActions : IInputActionCollection, IDisposable
     private readonly InputActionMap m_PlayerMovement;
     private IPlayerMovementActions m_PlayerMovementActionsCallbackInterface;
     private readonly InputAction m_PlayerMovement_Movement;
-    private readonly InputAction m_PlayerMovement_Camera;
+    private readonly InputAction m_PlayerMovement_RotateCamera;
     private readonly InputAction m_PlayerMovement_Zoom;
     private readonly InputAction m_PlayerMovement_Walk;
     public struct PlayerMovementActions
@@ -339,7 +339,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         private @InputActions m_Wrapper;
         public PlayerMovementActions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_PlayerMovement_Movement;
-        public InputAction @Camera => m_Wrapper.m_PlayerMovement_Camera;
+        public InputAction @RotateCamera => m_Wrapper.m_PlayerMovement_RotateCamera;
         public InputAction @Zoom => m_Wrapper.m_PlayerMovement_Zoom;
         public InputAction @Walk => m_Wrapper.m_PlayerMovement_Walk;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
@@ -354,9 +354,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Movement.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMovement;
-                @Camera.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnCamera;
-                @Camera.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnCamera;
-                @Camera.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnCamera;
+                @RotateCamera.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnRotateCamera;
+                @RotateCamera.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnRotateCamera;
+                @RotateCamera.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnRotateCamera;
                 @Zoom.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnZoom;
                 @Zoom.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnZoom;
                 @Zoom.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnZoom;
@@ -370,9 +370,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
-                @Camera.started += instance.OnCamera;
-                @Camera.performed += instance.OnCamera;
-                @Camera.canceled += instance.OnCamera;
+                @RotateCamera.started += instance.OnRotateCamera;
+                @RotateCamera.performed += instance.OnRotateCamera;
+                @RotateCamera.canceled += instance.OnRotateCamera;
                 @Zoom.started += instance.OnZoom;
                 @Zoom.performed += instance.OnZoom;
                 @Zoom.canceled += instance.OnZoom;
@@ -501,7 +501,7 @@ public class @InputActions : IInputActionCollection, IDisposable
     public interface IPlayerMovementActions
     {
         void OnMovement(InputAction.CallbackContext context);
-        void OnCamera(InputAction.CallbackContext context);
+        void OnRotateCamera(InputAction.CallbackContext context);
         void OnZoom(InputAction.CallbackContext context);
         void OnWalk(InputAction.CallbackContext context);
     }

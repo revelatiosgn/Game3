@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using ARPG.Core;
 using ARPG.Controller;
 using System;
 
@@ -20,13 +19,13 @@ namespace ARPG.Movement
         
         CharacterController characterController;
         Animator animator;
-        PlayerController playerController;
 
         Vector3 velocity;
         float gravitySpeed;
 
         float velocityH;
         float velocityV;
+        Quaternion velocityRot;
 
         public MovementState state = MovementState.Regular;
         public MovementState State
@@ -42,7 +41,6 @@ namespace ARPG.Movement
         {
             characterController = GetComponent<CharacterController>();
             animator = GetComponent<Animator>();
-            playerController = GetComponent<PlayerController>();
         }
 
         void Start()
@@ -50,37 +48,22 @@ namespace ARPG.Movement
             animator.SetBool("aimMovement", true);
         }
 
-        void Update()
+        public void Move(Vector2 value)
         {
-            // AimMovement();
-            // RegularMovement();
-
             if (state == MovementState.Regular)
-                RegularMovement();
+                RegularMovement(value);
             else
-                AimMovement();
-
-            // if (InputHandler.defenceBeginInput)
-            // {
-            //     animator.SetBool("aimMovement", true);
-            //     state = MovementState.Aim;
-            // }
-            
-            // if (InputHandler.defenceEndInput)
-            // {
-            //     animator.SetBool("aimMovement", false);
-            //     state = MovementState.Regular;
-            // }
+                AimMovement(value);
         }
 
-        void AimMovement()
+        void AimMovement(Vector2 value)
         {
             Vector3 direction = Camera.main.transform.rotation.eulerAngles;
             direction.x = 0f;
 
             Vector3 moveDirection = Vector3.zero;
-            moveDirection.x += InputHandler.movementInput.x;
-            moveDirection.z += InputHandler.movementInput.y;
+            moveDirection.x += value.x;
+            moveDirection.z += value.y;
 
             float h = Mathf.SmoothDamp(animator.GetFloat("horizontal"), moveDirection.x, ref velocityH, 0.1f);
             float v = Mathf.SmoothDamp(animator.GetFloat("vertical"), moveDirection.z, ref velocityV, 0.1f);
@@ -95,18 +78,11 @@ namespace ARPG.Movement
             }
         }
 
-        void RegularMovement()
+        void RegularMovement(Vector2 value)
         {
-            // if (playerController.isInteracting)
-            // {
-            //     animator.SetFloat("vertical", 0f);
-            //     return;
-            // }
-
-
             Vector3 direction = Vector3.zero;
-            direction += Camera.main.transform.right * InputHandler.movementInput.x;
-            direction += Camera.main.transform.forward * InputHandler.movementInput.y;
+            direction += Camera.main.transform.right * value.x;
+            direction += Camera.main.transform.forward * value.y;
             direction.y = 0f;
             direction.Normalize();
             
@@ -119,7 +95,6 @@ namespace ARPG.Movement
             {
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
                 transform.rotation = targetRotation;
-                CameraFollow.SetState(CameraFollow.CameraState.Regular);
             }
 
             gravitySpeed += gravity * Time.deltaTime;
