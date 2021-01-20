@@ -188,7 +188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca8d5dafcef3f054c8a4e578ada227dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputHandler: {fileID: 11400000, guid: a10a1ac1e50546d49b9d0f160ebda2d6, type: 2}
+  onPlayerInventory: {fileID: 11400000, guid: 76ce67c51766e17498ae22770e02ac88, type: 2}
+  onLockPlayerActions: {fileID: 11400000, guid: 5695cb5c31852dc4d926fc6fb6d734d5, type: 2}
   inventoryPanel: {fileID: 3605601528122881955}
 --- !u!1001 &3932337809289077129
 PrefabInstance:
@@ -253,6 +254,10 @@ PrefabInstance:
       propertyPath: onUnequip
       value: 
       objectReference: {fileID: 11400000, guid: bd584113acbab564c90f132f129aef2b, type: 2}
+    - target: {fileID: 332091113661650474, guid: b05048472d2378a4e85903ce0c53d5d0, type: 3}
+      propertyPath: onPlayerInventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 76ce67c51766e17498ae22770e02ac88, type: 2}
     - target: {fileID: 543557696075280164, guid: b05048472d2378a4e85903ce0c53d5d0, type: 3}
       propertyPath: m_Name
       value: InventoryPanel

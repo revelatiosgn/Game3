@@ -8,6 +8,7 @@ using System;
 using ARPG.Items;
 using ARPG.Inventory;
 using ARPG.Gear;
+using ARPG.Events;
 
 [CustomEditor(typeof(Equipment))]
 

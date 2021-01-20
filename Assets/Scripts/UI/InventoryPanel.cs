@@ -7,11 +7,14 @@ using ARPG.Inventory;
 using ARPG.Gear;
 using ARPG.Core;
 using ARPG.Items;
+using ARPG.Events;
 
 namespace ARPG.UI
 {
     public class InventoryPanel : MonoBehaviour
     {
+        [SerializeField] VoidEvent onPlayerInventory;
+
         [SerializeField] GridLayoutGroup grid;
         [SerializeField] Button close;
         [SerializeField] ItemEvent onEquip;
@@ -30,7 +33,7 @@ namespace ARPG.UI
         void Start()
         {
             close.onClick.AddListener(() => {
-                InputHandler.inventoryInput = true;
+                onPlayerInventory.RaiseEvent();
             });
         }
 

@@ -64,7 +64,6 @@ namespace ARPG.Combat
             animator.SetTrigger("rangedAttackBegin");
 
             movement.State = PlayerMovement.MovementState.Aim;
-            CameraFollow.SetState(CameraFollow.CameraState.Aiming);
 
             RangedWeaponItem weaponItem = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Weapon).item as RangedWeaponItem;
             animator.SetLayerWeight(animator.GetLayerIndex(weaponItem.maskLayer), 0f);
@@ -136,7 +135,6 @@ namespace ARPG.Combat
         {
             state = State.None;
             movement.State = PlayerMovement.MovementState.Regular;
-            CameraFollow.SetState(CameraFollow.CameraState.Regular);
             animator.SetBool("rangedAim", false);
 
             RangedWeaponItem weaponItem = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Weapon).item as RangedWeaponItem;

@@ -5,12 +5,17 @@ using UnityEngine;
 using ARPG.Core;
 using ARPG.Movement;
 using ARPG.Combat;
+using ARPG.Events;
 
 namespace ARPG.Controller
 {
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] InputHandler inputHandler;
+        [SerializeField] Vector2Event onPlayerMove;
+        [SerializeField] VoidEvent onPlayerAttackBegin;
+        [SerializeField] VoidEvent onPlayerAttackEnd;
+        [SerializeField] VoidEvent onPlayerDefenceBegin;
+        [SerializeField] VoidEvent onPlayerDefenceEnd;
 
         PlayerMovement playerMovement;
         PlayerCombat playerCombat;
@@ -25,20 +30,20 @@ namespace ARPG.Controller
 
         void OnEnable()
         {
-            inputHandler.movementEvent += OnMovementEvent;
-            inputHandler.attackBeginEvent += OnAttackBeginEvent;
-            inputHandler.attackEndEvent += OnAttackEndEvent;
-            inputHandler.defenceBeginEvent += OnDefenceBeginEvent;
-            inputHandler.defenceEndEvent += OnDefenceEndEvent;
+            onPlayerMove.OnEventRaised += OnPlayerMove;
+            onPlayerAttackBegin.onEventRaised += OnPlayerAttackBegin;
+            onPlayerAttackEnd.onEventRaised += OnPlayerAttackEnd;
+            onPlayerDefenceBegin.onEventRaised += OnPlayerDefenceBegin;
+            onPlayerDefenceEnd.onEventRaised += OnPlayerDefenceEnd;
         }
 
         void OnDisable()
         {
-            inputHandler.movementEvent -= OnMovementEvent;
-            inputHandler.attackBeginEvent -= OnAttackBeginEvent;
-            inputHandler.attackEndEvent -= OnAttackEndEvent;
-            inputHandler.defenceBeginEvent -= OnDefenceBeginEvent;
-            inputHandler.defenceEndEvent -= OnDefenceEndEvent;
+            onPlayerMove.OnEventRaised -= OnPlayerMove;
+            onPlayerAttackBegin.onEventRaised += OnPlayerAttackBegin;
+            onPlayerAttackEnd.onEventRaised += OnPlayerAttackEnd;
+            onPlayerDefenceBegin.onEventRaised += OnPlayerDefenceBegin;
+            onPlayerDefenceEnd.onEventRaised += OnPlayerDefenceEnd;
         }
 
         void Update()
@@ -46,27 +51,27 @@ namespace ARPG.Controller
             playerMovement.Move(lastMovement);
         }
 
-        void OnMovementEvent(Vector2 value)
+        void OnPlayerMove(Vector2 value)
         {
             lastMovement = value;
         }
 
-        void OnAttackBeginEvent()
+        void OnPlayerAttackBegin()
         {
             playerCombat.AttackBegin();
         }
 
-        void OnAttackEndEvent()
+        void OnPlayerAttackEnd()
         {
             playerCombat.AttackEnd();
         }
 
-        void OnDefenceBeginEvent()
+        void OnPlayerDefenceBegin()
         {
             playerCombat.DefenceBegin();
         }
 
-        void OnDefenceEndEvent()
+        void OnPlayerDefenceEnd()
         {
             playerCombat.DefenceEnd();
         }

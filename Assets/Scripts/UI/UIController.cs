@@ -4,12 +4,14 @@ using UnityEngine;
 
 using ARPG.Core;
 using System;
+using ARPG.Events;
 
 namespace ARPG.UI
 {
     public class UIController : MonoBehaviour
     {
-        [SerializeField] InputHandler inputHandler;
+        [SerializeField] VoidEvent onPlayerInventory;
+        [SerializeField] BoolEvent onLockPlayerActions;
         [SerializeField] InventoryPanel inventoryPanel;
 
         void Start()
@@ -19,18 +21,18 @@ namespace ARPG.UI
 
         void OnEnable()
         {
-            inputHandler.inventoryEvent += OnInventoryEvent;
+            onPlayerInventory.onEventRaised += OnPlayerInventory;
         }
 
         void OnDisable()
         {
-            inputHandler.inventoryEvent -= OnInventoryEvent;
+            onPlayerInventory.onEventRaised -= OnPlayerInventory;
         }
 
-        private void OnInventoryEvent()
+        private void OnPlayerInventory()
         {
            inventoryPanel.gameObject.SetActive(!inventoryPanel.gameObject.activeSelf);
-           inputHandler.SetInUI(inventoryPanel.gameObject.activeSelf);
+           onLockPlayerActions.RaiseEvent(inventoryPanel.gameObject.activeSelf);
         }
     }
 }

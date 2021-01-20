@@ -12,3 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cff91bc65f54a7469327bb347de1fe9, type: 3}
   m_Name: InputHandler
   m_EditorClassIdentifier: 
+  onPlayerMove: {fileID: 11400000, guid: 6ecdf862b1ca7cf48824c359507b7710, type: 2}
+  onPlayerRotateCamera: {fileID: 11400000, guid: 20eb59750145e024b88fafdaebb0ce5c, type: 2}
+  onPlayerInvetory: {fileID: 11400000, guid: 76ce67c51766e17498ae22770e02ac88, type: 2}
+  onPlayerAttackBegin: {fileID: 11400000, guid: 5ee0d6fef9effa94bbe8bf3d741e5b6c, type: 2}
+  onPlayerAttackEnd: {fileID: 11400000, guid: 3794f27ab0ee0bf4c96d51f4b85b0e7c, type: 2}
+  onPlayerDefenceBegin: {fileID: 11400000, guid: a75f32d03eacb6e46a76df1ce8f8e319, type: 2}
+  onPlayerDefenceEnd: {fileID: 11400000, guid: 9eee28071095df74ca51112c9e0f1da8, type: 2}

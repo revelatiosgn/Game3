@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using ARPG.Events;
 using Cinemachine;
 using UnityEngine;
 
@@ -8,7 +9,8 @@ namespace ARPG.Core
 {
     public class CameraSystem : MonoBehaviour
     {
-        [SerializeField] InputHandler inputHandler;
+        [SerializeField] Vector2Event onPlayerRotateCamera;
+
         [SerializeField] CinemachineFreeLook freeLookCamera;
         [SerializeField] CinemachineFreeLook aimCamera;
         [SerializeField] [Range(1f, 5f)] float rotationMult = 1f; 
@@ -25,21 +27,21 @@ namespace ARPG.Core
 
         void OnEnable()
         {
-            inputHandler.rotateCameraEvent += OnRotateCameraEvent;
+            onPlayerRotateCamera.OnEventRaised += OnPlayerRotateCamera;
             onCameraFreeLook.OnEventRaised += OnCameraFreeLook;
             onCameraAim.OnEventRaised += OnCameraAim;
         }
 
         void OnDisable()
         {
-            inputHandler.rotateCameraEvent -= OnRotateCameraEvent;
+            onPlayerRotateCamera.OnEventRaised -= OnPlayerRotateCamera;
         }
 
         void LateUpdate()
         {
         }
 
-        void OnRotateCameraEvent(Vector2 value)
+        void OnPlayerRotateCamera(Vector2 value)
         {
             activeCamera.m_XAxis.m_InputAxisValue = -value.x * Time.smoothDeltaTime * rotationMult;
             activeCamera.m_YAxis.m_InputAxisValue = -value.y * Time.smoothDeltaTime * rotationMult;

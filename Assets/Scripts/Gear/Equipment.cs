@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using ARPG.Items;
-using ARPG.Inventory;
+using ARPG.Events;
 
 namespace ARPG.Gear
 {
