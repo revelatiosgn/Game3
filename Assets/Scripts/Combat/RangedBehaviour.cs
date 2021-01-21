@@ -52,10 +52,10 @@ namespace ARPG.Combat
             animator.SetLayerWeight(animator.GetLayerIndex(weaponItem.actionLayer), 0f);
         }
 
-        public override bool AttackBegin()
+        public override void AttackBegin()
         {
             if (state != State.None)
-                return false;
+                return;
 
             state = State.Start;
             attackTrigger = false;
@@ -67,8 +67,10 @@ namespace ARPG.Combat
 
             RangedWeaponItem weaponItem = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Weapon).item as RangedWeaponItem;
             animator.SetLayerWeight(animator.GetLayerIndex(weaponItem.maskLayer), 0f);
+        }
 
-            return true;
+        public override void AttackComplete()
+        {
         }
         
         public override void AttackEnd()
@@ -80,9 +82,8 @@ namespace ARPG.Combat
             }
         }
 
-        public override bool DefenceBegin()
+        public override void DefenceBegin()
         {
-            return false;
         }
 
         public override void DefenceEnd()

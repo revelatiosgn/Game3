@@ -13,14 +13,14 @@ namespace ARPG.Combat
         void OnEnable()
         {
             ShieldItem shieldItem = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Shield).item as ShieldItem;
-            animator.SetLayerWeight(animator.GetLayerIndex(shieldItem.actionLayer), 1f);
+            animator.SetLayerWeight(animator.GetLayerIndex(shieldItem.maskLayer), 1f);
             animator.SetFloat("shield", 1f);
         }
 
         void OnDisable()
         {
             ShieldItem shieldItem = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Shield).item as ShieldItem;
-            animator.SetLayerWeight(animator.GetLayerIndex(shieldItem.actionLayer), 0f);
+            animator.SetLayerWeight(animator.GetLayerIndex(shieldItem.maskLayer), 0f);
             animator.SetFloat("shield", 0f);
         }
 

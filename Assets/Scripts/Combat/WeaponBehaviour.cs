@@ -10,24 +10,29 @@ namespace ARPG.Combat
 {
     public abstract class WeaponBehaviour : EquipmentBehaviour
     {
+        WeaponItem item;
+        int actionLayerIndex, maskLayerIndex;
+
         protected virtual void OnEnable()
         {
-            WeaponItem weaponItem = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Weapon).item as WeaponItem;
-            animator.runtimeAnimatorController = weaponItem.animatorContoller;
-            animator.SetLayerWeight(animator.GetLayerIndex(weaponItem.maskLayer), 1f);
+            item = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Weapon).item as WeaponItem;
+            actionLayerIndex = animator.GetLayerIndex(item.actionLayer);
+            maskLayerIndex = animator.GetLayerIndex(item.maskLayer);
+
+            animator.SetLayerWeight(actionLayerIndex, 1f);
+            animator.SetLayerWeight(maskLayerIndex, 1f);
         }
 
         protected virtual void OnDisable()
         {
-            WeaponItem weaponItem = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Weapon).item as WeaponItem;
-            animator.runtimeAnimatorController = weaponItem.animatorContoller;
-            animator.SetLayerWeight(animator.GetLayerIndex(weaponItem.maskLayer), 0f);
+            animator.SetLayerWeight(actionLayerIndex, 0f);
+            animator.SetLayerWeight(maskLayerIndex, 0f);
         }
         
-        public abstract bool AttackBegin();
+        public abstract void AttackBegin();
         public abstract void AttackEnd();
-
-        public abstract bool DefenceBegin();
+        public abstract void AttackComplete();
+        public abstract void DefenceBegin();
         public abstract void DefenceEnd();
     }
 }

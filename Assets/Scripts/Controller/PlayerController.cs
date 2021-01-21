@@ -11,6 +11,7 @@ namespace ARPG.Controller
 {
     public class PlayerController : MonoBehaviour
     {
+        [SerializeField] InputHandler inputHandler;
         [SerializeField] Vector2Event onPlayerMove;
         [SerializeField] VoidEvent onPlayerAttackBegin;
         [SerializeField] VoidEvent onPlayerAttackEnd;

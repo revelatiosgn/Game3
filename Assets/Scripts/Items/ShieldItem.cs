@@ -8,9 +8,9 @@ namespace ARPG.Items
     [CreateAssetMenu(fileName = "Shield", menuName = "Items/Equipment/Shield", order = 1)]
     public sealed class ShieldItem : EquipmentItem
     {
-        public GameObject shieldPrefab;
+        public GameObject prefab;
         public float baseArmor;
-        public string actionLayer = "Shield";
+        public string maskLayer = "ShieldMask";
 
         public override EquipmentSlot.SlotType GetSlotType()
         {

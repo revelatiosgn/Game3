@@ -13,27 +13,34 @@ namespace ARPG.Combat
     {
         private bool isAttacking = false;
 
-        public override bool AttackBegin()
+        public override void AttackBegin()
         {
             if (isAttacking)
-                return false;
+                return;
 
             animator.SetTrigger("attack");
             isAttacking = true;
-
-            return false;
+            
+            MeleeWeaponItem weaponItem = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Weapon).item as MeleeWeaponItem;
+            animator.SetLayerWeight(animator.GetLayerIndex(weaponItem.maskLayer), 0f);
         }
 
         public override void AttackEnd()
         {
         }
 
-        public override bool DefenceBegin()
+        public override void AttackComplete()
+        {
+            isAttacking = false;
+            
+            MeleeWeaponItem weaponItem = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Weapon).item as MeleeWeaponItem;
+            animator.SetLayerWeight(animator.GetLayerIndex(weaponItem.maskLayer), 1f);
+        }
+
+        public override void DefenceBegin()
         {
             animator.SetBool("defence", true);
             GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Aim;
-
-            return true;
         }
 
         public override void DefenceEnd()
@@ -42,8 +49,11 @@ namespace ARPG.Combat
             GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Regular;
         }
 
-        void OnDamage()
+        void OnAttack()
         {
+            Debug.Log("OnAttack");
+            isAttacking = false;
+
             // EquipmentSlot slot = GetComponent<Equipment>().GetEquipmentSlot(EquipmentSlot.SlotType.Weapon);
             // MeleeWeaponItem weaponItem = slot.item as MeleeWeaponItem;
 
@@ -61,6 +71,9 @@ namespace ARPG.Combat
         void OnComplete()
         {
             isAttacking = false;
+
+            MeleeWeaponItem weaponItem = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Weapon).item as MeleeWeaponItem;
+            animator.SetLayerWeight(animator.GetLayerIndex(weaponItem.maskLayer), 0f);
         }
 
         void OnWeaponEvent(Transform target)

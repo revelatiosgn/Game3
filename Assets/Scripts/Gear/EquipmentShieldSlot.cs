@@ -24,7 +24,7 @@ namespace ARPG.Gear
             ShieldItem shieldItem = item as ShieldItem;
 
             if (holder != null)
-                GameObject.Instantiate(shieldItem.shieldPrefab, holder);
+                GameObject.Instantiate(shieldItem.prefab, holder);
 
             ShieldBehaviour shieldBehaviour = target.GetComponent<ShieldBehaviour>();
             if (shieldBehaviour != null)

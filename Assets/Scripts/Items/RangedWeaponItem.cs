@@ -8,7 +8,6 @@ namespace ARPG.Items
     [CreateAssetMenu(fileName = "RangedWeapon", menuName = "Items/Equipment/RangedWeapon", order = 1)]
     public sealed class RangedWeaponItem : WeaponItem
     {
-        public string actionLayer = "Bow";
     }
 }
 
