@@ -23,8 +23,8 @@ namespace ARPG.Combat
             if (weaponBehaviour == null)
                 return;
 
-            if (aiController.state == AIController.State.Attack)
-                weaponBehaviour.AttackBegin();
+            // if (aiController.state == AIController.State.Attack)
+            //     weaponBehaviour.AttackBegin();
         }
     }
 }

@@ -19,5 +19,5 @@ MonoBehaviour:
   animatorContoller: {fileID: 22100000, guid: 9c594512e897d7545b1d204d3090f2ca, type: 2}
   hand: 0
   type: 1
-  maskLayer: LHand
   actionLayer: Bow
+  maskLayer: LWeaponMask

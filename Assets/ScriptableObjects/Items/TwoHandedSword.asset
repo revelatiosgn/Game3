@@ -19,6 +19,7 @@ MonoBehaviour:
   animatorContoller: {fileID: 22100000, guid: 6415cd4033ce6384687a51e1d304f2a3, type: 2}
   hand: 1
   type: 1
-  maskLayer: DHand
+  actionLayer: Sword2H
+  maskLayer: DWeaponMask
   range: 3
   angle: 120

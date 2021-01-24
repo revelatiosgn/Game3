@@ -3,89 +3,49 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-using ARPG.Inventory;
+using ARPG.AI;
+using ARPG.Movement;
 
 namespace ARPG.Controller
 {
     public class AIController : MonoBehaviour
     {
-        public enum State
-        {
-            None,
-            Chase,
-            Attack
-        }
+        [SerializeField] AIState currentState;
+        [SerializeField] AIState remainState;
+        
+        public Transform eyes;
+        public Transform[] waypoints;
+        public int waypointIndex = 0;
+        public float currentStateTime = 0f;
+        public AIMovement aiMovement;
 
-        public Transform targetTransform;
         Animator animator;
-
-        public State state = State.None;
 
         void Awake()
         {
             animator = GetComponent<Animator>();
+            aiMovement = GetComponent<AIMovement>();
         }
 
         void Start()
         {
-            List<ItemSlot> itemSlots = GetComponent<ItemsContainer>().ItemSlots;
-            foreach (ItemSlot itemSlot in itemSlots)
-            {
-                if(itemSlot.item.GetType() == typeof(ARPG.Items.MeleeWeaponItem))
-                {
-                    itemSlot.item.OnUse(gameObject);
-                    break;
-                }
-            }
         }
 
         void Update()
         {
-            return;
-
-            targetTransform = GameObject.FindGameObjectWithTag(Constants.Tags.Player).transform;
-
-            if (Vector3.Distance(transform.position, targetTransform.position) < 3f)
-            {
-                state = State.Attack;
-            }
-            else if (CheckFOV())
-            {
-                state = State.Chase;
-            }
-            else
-            {
-                state = State.None;
-            }
+            currentState.UpdateState(this);
+            currentStateTime += Time.deltaTime;
         }
 
-        bool CheckFOV()
+        public void TransitionToState(AIState nextState)
         {
-            targetTransform = GameObject.FindGameObjectWithTag(Constants.Tags.Player).transform;
-            if (Vector3.Distance(transform.position, targetTransform.position) < 10f)
+            if (nextState != remainState)
             {
-                Vector3 dir = targetTransform.position - transform.position;
-                float angle = Vector3.Angle(transform.forward, dir);
-
-                if (angle * 2f < 120f)
-                {
-                    if (!Physics.Raycast(transform.position, targetTransform.position - transform.position, 10f, LayerMask.GetMask("Environment")))
-                    {
-                        return true;
-                    }
-                }
+                Debug.Log("STATE " + nextState.name);
+                currentState = nextState;
+                currentStateTime = 0f;
+                currentState.OnStateEnter(this);
             }
-
-            return false;
-        }
-
-        void OnDrawGizmos()
-        {
-            Gizmos.DrawWireSphere(transform.position, 5f);
-
-            
-
-            
         }
     }
 }

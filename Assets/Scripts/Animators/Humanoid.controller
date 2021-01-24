@@ -210,7 +210,7 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LHand
+  m_Name: LWeaponMask
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1751894163333800294}
@@ -298,6 +298,14 @@ BlendTree:
     m_Motion: {fileID: -203655887218126122, guid: b6c34f301f400a74cb5364a06e5f14dd, type: 3}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: vertical
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: -203655887218126122, guid: edec701df87ce1544b3caed6dda366ee, type: 3}
+    m_Threshold: 0.25
+    m_Position: {x: 0, y: 0.5}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: vertical
@@ -864,7 +872,7 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shield
+  m_Name: ShieldMask
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1960395219019244583}
@@ -1461,7 +1469,7 @@ AnimatorController:
     m_Behaviours: []
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
-    m_DefaultWeight: 1
+    m_DefaultWeight: 0
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
@@ -1478,7 +1486,7 @@ AnimatorController:
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
   - serializedVersion: 5
-    m_Name: Hand
+    m_Name: WeaponMask
     m_StateMachine: {fileID: 5929536372461570250}
     m_Mask: {fileID: 0}
     m_Motions: []
@@ -1490,7 +1498,7 @@ AnimatorController:
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
   - serializedVersion: 5
-    m_Name: LHand
+    m_Name: LWeaponMask
     m_StateMachine: {fileID: -7612759027777939862}
     m_Mask: {fileID: 31900000, guid: 15463bf001defa343b5d21a098f40309, type: 2}
     m_Motions:
@@ -1508,7 +1516,7 @@ AnimatorController:
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
   - serializedVersion: 5
-    m_Name: RHand
+    m_Name: RWeaponMask
     m_StateMachine: {fileID: 7071199735736542670}
     m_Mask: {fileID: 31900000, guid: 9ce4e1fc981580646b44f8d6ab571149, type: 2}
     m_Motions:
@@ -1526,7 +1534,7 @@ AnimatorController:
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
   - serializedVersion: 5
-    m_Name: DHand
+    m_Name: DWeaponMask
     m_StateMachine: {fileID: 3146673793099353877}
     m_Mask: {fileID: 31900000, guid: 638fac5e4a610b34da72eb82b4214696, type: 2}
     m_Motions:
@@ -1544,7 +1552,7 @@ AnimatorController:
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
   - serializedVersion: 5
-    m_Name: Shield
+    m_Name: ShieldMask
     m_StateMachine: {fileID: -4160769357610472101}
     m_Mask: {fileID: 31900000, guid: 15463bf001defa343b5d21a098f40309, type: 2}
     m_Motions:
@@ -2069,7 +2077,7 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DHand
+  m_Name: DWeaponMask
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -9036845911706455016}
@@ -2391,7 +2399,7 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Hand
+  m_Name: WeaponMask
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -4700777962720845884}
@@ -2471,7 +2479,7 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RHand
+  m_Name: RWeaponMask
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1356319957673058738}
