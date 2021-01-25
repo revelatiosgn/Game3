@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 using ARPG.AI;
 using ARPG.Movement;
+using ARPG.Combat;
 
 namespace ARPG.Controller
 {
@@ -17,7 +18,9 @@ namespace ARPG.Controller
         public Transform[] waypoints;
         public int waypointIndex = 0;
         public float currentStateTime = 0f;
+
         public AIMovement aiMovement;
+        public AICombat aiCombat;
 
         Animator animator;
 
@@ -25,6 +28,7 @@ namespace ARPG.Controller
         {
             animator = GetComponent<Animator>();
             aiMovement = GetComponent<AIMovement>();
+            aiCombat = GetComponent<AICombat>();
         }
 
         void Start()

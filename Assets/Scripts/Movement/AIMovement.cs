@@ -21,6 +21,10 @@ namespace ARPG.Movement
         float smoothVelocity;
         float desiredSpeed;
 
+        public float vel;
+        public float sp;
+        public bool stopped;
+
         void Awake()
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
@@ -38,6 +42,8 @@ namespace ARPG.Movement
         {
             if (target != null)
                 navMeshAgent.destination = target.position;
+            else
+                Stop();
 
             if (!IsStopped())
             {
@@ -47,6 +53,8 @@ namespace ARPG.Movement
             {
                 Stop();
             }
+
+            stopped = navMeshAgent.isStopped;
         }
 
         public void SetRunning(bool isRunning)
@@ -79,12 +87,10 @@ namespace ARPG.Movement
 
         void Stop()
         {
-            if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
-            {
-                speed = Mathf.SmoothDamp(speed, 0f, ref smoothVelocity, smoothTime);
-                animator.SetFloat("vertical", speed);
-            }
+            speed = Mathf.SmoothDamp(speed, 0f, ref smoothVelocity, smoothTime);
+            animator.SetFloat("vertical", speed);
             target = null;
+            navMeshAgent.destination = transform.position;
             navMeshAgent.isStopped = true;
         }
 
@@ -92,18 +98,16 @@ namespace ARPG.Movement
         {
             if (navMeshAgent.isStopped)
             {
-                // transform.position = animator.rootPosition;
+                transform.position = animator.rootPosition;
             }
             else
             {
                 transform.position = navMeshAgent.nextPosition;
                 navMeshAgent.speed = animator.deltaPosition.magnitude / Time.deltaTime;
-
-                if (navMeshAgent.velocity.magnitude < navMeshAgent.speed)
-                {
-                    animator.SetFloat("vertical", navMeshAgent.velocity.magnitude * Time.deltaTime);
-                }
             }
+            
+            vel = navMeshAgent.velocity.magnitude;
+            sp = navMeshAgent.speed;
         }
 
         void OnDrawGizmos()

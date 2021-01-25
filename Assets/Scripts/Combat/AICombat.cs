@@ -26,5 +26,27 @@ namespace ARPG.Combat
             // if (aiController.state == AIController.State.Attack)
             //     weaponBehaviour.AttackBegin();
         }
+
+        public void AttackBegin()
+        {
+            GetComponent<WeaponBehaviour>()?.AttackBegin();
+        }
+
+        public void AttackEnd()
+        {
+            GetComponent<WeaponBehaviour>()?.AttackEnd();
+        }
+
+        public void DefenceBegin()
+        {
+            GetComponent<WeaponBehaviour>()?.DefenceBegin();
+            GetComponent<ShieldBehaviour>()?.DefenceBegin();
+        }
+
+        public void DefenceEnd()
+        {
+            GetComponent<WeaponBehaviour>()?.DefenceEnd();
+            GetComponent<ShieldBehaviour>()?.DefenceEnd();
+        }
     }
 }

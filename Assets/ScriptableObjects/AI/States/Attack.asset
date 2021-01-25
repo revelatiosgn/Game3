@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8799bce93a1dbce49a181303d331b2d3, type: 3}
-  m_Name: Chase
+  m_Name: Attack
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: 64479adc864f9034fb8d133611f288c9, type: 2}
+  - {fileID: 11400000, guid: c2375782f2288c448b48fc1216840121, type: 2}
   transitions:
   - decision: {fileID: 11400000, guid: 40762ba89bed8d5498cdf4c2951c3e80, type: 2}
     trueState: {fileID: 11400000, guid: bdbd9c85c4f540c428778f17a69e20f1, type: 2}
     falseState: {fileID: 11400000, guid: 1a391ab3e86b1f24aaf38cb44a92c8c7, type: 2}
   - decision: {fileID: 11400000, guid: 880a062b669969b46816599ab51ea96d, type: 2}
-    trueState: {fileID: 11400000, guid: 5f84951968aac084cbd1c7001e3d3faa, type: 2}
-    falseState: {fileID: 11400000, guid: bdbd9c85c4f540c428778f17a69e20f1, type: 2}
+    trueState: {fileID: 11400000, guid: bdbd9c85c4f540c428778f17a69e20f1, type: 2}
+    falseState: {fileID: 11400000, guid: abee754e518387e488080014f90aaf75, type: 2}
