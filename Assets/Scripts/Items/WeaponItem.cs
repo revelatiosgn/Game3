@@ -17,6 +17,7 @@ namespace ARPG.Items
 
         public GameObject prefab;
         public float baseDamage;
+        public float range = 3f;
         public AnimatorOverrideController animatorContoller;
         public EquipmentWeaponSlot.Hand hand;
         public Type type = Type.OneHanded;

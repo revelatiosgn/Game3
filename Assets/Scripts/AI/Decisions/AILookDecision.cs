@@ -15,7 +15,7 @@ namespace ARPG.AI
             Vector3 eyes = controller.eyes.position;
             Vector3 target = player.transform.position + Vector3.up;
 
-            if (Vector3.Distance(target, eyes) < 10f)
+            if (Vector3.Distance(target, eyes) < 100f)
             {
                 Vector3 direction = (target - eyes);
                 float angle = Vector3.Angle(controller.transform.forward, direction);
@@ -23,7 +23,7 @@ namespace ARPG.AI
                 if (angle * 2f < 120f)
                 {
                     RaycastHit hit;
-                    if (Physics.Raycast(eyes, direction.normalized, out hit, 10f))
+                    if (Physics.Raycast(eyes, direction.normalized, out hit, 100f, LayerMask.GetMask("Environment") | LayerMask.GetMask("Player")))
                     {
                         if (hit.collider.gameObject == player)
                         {

@@ -5,50 +5,77 @@ using UnityEngine;
 using ARPG.Core;
 using ARPG.Controller;
 using ARPG.Items;
+using ARPG.Movement;
 
 namespace ARPG.Combat
 {
-    public class PlayerCombat : MonoBehaviour
+    public class PlayerCombat : BaseCombat
     {
         [SerializeField] CameraEvent onCameraFreeLook, onCameraAim;
-        
-        Animator animator;
 
-        void Awake()
+        void Update()
         {
-            animator = GetComponent<Animator>();
-        }
+            aimRotation = Camera.main.transform.rotation;
 
-        public void AttackBegin()
-        {
-            GetComponent<WeaponBehaviour>()?.AttackBegin();
-            if (GetComponent<RangedBehaviour>())
+            RaycastHit hit;
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.rotation * Vector3.forward, out hit))
             {
-                StopAllCoroutines();
-                StartCoroutine(AimCamera());
+                targetPosition = hit.point;
+            }
+            else
+            {
+                targetPosition = Camera.main.transform.position + Camera.main.transform.forward * 30f;
             }
         }
 
-        public void AttackEnd()
+        public override void AttackBegin()
         {
-            GetComponent<WeaponBehaviour>()?.AttackEnd();
-            if (GetComponent<RangedBehaviour>())
+            WeaponBehaviour weaponBehaviour = GetComponent<WeaponBehaviour>();
+            if (weaponBehaviour != null && weaponBehaviour.AttackBegin())
             {
-                StopAllCoroutines();
-                StartCoroutine(FreeLookCamera());
+                if (GetComponent<RangedBehaviour>())
+                {
+                    StopAllCoroutines();
+                    StartCoroutine(AimCamera());
+                    GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Aim;
+                }
             }
         }
 
-        public void DefenceBegin()
+        public override void AttackEnd()
         {
-            GetComponent<WeaponBehaviour>()?.DefenceBegin();
-            GetComponent<ShieldBehaviour>()?.DefenceBegin();
+            WeaponBehaviour weaponBehaviour = GetComponent<WeaponBehaviour>();
+            if (weaponBehaviour != null && weaponBehaviour.AttackEnd())
+            {
+                if (GetComponent<RangedBehaviour>())
+                {
+                    StopAllCoroutines();
+                    StartCoroutine(FreeLookCamera());
+                    GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Regular;
+                }
+            }
         }
 
-        public void DefenceEnd()
+        public override void DefenceBegin()
         {
-            GetComponent<WeaponBehaviour>()?.DefenceEnd();
-            GetComponent<ShieldBehaviour>()?.DefenceEnd();
+            WeaponBehaviour weaponBehaviour = GetComponent<WeaponBehaviour>();
+            if (weaponBehaviour != null && weaponBehaviour.DefenceBegin())
+                GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Aim;
+                
+            ShieldBehaviour shieldBehaviour = GetComponent<ShieldBehaviour>();
+            if (shieldBehaviour != null && shieldBehaviour.DefenceBegin())
+                GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Aim;
+        }
+
+        public override void DefenceEnd()
+        {
+            WeaponBehaviour weaponBehaviour = GetComponent<WeaponBehaviour>();
+            if (weaponBehaviour != null && weaponBehaviour.DefenceEnd())
+                GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Regular;
+                
+            ShieldBehaviour shieldBehaviour = GetComponent<ShieldBehaviour>();
+            if (shieldBehaviour != null && shieldBehaviour.DefenceEnd())
+                GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Regular;
         }
 
         IEnumerator AimCamera()

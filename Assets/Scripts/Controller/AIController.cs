@@ -19,20 +19,21 @@ namespace ARPG.Controller
         public int waypointIndex = 0;
         public float currentStateTime = 0f;
 
-        public AIMovement aiMovement;
         public AICombat aiCombat;
+        public AIMovement aiMovement;
 
         Animator animator;
 
         void Awake()
         {
             animator = GetComponent<Animator>();
-            aiMovement = GetComponent<AIMovement>();
             aiCombat = GetComponent<AICombat>();
+            aiMovement = GetComponent<AIMovement>();
         }
 
         void Start()
         {
+            currentState.OnStateEnter(this);
         }
 
         void Update()
@@ -45,11 +46,17 @@ namespace ARPG.Controller
         {
             if (nextState != remainState)
             {
-                Debug.Log("STATE " + nextState.name);
+                Debug.Log(nextState);
+                currentState.OnStateExit(this);
                 currentState = nextState;
                 currentStateTime = 0f;
                 currentState.OnStateEnter(this);
             }
+        }
+
+        public bool IsState(AIState state)
+        {
+            return currentState == state;
         }
     }
 }

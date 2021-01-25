@@ -6,44 +6,44 @@ using ARPG.Controller;
 
 namespace ARPG.Combat
 {
-    public class AICombat : MonoBehaviour
+    public class AICombat : BaseCombat
     {
-        Animator animator;
         AIController aiController;
 
-        void Awake()
+        public float attackTimer = 0f;
+
+        protected override void Awake()
         {
+            base.Awake();
+
             animator = GetComponent<Animator>();
             aiController = GetComponent<AIController>();
         }
 
         void Update()
         {
-            WeaponBehaviour weaponBehaviour = GetComponent<WeaponBehaviour>();
-            if (weaponBehaviour == null)
-                return;
-
-            // if (aiController.state == AIController.State.Attack)
-            //     weaponBehaviour.AttackBegin();
+            attackTimer += Time.deltaTime;
         }
 
-        public void AttackBegin()
+        public override void AttackBegin()
         {
-            GetComponent<WeaponBehaviour>()?.AttackBegin();
+            WeaponBehaviour weaponBehaviour = GetComponent<WeaponBehaviour>();
+            if (weaponBehaviour && weaponBehaviour.AttackBegin())
+                attackTimer = 0f;
         }
 
-        public void AttackEnd()
+        public override void AttackEnd()
         {
             GetComponent<WeaponBehaviour>()?.AttackEnd();
         }
 
-        public void DefenceBegin()
+        public override void DefenceBegin()
         {
             GetComponent<WeaponBehaviour>()?.DefenceBegin();
             GetComponent<ShieldBehaviour>()?.DefenceBegin();
         }
 
-        public void DefenceEnd()
+        public override void DefenceEnd()
         {
             GetComponent<WeaponBehaviour>()?.DefenceEnd();
             GetComponent<ShieldBehaviour>()?.DefenceEnd();

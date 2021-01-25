@@ -20,8 +20,7 @@ namespace ARPG.Combat
             Launch
         }
 
-        PlayerMovement movement;
-        PlayerCombat playerCombat;
+        BaseCombat combat;
 
         State state = State.None;
         Quaternion rotation;
@@ -32,30 +31,13 @@ namespace ARPG.Combat
         {
             base.Awake();
 
-            movement = GetComponent<PlayerMovement>();
-            playerCombat = GetComponent<PlayerCombat>();
+            combat = GetComponent<BaseCombat>();
         }
 
-        protected override void OnEnable()
-        {
-            base.OnEnable();
-
-            RangedWeaponItem weaponItem = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Weapon).item as RangedWeaponItem;
-            animator.SetLayerWeight(animator.GetLayerIndex(weaponItem.actionLayer), 1f);
-        }
-
-        protected override void OnDisable()
-        {
-            base.OnDisable();
-
-            RangedWeaponItem weaponItem = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Weapon).item as RangedWeaponItem;
-            animator.SetLayerWeight(animator.GetLayerIndex(weaponItem.actionLayer), 0f);
-        }
-
-        public override void AttackBegin()
+        public override bool AttackBegin()
         {
             if (state != State.None)
-                return;
+                return false;
 
             state = State.Start;
             attackTrigger = false;
@@ -63,31 +45,34 @@ namespace ARPG.Combat
             animator.SetBool("rangedAim", true);
             animator.SetTrigger("rangedAttackBegin");
 
-            movement.State = PlayerMovement.MovementState.Aim;
+            targetMaskLayerWeight = 0f;
 
-            RangedWeaponItem weaponItem = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Weapon).item as RangedWeaponItem;
-            animator.SetLayerWeight(animator.GetLayerIndex(weaponItem.maskLayer), 0f);
+            return true;
         }
 
         public override void AttackComplete()
         {
         }
         
-        public override void AttackEnd()
+        public override bool AttackEnd()
         {
             if (state == State.Start || state == State.Aim)
             {
                 attackTrigger = true;
                 TryAttack();
             }
+
+            return true;
         }
 
-        public override void DefenceBegin()
+        public override bool DefenceBegin()
         {
+            return false;
         }
 
-        public override void DefenceEnd()
+        public override bool DefenceEnd()
         {
+            return false;
         }
 
         void TryAttack()
@@ -116,18 +101,13 @@ namespace ARPG.Combat
                 {
                     GameObject arrowObject = Instantiate(arrowItem.arrowPrefab);
                     arrowObject.transform.position = bow.position + arrowItem.launchOffset;
-                    arrowObject.transform.rotation = Camera.main.transform.rotation;
 
                     Arrow arrow = arrowObject.GetComponent<Arrow>();
                     arrow.speed = arrowItem.speed;
-                    arrow.gravity = arrowItem.gravity;
 
-                    RaycastHit hit;
-                    if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.rotation * Vector3.forward, out hit))
-                    {
-                        Vector3 direction = hit.point - arrow.transform.position;
-                        arrow.transform.rotation = Quaternion.LookRotation(direction);
-                    }
+                    Vector3 targetPosition = combat.targetPosition;
+                    Vector3 direction = targetPosition - arrow.transform.position;
+                    arrow.transform.rotation = Quaternion.LookRotation(direction);
                 }
             }
         }
@@ -135,11 +115,8 @@ namespace ARPG.Combat
         void OnEnd()
         {
             state = State.None;
-            movement.State = PlayerMovement.MovementState.Regular;
             animator.SetBool("rangedAim", false);
-
-            RangedWeaponItem weaponItem = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Weapon).item as RangedWeaponItem;
-            animator.SetLayerWeight(animator.GetLayerIndex(weaponItem.maskLayer), 1f);
+            targetMaskLayerWeight = 1f;
         }
 
         void OnAnimatorIK(int layer)
@@ -149,7 +126,7 @@ namespace ARPG.Combat
 
             if (state != State.None)
             {
-                targetRotation = Quaternion.Inverse(chestTransform.parent.rotation) * Camera.main.transform.rotation;
+                targetRotation = Quaternion.Inverse(chestTransform.parent.rotation) * combat.aimRotation;
                 targetRotation *= Quaternion.AngleAxis(-90f, Vector3.forward);
                 animator.SetBoneLocalRotation(HumanBodyBones.UpperChest, targetRotation);
             }

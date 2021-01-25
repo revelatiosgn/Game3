@@ -11,7 +11,7 @@ namespace ARPG.AI
     {
         public override void Act(AIController controller)
         {
-            controller.aiMovement.target = null;
+            controller.aiMovement.Stop();
             controller.aiMovement.SetRunning(false);
         }
     }

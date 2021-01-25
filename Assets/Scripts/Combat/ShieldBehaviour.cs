@@ -24,16 +24,18 @@ namespace ARPG.Combat
             animator.SetFloat("shield", 0f);
         }
 
-        public void DefenceBegin()
+        public bool DefenceBegin()
         {
             animator.SetBool("defence", true);
-            GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Aim;
+
+            return true;
         }
 
-        public void DefenceEnd()
+        public bool DefenceEnd()
         {
             animator.SetBool("defence", false);
-            GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Regular;
+
+            return true;
         }
     }
 }

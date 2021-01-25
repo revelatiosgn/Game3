@@ -13,45 +13,46 @@ namespace ARPG.Combat
     {
         private bool isAttacking = false;
 
-        public override void AttackBegin()
+        public override bool AttackBegin()
         {
             if (isAttacking)
-                return;
+                return false;
 
             animator.SetTrigger("attack");
             isAttacking = true;
-            
-            MeleeWeaponItem weaponItem = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Weapon).item as MeleeWeaponItem;
-            animator.SetLayerWeight(animator.GetLayerIndex(weaponItem.maskLayer), 0f);
+
+            targetMaskLayerWeight = 0f;
+
+            return true;
         }
 
-        public override void AttackEnd()
+        public override bool AttackEnd()
         {
+            return true;
         }
 
         public override void AttackComplete()
         {
             isAttacking = false;
-            
-            MeleeWeaponItem weaponItem = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Weapon).item as MeleeWeaponItem;
-            animator.SetLayerWeight(animator.GetLayerIndex(weaponItem.maskLayer), 1f);
+            targetMaskLayerWeight = 1f;
         }
 
-        public override void DefenceBegin()
+        public override bool DefenceBegin()
         {
             animator.SetBool("defence", true);
-            GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Aim;
+
+            return true;
         }
 
-        public override void DefenceEnd()
+        public override bool DefenceEnd()
         {
             animator.SetBool("defence", false);
-            GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Regular;
+
+            return true;
         }
 
         void OnAttack()
         {
-            Debug.Log("OnAttack");
             isAttacking = false;
 
             // EquipmentSlot slot = GetComponent<Equipment>().GetEquipmentSlot(EquipmentSlot.SlotType.Weapon);

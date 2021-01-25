@@ -12,7 +12,7 @@ namespace ARPG.AI
     {
         public override bool Decide(AIController controller)
         {
-            return controller.aiMovement.target == null;
+            return controller.aiMovement.IsStopped();
         }
     }
 }

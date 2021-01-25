@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\Gear\EquipmentChestArmorSlot.cs" />
      <Compile Include="Assets\Scripts\AI\Actions\AIIdleAction.cs" />
      <Compile Include="Assets\Scripts\Combat\WeaponBehaviour.cs" />
+     <Compile Include="Assets\Scripts\AI\Actions\AICombatAction.cs" />
      <Compile Include="Assets\Scripts\Controller\AIController.cs" />
      <Compile Include="Assets\Scripts\AI\Decisions\AILookDecision.cs" />
      <Compile Include="Assets\Scripts\Events\ItemEvent.cs" />
@@ -103,8 +104,8 @@
      <Compile Include="Assets\Scripts\Combat\EquipmentBehaviour.cs" />
      <Compile Include="Assets\Scripts\UI\UIController.cs" />
      <Compile Include="Assets\Scripts\Gear\EquipmentArmorSlot.cs" />
-     <Compile Include="Assets\Scripts\AI\Decisions\AIAttackDecision.cs" />
-     <Compile Include="Assets\Scripts\AI\Actions\AIAttackAction.cs" />
+     <Compile Include="Assets\Scripts\AI\Decisions\AICombatDecision.cs" />
+     <Compile Include="Assets\Scripts\Combat\BaseCombat.cs" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Glass_Global.shader" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Object.shader" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Global.shader" />

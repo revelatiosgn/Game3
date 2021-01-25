@@ -12,8 +12,6 @@ namespace ARPG.Movement
         [SerializeField] float walkSpeed = 0.5f;
         [SerializeField] float runSpeed = 0.9f;
 
-        public Transform target;
-
         NavMeshAgent navMeshAgent;
         Animator animator;
 
@@ -40,21 +38,43 @@ namespace ARPG.Movement
 
         void Update()
         {
-            if (target != null)
-                navMeshAgent.destination = target.position;
-            else
-                Stop();
-
-            if (!IsStopped())
+            if (!navMeshAgent.pathPending)
             {
-                Move();
+                if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+                {
+                    if (!navMeshAgent.hasPath || navMeshAgent.velocity.sqrMagnitude == 0f)
+                    {
+                        navMeshAgent.isStopped = true;
+                    }
+                }
+            }
+
+            if (navMeshAgent.isStopped)
+            {
+                animator.SetFloat("vertical", 0f);
             }
             else
             {
-                Stop();
+                animator.SetFloat("vertical", desiredSpeed);
             }
 
             stopped = navMeshAgent.isStopped;
+        }
+
+        public void Move(Vector3 destination)
+        {
+            navMeshAgent.destination = destination;
+            navMeshAgent.isStopped = false;
+        }
+
+        public void Stop()
+        {
+            navMeshAgent.isStopped = true;
+        }
+
+        public bool IsStopped()
+        {
+            return navMeshAgent.isStopped;
         }
 
         public void SetRunning(bool isRunning)
@@ -62,43 +82,13 @@ namespace ARPG.Movement
             desiredSpeed = isRunning ? runSpeed : walkSpeed;
         }
 
-        bool IsStopped()
-        {
-            if (!navMeshAgent.pathPending)
-            {
-                if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
-                {
-                    if (!navMeshAgent.hasPath || navMeshAgent.velocity.sqrMagnitude == 0f)
-                    {
-                        return true;
-                    }
-                }
-            }
-
-            return false;
-        }
-
-        void Move()
-        {
-            speed = Mathf.SmoothDamp(speed, desiredSpeed, ref smoothVelocity, smoothTime);
-            animator.SetFloat("vertical", speed);
-            navMeshAgent.isStopped = false;
-        }
-
-        void Stop()
-        {
-            speed = Mathf.SmoothDamp(speed, 0f, ref smoothVelocity, smoothTime);
-            animator.SetFloat("vertical", speed);
-            target = null;
-            navMeshAgent.destination = transform.position;
-            navMeshAgent.isStopped = true;
-        }
-
         void OnAnimatorMove ()
         {
             if (navMeshAgent.isStopped)
             {
                 transform.position = animator.rootPosition;
+                navMeshAgent.Warp(transform.position);
+                navMeshAgent.destination = transform.position;
             }
             else
             {
@@ -116,12 +106,6 @@ namespace ARPG.Movement
             {
                 Gizmos.color = Color.magenta;
                 Gizmos.DrawWireSphere(navMeshAgent.nextPosition, 0.3f);
-
-                if (target != null)
-                {
-                    Gizmos.color = Color.cyan;
-                    Gizmos.DrawWireSphere(target.position, 0.4f);
-                }
             }
         }
     }

@@ -15,8 +15,7 @@ namespace ARPG.AI
             if (controller.waypoints.Length > 0)
             {
                 controller.waypointIndex = (controller.waypointIndex + 1) % controller.waypoints.Length;
-                Debug.Log("INDEX " + controller.waypointIndex);
-                controller.aiMovement.target = controller.waypoints[controller.waypointIndex];
+                controller.aiMovement.Move(controller.waypoints[controller.waypointIndex].position);
             }
             
             controller.aiMovement.SetRunning(false);

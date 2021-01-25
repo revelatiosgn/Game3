@@ -46,6 +46,9 @@ namespace ARPG.AI
         {
             foreach (AITransition transition in transitions)
             {
+                if (!transition.isActive)
+                    continue;
+
                 if (transition.decision.Decide(controller))
                 {
                     controller.TransitionToState(transition.trueState);
