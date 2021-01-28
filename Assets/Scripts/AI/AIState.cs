@@ -6,26 +6,18 @@ using ARPG.Controller;
 
 namespace ARPG.AI
 {
-    [CreateAssetMenu(menuName = "AI/State")]
+    [CreateAssetMenu(menuName = "AI/States/State")]
     public class AIState : ScriptableObject
     {
         public AIAction[] actions;
         public AITransition[] transitions;
 
-        public void OnStateEnter(AIController controller)
+        public virtual void OnStateEnter(AIController controller)
         {
-            foreach (AIAction action in actions)
-            {
-                action.OnStateEnter(controller);
-            }
         }
 
-        public void OnStateExit(AIController controller)
+        public virtual void OnStateExit(AIController controller)
         {
-            foreach (AIAction action in actions)
-            {
-                action.OnStateExit(controller);
-            }
         }
 
         public void UpdateState(AIController controller)
@@ -44,6 +36,21 @@ namespace ARPG.AI
 
         private void CheckTransitions(AIController controller)
         {
+            foreach (AITransition transition in controller.anyStateTransitions)
+            {
+                if (!transition.isActive)
+                    continue;
+
+                if (transition.decision.Decide(controller))
+                {
+                    controller.TransitionToState(transition.trueState);
+                }
+                else
+                {
+                    controller.TransitionToState(transition.falseState);
+                }
+            }
+
             foreach (AITransition transition in transitions)
             {
                 if (!transition.isActive)

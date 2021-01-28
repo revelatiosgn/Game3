@@ -59,16 +59,9 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.2522936
-        functionName: OnLaunch
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.81192666
-        functionName: OnEnd
-        data: 
+      - time: 0.24131966
+        functionName: OnAnimationEvent
+        data: Launch
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0

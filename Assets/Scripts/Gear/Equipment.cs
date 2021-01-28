@@ -26,6 +26,8 @@ namespace ARPG.Gear
 
         void Start()
         {
+            foreach (EquipmentSlot equipmentSlot in equipmentSlots)
+                equipmentSlot.AddBehaviour(gameObject);
         }
 
         public void Equip(EquipmentItem item)

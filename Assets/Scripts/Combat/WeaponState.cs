@@ -8,7 +8,7 @@ namespace ARPG.Combat
     {
         override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            animator.GetComponent<WeaponBehaviour>()?.AttackComplete();
+            animator.GetComponent<BaseCombat>()?.OnAttackComplete();
         }
     }
 }

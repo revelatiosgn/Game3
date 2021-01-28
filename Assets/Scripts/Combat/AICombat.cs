@@ -25,28 +25,16 @@ namespace ARPG.Combat
             attackTimer += Time.deltaTime;
         }
 
-        public override void AttackBegin()
+        public override bool AttackBegin()
         {
-            WeaponBehaviour weaponBehaviour = GetComponent<WeaponBehaviour>();
-            if (weaponBehaviour && weaponBehaviour.AttackBegin())
+            if (base.AttackBegin())
+            {
                 attackTimer = 0f;
-        }
 
-        public override void AttackEnd()
-        {
-            GetComponent<WeaponBehaviour>()?.AttackEnd();
-        }
+                return true;
+            }
 
-        public override void DefenceBegin()
-        {
-            GetComponent<WeaponBehaviour>()?.DefenceBegin();
-            GetComponent<ShieldBehaviour>()?.DefenceBegin();
-        }
-
-        public override void DefenceEnd()
-        {
-            GetComponent<WeaponBehaviour>()?.DefenceEnd();
-            GetComponent<ShieldBehaviour>()?.DefenceEnd();
+            return false;
         }
     }
 }

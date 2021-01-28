@@ -11,27 +11,17 @@ namespace ARPG.AI
     {
         public override bool Decide(AIController controller)
         {
-            GameObject player = GameObject.FindGameObjectWithTag(Constants.Tags.Player);
-            Vector3 eyes = controller.eyes.position;
-            Vector3 target = player.transform.position + Vector3.up;
+            BaseController targetController = controller.charactersCanSee.Find(target => {
+                if (target.characterGroup != controller.characterGroup)
+                    return true;
+                return false;
+            });
 
-            if (Vector3.Distance(target, eyes) < 100f)
-            {
-                Vector3 direction = (target - eyes);
-                float angle = Vector3.Angle(controller.transform.forward, direction);
+            if (targetController == null)
+                Debug.Log("CANT SEE");
 
-                if (angle * 2f < 120f)
-                {
-                    RaycastHit hit;
-                    if (Physics.Raycast(eyes, direction.normalized, out hit, 100f, LayerMask.GetMask("Environment") | LayerMask.GetMask("Player")))
-                    {
-                        if (hit.collider.gameObject == player)
-                        {
-                            return true;
-                        }
-                    }
-                }
-            }
+            if (targetController != null && !targetController.characterStats.IsDead())
+                return true;
 
             return false;
         }

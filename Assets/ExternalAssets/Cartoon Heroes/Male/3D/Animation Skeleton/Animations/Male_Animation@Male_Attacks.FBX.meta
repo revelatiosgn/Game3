@@ -393,8 +393,8 @@ ModelImporter:
       curves: []
       events:
       - time: 0.3277027
-        functionName: OnAttack
-        data: 
+        functionName: OnAnimationEvent
+        data: Attack
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
@@ -429,8 +429,8 @@ ModelImporter:
       curves: []
       events:
       - time: 0.37592134
-        functionName: OnAttack
-        data: 
+        functionName: OnAnimationEvent
+        data: Attack
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
@@ -465,8 +465,8 @@ ModelImporter:
       curves: []
       events:
       - time: 0.5067568
-        functionName: OnAttack
-        data: 
+        functionName: OnAnimationEvent
+        data: Attack
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0

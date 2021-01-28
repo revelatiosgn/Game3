@@ -10,28 +10,28 @@ namespace ARPG.Movement
     {
         [SerializeField] float smoothTime;
         [SerializeField] float walkSpeed = 0.5f;
-        [SerializeField] float runSpeed = 0.9f;
+        [SerializeField] float runSpeed = 0.7f;
 
         NavMeshAgent navMeshAgent;
         Animator animator;
+        AIController aiController;
 
         float speed;
         float smoothVelocity;
         float desiredSpeed;
-
-        public float vel;
-        public float sp;
-        public bool stopped;
+        Quaternion velocityRot;
 
         void Awake()
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
             animator = GetComponent<Animator>();
+            aiController = GetComponent<AIController>();
         }
 
         void Start()
         {
             navMeshAgent.updatePosition = false;
+            navMeshAgent.updateRotation = false;
             navMeshAgent.acceleration = float.MaxValue;
             SetRunning(false);
         }
@@ -57,18 +57,21 @@ namespace ARPG.Movement
             {
                 animator.SetFloat("vertical", desiredSpeed);
             }
-
-            stopped = navMeshAgent.isStopped;
         }
 
         public void Move(Vector3 destination)
         {
-            navMeshAgent.destination = destination;
-            navMeshAgent.isStopped = false;
+            if (!aiController.isInteracting)
+            {
+                navMeshAgent.destination = destination;
+                navMeshAgent.isStopped = false;
+            }
         }
 
         public void Stop()
         {
+            navMeshAgent.destination = transform.position;
+            navMeshAgent.Warp(transform.position);
             navMeshAgent.isStopped = true;
         }
 
@@ -86,18 +89,22 @@ namespace ARPG.Movement
         {
             if (navMeshAgent.isStopped)
             {
-                transform.position = animator.rootPosition;
-                navMeshAgent.Warp(transform.position);
-                navMeshAgent.destination = transform.position;
+                // transform.position = animator.rootPosition;
+                // navMeshAgent.Warp(transform.position);
+                // navMeshAgent.destination = transform.position;
             }
             else
             {
+                Vector3 direction = navMeshAgent.nextPosition - transform.position;
+                if (direction != Vector3.zero)
+                {
+                    Quaternion targetRotation = Quaternion.LookRotation(direction);
+                    transform.rotation = Utils.QuaternionUtil.SmoothDamp(transform.rotation, targetRotation, ref velocityRot, 0.1f);
+                }
+
                 transform.position = navMeshAgent.nextPosition;
                 navMeshAgent.speed = animator.deltaPosition.magnitude / Time.deltaTime;
             }
-            
-            vel = navMeshAgent.velocity.magnitude;
-            sp = navMeshAgent.speed;
         }
 
         void OnDrawGizmos()

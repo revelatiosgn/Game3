@@ -4,6 +4,7 @@ using UnityEngine;
 
 using ARPG.Controller;
 using ARPG.Movement;
+using ARPG.Combat;
 
 namespace ARPG.AI
 {
@@ -14,11 +15,17 @@ namespace ARPG.AI
 
         public override bool Decide(AIController controller)
         {
-            GameObject player = GameObject.FindGameObjectWithTag(Constants.Tags.Player);
+            if (controller.chaseTarget != null)
+            {
+                WeaponBehaviour weaponBehaviour = controller.aiCombat.WeaponBehaviour;
+                if (weaponBehaviour == null)
+                    return false;
 
-            float dist = controller.IsState(combatState) ? 103f : 102f;
+                float dist = controller.IsState(combatState) ? weaponBehaviour.item.range : weaponBehaviour.item.range - 0.1f;
+                return Vector3.Distance(controller.transform.position, controller.chaseTarget.transform.position) < dist;
+            }
 
-            return Vector3.Distance(controller.transform.position, player.transform.position) < dist;
+            return false;
         }
     }
 }

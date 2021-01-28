@@ -18,7 +18,7 @@ namespace ARPG.Combat
             aimRotation = Camera.main.transform.rotation;
 
             RaycastHit hit;
-            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.rotation * Vector3.forward, out hit))
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.rotation * Vector3.forward, out hit, Mathf.Infinity, ~LayerMask.GetMask("AILook")))
             {
                 targetPosition = hit.point;
             }
@@ -28,54 +28,30 @@ namespace ARPG.Combat
             }
         }
 
-        public override void AttackBegin()
+        public override bool AttackBegin()
         {
-            WeaponBehaviour weaponBehaviour = GetComponent<WeaponBehaviour>();
-            if (weaponBehaviour != null && weaponBehaviour.AttackBegin())
+            if (base.AttackBegin() && (WeaponBehaviour as RangedBehaviour) != null)
             {
-                if (GetComponent<RangedBehaviour>())
-                {
-                    StopAllCoroutines();
-                    StartCoroutine(AimCamera());
-                    GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Aim;
-                }
+                StopAllCoroutines();
+                StartCoroutine(AimCamera());
+                GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Aim;
+
+                return true;
             }
+
+            return false;
         }
 
-        public override void AttackEnd()
+        public override void OnAttackComplete()
         {
-            WeaponBehaviour weaponBehaviour = GetComponent<WeaponBehaviour>();
-            if (weaponBehaviour != null && weaponBehaviour.AttackEnd())
+            base.OnAttackComplete();
+
+            if ((WeaponBehaviour as RangedBehaviour) != null)
             {
-                if (GetComponent<RangedBehaviour>())
-                {
-                    StopAllCoroutines();
-                    StartCoroutine(FreeLookCamera());
-                    GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Regular;
-                }
+                StopAllCoroutines();
+                StartCoroutine(FreeLookCamera());
+                GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Regular;
             }
-        }
-
-        public override void DefenceBegin()
-        {
-            WeaponBehaviour weaponBehaviour = GetComponent<WeaponBehaviour>();
-            if (weaponBehaviour != null && weaponBehaviour.DefenceBegin())
-                GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Aim;
-                
-            ShieldBehaviour shieldBehaviour = GetComponent<ShieldBehaviour>();
-            if (shieldBehaviour != null && shieldBehaviour.DefenceBegin())
-                GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Aim;
-        }
-
-        public override void DefenceEnd()
-        {
-            WeaponBehaviour weaponBehaviour = GetComponent<WeaponBehaviour>();
-            if (weaponBehaviour != null && weaponBehaviour.DefenceEnd())
-                GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Regular;
-                
-            ShieldBehaviour shieldBehaviour = GetComponent<ShieldBehaviour>();
-            if (shieldBehaviour != null && shieldBehaviour.DefenceEnd())
-                GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Regular;
         }
 
         IEnumerator AimCamera()
@@ -86,7 +62,7 @@ namespace ARPG.Combat
 
         IEnumerator FreeLookCamera()
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(0.5f);
             onCameraFreeLook.RaiseEvent();
         }
     }

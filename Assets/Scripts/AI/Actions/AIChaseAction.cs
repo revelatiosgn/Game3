@@ -11,8 +11,8 @@ namespace ARPG.AI
     {
         public override void Act(AIController controller)
         {
-            controller.aiMovement.Move(GameObject.FindGameObjectWithTag(Constants.Tags.Player).transform.position);
-            controller.aiMovement.SetRunning(true);
+            if (controller.chaseTarget)
+                controller.aiMovement.Move(controller.chaseTarget.transform.position);
         }
     }
 }

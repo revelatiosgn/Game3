@@ -26,11 +26,7 @@ namespace ARPG.Gear
             if (holder != null)
                 GameObject.Instantiate(shieldItem.prefab, holder);
 
-            ShieldBehaviour shieldBehaviour = target.GetComponent<ShieldBehaviour>();
-            if (shieldBehaviour != null)
-                Destroy(shieldBehaviour);
-
-            target.AddComponent<ShieldBehaviour>();
+            AddBehaviour(target);
         }
 
         public override void Unequip(GameObject target)
@@ -39,11 +35,18 @@ namespace ARPG.Gear
             for (int i = childCount - 1; i >= 0; i--)
                 Destroy(holder.GetChild(i).gameObject);
 
-            ShieldBehaviour weaponBehaviour = target.GetComponent<ShieldBehaviour>();
-            if (weaponBehaviour != null)
-                Destroy(weaponBehaviour);
+            target.GetComponent<BaseCombat>().ShieldBehaviour = null;
 
             base.Unequip(target);
+        }
+        
+        public override void AddBehaviour(GameObject target)
+        {
+            if (item == null)
+                return;
+
+            BaseCombat combat = target.GetComponent<BaseCombat>();
+            combat.ShieldBehaviour = new ShieldBehaviour(combat);
         }
     }
 }

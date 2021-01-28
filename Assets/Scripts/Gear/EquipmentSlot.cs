@@ -40,6 +40,10 @@ namespace ARPG.Gear
         {
         }
 
+        public virtual void AddBehaviour(GameObject target)
+        {
+        }
+
         protected void Destroy(Object obj)
         {
             if (Application.isPlaying)

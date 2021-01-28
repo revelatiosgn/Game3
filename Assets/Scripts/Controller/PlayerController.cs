@@ -9,7 +9,7 @@ using ARPG.Events;
 
 namespace ARPG.Controller
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : BaseController
     {
         [SerializeField] InputHandler inputHandler;
         [SerializeField] Vector2Event onPlayerMove;
@@ -23,8 +23,10 @@ namespace ARPG.Controller
 
         Vector2 lastMovement;
         
-        void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+
             playerMovement = GetComponent<PlayerMovement>();
             playerCombat = GetComponent<PlayerCombat>();
         }
@@ -49,7 +51,8 @@ namespace ARPG.Controller
 
         void Update()
         {
-            playerMovement.Move(lastMovement);
+            if (!isInteracting)
+                playerMovement.Move(lastMovement);
         }
 
         void OnPlayerMove(Vector2 value)

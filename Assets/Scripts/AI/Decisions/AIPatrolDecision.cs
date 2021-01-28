@@ -11,7 +11,7 @@ namespace ARPG.AI
     {
         public override bool Decide(AIController controller)
         {
-            if (controller.currentStateTime > 3f && controller.waypoints.Length > 0)
+            if (controller.currentStateTime > 2f && controller.waypoints.Length > 0)
                 return true;
 
             return false;

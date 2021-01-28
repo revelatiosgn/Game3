@@ -15,11 +15,11 @@ MonoBehaviour:
   title: One-handed sword
   icon: {fileID: 21300000, guid: 3720f36b68c2f54429db161e00bb80a4, type: 3}
   prefab: {fileID: 6364952361044605166, guid: 64c9fdfd0cfbf594081c251665cd7ba0, type: 3}
-  baseDamage: 10
+  baseDamage: 20
+  range: 2
   animatorContoller: {fileID: 22100000, guid: bd982f1c438202b4697ac3b6bf7babce, type: 2}
   hand: 1
   type: 0
   actionLayer: Sword1H
   maskLayer: RWeaponMask
-  range: 2
   angle: 100

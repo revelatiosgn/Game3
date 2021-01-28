@@ -9,23 +9,29 @@ using ARPG.Combat;
 
 namespace ARPG.Controller
 {
-    public class AIController : MonoBehaviour
+    public class AIController : BaseController
     {
         [SerializeField] AIState currentState;
         [SerializeField] AIState remainState;
-        
+
+        public AITransition[] anyStateTransitions;
+
         public Transform eyes;
         public Transform[] waypoints;
         public int waypointIndex = 0;
         public float currentStateTime = 0f;
+        public List<BaseController> charactersCanSee;
+        public BaseController chaseTarget;
 
         public AICombat aiCombat;
         public AIMovement aiMovement;
 
         Animator animator;
 
-        void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+
             animator = GetComponent<Animator>();
             aiCombat = GetComponent<AICombat>();
             aiMovement = GetComponent<AIMovement>();
@@ -46,7 +52,7 @@ namespace ARPG.Controller
         {
             if (nextState != remainState)
             {
-                Debug.Log(nextState);
+                Debug.Log(nextState.name);
                 currentState.OnStateExit(this);
                 currentState = nextState;
                 currentStateTime = 0f;

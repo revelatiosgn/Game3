@@ -8,9 +8,7 @@ namespace ARPG.AI
 {
     public abstract class AIAction : ScriptableObject
     {
-        public virtual void OnStateEnter(AIController controller) {}
-        public virtual void OnStateExit(AIController controller) {}
-        public virtual void Act(AIController controller) {}
+        public abstract void Act(AIController controller);
     }
 }
 

@@ -94,7 +94,7 @@ namespace ARPG.Movement
             if (direction != Vector3.zero)
             {
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
-                transform.rotation = targetRotation;
+                transform.rotation = Utils.QuaternionUtil.SmoothDamp(transform.rotation, targetRotation, ref velocityRot, 0.1f);
             }
 
             gravitySpeed += gravity * Time.deltaTime;

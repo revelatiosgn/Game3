@@ -36,14 +36,7 @@ namespace ARPG.Gear
             if (parent != null)
                 GameObject.Instantiate(weaponItem.prefab, parent);
 
-            WeaponBehaviour weaponBehaviour = target.GetComponent<WeaponBehaviour>();
-            if (weaponBehaviour != null)
-                Destroy(weaponBehaviour);
-
-            if (weaponItem as MeleeWeaponItem)
-                target.AddComponent<MeleeBehaviour>();
-            else
-                target.AddComponent<RangedBehaviour>();
+            AddBehaviour(target);
         }
 
         public override void Unequip(GameObject target)
@@ -56,11 +49,22 @@ namespace ARPG.Gear
             for (int i = childCount - 1; i >= 0; i--)
                 Destroy(rightHolder.GetChild(i).gameObject);
 
-            WeaponBehaviour weaponBehaviour = target.GetComponent<WeaponBehaviour>();
-            if (weaponBehaviour != null)
-                Destroy(weaponBehaviour);
+            target.GetComponent<BaseCombat>().WeaponBehaviour = null;
 
             base.Unequip(target);
+        }
+        
+        public override void AddBehaviour(GameObject target)
+        {
+            if (item == null)
+                return;
+
+            WeaponItem weaponItem = item as WeaponItem;
+            BaseCombat combat = target.GetComponent<BaseCombat>();
+            if (weaponItem as MeleeWeaponItem)
+                combat.WeaponBehaviour = new MeleeBehaviour(combat);
+            else
+                combat.WeaponBehaviour = new RangedBehaviour(combat);
         }
         
         public Transform GetWeaponTransform()
