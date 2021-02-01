@@ -124,7 +124,7 @@ public class EquipmentsEditor : Editor
     float ElementHeightCallback(int index)
     {
         SerializedProperty element = equipmentList.serializedProperty.GetArrayElementAtIndex(index);
-        float propertyHeight = EditorGUI.GetPropertyHeight(equipmentList.serializedProperty.GetArrayElementAtIndex(index), true);
+        float propertyHeight = EditorGUI.GetPropertyHeight(element, true);
         float spacing = EditorGUIUtility.singleLineHeight / 2;
 
         EquipmentSlot equipmentSlot = equipment.EquipmentSlots[index];

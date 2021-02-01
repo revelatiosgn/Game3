@@ -17,6 +17,7 @@ namespace ARPG.Controller
         [SerializeField] VoidEvent onPlayerAttackEnd;
         [SerializeField] VoidEvent onPlayerDefenceBegin;
         [SerializeField] VoidEvent onPlayerDefenceEnd;
+        [SerializeField] VoidEvent onPlayerJump;
 
         PlayerMovement playerMovement;
         PlayerCombat playerCombat;
@@ -38,6 +39,7 @@ namespace ARPG.Controller
             onPlayerAttackEnd.onEventRaised += OnPlayerAttackEnd;
             onPlayerDefenceBegin.onEventRaised += OnPlayerDefenceBegin;
             onPlayerDefenceEnd.onEventRaised += OnPlayerDefenceEnd;
+            onPlayerJump.onEventRaised += OnPlayerJump;
         }
 
         void OnDisable()
@@ -47,11 +49,12 @@ namespace ARPG.Controller
             onPlayerAttackEnd.onEventRaised += OnPlayerAttackEnd;
             onPlayerDefenceBegin.onEventRaised += OnPlayerDefenceBegin;
             onPlayerDefenceEnd.onEventRaised += OnPlayerDefenceEnd;
+            onPlayerJump.onEventRaised -= OnPlayerJump;
         }
 
         void Update()
         {
-            if (!isInteracting)
+            // if (!isInteracting)
                 playerMovement.Move(lastMovement);
         }
 
@@ -78,6 +81,11 @@ namespace ARPG.Controller
         void OnPlayerDefenceEnd()
         {
             playerCombat.DefenceEnd();
+        }
+
+        void OnPlayerJump()
+        {
+            playerMovement.Jump();
         }
     }
 }

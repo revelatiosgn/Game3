@@ -11,7 +11,7 @@ namespace ARPG.AI
     {
         public override bool Decide(AIController controller)
         {
-            if (controller.chaseTarget != null && controller.chaseTarget.characterStats.health <= 0)
+            if (controller.combatTarget != null && controller.combatTarget.characterStats.health <= 0)
                 return true;
 
             return false;

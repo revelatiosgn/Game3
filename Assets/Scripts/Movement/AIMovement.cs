@@ -49,14 +49,12 @@ namespace ARPG.Movement
                 }
             }
 
+            float sp = animator.GetFloat("vertical");
             if (navMeshAgent.isStopped)
-            {
-                animator.SetFloat("vertical", 0f);
-            }
+                sp = Mathf.SmoothDamp(sp, 0f, ref smoothVelocity, 0.1f);
             else
-            {
-                animator.SetFloat("vertical", desiredSpeed);
-            }
+                sp = Mathf.SmoothDamp(sp, desiredSpeed, ref smoothVelocity, 0.1f);
+            animator.SetFloat("vertical", sp);
         }
 
         public void Move(Vector3 destination)
@@ -88,23 +86,17 @@ namespace ARPG.Movement
         void OnAnimatorMove ()
         {
             if (navMeshAgent.isStopped)
-            {
-                // transform.position = animator.rootPosition;
-                // navMeshAgent.Warp(transform.position);
-                // navMeshAgent.destination = transform.position;
-            }
-            else
-            {
-                Vector3 direction = navMeshAgent.nextPosition - transform.position;
-                if (direction != Vector3.zero)
-                {
-                    Quaternion targetRotation = Quaternion.LookRotation(direction);
-                    transform.rotation = Utils.QuaternionUtil.SmoothDamp(transform.rotation, targetRotation, ref velocityRot, 0.1f);
-                }
+                return;
 
-                transform.position = navMeshAgent.nextPosition;
-                navMeshAgent.speed = animator.deltaPosition.magnitude / Time.deltaTime;
+            Vector3 direction = navMeshAgent.nextPosition - transform.position;
+            if (direction != Vector3.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                transform.rotation = Utils.QuaternionUtil.SmoothDamp(transform.rotation, targetRotation, ref velocityRot, 0.1f);
             }
+
+            transform.position = navMeshAgent.nextPosition;
+            navMeshAgent.speed = animator.deltaPosition.magnitude / Time.deltaTime;
         }
 
         void OnDrawGizmos()

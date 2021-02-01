@@ -19,4 +19,5 @@ MonoBehaviour:
   onPlayerAttackEnd: {fileID: 11400000, guid: 3794f27ab0ee0bf4c96d51f4b85b0e7c, type: 2}
   onPlayerDefenceBegin: {fileID: 11400000, guid: a75f32d03eacb6e46a76df1ce8f8e319, type: 2}
   onPlayerDefenceEnd: {fileID: 11400000, guid: 9eee28071095df74ca51112c9e0f1da8, type: 2}
+  onPlayerJump: {fileID: 11400000, guid: fff9471ded7a5c6469056f67edf66bb6, type: 2}
   onLockPlayerActions: {fileID: 11400000, guid: 5695cb5c31852dc4d926fc6fb6d734d5, type: 2}

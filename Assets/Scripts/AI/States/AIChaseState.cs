@@ -11,13 +11,13 @@ namespace ARPG.AI
     {
         public override void OnStateEnter(AIController controller)
         {
-            controller.chaseTarget = controller.charactersCanSee.Find(target => {
+            controller.combatTarget = controller.charactersCanSee.Find(target => {
                 if (target.characterGroup != controller.characterGroup)
                     return true;
                 return false;
             });
 
-            if (controller.chaseTarget)
+            if (controller.combatTarget)
                 controller.aiMovement.SetRunning(true);
         }
     }

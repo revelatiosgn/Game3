@@ -15,14 +15,14 @@ namespace ARPG.AI
 
         public override bool Decide(AIController controller)
         {
-            if (controller.chaseTarget != null)
+            if (controller.combatTarget != null)
             {
                 WeaponBehaviour weaponBehaviour = controller.aiCombat.WeaponBehaviour;
                 if (weaponBehaviour == null)
                     return false;
 
                 float dist = controller.IsState(combatState) ? weaponBehaviour.item.range : weaponBehaviour.item.range - 0.1f;
-                return Vector3.Distance(controller.transform.position, controller.chaseTarget.transform.position) < dist;
+                return Vector3.Distance(controller.transform.position, controller.combatTarget.transform.position) < dist;
             }
 
             return false;

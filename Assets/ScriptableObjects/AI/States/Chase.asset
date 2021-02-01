@@ -16,10 +16,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 64479adc864f9034fb8d133611f288c9, type: 2}
   transitions:
   - decision: {fileID: 11400000, guid: 40762ba89bed8d5498cdf4c2951c3e80, type: 2}
-    trueState: {fileID: 11400000, guid: bdbd9c85c4f540c428778f17a69e20f1, type: 2}
+    trueState: {fileID: 0}
     falseState: {fileID: 11400000, guid: ad1bd20adc1016c409ef054b165669c8, type: 2}
     isActive: 1
   - decision: {fileID: 11400000, guid: da8f68b8b135ad146ba867925942ab9a, type: 2}
     trueState: {fileID: 11400000, guid: ae54c4f25a34e714fa2e5c0f4598e5b5, type: 2}
-    falseState: {fileID: 11400000, guid: bdbd9c85c4f540c428778f17a69e20f1, type: 2}
+    falseState: {fileID: 0}
     isActive: 1

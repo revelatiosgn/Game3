@@ -14,17 +14,17 @@ namespace ARPG.AI
         {
             controller.aiMovement.Stop();
 
-            if (controller.chaseTarget == null)
+            if (controller.combatTarget == null)
                 return;
 
-            Transform chaseTarget = controller.chaseTarget.transform;
+            Transform chaseTarget = controller.combatTarget.transform;
             controller.aiCombat.targetPosition = chaseTarget.position + Vector3.up * 1.5f;
             Vector3 lookPosition = chaseTarget.position;
             lookPosition.y = controller.transform.position.y;
             controller.transform.LookAt(lookPosition, Vector3.up);
             // controller.aiCombat.DefenceBegin();
 
-            if (controller.aiCombat.attackTimer > 20f)
+            if (controller.aiCombat.attackTimer > 2f)
             {
                 controller.aiCombat.AttackBegin();
                 controller.aiCombat.AttackEnd();

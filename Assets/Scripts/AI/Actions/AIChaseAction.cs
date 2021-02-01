@@ -11,8 +11,8 @@ namespace ARPG.AI
     {
         public override void Act(AIController controller)
         {
-            if (controller.chaseTarget)
-                controller.aiMovement.Move(controller.chaseTarget.transform.position);
+            if (controller.combatTarget)
+                controller.aiMovement.Move(controller.combatTarget.transform.position);
         }
     }
 }

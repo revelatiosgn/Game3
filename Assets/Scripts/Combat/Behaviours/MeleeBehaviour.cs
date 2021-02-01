@@ -92,13 +92,15 @@ namespace ARPG.Combat
 
         void OnWeaponEvent(Transform target)
         {
-            if (target.GetComponent<BaseController>().characterGroup == controller.characterGroup)
+            BaseController targetController = target.GetComponent<BaseController>();
+
+            if (targetController.characterGroup == controller.characterGroup)
                 return;
 
             MeleeWeaponItem weaponItem = item as MeleeWeaponItem;
             float angle = Vector3.Angle(target.transform.position - combat.transform.position, combat.transform.forward);
             if (angle * 2f < weaponItem.angle)
-                target.GetComponent<CharacterStats>().TakeDamage(item.baseDamage);
+                targetController.OnTakeDamage(controller, item.baseDamage);
         }
     }
 }

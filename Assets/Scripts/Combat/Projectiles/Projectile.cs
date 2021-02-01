@@ -11,7 +11,7 @@ namespace ARPG.Combat
     {
         public float speed;
         public float damage;
-        public CharacterGroup characterGroup;
+        public BaseController owner;
 
         void Start()
         {
@@ -25,11 +25,9 @@ namespace ARPG.Combat
 
         void OnTriggerEnter(Collider collider)
         {
-            BaseController controller = collider.GetComponent<BaseController>();
-            if (controller != null && controller.characterGroup != characterGroup)
-            {
-                controller.GetComponent<CharacterStats>().TakeDamage(damage);
-            }
+            BaseController targetController = collider.GetComponent<BaseController>();
+            if (targetController != null && owner != null && targetController.characterGroup != owner.characterGroup)
+                targetController.OnTakeDamage(owner, damage);
 
             Destroy(gameObject);
         }

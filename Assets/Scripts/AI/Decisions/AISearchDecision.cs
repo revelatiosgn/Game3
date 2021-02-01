@@ -11,7 +11,7 @@ namespace ARPG.AI
     {
         public override bool Decide(AIController controller)
         {
-            if (controller.currentStateTime > 3f || controller.chaseTarget == null || controller.chaseTarget.characterStats.IsDead())
+            if (controller.currentStateTime > 1f || controller.combatTarget == null || controller.combatTarget.characterStats.IsDead())
                 return false;
 
             return true;

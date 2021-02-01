@@ -12,21 +12,20 @@ namespace ARPG.Controller
     public class AIController : BaseController
     {
         [SerializeField] AIState currentState;
-        [SerializeField] AIState remainState;
 
         public AITransition[] anyStateTransitions;
 
         public Transform eyes;
         public Transform[] waypoints;
-        public int waypointIndex = 0;
-        public float currentStateTime = 0f;
-        public List<BaseController> charactersCanSee;
-        public BaseController chaseTarget;
+        
+        [HideInInspector] public int waypointIndex = 0;
+        [HideInInspector] public float currentStateTime = 0f;
+        [HideInInspector] public List<BaseController> charactersCanSee;
+        [HideInInspector] public BaseController combatTarget;
 
-        public AICombat aiCombat;
-        public AIMovement aiMovement;
-
-        Animator animator;
+        [HideInInspector] public AICombat aiCombat;
+        [HideInInspector] public AIMovement aiMovement;
+        [HideInInspector] public Animator animator;
 
         protected override void Awake()
         {
@@ -48,21 +47,30 @@ namespace ARPG.Controller
             currentStateTime += Time.deltaTime;
         }
 
-        public void TransitionToState(AIState nextState)
+        public bool TransitionToState(AIState nextState)
         {
-            if (nextState != remainState)
-            {
-                Debug.Log(nextState.name);
-                currentState.OnStateExit(this);
-                currentState = nextState;
-                currentStateTime = 0f;
-                currentState.OnStateEnter(this);
-            }
+            if (nextState == null || nextState == currentState)
+                return false;
+
+            // Debug.Log(nextState.name);
+            currentState.OnStateExit(this);
+            currentState = nextState;
+            currentStateTime = 0f;
+            currentState.OnStateEnter(this);
+
+            return true;
         }
 
         public bool IsState(AIState state)
         {
             return currentState == state;
+        }
+
+        public override void OnTakeDamage(BaseController source, float damage)
+        {
+            base.OnTakeDamage(source, damage);
+            combatTarget = source;
+            Debug.Log(combatTarget.name);
         }
     }
 }

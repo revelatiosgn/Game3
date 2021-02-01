@@ -15,7 +15,7 @@ MonoBehaviour:
   title: Bow
   icon: {fileID: 21300000, guid: 2e98c0da41f911048a24ca84e5a8d1b6, type: 3}
   prefab: {fileID: 7247515202842409471, guid: dac93ac05de79af45bf7a46628311d9c, type: 3}
-  baseDamage: 15
+  baseDamage: 45
   range: 20
   animatorContoller: {fileID: 22100000, guid: 9c594512e897d7545b1d204d3090f2ca, type: 2}
   hand: 0

@@ -21,6 +21,7 @@ namespace ARPG.Core
         [SerializeField] VoidEvent onPlayerAttackEnd;
         [SerializeField] VoidEvent onPlayerDefenceBegin;
         [SerializeField] VoidEvent onPlayerDefenceEnd;
+        [SerializeField] VoidEvent onPlayerJump;
 
         [SerializeField] BoolEvent onLockPlayerActions;
 
@@ -67,6 +68,8 @@ namespace ARPG.Core
 
         public void OnJump(InputAction.CallbackContext context)
         {
+            if (context.phase == InputActionPhase.Performed)
+                onPlayerJump.RaiseEvent();
         }
 
         public void OnAttack(InputAction.CallbackContext context)

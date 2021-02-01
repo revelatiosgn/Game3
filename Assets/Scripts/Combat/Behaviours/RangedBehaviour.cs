@@ -86,7 +86,7 @@ namespace ARPG.Combat
                     Projectile arrow = arrowObject.GetComponent<Projectile>();
                     arrow.speed = arrowItem.speed;
                     arrow.damage = arrowItem.baseDamage + (weaponSlot.item as WeaponItem).baseDamage;
-                    arrow.characterGroup = controller.characterGroup;
+                    arrow.owner = controller;
 
                     Vector3 targetPosition = combat.targetPosition;
                     Vector3 direction = targetPosition - arrow.transform.position;

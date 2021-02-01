@@ -18,13 +18,11 @@ namespace ARPG.Combat
             maskLayerIndex = animator.GetLayerIndex(item.maskLayer);
 
             animator.SetLayerWeight(maskLayerIndex, 1f);
-            animator.SetFloat("shield", 1f);
         }
 
         public override void Dispose()
         {
             animator.SetLayerWeight(maskLayerIndex, 0f);
-            animator.SetFloat("shield", 0f);
         }
 
         public override bool DefenceBegin()

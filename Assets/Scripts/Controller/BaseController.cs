@@ -13,13 +13,20 @@ namespace ARPG.Controller
 
     public class BaseController : MonoBehaviour
     {
-        public bool isInteracting = false;
-        public CharacterGroup characterGroup;
-        public CharacterStats characterStats;
+        [HideInInspector] public bool isInteracting = false;
+        [HideInInspector] public CharacterGroup characterGroup;
+        [HideInInspector] public CharacterStats characterStats;
+        [HideInInspector] public Collider characterCollider;
 
         protected virtual void Awake()
         {
             characterStats = GetComponent<CharacterStats>();
+            characterCollider = GetComponent<CapsuleCollider>();
+        }
+
+        public virtual void OnTakeDamage(BaseController source, float damage)
+        {
+            characterStats.TakeDamage(damage);
         }
     }
 }

@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\AI\States\AIChaseState.cs" />
      <Compile Include="Assets\Scripts\AI\AILook.cs" />
      <Compile Include="Assets\Scripts\Combat\MeleeCollider.cs" />
+     <Compile Include="Assets\Scripts\AI\States\AIPatrolState.cs" />
      <Compile Include="Assets\Scripts\AI\AIDecision.cs" />
      <Compile Include="Assets\Scripts\Items\ChestArmorItem.cs" />
      <Compile Include="Assets\Scripts\Gear\EquipmentChestArmorSlot.cs" />
@@ -92,6 +93,7 @@
      <Compile Include="Assets\Scripts\Events\BoolEvent.cs" />
      <Compile Include="Assets\Scripts\AI\Actions\AIChaseAction.cs" />
      <Compile Include="Assets\Scripts\Items\WeaponItem.cs" />
+     <Compile Include="Assets\Scripts\AI\States\AIDeathState.cs" />
      <Compile Include="Assets\Scripts\Core\CameraSystem.cs" />
      <Compile Include="Assets\Scripts\Combat\AICombat.cs" />
      <Compile Include="Assets\Scripts\Events\Vector2Event.cs" />
@@ -101,18 +103,18 @@
      <Compile Include="Assets\Scripts\Gear\EquipmentWeaponSlot.cs" />
      <Compile Include="Assets\Scripts\Core\InputHandler.cs" />
      <Compile Include="Assets\Scripts\Movement\HeadIK.cs" />
+     <Compile Include="Assets\Scripts\AI\Decisions\AITargetDeadDecision.cs" />
      <Compile Include="Assets\Scripts\Inventory\ItemPickup.cs" />
      <Compile Include="Assets\Scripts\Combat\PlayerCombat.cs" />
      <Compile Include="Assets\Scripts\Core\CameraEvent.cs" />
      <Compile Include="Assets\Scripts\Gear\EquipmentLegsArmorSlot.cs" />
      <Compile Include="Assets\Scripts\Items\LegsArmorItem.cs" />
      <Compile Include="Assets\Scripts\Combat\WeaponState.cs" />
+     <Compile Include="Assets\Scripts\AI\States\AIIdleState.cs" />
      <Compile Include="Assets\Scripts\UI\UIController.cs" />
      <Compile Include="Assets\Scripts\Gear\EquipmentArmorSlot.cs" />
      <Compile Include="Assets\Scripts\AI\Decisions\AICombatDecision.cs" />
-     <Compile Include="Assets\Scripts\AI\States\AIPatrolState.cs" />
-     <Compile Include="Assets\Scripts\AI\States\AIIdleState.cs" />
-     <Compile Include="Assets\Scripts\AI\Decisions\AITargetDeadDecision.cs" />
+     <Compile Include="Assets\Scripts\AI\Decisions\AIChaseDecision.cs" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Glass_Global.shader" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Object.shader" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Global.shader" />

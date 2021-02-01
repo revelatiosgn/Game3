@@ -17,9 +17,6 @@ namespace ARPG.AI
                 return false;
             });
 
-            if (targetController == null)
-                Debug.Log("CANT SEE");
-
             if (targetController != null && !targetController.characterStats.IsDead())
                 return true;
 

@@ -22,8 +22,8 @@ namespace ARPG.AI
 
         public void UpdateState(AIController controller)
         {
-            DoActions(controller);
-            CheckTransitions(controller);
+            if (!CheckTransitions(controller))
+                DoActions(controller);
         }
 
         private void DoActions(AIController controller)
@@ -34,37 +34,29 @@ namespace ARPG.AI
             }
         }
 
-        private void CheckTransitions(AIController controller)
+        private bool CheckTransitions(AIController controller)
         {
             foreach (AITransition transition in controller.anyStateTransitions)
             {
                 if (!transition.isActive)
                     continue;
-
-                if (transition.decision.Decide(controller))
-                {
-                    controller.TransitionToState(transition.trueState);
-                }
-                else
-                {
-                    controller.TransitionToState(transition.falseState);
-                }
+    
+                bool isTransited = transition.decision.Decide(controller) ? controller.TransitionToState(transition.trueState) : controller.TransitionToState(transition.falseState);
+                if (isTransited)
+                    return true;
             }
 
             foreach (AITransition transition in transitions)
             {
                 if (!transition.isActive)
                     continue;
-
-                if (transition.decision.Decide(controller))
-                {
-                    controller.TransitionToState(transition.trueState);
-                }
-                else
-                {
-                    controller.TransitionToState(transition.falseState);
-                }
+    
+                bool isTransited = transition.decision.Decide(controller) ? controller.TransitionToState(transition.trueState) : controller.TransitionToState(transition.falseState);
+                if (isTransited)
+                    return true;
             }
+
+            return false;
         }
     }
 }

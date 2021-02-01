@@ -6,14 +6,13 @@ using ARPG.Controller;
 
 namespace ARPG.AI
 {
-    [CreateAssetMenu(menuName = "AI/States/Idle")]
-    public class AIIdleState : AIState
+    [CreateAssetMenu(menuName = "AI/States/Death")]
+    public class AIDeathState : AIState
     {
         public override void OnStateEnter(AIController controller)
         {
-            controller.combatTarget = null;
             controller.aiMovement.Stop();
-            controller.aiMovement.SetRunning(false);
+            controller.characterCollider.enabled = false;
         }
     }
 }
