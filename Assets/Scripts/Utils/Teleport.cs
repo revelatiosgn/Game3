@@ -12,9 +12,7 @@ namespace ARPG.Utils
         {
             Debug.Log("TP " + other.name);
 
-            other.GetComponent<CharacterController>().enabled = false;
             other.transform.position = targetTransform.position;
-            other.GetComponent<CharacterController>().enabled = true;
         }
     }
 }

@@ -3912,8 +3912,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6018887173546567305}
-  - component: {fileID: 6018887173546567311}
-  - component: {fileID: 6018887173546567309}
+  - component: {fileID: 821288335142894859}
+  - component: {fileID: 198525223580779792}
+  - component: {fileID: 5689769400766487156}
   - component: {fileID: 6018887173546567299}
   - component: {fileID: 6018887173546567298}
   - component: {fileID: 778169689}
@@ -3945,25 +3946,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!143 &6018887173546567311
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6018887173546567306}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 1.7
-  m_Radius: 0.2
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 0.93, z: 0}
---- !u!95 &6018887173546567309
+--- !u!95 &821288335142894859
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -3982,6 +3965,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!54 &198525223580779792
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6018887173546567306}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!136 &5689769400766487156
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6018887173546567306}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 1.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.16, z: 0}
 --- !u!208 &6018887173546567299
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -4035,7 +4048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpHeight: 10
   isGrounded: 0
-  velY: 0
+  isInAir: 0
   state: 0
 --- !u!114 &8104614096614371166
 MonoBehaviour:

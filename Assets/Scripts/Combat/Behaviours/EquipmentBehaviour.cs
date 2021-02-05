@@ -21,6 +21,7 @@ namespace ARPG.Combat
             this.equipment = combat.GetComponent<Equipment>();
             this.animator = combat.GetComponent<Animator>();
             this.controller = combat.GetComponent<BaseController>();
+            
         }
 
         public abstract void Dispose();
