@@ -65,6 +65,7 @@
      <Compile Include="Assets\Scripts\Combat\Behaviours\WeaponBehaviour.cs" />
      <Compile Include="Assets\Scripts\AI\Actions\AICombatAction.cs" />
      <Compile Include="Assets\Scripts\Controller\AIController.cs" />
+     <Compile Include="Assets\Scripts\AI\Decisions\AIChaseDecision.cs" />
      <Compile Include="Assets\Scripts\AI\Decisions\AILookDecision.cs" />
      <Compile Include="Assets\Scripts\Events\ItemEvent.cs" />
      <Compile Include="Assets\Scripts\Combat\BaseCombat.cs" />
@@ -100,6 +101,7 @@
      <Compile Include="Assets\Scripts\Items\ArmorItem.cs" />
      <Compile Include="Assets\Scripts\Items\RangedWeaponItem.cs" />
      <Compile Include="Assets\Scripts\Items\PotionItem.cs" />
+     <Compile Include="Assets\Scripts\Utils\DebugDraw.cs" />
      <Compile Include="Assets\Scripts\Gear\EquipmentWeaponSlot.cs" />
      <Compile Include="Assets\Scripts\Core\InputHandler.cs" />
      <Compile Include="Assets\Scripts\Movement\HeadIK.cs" />
@@ -114,7 +116,6 @@
      <Compile Include="Assets\Scripts\UI\UIController.cs" />
      <Compile Include="Assets\Scripts\Gear\EquipmentArmorSlot.cs" />
      <Compile Include="Assets\Scripts\AI\Decisions\AICombatDecision.cs" />
-     <Compile Include="Assets\Scripts\AI\Decisions\AIChaseDecision.cs" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Glass_Global.shader" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Object.shader" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Global.shader" />
@@ -677,9 +678,21 @@
       <Project>{9be5fd10-d9c0-7f00-449c-5b00efdc7c8e}</Project>
       <Name>Unity.VSCode.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.ProBuilder.csproj">
+      <Project>{d660299d-3fa9-1e33-8f91-7ab3465605b8}</Project>
+      <Name>Unity.ProBuilder</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.InputSystem.csproj">
       <Project>{5fe2777a-011b-40eb-b06b-ddbfaa98476d}</Project>
       <Name>Unity.InputSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.ProBuilder.Editor.csproj">
+      <Project>{3781a1e8-ec8e-d363-3e1e-706d18800e6c}</Project>
+      <Name>Unity.ProBuilder.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.ProBuilder.AssetIdRemapUtility.csproj">
+      <Project>{02b99533-12eb-8ed0-a91d-d028e7ace0ac}</Project>
+      <Name>Unity.ProBuilder.AssetIdRemapUtility</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.Editor.csproj">
       <Project>{79836741-f4a7-46da-ab5d-81f363e1d50c}</Project>
@@ -700,6 +713,10 @@
     <ProjectReference Include="Unity.VisualStudio.Editor.csproj">
       <Project>{e50cc185-3dab-48b7-aff3-50d98537d4ea}</Project>
       <Name>Unity.VisualStudio.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.ProBuilder.AddOns.Editor.csproj">
+      <Project>{409d834e-5e44-1a8f-a682-b67351bfe1e4}</Project>
+      <Name>Unity.ProBuilder.AddOns.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.csproj">
       <Project>{1dae6f65-8e4e-69f4-7ca3-d5ffe21f8b65}</Project>
