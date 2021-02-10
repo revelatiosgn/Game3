@@ -15,35 +15,28 @@ namespace ARPG.Movement
             Aim
         }
 
-        [SerializeField][Range(0f, 100f)] float jumpHeight = 1f;
-
         Rigidbody rb;
         CapsuleCollider capsuleCollider;
         PlayerController playerController;
         Animator animator;
 
+        public bool isGrounded;
+        public bool isGravity = true;
+        [SerializeField][Range(0f, 1f)] float skinWidth = 0.1f;
+        [SerializeField][Range(0f, 90f)] float slopeLimit = 30f;
+        [SerializeField][Range(0f, 1f)] float stepLimit = 1.0f;
+        [SerializeField][Range(0f, 1f)] float stepRadius = 0.1f;
+        [SerializeField][Range(0f, 100f)] float jumpHeight = 1f;
+
+        Vector3 inputVelocity;
+        Vector3 gravityVelocity;
+        LayerMask layerMask;
+
         float velocityH;
         float velocityV;
         Quaternion velocityRot;
 
-        public bool isGrounded;
-        public bool isGravity = true;
-        public float skinWidth = 0.1f;
-        [Range(0f, 90f)] public float slopeLimit = 30f;
-        [Range(0f, 1f)] public float stepLimit = 1.0f;
-        [Range(0f, 3f)] public float stepCheckDistance = 2f;
-
-        Vector3 snapVelocity;
-        Vector3 slideVelocity;
-        Vector3 jumpVelocity;
-
-        Vector3 animatorVel;
-
-        public Vector3 inputVelocity;
-        public Vector3 gravityVelocity;
-
-        public Vector3 groundNormal;
-        LayerMask layerMask;
+        public List<Vector3> snapPoints;
 
         public MovementState state = MovementState.Regular;
         public MovementState State
@@ -108,21 +101,12 @@ namespace ARPG.Movement
             }
         }
 
-        void Snap()
+        void CollectSnapPoints()
         {
-            if (!isGrounded)
-                return;
-
-            snapPoint = Vector3.zero;
-            snapNormal = Vector3.up;
-
-            stepPoint = Vector3.zero;
-            stepNormal = Vector3.up;
+            snapPoints.Clear();
 
             float radius = capsuleCollider.radius + skinWidth;
             RaycastHit[] hits = Physics.SphereCastAll(rb.position + Vector3.up * (1.0f + radius), radius, Vector3.down, 2.0f + 2 * radius, layerMask);
-
-            float targetY = float.MinValue;
             for (int i = 0; i < hits.Length; i++)
             {
                 RaycastHit hit = hits[i];
@@ -133,16 +117,23 @@ namespace ARPG.Movement
                 float angle = Vector3.Angle(hit.normal, Vector3.up);
                 if (angle > slopeLimit)
                 {
-                    float stepRadius = 0.1f;
                     RaycastHit stepHit;
-                    if (Physics.SphereCast(hit.point + Vector3.up * (stepRadius + 1.01f), stepRadius, Vector3.down, out stepHit, stepRadius + 2.02f, layerMask))
+                    if (Physics.SphereCast(hit.point + Vector3.up * (stepRadius * 2f), stepRadius, Vector3.down, out stepHit, stepRadius * 2f, layerMask))
                     {
-                        angle = Vector3.Angle(stepHit.normal, Vector3.up);
-                        if (angle > slopeLimit)
-                            continue;
+                        angle = 90.0f - Vector3.Angle(stepHit.point - hit.point, Vector3.up);
+                        Debug.Log(angle);
 
-                        stepPoint = stepHit.point;
-                        stepNormal = stepHit.normal;
+                        if (angle > slopeLimit)
+                        {
+                            Debug.Log("LIMIT");
+                        }
+                        else
+                        {
+                            Debug.Log("OK");
+                        }
+
+                        if ((stepHit.point - hit.point).sqrMagnitude > Mathf.Epsilon && angle > slopeLimit)
+                            continue;
                     }
                     else
                     {
@@ -150,28 +141,37 @@ namespace ARPG.Movement
                     }
                 }
 
-
                 float d = radius - radius * Mathf.Cos(Vector3.Angle(hit.normal, Vector3.up) * Mathf.Deg2Rad);
                 float y = hit.point.y - d;
 
-                if (y > targetY)
-                {
-                    targetY = y;
-                    snapPoint = hit.point;
-                    snapNormal = hit.normal;
-                }
+                snapPoints.Add(new Vector3(hit.point.x, y, hit.point.z));
+            }
+        }
+
+        void Snap()
+        {
+            CollectSnapPoints();
+
+            if (!isGrounded)
+                return;
+
+            Vector3 snapPoint = new Vector3(0f, float.MinValue, 0f);
+            foreach (Vector3 sp in snapPoints)
+            {
+                if (sp.y > snapPoint.y)
+                    snapPoint = sp;
             }
 
-            if (targetY > float.MinValue)
+            if (snapPoint.y > float.MinValue)
             {
                 Vector3 position = rb.position;
-                position.y = targetY;
+                position.y = snapPoint.y;
                 rb.MovePosition(position);
             }
-            else
-            {
-                isGrounded = false;
-            }
+        }
+
+        private void OnCollisionStay(Collision other) {
+            Debug.Log(other.collider.name);
         }
 
         void ApplyGravity()
@@ -191,32 +191,8 @@ namespace ARPG.Movement
             inputVelocity.z = animator.velocity.z;
         }
 
-        Vector3 snapPoint;
-        Vector3 snapNormal;
-
-        Vector3 stepPoint;
-        Vector3 stepNormal;
-
         void OnDrawGizmos()
         {
-            if (snapPoint != Vector3.zero)
-            {
-                Gizmos.color = Color.blue;
-                Gizmos.DrawRay(snapPoint, snapNormal);
-            }
-
-            if (stepPoint != Vector3.zero)
-            {
-                Gizmos.color = Color.red;
-                Gizmos.DrawRay(stepPoint, stepNormal);
-            }
-
-            // if (snapPoint != Vector3.zero)
-            // {
-            //     Gizmos.color = Color.red;
-            //     Gizmos.DrawRay(transform.position, -Vector3.ProjectOnPlane(snapNormal, Vector3.up).normalized);
-            //     Gizmos.DrawRay(transform.position + Vector3.up * stepLimit, -Vector3.ProjectOnPlane(snapNormal, Vector3.up).normalized);
-            // }
         }
 
         void Land()
@@ -227,7 +203,6 @@ namespace ARPG.Movement
             // animator.SetFloat("horizontal", 0f);
             // animator.SetFloat("vertical", 0f);
             isGrounded = true;
-            jumpVelocity = Vector3.zero;
         }
 
         public void Jump()
