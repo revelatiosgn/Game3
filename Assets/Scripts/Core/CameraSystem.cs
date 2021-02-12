@@ -43,8 +43,8 @@ namespace ARPG.Core
 
         void OnPlayerRotateCamera(Vector2 value)
         {
-            activeCamera.m_XAxis.m_InputAxisValue = -value.x * Time.smoothDeltaTime * rotationMult;
-            activeCamera.m_YAxis.m_InputAxisValue = -value.y * Time.smoothDeltaTime * rotationMult;
+            activeCamera.m_XAxis.m_InputAxisValue = -value.x * Time.deltaTime * rotationMult;
+            activeCamera.m_YAxis.m_InputAxisValue = -value.y * Time.deltaTime * rotationMult;
         }
 
         void OnCameraFreeLook()
