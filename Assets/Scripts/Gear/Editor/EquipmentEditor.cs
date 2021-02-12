@@ -113,10 +113,15 @@ public class EquipmentsEditor : Editor
         {
             float height = EditorGUI.GetPropertyHeight(equipmentList.serializedProperty.GetArrayElementAtIndex(index), true);
             GUI.Label(new Rect(rect.x + 10, rect.y + height + 5, Screen.width * .8f, height: EditorGUIUtility.singleLineHeight), equipmentSlot.item.title);
-            if (GUI.Button(new Rect(rect.x + 10, rect.y + height + 5 + EditorGUIUtility.singleLineHeight, 100, height: EditorGUIUtility.singleLineHeight), "Unequip"))
+
+            SerializedProperty defaultItem = element.FindPropertyRelative("defaultItem");
+            if (equipmentSlot.item != null && defaultItem != null && defaultItem.objectReferenceValue != equipmentSlot.item)
             {
-                equipmentSlot.item.OnUse(equipment.gameObject);
-                serializedObject.ApplyModifiedProperties();
+                if (GUI.Button(new Rect(rect.x + 10, rect.y + height + 5 + EditorGUIUtility.singleLineHeight, 100, height: EditorGUIUtility.singleLineHeight), "Unequip"))
+                {
+                    equipmentSlot.item.OnUse(equipment.gameObject);
+                    serializedObject.ApplyModifiedProperties();
+                }
             }
         }
     }

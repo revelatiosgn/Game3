@@ -44,12 +44,10 @@ namespace ARPG.UI
                 }
             }
         }
-
+        
         void Awake()
         {
             button = GetComponent<Button>();
-
-            Reset();
         }
 
         void Start()
@@ -65,7 +63,10 @@ namespace ARPG.UI
         void UseItem()
         {
             if (itemSlot != null)
+            {
                 itemSlot.item.OnUse(GameObject.FindGameObjectWithTag(Constants.Tags.Player));
+                Debug.Log(itemSlot.item.name + " " + itemSlot.count);
+            }
         }
 
         void Reset()

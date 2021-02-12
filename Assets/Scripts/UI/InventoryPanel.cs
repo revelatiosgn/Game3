@@ -40,12 +40,18 @@ namespace ARPG.UI
         void OnEnable()
         {
             List<ItemSlot> itemSlots = itemsContainer.ItemSlots;
-            for (int i = 0; i < itemSlots.Count; i++)
+            for (int i = 0; i < grid.transform.childCount; i++)
             {
-                ItemSlot itemSlot = itemSlots[i];
-                InventorySlot inventorySlot = grid.transform.GetChild(i).GetComponent<InventorySlot>();
-                inventorySlot.ItemSlot = itemSlot;
-                inventorySlot.SetEquipped(equipment.IsEquipped(itemSlot.item));
+                InventorySlot slot = grid.transform.GetChild(i).GetComponent<InventorySlot>();
+                if (i < itemSlots.Count)
+                {
+                    slot.ItemSlot = itemSlots[i];
+                    slot.SetEquipped(equipment.IsEquipped(itemSlots[i].item));
+                }
+                else
+                {
+                    slot.ItemSlot = null;
+                }
             }
 
             onEquip.OnEventRaised += OnEquip;
