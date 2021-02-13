@@ -2,24 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ARPG.Inventory
-{
-    public class ItemPickup : MonoBehaviour
-    {
-        ItemsContainer itemsContainer;
+using ARPG.Inventory;
 
-        void Awake()
+namespace ARPG.Interactions
+{
+    public class ItemPickup : Interactable
+    {
+        [SerializeField] ItemSlot itemSlot;
+
+        public override void Interact(GameObject target)
         {
-            itemsContainer = GetComponent<ItemsContainer>();
+            target.GetComponent<ItemsContainer>().AddItemSlot(itemSlot);
+            Destroy(gameObject);
         }
 
-        void OnTriggerEnter(Collider other)
+        protected override string GetHintText()
         {
-            if (other.tag == Constants.Tags.Player)
-            {
-                Debug.Log("pickup");
-                other.GetComponent<ItemsContainer>().Merge(itemsContainer);
-            }
+            return itemSlot.item.title;
         }
 
         // void Grab(ItemsContainer destination)

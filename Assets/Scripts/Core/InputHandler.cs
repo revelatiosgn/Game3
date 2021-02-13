@@ -12,7 +12,7 @@ namespace ARPG.Core
     [CreateAssetMenu(fileName = "InputHandler", menuName = "Game/InputHandler")]
     public class InputHandler : ScriptableObject, InputActions.IPlayerMovementActions, InputActions.IPlayerActionsActions, InputActions.IUIActions
     {
-        private InputActions inputActions;
+        public InputActions inputActions { get; private set; }
 
         [SerializeField] Vector2Event onPlayerMove;
         [SerializeField] Vector2Event onPlayerRotateCamera;
@@ -22,7 +22,9 @@ namespace ARPG.Core
         [SerializeField] VoidEvent onPlayerDefenceBegin;
         [SerializeField] VoidEvent onPlayerDefenceEnd;
         [SerializeField] VoidEvent onPlayerJump;
+        [SerializeField] VoidEvent onPlayerInteract;
 
+        [SerializeField] InputActionsEvent onInputActionsUpdate;
         [SerializeField] BoolEvent onLockPlayerActions;
 
         void OnEnable()
@@ -33,11 +35,14 @@ namespace ARPG.Core
                 inputActions.PlayerMovement.SetCallbacks(this);
                 inputActions.PlayerActions.SetCallbacks(this);
                 inputActions.UI.SetCallbacks(this);
+
             }
 
             inputActions.Enable();
 
             onLockPlayerActions.OnEventRaised += OnLockPlayerActions;
+
+            onInputActionsUpdate.RaiseEvent(inputActions);
         }
 
         void OnDisable()
@@ -49,7 +54,6 @@ namespace ARPG.Core
 
         public void OnMovement(InputAction.CallbackContext context)
         {
-            //movementEvent.Invoke(context.ReadValue<Vector2>());
             onPlayerMove.RaiseEvent(context.ReadValue<Vector2>());
         }
 
@@ -94,6 +98,12 @@ namespace ARPG.Core
         {
             if (context.phase == InputActionPhase.Performed)
                 onPlayerInvetory.RaiseEvent();
+        }
+
+        public void OnInteract(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+                onPlayerInteract.RaiseEvent();
         }
 
         private void OnLockPlayerActions(bool value)

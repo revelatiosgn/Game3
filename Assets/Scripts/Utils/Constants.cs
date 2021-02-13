@@ -7,6 +7,7 @@ public class Constants : MonoBehaviour
     public class Tags
     {
         public static string Player = "Player";
-        public static string Enemy = "Enemy";
+        public static string NPC = "NPC";
+        public static string InteractionCamera = "InteractionCamera";
     }
 }

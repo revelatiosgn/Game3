@@ -64,6 +64,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2912462481529364922, guid: d656c0999f94bb3458f66e848c99e781, type: 3}
+      propertyPath: itemSlot.item
+      value: 
+      objectReference: {fileID: 11400000, guid: 4bd9662524440e9449b24a93c1e96f88, type: 2}
+    - target: {fileID: 1687247357665269282, guid: d656c0999f94bb3458f66e848c99e781, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7428202689590742066, guid: d656c0999f94bb3458f66e848c99e781, type: 3}
       propertyPath: m_Name
       value: Sword2HPickup

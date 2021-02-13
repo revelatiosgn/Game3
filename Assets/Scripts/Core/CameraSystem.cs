@@ -15,6 +15,7 @@ namespace ARPG.Core
         [SerializeField] CinemachineFreeLook aimCamera;
         [SerializeField] [Range(1f, 5f)] float rotationMult = 1f; 
         [SerializeField] CameraEvent onCameraFreeLook, onCameraAim;
+        [SerializeField] static Camera pickupCamera;
 
         CinemachineFreeLook activeCamera;
 
@@ -27,19 +28,17 @@ namespace ARPG.Core
 
         void OnEnable()
         {
-            onPlayerRotateCamera.OnEventRaised += OnPlayerRotateCamera;
-            onCameraFreeLook.OnEventRaised += OnCameraFreeLook;
-            onCameraAim.OnEventRaised += OnCameraAim;
+            onPlayerRotateCamera.onEventRaised += OnPlayerRotateCamera;
+            onCameraFreeLook.onEventRaised += OnCameraFreeLook;
+            onCameraAim.onEventRaised += OnCameraAim;
         }
 
         void OnDisable()
         {
-            onPlayerRotateCamera.OnEventRaised -= OnPlayerRotateCamera;
+            onPlayerRotateCamera.onEventRaised -= OnPlayerRotateCamera;
         }
 
-        void LateUpdate()
-        {
-        }
+        // public  Camera PickupCamera
 
         void OnPlayerRotateCamera(Vector2 value)
         {

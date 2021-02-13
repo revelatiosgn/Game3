@@ -19,7 +19,7 @@ namespace ARPG.Gear
             LegsArmor
         }
 
-        public EquipmentItem item { get; private set; }
+        [HideInInspector] public EquipmentItem item;
 
         public virtual SlotType GetSlotType()
         {

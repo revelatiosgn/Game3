@@ -86,10 +86,8 @@ namespace ARPG.Inventory
                 Item item = container.ItemSlots[focusedElementIndex].item;
                 Equipment equipment = container.GetComponent<Equipment>();
                 if (item as EquipmentItem && equipment != null && equipment.IsEquipped(item))
-                {
                     item.OnUse(container.gameObject);
-                    containerList.serializedProperty.DeleteArrayElementAtIndex(focusedElementIndex);
-                }
+                containerList.serializedProperty.DeleteArrayElementAtIndex(focusedElementIndex);
             }
         }
 

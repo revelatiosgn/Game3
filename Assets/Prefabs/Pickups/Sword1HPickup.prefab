@@ -64,13 +64,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2912462481529364922, guid: d656c0999f94bb3458f66e848c99e781, type: 3}
+      propertyPath: itemSlot.item
+      value: 
+      objectReference: {fileID: 11400000, guid: 26793953debf1ae47b37fa844339fb3a, type: 2}
+    - target: {fileID: 1687247357665269282, guid: d656c0999f94bb3458f66e848c99e781, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779937986303614501, guid: d656c0999f94bb3458f66e848c99e781, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448981615384514965, guid: d656c0999f94bb3458f66e848c99e781, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6380060505935379549, guid: d656c0999f94bb3458f66e848c99e781, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 7428202689590742066, guid: d656c0999f94bb3458f66e848c99e781, type: 3}
       propertyPath: m_Name
       value: Sword1HPickup
       objectReference: {fileID: 0}
     - target: {fileID: 7428202689590742079, guid: d656c0999f94bb3458f66e848c99e781, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.8522537
       objectReference: {fileID: 0}
     - target: {fileID: 7428202689590742079, guid: d656c0999f94bb3458f66e848c99e781, type: 3}
       propertyPath: m_LocalPosition.y
@@ -78,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7428202689590742079, guid: d656c0999f94bb3458f66e848c99e781, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 5.4655085
       objectReference: {fileID: 0}
     - target: {fileID: 7428202689590742079, guid: d656c0999f94bb3458f66e848c99e781, type: 3}
       propertyPath: m_LocalRotation.x

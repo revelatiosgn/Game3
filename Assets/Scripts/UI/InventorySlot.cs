@@ -65,7 +65,6 @@ namespace ARPG.UI
             if (itemSlot != null)
             {
                 itemSlot.item.OnUse(GameObject.FindGameObjectWithTag(Constants.Tags.Player));
-                Debug.Log(itemSlot.item.name + " " + itemSlot.count);
             }
         }
 

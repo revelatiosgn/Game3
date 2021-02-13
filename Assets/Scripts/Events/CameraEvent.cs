@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace ARPG.Core
+namespace ARPG.Events
 {
     [CreateAssetMenu(menuName = "Events/Camera Event")]
     public class CameraEvent : ScriptableObject
     {
-        public UnityAction OnEventRaised;
+        public UnityAction onEventRaised;
         public void RaiseEvent()
         {
-            if (OnEventRaised != null)
-                OnEventRaised.Invoke();
+            if (onEventRaised != null)
+                onEventRaised.Invoke();
         }
     }
 }

@@ -30,14 +30,14 @@ public class EquipmentsEditor : Editor
         equipmentList.elementHeightCallback = ElementHeightCallback;
         equipmentList.footerHeight = 60f;
 
-        ((ItemEvent) serializedObject.FindProperty("onEquip").objectReferenceValue).OnEventRaised += OnEquip;
-        ((ItemEvent) serializedObject.FindProperty("onUnequip").objectReferenceValue).OnEventRaised += OnUnequip;
+        ((ItemEvent) serializedObject.FindProperty("onEquip").objectReferenceValue).onEventRaised += OnEquip;
+        ((ItemEvent) serializedObject.FindProperty("onUnequip").objectReferenceValue).onEventRaised += OnUnequip;
     }
 
     void OnDisable()
     {
-        ((ItemEvent) serializedObject.FindProperty("onEquip").objectReferenceValue).OnEventRaised -= OnEquip;
-        ((ItemEvent) serializedObject.FindProperty("onUnequip").objectReferenceValue).OnEventRaised -= OnUnequip;
+        ((ItemEvent) serializedObject.FindProperty("onEquip").objectReferenceValue).onEventRaised -= OnEquip;
+        ((ItemEvent) serializedObject.FindProperty("onUnequip").objectReferenceValue).onEventRaised -= OnUnequip;
     }
 
     void OnEquip(Item item)

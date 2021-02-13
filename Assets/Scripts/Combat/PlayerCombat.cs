@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using ARPG.Core;
-using ARPG.Controller;
-using ARPG.Items;
+using ARPG.Events;
 using ARPG.Movement;
 
 namespace ARPG.Combat

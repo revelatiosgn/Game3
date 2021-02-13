@@ -54,8 +54,8 @@ namespace ARPG.UI
                 }
             }
 
-            onEquip.OnEventRaised += OnEquip;
-            onUnequip.OnEventRaised += OnUnequip;
+            onEquip.onEventRaised += OnEquip;
+            onUnequip.onEventRaised += OnUnequip;
         }
 
         void OnDisable()
@@ -63,8 +63,8 @@ namespace ARPG.UI
             foreach (Transform child in grid.transform)
                 child.GetComponent<InventorySlot>().ItemSlot = null;
 
-            onEquip.OnEventRaised -= OnEquip;
-            onUnequip.OnEventRaised -= OnUnequip;
+            onEquip.onEventRaised -= OnEquip;
+            onUnequip.onEventRaised -= OnUnequip;
         }
 
         InventorySlot GetInventorySlot(Item item)

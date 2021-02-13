@@ -38,6 +38,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AI\Decisions\AIPatrolDecision.cs" />
      <Compile Include="Assets\Scripts\Items\ArrowItem.cs" />
+     <Compile Include="Assets\Scripts\Interactions\Interactable.cs" />
      <Compile Include="Assets\Scripts\Core\InputActions.cs" />
      <Compile Include="Assets\Scripts\AI\AIAction.cs" />
      <Compile Include="Assets\Scripts\Items\ShieldItem.cs" />
@@ -51,7 +52,7 @@
      <Compile Include="Assets\Scripts\AI\Decisions\AISearchDecision.cs" />
      <Compile Include="Assets\Scripts\Inventory\ItemSlot.cs" />
      <Compile Include="Assets\Scripts\Gear\EquipmentArrowSlot.cs" />
-     <Compile Include="Assets\Scripts\UI\HUDHealth.cs" />
+     <Compile Include="Assets\Scripts\UI\HUDController.cs" />
      <Compile Include="Assets\Scripts\Events\VoidEvent.cs" />
      <Compile Include="Assets\Scripts\Core\CameraFacing.cs" />
      <Compile Include="Assets\Scripts\Items\EquipmentItem.cs" />
@@ -60,6 +61,7 @@
      <Compile Include="Assets\Scripts\Combat\MeleeCollider.cs" />
      <Compile Include="Assets\Scripts\AI\States\AIPatrolState.cs" />
      <Compile Include="Assets\Scripts\AI\AIDecision.cs" />
+     <Compile Include="Assets\Scripts\Events\InteractableEvent.cs" />
      <Compile Include="Assets\Scripts\Items\ChestArmorItem.cs" />
      <Compile Include="Assets\Scripts\Gear\EquipmentChestArmorSlot.cs" />
      <Compile Include="Assets\Scripts\Combat\Behaviours\WeaponBehaviour.cs" />
@@ -106,9 +108,9 @@
      <Compile Include="Assets\Scripts\Core\InputHandler.cs" />
      <Compile Include="Assets\Scripts\Movement\HeadIK.cs" />
      <Compile Include="Assets\Scripts\AI\Decisions\AITargetDeadDecision.cs" />
-     <Compile Include="Assets\Scripts\Inventory\ItemPickup.cs" />
+     <Compile Include="Assets\Scripts\Interactions\ItemPickup.cs" />
      <Compile Include="Assets\Scripts\Combat\PlayerCombat.cs" />
-     <Compile Include="Assets\Scripts\Core\CameraEvent.cs" />
+     <Compile Include="Assets\Scripts\Events\CameraEvent.cs" />
      <Compile Include="Assets\Scripts\Gear\EquipmentLegsArmorSlot.cs" />
      <Compile Include="Assets\Scripts\Items\LegsArmorItem.cs" />
      <Compile Include="Assets\Scripts\Combat\WeaponState.cs" />
@@ -116,6 +118,7 @@
      <Compile Include="Assets\Scripts\UI\UIController.cs" />
      <Compile Include="Assets\Scripts\Gear\EquipmentArmorSlot.cs" />
      <Compile Include="Assets\Scripts\AI\Decisions\AICombatDecision.cs" />
+     <Compile Include="Assets\Scripts\Events\InputActionsEvent.cs" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Glass_Global.shader" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Object.shader" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Global.shader" />

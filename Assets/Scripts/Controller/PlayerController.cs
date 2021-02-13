@@ -11,7 +11,6 @@ namespace ARPG.Controller
 {
     public class PlayerController : BaseController
     {
-        [SerializeField] InputHandler inputHandler;
         [SerializeField] Vector2Event onPlayerMove;
         [SerializeField] VoidEvent onPlayerAttackBegin;
         [SerializeField] VoidEvent onPlayerAttackEnd;
@@ -34,7 +33,7 @@ namespace ARPG.Controller
 
         void OnEnable()
         {
-            onPlayerMove.OnEventRaised += OnPlayerMove;
+            onPlayerMove.onEventRaised += OnPlayerMove;
             onPlayerAttackBegin.onEventRaised += OnPlayerAttackBegin;
             onPlayerAttackEnd.onEventRaised += OnPlayerAttackEnd;
             onPlayerDefenceBegin.onEventRaised += OnPlayerDefenceBegin;
@@ -44,7 +43,7 @@ namespace ARPG.Controller
 
         void OnDisable()
         {
-            onPlayerMove.OnEventRaised -= OnPlayerMove;
+            onPlayerMove.onEventRaised -= OnPlayerMove;
             onPlayerAttackBegin.onEventRaised += OnPlayerAttackBegin;
             onPlayerAttackEnd.onEventRaised += OnPlayerAttackEnd;
             onPlayerDefenceBegin.onEventRaised += OnPlayerDefenceBegin;

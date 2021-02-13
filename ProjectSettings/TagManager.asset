@@ -4,8 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
   - Environment
+  - NPC
+  - InteractionCamera
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Environment
   - Character
   - AILook
-  - 
+  - Interactive
   - 
   - 
   - 

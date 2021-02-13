@@ -29,12 +29,12 @@ namespace ARPG.Movement
         PlayerController playerController;
         Animator animator;
 
-        public bool isGravity = true;
         [SerializeField][Range(0f, 1f)] float skinWidth = 0.1f;
         [SerializeField][Range(0f, 90f)] float slopeLimit = 30f;
         [SerializeField][Range(0f, 1f)] float stepLimit = 1.0f;
-        [SerializeField][Range(0f, 1f)] float stepRadius = 0.1f;
         [SerializeField][Range(0f, 100f)] float jumpHeight = 1f;
+        [SerializeField][Range(0f, 10f)] float gravityMultiplier = 1f;
+        [SerializeField][Range(0f, 100f)] float landSpeedLimit = 8f;
 
         Vector3 inputVelocity;
         Vector3 gravityVelocity;
@@ -96,7 +96,7 @@ namespace ARPG.Movement
         {
             if (colliderState == ColliderState.Jump)
             {
-                jumpVelocity.y = Mathf.Sqrt(2 * jumpHeight * -Physics.gravity.y);
+                jumpVelocity.y = Mathf.Sqrt(2 * jumpHeight * -Physics.gravity.y * gravityMultiplier);
                 rb.velocity = inputVelocity + gravityVelocity + jumpVelocity;
                 rb.MovePosition(rb.position + rb.velocity * Time.fixedDeltaTime);
                 colliderState = ColliderState.InAir;
@@ -166,7 +166,7 @@ namespace ARPG.Movement
             {
                 for (int i = 0; i < contactPoints.Count; i++)
                 {
-                    if (Vector3.Dot(contactPoints[i].normal, Vector3.up) < -Mathf.Epsilon)
+                    if (Vector3.Dot(contactPoints[i].normal, Vector3.up) < -0.001f)
                     {
                         jumpVelocity.y = 0f;
                         continue;
@@ -197,11 +197,8 @@ namespace ARPG.Movement
 
         void ApplyGravity()
         {
-            if (!isGravity)
-                return;
-
             if (colliderState == ColliderState.InAir || colliderState == ColliderState.Sliding)
-                gravityVelocity += Physics.gravity * Time.fixedDeltaTime;
+                gravityVelocity += Physics.gravity * Time.fixedDeltaTime * gravityMultiplier;
             else
                 gravityVelocity = Vector3.zero;
         }
@@ -261,7 +258,7 @@ namespace ARPG.Movement
         {
             jumpVelocity = Vector3.zero;
 
-            if (rb.velocity.y < -8f)
+            if (rb.velocity.y < -landSpeedLimit)
                 animator.SetTrigger("land");
         }
 
@@ -303,16 +300,22 @@ namespace ARPG.Movement
             direction.y = 0f;
             direction.Normalize();
             
-            float v = Mathf.SmoothDamp(animator.GetFloat("vertical"), direction.magnitude, ref velocityV, 0.1f);
-
-            animator.SetFloat("horizontal", 0f);
-            animator.SetFloat("vertical", v);
 
             if (direction != Vector3.zero && colliderState != ColliderState.InAir)
             {
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Utils.QuaternionUtil.SmoothDamp(transform.rotation, targetRotation, ref velocityRot, 0.1f);
+                transform.rotation = Utils.QuaternionUtil.SmoothDamp(transform.rotation, targetRotation, ref velocityRot, 0.05f);
             }
+
+            float vertical = animator.GetFloat("vertical");
+            float targetVertical = 0f;
+            if (Vector3.Dot(transform.forward, direction) < 0.3f)
+                targetVertical = Mathf.SmoothDamp(vertical, 0f, ref velocityV, 0.1f);
+            else
+                targetVertical = Mathf.SmoothDamp(vertical, direction.magnitude, ref velocityV, 0.1f);
+
+            animator.SetFloat("horizontal", 0f);
+            animator.SetFloat("vertical", targetVertical);
         }
     }
 }
