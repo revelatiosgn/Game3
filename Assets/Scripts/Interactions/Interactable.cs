@@ -9,12 +9,9 @@ namespace ARPG.Interactions
 {
     public abstract class Interactable : MonoBehaviour
     {
-        [SerializeField] InteractableEvent onInteractableEnter;
-        [SerializeField] InteractableEvent onInteractableExit;
+        [SerializeField] InteractableEvent onInteractableStay;
         [SerializeField] Canvas canvas;
         [SerializeField] Text hintText;
-
-        public string HUDHint;
 
         void Start()
         {
@@ -26,23 +23,18 @@ namespace ARPG.Interactions
 
             SetHintActive(false);
         }
-
-        void OnDestroy()
-        {
-            onInteractableExit.RaiseEvent(this);
-        }
-
+        
         public void SetHintActive(bool isHintActive)
         {
             if (canvas != null)
                 canvas.gameObject.SetActive(isHintActive);
         }
 
-        void OnTriggerEnter(Collider other)
+        void OnTriggerStay(Collider other)
         {
             if (other.tag == Constants.Tags.Player == other.isTrigger)
             {
-                onInteractableEnter.RaiseEvent(this);
+                onInteractableStay.RaiseEvent(this);
             }
         }
 
@@ -50,10 +42,8 @@ namespace ARPG.Interactions
         {
             if (other.tag == Constants.Tags.Player == other.isTrigger)
             {
-                onInteractableExit.RaiseEvent(this);
+                SetHintActive(false);
             }
-
-            SetHintActive(false);
         }
 
         public abstract void Interact(GameObject target);

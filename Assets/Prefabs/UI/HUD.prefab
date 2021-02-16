@@ -216,8 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 4940353089855831607}
   interaction: {fileID: 6675400970262597040}
-  onInteractableEnter: {fileID: 11400000, guid: 6b955f832c6915441bbfffaf4d12cfd7, type: 2}
-  onInteractableExit: {fileID: 11400000, guid: 9a5abccb9c04a0f428dbf37ebe8e8593, type: 2}
+  onInteractableStay: {fileID: 11400000, guid: 6b955f832c6915441bbfffaf4d12cfd7, type: 2}
   onPlayerInteract: {fileID: 11400000, guid: 5db60ed972cdb6943b4090910951949f, type: 2}
   onInputActionsUpdate: {fileID: 11400000, guid: 8ab3c00c85f20cf46a14e9da3cd34558, type: 2}
   inputHandler: {fileID: 11400000, guid: a10a1ac1e50546d49b9d0f160ebda2d6, type: 2}

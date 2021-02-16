@@ -6,11 +6,11 @@ namespace ARPG.Events
     [CreateAssetMenu(menuName = "Events/Bool Event")]
     public class BoolEvent : ScriptableObject
     {
-        public UnityAction<bool> OnEventRaised;
+        public UnityAction<bool> onEventRaised;
         public void RaiseEvent(bool value)
         {
-            if (OnEventRaised != null)
-                OnEventRaised.Invoke(value);
+            if (onEventRaised != null)
+                onEventRaised.Invoke(value);
         }
     }
 }

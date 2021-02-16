@@ -30,10 +30,13 @@ namespace ARPG.Gear
                 equipmentSlot.AddBehaviour(gameObject);
         }
 
-        public void Equip(EquipmentItem item)
+        public void Equip(Item item)
         {
-            EquipmentSlot slot = GetEquipmentSlot(item.GetSlotType());
+            EquipmentItem equipmentItem = item as EquipmentItem;
+            if (equipmentItem == null)
+                return;
 
+            EquipmentSlot slot = GetEquipmentSlot(equipmentItem.GetSlotType());
             if (slot == null)
                 return;
 
@@ -43,15 +46,21 @@ namespace ARPG.Gear
                 slot.Unequip(gameObject);
             }
 
-            slot.Equip(item, gameObject);
-            onEquip.RaiseEvent(item);
+            slot.Equip(equipmentItem, gameObject);
+            onEquip.RaiseEvent(equipmentItem);
 
-            ResolveConflict(item);
+            ResolveConflict(equipmentItem);
         }
 
-        public void UnEquip(EquipmentItem item)
+        public void UnEquip(Item item)
         {
-            EquipmentSlot slot = GetEquipmentSlot(item.GetSlotType());
+            EquipmentItem equipmentItem = item as EquipmentItem;
+            if (equipmentItem == null)
+                return;
+
+            EquipmentSlot slot = GetEquipmentSlot(equipmentItem.GetSlotType());
+            if (slot == null)
+                return;
 
             onUnequip.RaiseEvent(slot.item);
             slot.Unequip(gameObject);

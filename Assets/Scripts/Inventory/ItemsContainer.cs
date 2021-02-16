@@ -17,10 +17,10 @@ namespace ARPG.Inventory
 
         public bool AddItemSlot(ItemSlot itemSlot)
         {
-            ItemSlot eqSlot = itemSlots.Find(slot => slot.item == itemSlot.item);
-            if (eqSlot != null)
+            ItemSlot targetSlot = itemSlots.Find(slot => slot.item == itemSlot.item);
+            if (targetSlot != null)
             {
-                eqSlot.count += itemSlot.count;
+                targetSlot.count += itemSlot.count;
             }
             else
             {
@@ -33,6 +33,21 @@ namespace ARPG.Inventory
         public bool RemoveItemSlot(ItemSlot itemSlot)
         {
             return itemSlots.Remove(itemSlot);
+        }
+
+        public bool ReduceItemSlot(ItemSlot itemSlot)
+        {
+            ItemSlot targetSlot = itemSlots.Find(slot => slot.item == itemSlot.item);
+            if (targetSlot != null)
+            {
+                targetSlot.count--;
+                if (targetSlot.count == 0)
+                    RemoveItemSlot(itemSlot);
+
+                return true;
+            }
+
+            return false;
         }
 
         public bool AddItemSlots(List<ItemSlot> itemSlots)

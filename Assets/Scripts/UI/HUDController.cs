@@ -16,8 +16,7 @@ namespace ARPG.UI
         [SerializeField] Text health;
         [SerializeField] Text interaction;
 
-        [SerializeField] InteractableEvent onInteractableEnter;
-        [SerializeField] InteractableEvent onInteractableExit;
+        [SerializeField] InteractableEvent onInteractableStay;
         [SerializeField] VoidEvent onPlayerInteract;
         [SerializeField] InputActionsEvent onInputActionsUpdate;
 
@@ -42,23 +41,19 @@ namespace ARPG.UI
 
         void OnEnable()
         {
-            onInteractableEnter.onEventRaised += OnInteractableEnter;
-            onInteractableExit.onEventRaised += OnInteractableExit;
+            onInteractableStay.onEventRaised += OnInteractableStay;
             onPlayerInteract.onEventRaised += OnPlayerInteract;
             onInputActionsUpdate.onEventRaised += OnInputActionsUpdate;
-            interactables.Clear();
         }
 
         void OnDisable()
         {
-            onInteractableEnter.onEventRaised -= OnInteractableEnter;
-            onInteractableExit.onEventRaised -= OnInteractableExit;
+            onInteractableStay.onEventRaised -= OnInteractableStay;
             onPlayerInteract.onEventRaised -= OnPlayerInteract;
             onInputActionsUpdate.onEventRaised -= OnInputActionsUpdate;
-            interactables.Clear();
         }
 
-        void Update()
+        void FixedUpdate()
         {
             UpdateHealth();
             UpdateInteractions();
@@ -83,6 +78,8 @@ namespace ARPG.UI
             {
                 interaction.gameObject.SetActive(false);
             }
+
+            interactables.Clear();
         }
 
         Interactable GetInteractable()
@@ -92,6 +89,9 @@ namespace ARPG.UI
 
             foreach (Interactable interactable in interactables)
             {
+                if (interactable == null)
+                    continue;
+
                 interactable.SetHintActive(false);
 
                 RaycastHit hit;
@@ -111,14 +111,9 @@ namespace ARPG.UI
             return target;
         }
 
-        void OnInteractableEnter(Interactable interactable)
+        void OnInteractableStay(Interactable interactable)
         {
             interactables.Add(interactable);
-        }
-
-        void OnInteractableExit(Interactable interactable)
-        {
-            interactables.Remove(interactable);
         }
 
         void OnPlayerInteract()

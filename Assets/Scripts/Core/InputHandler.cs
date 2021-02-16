@@ -16,13 +16,16 @@ namespace ARPG.Core
 
         [SerializeField] Vector2Event onPlayerMove;
         [SerializeField] Vector2Event onPlayerRotateCamera;
-        [SerializeField] VoidEvent onPlayerInvetory;
         [SerializeField] VoidEvent onPlayerAttackBegin;
         [SerializeField] VoidEvent onPlayerAttackEnd;
         [SerializeField] VoidEvent onPlayerDefenceBegin;
         [SerializeField] VoidEvent onPlayerDefenceEnd;
         [SerializeField] VoidEvent onPlayerJump;
         [SerializeField] VoidEvent onPlayerInteract;
+
+        [SerializeField] VoidEvent onPlayerUIInvetory;
+        [SerializeField] VoidEvent onPlayerUIUseItem;
+        [SerializeField] VoidEvent onPlayerUIDropItem;
 
         [SerializeField] InputActionsEvent onInputActionsUpdate;
         [SerializeField] BoolEvent onLockPlayerActions;
@@ -40,7 +43,7 @@ namespace ARPG.Core
 
             inputActions.Enable();
 
-            onLockPlayerActions.OnEventRaised += OnLockPlayerActions;
+            onLockPlayerActions.onEventRaised += OnLockPlayerActions;
 
             onInputActionsUpdate.RaiseEvent(inputActions);
         }
@@ -49,7 +52,7 @@ namespace ARPG.Core
         {
             inputActions.Disable();
 
-            onLockPlayerActions.OnEventRaised -= OnLockPlayerActions;
+            onLockPlayerActions.onEventRaised -= OnLockPlayerActions;
         }
 
         public void OnMovement(InputAction.CallbackContext context)
@@ -94,16 +97,28 @@ namespace ARPG.Core
                 onPlayerDefenceEnd.RaiseEvent();
         }
 
-        public void OnInventory(InputAction.CallbackContext context)
-        {
-            if (context.phase == InputActionPhase.Performed)
-                onPlayerInvetory.RaiseEvent();
-        }
-
         public void OnInteract(InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
                 onPlayerInteract.RaiseEvent();
+        }
+
+        public void OnInventory(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+                onPlayerUIInvetory.RaiseEvent();
+        }
+
+        public void OnUseItem(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+                onPlayerUIUseItem.RaiseEvent();
+        }
+
+        public void OnDropItem(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+                onPlayerUIDropItem.RaiseEvent();
         }
 
         private void OnLockPlayerActions(bool value)

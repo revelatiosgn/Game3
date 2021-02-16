@@ -12,10 +12,16 @@ namespace ARPG.UI
     {
         [SerializeField] Image icon;
         [SerializeField] Text count;
-        [SerializeField] Image equipped;
+        [SerializeField] Image selected;
+        [SerializeField] Text equipped;
 
         ItemSlot itemSlot;
         Button button;
+
+        void Awake()
+        {
+            button = GetComponent<Button>();
+        }
 
         public ItemSlot ItemSlot
         {
@@ -26,53 +32,45 @@ namespace ARPG.UI
 
                 if (itemSlot == null)
                 {
-                    Reset();
-                    return;
-                }
-
-                icon.sprite = itemSlot.item.icon;
-                icon.gameObject.SetActive(true);
-                
-                if (itemSlot.count > 1)
-                {
-                    count.gameObject.SetActive(true);
-                    count.text = itemSlot.count.ToString();
+                    icon.gameObject.SetActive(false);
+                    count.gameObject.SetActive(false);
+                    SetEquipped(false);
+                    button.interactable = false;
                 }
                 else
                 {
-                    count.gameObject.SetActive(false);
+                    icon.sprite = itemSlot.item.icon;
+                    icon.gameObject.SetActive(true);
+                    
+                    if (itemSlot.count > 1)
+                    {
+                        count.gameObject.SetActive(true);
+                        count.text = itemSlot.count.ToString();
+                    }
+                    else
+                    {
+                        count.gameObject.SetActive(false);
+                    }
+
+                    button.interactable = true;
                 }
             }
         }
         
-        void Awake()
-        {
-            button = GetComponent<Button>();
-        }
-
-        void Start()
-        {
-            button.onClick.AddListener(() => UseItem());
-        }
-
         public void SetEquipped(bool value)
         {
             equipped.gameObject.SetActive(value);
         }
 
-        void UseItem()
+        public void SetSelected(bool value)
         {
-            if (itemSlot != null)
-            {
-                itemSlot.item.OnUse(GameObject.FindGameObjectWithTag(Constants.Tags.Player));
-            }
+            selected.gameObject.SetActive(value);
         }
 
-        void Reset()
+        public void UseItem()
         {
-            icon.gameObject.SetActive(false);
-            count.gameObject.SetActive(false);
-            SetEquipped(false);
+            if (itemSlot != null)
+                itemSlot.item.OnUse(GameObject.FindGameObjectWithTag(Constants.Tags.Player));
         }
     }
 }

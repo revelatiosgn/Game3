@@ -9,7 +9,7 @@ namespace ARPG.Interactions
     public class ItemPickup : Interactable
     {
         [SerializeField] ItemSlot itemSlot;
-
+        
         public override void Interact(GameObject target)
         {
             target.GetComponent<ItemsContainer>().AddItemSlot(itemSlot);

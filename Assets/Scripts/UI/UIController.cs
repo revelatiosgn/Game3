@@ -10,9 +10,11 @@ namespace ARPG.UI
 {
     public class UIController : MonoBehaviour
     {
-        [SerializeField] VoidEvent onPlayerInventory;
+        [SerializeField] VoidEvent onPlayerUIInventory;
         [SerializeField] BoolEvent onLockPlayerActions;
+        [SerializeField] BoolEvent onInventoryActive;
         [SerializeField] InventoryPanel inventoryPanel;
+        [SerializeField] HUDController hudController;
 
         void Start()
         {
@@ -21,18 +23,21 @@ namespace ARPG.UI
 
         void OnEnable()
         {
-            onPlayerInventory.onEventRaised += OnPlayerInventory;
+            onPlayerUIInventory.onEventRaised += OnPlayerUIInventory;
         }
 
         void OnDisable()
         {
-            onPlayerInventory.onEventRaised -= OnPlayerInventory;
+            onPlayerUIInventory.onEventRaised -= OnPlayerUIInventory;
         }
 
-        private void OnPlayerInventory()
+        private void OnPlayerUIInventory()
         {
            inventoryPanel.gameObject.SetActive(!inventoryPanel.gameObject.activeSelf);
            onLockPlayerActions.RaiseEvent(inventoryPanel.gameObject.activeSelf);
+           hudController.gameObject.SetActive(!inventoryPanel.gameObject.activeSelf);
+
+           onInventoryActive.RaiseEvent(inventoryPanel.gameObject.activeSelf);
         }
     }
 }

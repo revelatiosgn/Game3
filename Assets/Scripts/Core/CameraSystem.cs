@@ -10,12 +10,13 @@ namespace ARPG.Core
     public class CameraSystem : MonoBehaviour
     {
         [SerializeField] Vector2Event onPlayerRotateCamera;
+        [SerializeField] BoolEvent onInventoryActive;
 
         [SerializeField] CinemachineFreeLook freeLookCamera;
         [SerializeField] CinemachineFreeLook aimCamera;
         [SerializeField] [Range(1f, 5f)] float rotationMult = 1f; 
         [SerializeField] CameraEvent onCameraFreeLook, onCameraAim;
-        [SerializeField] static Camera pickupCamera;
+        [SerializeField] Camera InteractionCamera;
 
         CinemachineFreeLook activeCamera;
 
@@ -31,14 +32,16 @@ namespace ARPG.Core
             onPlayerRotateCamera.onEventRaised += OnPlayerRotateCamera;
             onCameraFreeLook.onEventRaised += OnCameraFreeLook;
             onCameraAim.onEventRaised += OnCameraAim;
+            onInventoryActive.onEventRaised += OnInventoryActive;
         }
 
         void OnDisable()
         {
             onPlayerRotateCamera.onEventRaised -= OnPlayerRotateCamera;
+            onCameraFreeLook.onEventRaised -= OnCameraFreeLook;
+            onCameraAim.onEventRaised -= OnCameraAim;
+            onInventoryActive.onEventRaised -= OnInventoryActive;
         }
-
-        // public  Camera PickupCamera
 
         void OnPlayerRotateCamera(Vector2 value)
         {
@@ -82,6 +85,11 @@ namespace ARPG.Core
             freeLookCamera.m_YAxis.m_InputAxisValue = 0f;
             aimCamera.m_XAxis.m_InputAxisValue = 0f;
             aimCamera.m_YAxis.m_InputAxisValue = 0f;
+        }
+
+        void OnInventoryActive(bool isInventoryActive)
+        {
+            InteractionCamera.gameObject.SetActive(!isInventoryActive);
         }
     }
 }

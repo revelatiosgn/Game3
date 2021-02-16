@@ -51,6 +51,7 @@
      <Compile Include="Assets\ExternalAssets\Cartoon Heroes\Scripts\SetCharacter\SetCharacter.cs" />
      <Compile Include="Assets\Scripts\AI\Decisions\AISearchDecision.cs" />
      <Compile Include="Assets\Scripts\Inventory\ItemSlot.cs" />
+     <Compile Include="Assets\Scripts\Events\InputActionsEvent.cs" />
      <Compile Include="Assets\Scripts\Gear\EquipmentArrowSlot.cs" />
      <Compile Include="Assets\Scripts\UI\HUDController.cs" />
      <Compile Include="Assets\Scripts\Events\VoidEvent.cs" />
@@ -118,7 +119,6 @@
      <Compile Include="Assets\Scripts\UI\UIController.cs" />
      <Compile Include="Assets\Scripts\Gear\EquipmentArmorSlot.cs" />
      <Compile Include="Assets\Scripts\AI\Decisions\AICombatDecision.cs" />
-     <Compile Include="Assets\Scripts\Events\InputActionsEvent.cs" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Glass_Global.shader" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Object.shader" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Global.shader" />

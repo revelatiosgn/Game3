@@ -13,8 +13,8 @@ namespace ARPG.Controller
 
     public class BaseController : MonoBehaviour
     {
+        public CharacterGroup characterGroup;
         [HideInInspector] public bool isInteracting = false;
-        [HideInInspector] public CharacterGroup characterGroup;
         [HideInInspector] public CharacterStats characterStats;
         [HideInInspector] public Collider characterCollider;
 

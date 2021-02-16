@@ -249,11 +249,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93407cddc73a8d54ba739fbee181547a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onInteractableEnter: {fileID: 11400000, guid: 6b955f832c6915441bbfffaf4d12cfd7, type: 2}
-  onInteractableExit: {fileID: 11400000, guid: 9a5abccb9c04a0f428dbf37ebe8e8593, type: 2}
+  onInteractableStay: {fileID: 11400000, guid: 6b955f832c6915441bbfffaf4d12cfd7, type: 2}
   canvas: {fileID: 1989630551238597870}
   hintText: {fileID: 4136908156198510644}
-  HUDHint: to grab
   itemSlot:
     item: {fileID: 0}
     count: 1
