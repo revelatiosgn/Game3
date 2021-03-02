@@ -49,6 +49,7 @@ namespace ARPG.Movement
         Vector3 groundNormal;
         Vector3 snapVelocity;
         float snapRadius;
+        bool isSprinting;
 
         public MovementState state = MovementState.Regular;
         public MovementState State
@@ -270,6 +271,11 @@ namespace ARPG.Movement
                 AimMovement(value);
         }
 
+        public void Sprint(bool isSprinting)
+        {
+            this.isSprinting = isSprinting;
+        }
+
         void AimMovement(Vector2 value)
         {
             Vector3 direction = Camera.main.transform.rotation.eulerAngles;
@@ -309,10 +315,11 @@ namespace ARPG.Movement
 
             float vertical = animator.GetFloat("vertical");
             float targetVertical = 0f;
+            float sprint = isSprinting ? 0.5f : 0f;
             if (Vector3.Dot(transform.forward, direction) < 0.3f)
                 targetVertical = Mathf.SmoothDamp(vertical, 0f, ref velocityV, 0.1f);
             else
-                targetVertical = Mathf.SmoothDamp(vertical, direction.magnitude, ref velocityV, 0.1f);
+                targetVertical = Mathf.SmoothDamp(vertical, direction.magnitude * 0.5f + sprint, ref velocityV, 0.1f);
 
             animator.SetFloat("horizontal", 0f);
             animator.SetFloat("vertical", targetVertical);

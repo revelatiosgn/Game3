@@ -19,6 +19,7 @@ MonoBehaviour:
   onPlayerDefenceBegin: {fileID: 11400000, guid: a75f32d03eacb6e46a76df1ce8f8e319, type: 2}
   onPlayerDefenceEnd: {fileID: 11400000, guid: 9eee28071095df74ca51112c9e0f1da8, type: 2}
   onPlayerJump: {fileID: 11400000, guid: fff9471ded7a5c6469056f67edf66bb6, type: 2}
+  onPlayerSprint: {fileID: 11400000, guid: bb4015ed49de19b4599898b32fcec337, type: 2}
   onPlayerInteract: {fileID: 11400000, guid: 5db60ed972cdb6943b4090910951949f, type: 2}
   onPlayerUIInvetory: {fileID: 11400000, guid: 76ce67c51766e17498ae22770e02ac88, type: 2}
   onPlayerUIUseItem: {fileID: 11400000, guid: bf15717cdb8259c4f8180eb7e6a2aecf, type: 2}

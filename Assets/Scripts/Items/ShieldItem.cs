@@ -10,7 +10,7 @@ namespace ARPG.Items
     {
         public GameObject prefab;
         public float baseArmor;
-        public string maskLayer = "ShieldMask";
+        public string animationLayer = "Shield";
 
         public override EquipmentSlot.SlotType GetSlotType()
         {

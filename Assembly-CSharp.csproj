@@ -42,13 +42,14 @@
      <Compile Include="Assets\Scripts\Core\InputActions.cs" />
      <Compile Include="Assets\Scripts\AI\AIAction.cs" />
      <Compile Include="Assets\Scripts\Items\ShieldItem.cs" />
+     <Compile Include="Assets\ExternalAssets\Plugins\Pixel Crushers\Scene Streamer\Scripts\NeighboringScenes.cs" />
      <Compile Include="Assets\Scripts\AI\AITransition.cs" />
      <Compile Include="Assets\Scripts\Combat\Behaviours\RangedBehaviour.cs" />
      <Compile Include="Assets\Scripts\AI\Decisions\AIIdleDecision.cs" />
      <Compile Include="Assets\Scripts\Combat\Behaviours\ShieldBehaviour.cs" />
      <Compile Include="Assets\Scripts\Combat\Behaviours\EquipmentBehaviour.cs" />
      <Compile Include="Assets\Scripts\Movement\FootIK.cs" />
-     <Compile Include="Assets\ExternalAssets\Cartoon Heroes\Scripts\SetCharacter\SetCharacter.cs" />
+     <Compile Include="Assets\ExternalAssets\Plugins\Pixel Crushers\Scene Streamer\Scripts\SceneStreamer.cs" />
      <Compile Include="Assets\Scripts\AI\Decisions\AISearchDecision.cs" />
      <Compile Include="Assets\Scripts\Inventory\ItemSlot.cs" />
      <Compile Include="Assets\Scripts\Events\InputActionsEvent.cs" />
@@ -64,6 +65,7 @@
      <Compile Include="Assets\Scripts\AI\AIDecision.cs" />
      <Compile Include="Assets\Scripts\Events\InteractableEvent.cs" />
      <Compile Include="Assets\Scripts\Items\ChestArmorItem.cs" />
+     <Compile Include="Assets\ExternalAssets\Plugins\Pixel Crushers\Scene Streamer\Scripts\SetStartScene.cs" />
      <Compile Include="Assets\Scripts\Gear\EquipmentChestArmorSlot.cs" />
      <Compile Include="Assets\Scripts\Combat\Behaviours\WeaponBehaviour.cs" />
      <Compile Include="Assets\Scripts\AI\Actions\AICombatAction.cs" />
@@ -102,6 +104,7 @@
      <Compile Include="Assets\Scripts\Combat\AICombat.cs" />
      <Compile Include="Assets\Scripts\Events\Vector2Event.cs" />
      <Compile Include="Assets\Scripts\Items\ArmorItem.cs" />
+     <Compile Include="Assets\ExternalAssets\Plugins\Pixel Crushers\Scene Streamer\Scripts\SceneEdge.cs" />
      <Compile Include="Assets\Scripts\Items\RangedWeaponItem.cs" />
      <Compile Include="Assets\Scripts\Items\PotionItem.cs" />
      <Compile Include="Assets\Scripts\Utils\DebugDraw.cs" />
@@ -112,6 +115,7 @@
      <Compile Include="Assets\Scripts\Interactions\ItemPickup.cs" />
      <Compile Include="Assets\Scripts\Combat\PlayerCombat.cs" />
      <Compile Include="Assets\Scripts\Events\CameraEvent.cs" />
+     <Compile Include="Assets\ExternalAssets\Plugins\Pixel Crushers\Scene Streamer\Example\Scripts\SmoothMouseLook.cs" />
      <Compile Include="Assets\Scripts\Gear\EquipmentLegsArmorSlot.cs" />
      <Compile Include="Assets\Scripts\Items\LegsArmorItem.cs" />
      <Compile Include="Assets\Scripts\Combat\WeaponState.cs" />
@@ -119,9 +123,13 @@
      <Compile Include="Assets\Scripts\UI\UIController.cs" />
      <Compile Include="Assets\Scripts\Gear\EquipmentArmorSlot.cs" />
      <Compile Include="Assets\Scripts\AI\Decisions\AICombatDecision.cs" />
+     <Compile Include="Assets\ExternalAssets\Plugins\Pixel Crushers\Scene Streamer\Example\Scripts\FPSWalkerEnhanced.cs" />
+     <None Include="Assets\Samples\Terrain Tools\0.1.0-preview\Terrain Assets\ThirdPartyNotices.txt" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Glass_Global.shader" />
+     <None Include="Assets\ExternalAssets\Plugins\Pixel Crushers\Scene Streamer\Example\_IMPORTANT_READ_ME_FIRST.txt" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Object.shader" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Global.shader" />
+     <None Include="Assets\ExternalAssets\Plugins\Pixel Crushers\Scene Streamer\_README.txt" />
      <None Include="Assets\ExternalAssets\Free medieval weapons\README.txt" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Glass_Object.shader" />
     <Reference Include="UnityEngine">
@@ -658,20 +666,15 @@
     <Reference Include="System.Xml.XPath.XDocument">
         <HintPath>D:/Tools/UnityEngine/2020.1.8f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.UI">
-        <HintPath>D:/Projects/Game3/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-        <HintPath>D:/Projects/Game3/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-        <HintPath>D:/Projects/Game3/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.Timeline.Editor.csproj">
       <Project>{442d4af1-2496-d754-8b81-206367ce1dca}</Project>
       <Name>Unity.Timeline.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.TerrainTools.csproj">
+      <Project>{5f0c31f2-5685-3dce-d338-cbc7b4b3c5cf}</Project>
+      <Name>Unity.TerrainTools</Name>
     </ProjectReference>
     <ProjectReference Include="Cinemachine.csproj">
       <Project>{8d0abd08-7307-dfb6-09b6-4d08504d5123}</Project>
@@ -701,6 +704,10 @@
       <Project>{79836741-f4a7-46da-ab5d-81f363e1d50c}</Project>
       <Name>Unity.TextMeshPro.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="UnityEngine.UI.csproj">
+      <Project>{456e09dc-ed41-cc98-6801-15e25144de39}</Project>
+      <Name>UnityEngine.UI</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Timeline.csproj">
       <Project>{f06f06a2-3a75-420d-b2de-2256193abbd2}</Project>
       <Name>Unity.Timeline</Name>
@@ -708,6 +715,10 @@
     <ProjectReference Include="Unity.Rider.Editor.csproj">
       <Project>{59797cf2-74ef-a384-8749-e657351aea36}</Project>
       <Name>Unity.Rider.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Sprite.Editor.csproj">
+      <Project>{04a22865-4959-b76e-aed0-768966434b0d}</Project>
+      <Name>Unity.2D.Sprite.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="com.unity.cinemachine.editor.csproj">
       <Project>{9639eaba-f132-7e45-96b0-3ffde33d7286}</Project>
@@ -724,6 +735,14 @@
     <ProjectReference Include="Unity.TextMeshPro.csproj">
       <Project>{1dae6f65-8e4e-69f4-7ca3-d5ffe21f8b65}</Project>
       <Name>Unity.TextMeshPro</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.TerrainTools.Editor.csproj">
+      <Project>{95a25b3c-aa5c-b64d-a8b4-113f30d9831e}</Project>
+      <Name>Unity.TerrainTools.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.UI.csproj">
+      <Project>{7844f9c7-52b2-b642-d4de-0a7b0079414f}</Project>
+      <Name>UnityEditor.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

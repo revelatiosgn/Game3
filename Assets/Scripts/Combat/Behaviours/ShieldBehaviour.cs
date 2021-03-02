@@ -12,17 +12,26 @@ namespace ARPG.Combat
     {
         ShieldItem item;
 
+        private int movementLayerIndex;
+        private int defenceLayerIndex;
+
         public ShieldBehaviour(BaseCombat combat) : base(combat)
         {
             item = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Shield).item as ShieldItem;
-            maskLayerIndex = animator.GetLayerIndex(item.maskLayer);
 
-            animator.SetLayerWeight(maskLayerIndex, 1f);
+            movementLayerIndex = animator.GetLayerIndex(item.animationLayer);
+            defenceLayerIndex = animator.GetLayerIndex(item.animationLayer + "Defence");
+
+            animator.SetLayerWeight(movementLayerIndex, 1f);
+            animator.SetLayerWeight(defenceLayerIndex, 1f);
+            animator.SetBool("shield", true);
         }
 
         public override void Dispose()
         {
-            animator.SetLayerWeight(maskLayerIndex, 0f);
+            animator.SetLayerWeight(movementLayerIndex, 0f);
+            animator.SetLayerWeight(defenceLayerIndex, 0f);
+            animator.SetBool("shield", false);
         }
 
         public override bool DefenceBegin()
@@ -43,7 +52,8 @@ namespace ARPG.Combat
         {
             if (animationEvent == "Death")
             {
-                animator.SetLayerWeight(maskLayerIndex, 0f);
+                animator.SetLayerWeight(movementLayerIndex, 0f);
+                animator.SetLayerWeight(defenceLayerIndex, 0f);
             }
         }
     }

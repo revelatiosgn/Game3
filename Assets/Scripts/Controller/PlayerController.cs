@@ -17,6 +17,7 @@ namespace ARPG.Controller
         [SerializeField] VoidEvent onPlayerDefenceBegin;
         [SerializeField] VoidEvent onPlayerDefenceEnd;
         [SerializeField] VoidEvent onPlayerJump;
+        [SerializeField] BoolEvent onPlayerSprint;
 
         PlayerMovement playerMovement;
         PlayerCombat playerCombat;
@@ -39,6 +40,7 @@ namespace ARPG.Controller
             onPlayerDefenceBegin.onEventRaised += OnPlayerDefenceBegin;
             onPlayerDefenceEnd.onEventRaised += OnPlayerDefenceEnd;
             onPlayerJump.onEventRaised += OnPlayerJump;
+            onPlayerSprint.onEventRaised += OnPlayerSprint;
         }
 
         void OnDisable()
@@ -49,6 +51,7 @@ namespace ARPG.Controller
             onPlayerDefenceBegin.onEventRaised += OnPlayerDefenceBegin;
             onPlayerDefenceEnd.onEventRaised += OnPlayerDefenceEnd;
             onPlayerJump.onEventRaised -= OnPlayerJump;
+            onPlayerSprint.onEventRaised -= OnPlayerSprint;
         }
 
         void Update()
@@ -85,6 +88,11 @@ namespace ARPG.Controller
         void OnPlayerJump()
         {
             playerMovement.Jump();
+        }
+
+        void OnPlayerSprint(bool isSprinting)
+        {
+            playerMovement.Sprint(isSprinting);
         }
     }
 }

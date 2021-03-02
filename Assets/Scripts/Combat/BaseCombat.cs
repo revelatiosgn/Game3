@@ -43,6 +43,7 @@ namespace ARPG.Combat
                 return shieldBehaviour;
             }
         }
+
         protected virtual void Awake()
         {
             animator = GetComponent<Animator>();

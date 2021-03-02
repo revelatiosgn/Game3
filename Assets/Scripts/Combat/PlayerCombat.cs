@@ -16,7 +16,7 @@ namespace ARPG.Combat
             aimRotation = Camera.main.transform.rotation;
 
             RaycastHit hit;
-            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.rotation * Vector3.forward, out hit, Mathf.Infinity, ~LayerMask.GetMask("AILook")))
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.rotation * Vector3.forward, out hit, Mathf.Infinity, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
             {
                 targetPosition = hit.point;
             }

@@ -43,7 +43,6 @@ namespace ARPG.Combat
 
             animator.SetTrigger("attack");
             isAttacking = true;
-            animator.SetLayerWeight(maskLayerIndex, 0f);
             controller.isInteracting = true;
 
             return true;
@@ -57,7 +56,6 @@ namespace ARPG.Combat
         public override void OnAttackComplete()
         {
             isAttacking = false;
-            animator.SetLayerWeight(maskLayerIndex, 1f);
             controller.isInteracting = false;
         }
 
@@ -65,9 +63,6 @@ namespace ARPG.Combat
         {
             if (animationEvent == "Attack")
             {
-                isAttacking = false;
-                controller.isInteracting = false;
-
                 MeleeWeaponItem weaponItem = item as MeleeWeaponItem;
 
                 GameObject collisionObject = new GameObject();
@@ -82,7 +77,10 @@ namespace ARPG.Combat
             }
             else if (animationEvent == "Death")
             {
-                animator.SetLayerWeight(maskLayerIndex, 0f);
+            }
+            else if (animationEvent == "AttackComplete")
+            {
+                OnAttackComplete();
             }
         }
 

@@ -21,6 +21,7 @@ namespace ARPG.Core
         [SerializeField] VoidEvent onPlayerDefenceBegin;
         [SerializeField] VoidEvent onPlayerDefenceEnd;
         [SerializeField] VoidEvent onPlayerJump;
+        [SerializeField] BoolEvent onPlayerSprint;
         [SerializeField] VoidEvent onPlayerInteract;
 
         [SerializeField] VoidEvent onPlayerUIInvetory;
@@ -77,6 +78,14 @@ namespace ARPG.Core
         {
             if (context.phase == InputActionPhase.Performed)
                 onPlayerJump.RaiseEvent();
+        }
+
+        public void OnSprint(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Started)
+                onPlayerSprint.RaiseEvent(true);
+            else if (context.phase == InputActionPhase.Canceled)
+                onPlayerSprint.RaiseEvent(false);
         }
 
         public void OnAttack(InputAction.CallbackContext context)

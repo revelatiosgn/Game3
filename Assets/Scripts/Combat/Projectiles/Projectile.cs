@@ -13,23 +13,33 @@ namespace ARPG.Combat
         public float damage;
         public BaseController owner;
 
-        void Start()
+        private bool isLaunched;
+
+        public void Launch()
         {
+            isLaunched = true;
             Destroy(gameObject, 5f);
         }
 
         void Update()
         {
+            if (!isLaunched)
+                return;
+
             transform.Translate(transform.forward * Time.deltaTime * speed, Space.World);
         }
 
         void OnTriggerEnter(Collider collider)
         {
+            if (!isLaunched)
+                return;
+
             BaseController targetController = collider.GetComponent<BaseController>();
             if (targetController != null && owner != null && targetController.characterGroup != owner.characterGroup)
                 targetController.OnTakeDamage(owner, damage);
 
-            Destroy(gameObject);
+            if (targetController != owner)
+                Destroy(gameObject);
         }
     }
 }

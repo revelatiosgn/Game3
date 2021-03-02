@@ -41,7 +41,7 @@ namespace ARPG.Combat
             animator.SetTrigger("rangedAttackBegin");
             animator.ResetTrigger("rangedAttackEnd");
 
-            animator.SetLayerWeight(maskLayerIndex, 0f);
+            // animator.SetLayerWeight(maskLayerIndex, 0f);
 
             return true;
         }
@@ -58,7 +58,7 @@ namespace ARPG.Combat
 
         public override void OnAttackComplete()
         {
-            animator.SetLayerWeight(maskLayerIndex, 1f);
+            // animator.SetLayerWeight(maskLayerIndex, 1f);
 
             isAttacking = false;
             animator.SetBool("aim", false);
@@ -68,6 +68,8 @@ namespace ARPG.Combat
         {
             if (animationEvent == "Launch")
                 OnLaunch();
+            else if (animationEvent == "GrabArrow")
+                OnGrabArrow();
         }
 
         void OnLaunch()
@@ -91,24 +93,39 @@ namespace ARPG.Combat
                     Vector3 targetPosition = combat.targetPosition;
                     Vector3 direction = targetPosition - arrow.transform.position;
                     arrow.transform.rotation = Quaternion.LookRotation(direction);
+
+                    arrow.Launch();
                 }
+
+                arrowSlot.SetArrowActive(false);
+            }
+        }
+
+        void OnGrabArrow()
+        {
+            EquipmentArrowSlot arrowSlot = equipment.GetEquipmentSlot(EquipmentSlot.SlotType.Arrow) as EquipmentArrowSlot;
+            if (arrowSlot != null)
+            {
+                arrowSlot.SetArrowActive(true);
             }
         }
 
         public override void OnAnimatorIK(int layer)
         {
+            // if (layer != actionLayerIndex)
+            //     return;
+
             Transform chestTransform = animator.GetBoneTransform(HumanBodyBones.Spine);
             Quaternion targetRotation = chestTransform.localRotation;
 
             if (isAttacking)
             {
                 targetRotation = Quaternion.Inverse(chestTransform.parent.rotation) * combat.aimRotation;
-                targetRotation *= Quaternion.AngleAxis(-90f, Vector3.forward);
-                animator.SetBoneLocalRotation(HumanBodyBones.UpperChest, targetRotation);
+                targetRotation *= Quaternion.AngleAxis(40f, Vector3.up);
             }
 
             rotation = Utils.QuaternionUtil.SmoothDamp(rotation, targetRotation, ref rotationSpeed, 0.1f);
-            animator.SetBoneLocalRotation(HumanBodyBones.UpperChest, rotation);
+            animator.SetBoneLocalRotation(HumanBodyBones.Spine, rotation);
         }
     }
 }

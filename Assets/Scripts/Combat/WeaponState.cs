@@ -8,7 +8,8 @@ namespace ARPG.Combat
     {
         override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            animator.GetComponent<BaseCombat>()?.OnAttackComplete();
+            if (animator.GetLayerWeight(layerIndex) > 0f)
+                animator.GetComponent<BaseCombat>()?.OnAttackComplete();
         }
     }
 }
