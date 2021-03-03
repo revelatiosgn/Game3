@@ -4,6 +4,8 @@ using UnityEngine;
 
 using ARPG.Controller;
 using System;
+using UnityEngine.InputSystem;
+using ARPG.Core;
 
 namespace ARPG.Movement
 {
@@ -37,6 +39,7 @@ namespace ARPG.Movement
         [SerializeField][Range(0f, 100f)] float landSpeedLimit = 8f;
 
         Vector3 inputVelocity;
+        Quaternion inputRotation;
         Vector3 gravityVelocity;
         Vector3 jumpVelocity;
         LayerMask layerMask;
@@ -68,7 +71,7 @@ namespace ARPG.Movement
             rb = GetComponent<Rigidbody>();
             capsuleCollider = GetComponent<CapsuleCollider>();
             playerController = GetComponent<PlayerController>();
-            animator = GetComponent<Animator>();
+            animator = GetComponentInChildren<Animator>();
         }
 
         void Start()
@@ -140,6 +143,19 @@ namespace ARPG.Movement
             colls = contactPoints.Count;
             contactPoints.Clear();
         }
+
+        // void LateUpdate()
+        // {
+        //     Vector3 direction = Vector3.zero;
+        //     direction += Camera.main.transform.right;
+        //     direction += Camera.main.transform.forward;
+        //     direction.y = 0f;
+        //     direction.Normalize();
+
+        //     inputRotation = Quaternion.LookRotation(direction);
+
+        //     transform.rotation = inputRotation;
+        // }
 
         void CheckGround()
         {
@@ -298,28 +314,35 @@ namespace ARPG.Movement
             }
         }
 
+        Vector3 direction;
+        Vector3 directionVel;
+
         void RegularMovement(Vector2 value)
         {
-            Vector3 direction = Vector3.zero;
-            direction += Camera.main.transform.right * value.x;
-            direction += Camera.main.transform.forward * value.y;
-            direction.y = 0f;
-            direction.Normalize();
-            
+            var ac = CameraSystem.activeCamera.m_XAxis.Value;
+            Vector3 vx = Quaternion.AngleAxis(ac, Vector3.up) * Vector3.right;
+            Vector3 vy = Quaternion.AngleAxis(ac, Vector3.up) * Vector3.forward;
 
+            Vector3 targetDirection = Vector3.zero;
+            targetDirection += vx * value.x;
+            targetDirection += vy * value.y;
+            targetDirection.y = 0f;
+            targetDirection.Normalize();
+
+            // direction = targetDirection;
+            direction = Vector3.SmoothDamp(direction, targetDirection, ref directionVel, 0.1f);
             if (direction != Vector3.zero && colliderState != ColliderState.InAir)
             {
-                Quaternion targetRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Utils.QuaternionUtil.SmoothDamp(transform.rotation, targetRotation, ref velocityRot, 0.05f);
+                transform.rotation = Quaternion.LookRotation(direction);
             }
 
             float vertical = animator.GetFloat("vertical");
             float targetVertical = 0f;
             float sprint = isSprinting ? 0.5f : 0f;
-            if (Vector3.Dot(transform.forward, direction) < 0.3f)
+            if (Vector3.Dot(transform.forward, targetDirection) < 0.3f)
                 targetVertical = Mathf.SmoothDamp(vertical, 0f, ref velocityV, 0.1f);
             else
-                targetVertical = Mathf.SmoothDamp(vertical, direction.magnitude * 0.5f + sprint, ref velocityV, 0.1f);
+                targetVertical = Mathf.SmoothDamp(vertical, targetDirection.magnitude * 0.5f + sprint, ref velocityV, 0.1f);
 
             animator.SetFloat("horizontal", 0f);
             animator.SetFloat("vertical", targetVertical);

@@ -6,6 +6,7 @@ using ARPG.Core;
 using ARPG.Movement;
 using ARPG.Combat;
 using ARPG.Events;
+using UnityEngine.InputSystem;
 
 namespace ARPG.Controller
 {

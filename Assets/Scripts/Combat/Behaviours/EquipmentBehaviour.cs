@@ -18,7 +18,7 @@ namespace ARPG.Combat
         {
             this.combat = combat;
             this.equipment = combat.GetComponent<Equipment>();
-            this.animator = combat.GetComponent<Animator>();
+            this.animator = combat.GetComponentInChildren<Animator>();
             this.controller = combat.GetComponent<BaseController>();
         }
 

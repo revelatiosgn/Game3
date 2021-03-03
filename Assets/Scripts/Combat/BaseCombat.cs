@@ -46,7 +46,7 @@ namespace ARPG.Combat
 
         protected virtual void Awake()
         {
-            animator = GetComponent<Animator>();
+            animator = GetComponentInChildren<Animator>();
         }
 
         public virtual bool AttackBegin()

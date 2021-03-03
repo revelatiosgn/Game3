@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ARPG.Items
 {
-    [CreateAssetMenu(fileName = "RangedWeapon", menuName = "Items/Equipment/RangedWeapon", order = 1)]
+    [CreateAssetMenu(fileName = "RangedWeapon", menuName = "Items/Equipment/Weapon/Ranged", order = 1)]
     public sealed class RangedWeaponItem : WeaponItem
     {
     }

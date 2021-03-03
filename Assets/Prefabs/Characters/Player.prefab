@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 967567103301197996}
   - component: {fileID: 3464823840131848950}
   - component: {fileID: 2023279995700636417}
-  - component: {fileID: 821288335142894859}
+  - component: {fileID: 7169143835418513673}
   - component: {fileID: 6018887173546567298}
   - component: {fileID: 778169689}
   - component: {fileID: 8104614096614371166}
@@ -38,7 +38,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.078, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8295252305323494183}
+  - {fileID: 5583749419107544411}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -55,7 +55,7 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &3464823840131848950
@@ -85,7 +85,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.2
   m_Center: {x: 0, y: 1, z: 0}
---- !u!95 &821288335142894859
+--- !u!95 &7169143835418513673
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -98,7 +98,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 6832195d974a2e1438998c7d9662a18b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -126,6 +126,7 @@ MonoBehaviour:
   onPlayerDefenceBegin: {fileID: 11400000, guid: a75f32d03eacb6e46a76df1ce8f8e319, type: 2}
   onPlayerDefenceEnd: {fileID: 11400000, guid: 9eee28071095df74ca51112c9e0f1da8, type: 2}
   onPlayerJump: {fileID: 11400000, guid: fff9471ded7a5c6469056f67edf66bb6, type: 2}
+  onPlayerSprint: {fileID: 11400000, guid: bb4015ed49de19b4599898b32fcec337, type: 2}
 --- !u!114 &778169689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +213,10 @@ MonoBehaviour:
   - id: 0
   - id: 1
   - id: 2
+  - id: 3
+  - id: 4
+  - id: 5
+  - id: 6
   onEquip: {fileID: 11400000, guid: ea11a6d0cae4981449a7ea75fedb660f, type: 2}
   onUnequip: {fileID: 11400000, guid: bd584113acbab564c90f132f129aef2b, type: 2}
   references:
@@ -220,20 +225,44 @@ MonoBehaviour:
       type: {class: EquipmentWeaponSlot, ns: ARPG.Gear, asm: Assembly-CSharp}
       data:
         item: {fileID: 0}
-        leftHolder: {fileID: 480090361477839041}
-        rightHolder: {fileID: 4753351234950911436}
+        leftHolder: {fileID: 0}
+        rightHolder: {fileID: 0}
         defaultItem: {fileID: 0}
     00000001:
       type: {class: EquipmentArrowSlot, ns: ARPG.Gear, asm: Assembly-CSharp}
       data:
         item: {fileID: 0}
-        quiverHolder: {fileID: 2309818132631499854}
-        arrowHolder: {fileID: 4753351234950911436}
+        quiverHolder: {fileID: 0}
+        arrowHolder: {fileID: 0}
     00000002:
       type: {class: EquipmentShieldSlot, ns: ARPG.Gear, asm: Assembly-CSharp}
       data:
-        item: {fileID: 11400000, guid: b403233070f113242a8bd5225fa9dcf4, type: 2}
-        holder: {fileID: 8476731315703920163}
+        item: {fileID: 0}
+        holder: {fileID: 0}
+    00000003:
+      type: {class: EquipmentChestArmorSlot, ns: ARPG.Gear, asm: Assembly-CSharp}
+      data:
+        item: {fileID: 11400000, guid: 937e47f39a273814a88e03ab14cb0b14, type: 2}
+        baseMesh: {fileID: 0}
+        defaultItem: {fileID: 11400000, guid: 937e47f39a273814a88e03ab14cb0b14, type: 2}
+    00000004:
+      type: {class: EquipmentLegsArmorSlot, ns: ARPG.Gear, asm: Assembly-CSharp}
+      data:
+        item: {fileID: 11400000, guid: 4ddab340f9a195840aedaa4432c3623d, type: 2}
+        baseMesh: {fileID: 0}
+        defaultItem: {fileID: 11400000, guid: 4ddab340f9a195840aedaa4432c3623d, type: 2}
+    00000005:
+      type: {class: EquipmentFootsArmorSlot, ns: ARPG.Gear, asm: Assembly-CSharp}
+      data:
+        item: {fileID: 11400000, guid: 281a6445a9a509d43b660ca2de4c154a, type: 2}
+        baseMesh: {fileID: 0}
+        defaultItem: {fileID: 11400000, guid: 281a6445a9a509d43b660ca2de4c154a, type: 2}
+    00000006:
+      type: {class: EquipmentHandsArmorSlot, ns: ARPG.Gear, asm: Assembly-CSharp}
+      data:
+        item: {fileID: 11400000, guid: 18cdc156127237f469db0e5b9847543d, type: 2}
+        baseMesh: {fileID: 0}
+        defaultItem: {fileID: 11400000, guid: 18cdc156127237f469db0e5b9847543d, type: 2}
 --- !u!114 &125897144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,13 +286,19 @@ MonoBehaviour:
     count: 100
   - item: {fileID: 11400000, guid: b403233070f113242a8bd5225fa9dcf4, type: 2}
     count: 1
---- !u!1001 &8400358416269274316
+  - item: {fileID: 11400000, guid: 73117c72b2f9ffe41ba6a0c52c7f90bd, type: 2}
+    count: 1
+--- !u!1001 &5402014968924048048
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 6018887173546567305}
     m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: ac71506fb2b217246bd696b1e5058c81, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ac71506fb2b217246bd696b1e5058c81, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -277,6 +312,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ac71506fb2b217246bd696b1e5058c81, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ac71506fb2b217246bd696b1e5058c81, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -286,14 +325,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ac71506fb2b217246bd696b1e5058c81, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ac71506fb2b217246bd696b1e5058c81, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ac71506fb2b217246bd696b1e5058c81, type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ac71506fb2b217246bd696b1e5058c81, type: 3}
@@ -316,30 +347,15 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 6832195d974a2e1438998c7d9662a18b, type: 2}
-    m_RemovedComponents: []
+    - target: {fileID: 5866666021909216657, guid: ac71506fb2b217246bd696b1e5058c81, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: ac71506fb2b217246bd696b1e5058c81, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ac71506fb2b217246bd696b1e5058c81, type: 3}
---- !u!4 &8295252305323494183 stripped
+--- !u!4 &5583749419107544411 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ac71506fb2b217246bd696b1e5058c81, type: 3}
-  m_PrefabInstance: {fileID: 8400358416269274316}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2309818132631499854 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -3127171450168878974, guid: ac71506fb2b217246bd696b1e5058c81, type: 3}
-  m_PrefabInstance: {fileID: 8400358416269274316}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &480090361477839041 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8231892765760869389, guid: ac71506fb2b217246bd696b1e5058c81, type: 3}
-  m_PrefabInstance: {fileID: 8400358416269274316}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &8476731315703920163 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -9135702199462569233, guid: ac71506fb2b217246bd696b1e5058c81, type: 3}
-  m_PrefabInstance: {fileID: 8400358416269274316}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &4753351234950911436 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -5376353769059993344, guid: ac71506fb2b217246bd696b1e5058c81, type: 3}
-  m_PrefabInstance: {fileID: 8400358416269274316}
+  m_PrefabInstance: {fileID: 5402014968924048048}
   m_PrefabAsset: {fileID: 0}

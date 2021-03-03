@@ -124,6 +124,10 @@ public class EquipmentsEditor : Editor
                 }
             }
         }
+        else
+        {
+            equipmentSlot.EquipDefault(equipment.gameObject);
+        }
     }
 
     float ElementHeightCallback(int index)

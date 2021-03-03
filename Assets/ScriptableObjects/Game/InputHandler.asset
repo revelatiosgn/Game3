@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: InputHandler
   m_EditorClassIdentifier: 
   onPlayerMove: {fileID: 11400000, guid: 6ecdf862b1ca7cf48824c359507b7710, type: 2}
-  onPlayerRotateCamera: {fileID: 11400000, guid: 20eb59750145e024b88fafdaebb0ce5c, type: 2}
+  onPlayerRotateCamera: {fileID: 11400000, guid: bfb7539868e6c5e4ba7ff7a0b0deab69, type: 2}
   onPlayerAttackBegin: {fileID: 11400000, guid: 5ee0d6fef9effa94bbe8bf3d741e5b6c, type: 2}
   onPlayerAttackEnd: {fileID: 11400000, guid: 3794f27ab0ee0bf4c96d51f4b85b0e7c, type: 2}
   onPlayerDefenceBegin: {fileID: 11400000, guid: a75f32d03eacb6e46a76df1ce8f8e319, type: 2}

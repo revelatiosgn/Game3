@@ -16,7 +16,7 @@ namespace ARPG.Combat
         {
             base.Awake();
 
-            animator = GetComponent<Animator>();
+            animator = GetComponentInChildren<Animator>();
             aiController = GetComponent<AIController>();
         }
 

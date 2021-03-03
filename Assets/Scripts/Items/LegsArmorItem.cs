@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ARPG.Items
 {
-    [CreateAssetMenu(fileName = "LegsArmor", menuName = "Items/Equipment/Legs Armor", order = 1)]
+    [CreateAssetMenu(fileName = "LegsArmor", menuName = "Items/Equipment/Armor/Legs Armor", order = 1)]
     public class LegsArmorItem : ArmorItem
     {
         public override EquipmentSlot.SlotType GetSlotType()

@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 using ARPG.Events;
 using System;
+using ARPG.Controller;
 
 namespace ARPG.Core
 {

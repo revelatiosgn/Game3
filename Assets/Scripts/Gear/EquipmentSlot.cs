@@ -16,10 +16,12 @@ namespace ARPG.Gear
             Arrow,
             Shield,
             ChestArmor,
-            LegsArmor
+            LegsArmor,
+            FootsArmor,
+            HandsArmor
         }
 
-        [HideInInspector] public EquipmentItem item;
+        public EquipmentItem item;
 
         public virtual SlotType GetSlotType()
         {

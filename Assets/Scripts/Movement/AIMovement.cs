@@ -24,7 +24,7 @@ namespace ARPG.Movement
         void Awake()
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
-            animator = GetComponent<Animator>();
+            animator = GetComponentInChildren<Animator>();
             aiController = GetComponent<AIController>();
         }
 

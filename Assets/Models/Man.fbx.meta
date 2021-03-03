@@ -122,7 +122,7 @@ ModelImporter:
     second: MaleRig|Land
   externalObjects: {}
   materials:
-    materialImportMode: 1
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -240,9 +240,6 @@ ModelImporter:
       has scale animation that will be discarded.\n\t'DEF-foot.L' has scale animation
       that will be discarded.\n\t'DEF-thigh.R' has scale animation that will be discarded.\n\t'DEF-shin.R'
       has scale animation that will be discarded.\n\t'DEF-foot.R' has scale animation
-      that will be discarded.\n\t'DEF-forearm.L' has scale animation that will be
-      discarded.\n\t'DEF-hand.L' has scale animation that will be discarded.\n\t'DEF-forearm.R'
-      has scale animation that will be discarded.\n\t'DEF-hand.R' has scale animation
       that will be discarded.\n\t'DEF-spine.004' is inbetween humanoid transforms
       and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
@@ -262,7 +259,7 @@ ModelImporter:
       takeName: MaleRig|TPose
       internalID: 0
       firstFrame: 0
-      lastFrame: 0
+      lastFrame: 1
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

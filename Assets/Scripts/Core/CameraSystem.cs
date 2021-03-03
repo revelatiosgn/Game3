@@ -14,11 +14,15 @@ namespace ARPG.Core
 
         [SerializeField] CinemachineFreeLook freeLookCamera;
         [SerializeField] CinemachineFreeLook aimCamera;
-        [SerializeField] [Range(1f, 5f)] float rotationMult = 1f; 
+        [SerializeField] [Range(0f, 50f)] float rotationMult = 1f; 
         [SerializeField] CameraEvent onCameraFreeLook, onCameraAim;
         [SerializeField] Camera InteractionCamera;
 
-        CinemachineFreeLook activeCamera;
+        public static CinemachineFreeLook activeCamera;
+
+        void OnPlayerRotateCamera(Vector2 value)
+        {
+        }
 
         void Awake()
         {
@@ -41,12 +45,6 @@ namespace ARPG.Core
             onCameraFreeLook.onEventRaised -= OnCameraFreeLook;
             onCameraAim.onEventRaised -= OnCameraAim;
             onInventoryActive.onEventRaised -= OnInventoryActive;
-        }
-
-        void OnPlayerRotateCamera(Vector2 value)
-        {
-            activeCamera.m_XAxis.m_InputAxisValue = -value.x * Time.deltaTime * rotationMult;
-            activeCamera.m_YAxis.m_InputAxisValue = -value.y * Time.deltaTime * rotationMult;
         }
 
         void OnCameraFreeLook()

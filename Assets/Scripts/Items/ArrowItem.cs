@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ARPG.Items
 {
-    [CreateAssetMenu(fileName = "Arrow", menuName = "Items/Equipment/Arrow", order = 1)]
+    [CreateAssetMenu(fileName = "Arrow", menuName = "Items/Equipment/Weapon/Arrow", order = 1)]
     public sealed class ArrowItem : EquipmentItem
     {
         public GameObject arrowPrefab;
