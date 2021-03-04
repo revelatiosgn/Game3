@@ -30,30 +30,30 @@ namespace ARPG.UI
             {
                 itemSlot = value;
 
-                // if (itemSlot == null)
-                // {
-                //     icon.gameObject.SetActive(false);
-                //     count.gameObject.SetActive(false);
-                //     SetEquipped(false);
-                //     button.interactable = false;
-                // }
-                // else
-                // {
-                //     icon.sprite = itemSlot.item.icon;
-                //     icon.gameObject.SetActive(true);
+                if (itemSlot == null)
+                {
+                    icon.gameObject.SetActive(false);
+                    count.gameObject.SetActive(false);
+                    SetEquipped(false);
+                    button.interactable = false;
+                }
+                else
+                {
+                    icon.sprite = itemSlot.item.icon;
+                    icon.gameObject.SetActive(true);
                     
-                //     if (itemSlot.count > 1)
-                //     {
-                //         count.gameObject.SetActive(true);
-                //         count.text = itemSlot.count.ToString();
-                //     }
-                //     else
-                //     {
-                //         count.gameObject.SetActive(false);
-                //     }
+                    if (itemSlot.count > 1)
+                    {
+                        count.gameObject.SetActive(true);
+                        count.text = itemSlot.count.ToString();
+                    }
+                    else
+                    {
+                        count.gameObject.SetActive(false);
+                    }
 
-                //     button.interactable = true;
-                // }
+                    button.interactable = true;
+                }
             }
         }
         

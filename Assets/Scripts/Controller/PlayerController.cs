@@ -55,7 +55,7 @@ namespace ARPG.Controller
             onPlayerSprint.onEventRaised -= OnPlayerSprint;
         }
 
-        void Update()
+        void LateUpdate()
         {
             // if (!isInteracting)
                 playerMovement.Move(lastMovement);

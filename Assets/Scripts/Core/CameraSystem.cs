@@ -12,13 +12,11 @@ namespace ARPG.Core
         [SerializeField] Vector2Event onPlayerRotateCamera;
         [SerializeField] BoolEvent onInventoryActive;
 
-        [SerializeField] CinemachineFreeLook freeLookCamera;
-        [SerializeField] CinemachineFreeLook aimCamera;
+        [SerializeField] CinemachineVirtualCamera freeLookCamera;
+        [SerializeField] CinemachineVirtualCamera aimCamera;
         [SerializeField] [Range(0f, 50f)] float rotationMult = 1f; 
         [SerializeField] CameraEvent onCameraFreeLook, onCameraAim;
         [SerializeField] Camera InteractionCamera;
-
-        public static CinemachineFreeLook activeCamera;
 
         void OnPlayerRotateCamera(Vector2 value)
         {
@@ -26,9 +24,6 @@ namespace ARPG.Core
 
         void Awake()
         {
-            freeLookCamera.gameObject.SetActive(true);
-            aimCamera.gameObject.SetActive(false);
-            activeCamera = freeLookCamera;
         }
 
         void OnEnable()
@@ -49,45 +44,22 @@ namespace ARPG.Core
 
         void OnCameraFreeLook()
         {
-            if (activeCamera == freeLookCamera)
-                return;
-
-            freeLookCamera.m_XAxis.Value = aimCamera.m_XAxis.Value;
-            freeLookCamera.m_YAxis.Value = aimCamera.m_YAxis.Value;
-
-            ResetCameraInput();
-
-            freeLookCamera.gameObject.SetActive(true);
-            aimCamera.gameObject.SetActive(false);
-            activeCamera = freeLookCamera;
+            aimCamera.Priority = 0;
+            freeLookCamera.ForceCameraPosition(aimCamera.transform.position, aimCamera.transform.rotation);
         }
 
         void OnCameraAim()
         {
-            if (activeCamera == aimCamera)
-                return;
-
-            aimCamera.m_XAxis.Value = freeLookCamera.m_XAxis.Value;
-            aimCamera.m_YAxis.Value = freeLookCamera.m_YAxis.Value;
-
-            ResetCameraInput();
-
-            freeLookCamera.gameObject.SetActive(false);
-            aimCamera.gameObject.SetActive(true);
-            activeCamera = aimCamera;
-        }
-
-        void ResetCameraInput()
-        {
-            freeLookCamera.m_XAxis.m_InputAxisValue = 0f;
-            freeLookCamera.m_YAxis.m_InputAxisValue = 0f;
-            aimCamera.m_XAxis.m_InputAxisValue = 0f;
-            aimCamera.m_YAxis.m_InputAxisValue = 0f;
+            aimCamera.Priority = 2;
+            aimCamera.ForceCameraPosition(freeLookCamera.transform.position, freeLookCamera.transform.rotation);
         }
 
         void OnInventoryActive(bool isInventoryActive)
         {
             InteractionCamera.gameObject.SetActive(!isInventoryActive);
+
+            freeLookCamera.enabled = !isInventoryActive;
+            aimCamera.enabled = !isInventoryActive;
         }
     }
 }

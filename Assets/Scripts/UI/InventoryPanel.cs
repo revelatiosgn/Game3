@@ -43,7 +43,12 @@ namespace ARPG.UI
             onUnequip.onEventRaised += OnUnequip;
             onPlayerUIUseItem.onEventRaised += OnPlayerUIUseItem;
             onPlayerUIDropItem.onEventRaised += OnPlayerUIDropItem;
+            
+            UpdateSlots();
+        }
 
+        void Start()
+        {
             UpdateSlots();
         }
 

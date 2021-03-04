@@ -4,7 +4,6 @@ using UnityEngine;
 
 using ARPG.Controller;
 using System;
-using UnityEngine.InputSystem;
 using ARPG.Core;
 
 namespace ARPG.Movement
@@ -17,41 +16,24 @@ namespace ARPG.Movement
             Aim
         }
 
-        public enum ColliderState
-        {
-            Grounded = 0,
-            InAir,
-            Floating,
-            Sliding,
-            Jump
-        }
+        [SerializeField] bool isGrounded;
+        [SerializeField] [Range(0f, 30f)] float jumpHeight = 2f;
+        [SerializeField] [Range(0f, 3f)] float gravityMultiplier = 2f;
+        [SerializeField] [Range(0f, 30f)] float slideSpeed = 10f;
 
-        Rigidbody rb;
-        CapsuleCollider capsuleCollider;
         PlayerController playerController;
         Animator animator;
-
-        [SerializeField][Range(0f, 1f)] float skinWidth = 0.1f;
-        [SerializeField][Range(0f, 90f)] float slopeLimit = 30f;
-        [SerializeField][Range(0f, 1f)] float stepLimit = 1.0f;
-        [SerializeField][Range(0f, 100f)] float jumpHeight = 1f;
-        [SerializeField][Range(0f, 10f)] float gravityMultiplier = 1f;
-        [SerializeField][Range(0f, 100f)] float landSpeedLimit = 8f;
+        CharacterController characterController;
 
         Vector3 inputVelocity;
-        Quaternion inputRotation;
         Vector3 gravityVelocity;
-        Vector3 jumpVelocity;
+        Quaternion inputRotation;
         LayerMask layerMask;
+        Vector3 ccNormal;
 
         float velocityH;
         float velocityV;
         Quaternion velocityRot;
-        float stepHeight;
-        Vector3 groundPoint;
-        Vector3 groundNormal;
-        Vector3 snapVelocity;
-        float snapRadius;
         bool isSprinting;
 
         public MovementState state = MovementState.Regular;
@@ -64,219 +46,85 @@ namespace ARPG.Movement
             }
         }
 
-        public ColliderState colliderState = ColliderState.InAir;
-
         void Awake()
         {
-            rb = GetComponent<Rigidbody>();
-            capsuleCollider = GetComponent<CapsuleCollider>();
             playerController = GetComponent<PlayerController>();
             animator = GetComponentInChildren<Animator>();
+            characterController = GetComponent<CharacterController>();
         }
 
         void Start()
         {
             animator.SetBool("aimMovement", true);
             layerMask = LayerMask.GetMask("Environment");
-
-            stepHeight = capsuleCollider.center.y - capsuleCollider.height * 0.5f;
         }
 
-        public int colls;
-        List<ContactPoint> contactPoints = new List<ContactPoint>();
-
-        private void OnCollisionEnter(Collision other)
+        void Update()
         {
-            contactPoints.AddRange(other.contacts);
-            colls = contactPoints.Count;
-        }
-        private void OnCollisionStay(Collision other)
-        {
-            contactPoints.AddRange(other.contacts);
-            colls = contactPoints.Count;
-        }
-
-        void FixedUpdate()
-        {
-            if (colliderState == ColliderState.Jump)
-            {
-                jumpVelocity.y = Mathf.Sqrt(2 * jumpHeight * -Physics.gravity.y * gravityMultiplier);
-                rb.velocity = inputVelocity + gravityVelocity + jumpVelocity;
-                rb.MovePosition(rb.position + rb.velocity * Time.fixedDeltaTime);
-                colliderState = ColliderState.InAir;
-                contactPoints.Clear();
-
-                animator.SetTrigger("jump");
-                animator.SetTrigger("fall");
-            }
-
-            float fallSpeed = animator.GetFloat("fallSpeed");
-            if (colliderState == ColliderState.InAir)
-                fallSpeed = Mathf.Clamp01(fallSpeed + Time.fixedDeltaTime * 1f);
-            else
-                fallSpeed = Mathf.Clamp01(fallSpeed - Time.fixedDeltaTime * 10f);
-            animator.SetFloat("fallSpeed", fallSpeed);
-
-            rb.velocity = inputVelocity + gravityVelocity + jumpVelocity;
-
-            bool isInAir = colliderState == ColliderState.InAir;
-
-            CheckGround();
-            Snap();
-            ApplyGravity();
-
-            if (colliderState == ColliderState.Grounded)
-            {
-                inputVelocity = Vector3.ProjectOnPlane(inputVelocity, groundNormal);
-            }
-
-            if (isInAir && colliderState != ColliderState.InAir)
-            {
-                Land();
-            }
-
-            if (colliderState == ColliderState.InAir)
-            {
-                inputVelocity.y = 0f;
-            }
-
-            colls = contactPoints.Count;
-            contactPoints.Clear();
-        }
-
-        // void LateUpdate()
-        // {
-        //     Vector3 direction = Vector3.zero;
-        //     direction += Camera.main.transform.right;
-        //     direction += Camera.main.transform.forward;
-        //     direction.y = 0f;
-        //     direction.Normalize();
-
-        //     inputRotation = Quaternion.LookRotation(direction);
-
-        //     transform.rotation = inputRotation;
-        // }
-
-        void CheckGround()
-        {
-            float offset = colliderState == ColliderState.InAir ? -rb.velocity.y * Time.fixedDeltaTime : stepHeight;
+            Vector3 slideVelocity = Vector3.zero;
 
             RaycastHit hit;
-            if (Physics.Raycast(rb.position + Vector3.up * (stepHeight + 0.1f), Vector3.down, out hit, stepHeight + offset + 0.1f, layerMask))
+            if (Physics.Raycast(transform.position + Vector3.up * 0.1f, Vector3.down, out hit, characterController.stepOffset + 0.1f, layerMask))
             {
-                colliderState = ColliderState.Grounded;
-                groundNormal = hit.normal;
-                groundPoint = hit.point;
-            }
-            else
-            {
-                colliderState = ColliderState.InAir;
-            }
+                inputVelocity = Vector3.ProjectOnPlane(inputVelocity, hit.normal);
 
-            if (colliderState == ColliderState.Grounded)
-            {
-                if (Vector3.Angle(groundNormal, Vector3.up) > slopeLimit)
-                    colliderState = ColliderState.Sliding;
-            }
-
-            if (colliderState == ColliderState.InAir)
-            {
-                for (int i = 0; i < contactPoints.Count; i++)
+                if (characterController.isGrounded)
                 {
-                    if (Vector3.Dot(contactPoints[i].normal, Vector3.up) < -0.001f)
+                    if (Vector3.Angle(hit.normal, Vector3.up) > characterController.slopeLimit && Vector3.Angle(ccNormal, Vector3.up) > characterController.slopeLimit)
                     {
-                        jumpVelocity.y = 0f;
-                        continue;
+                        slideVelocity.x = ((1f - hit.normal.y) * hit.normal.x);
+                        slideVelocity.z = ((1f - hit.normal.y) * hit.normal.z);
+                        slideVelocity = Vector3.ProjectOnPlane(slideVelocity, hit.normal).normalized * slideSpeed;
                     }
-
-                    Vector3 v1 = Vector3.ProjectOnPlane(contactPoints[i].normal, Vector3.up).normalized;
-                    for (int j = i + 1; j < contactPoints.Count; j++)
-                    {
-                        if (Vector3.Dot(contactPoints[j].normal, Vector3.up) < -Mathf.Epsilon)
-                        {
-                            jumpVelocity.y = 0f;
-                            continue;
-                        }
-
-                        Vector3 v2 = Vector3.ProjectOnPlane(contactPoints[j].normal, Vector3.up).normalized;
-                        if (Vector3.Dot(v1, v2) < -0.2f)
-                        {
-                            colliderState = ColliderState.Floating;
-                            break;
-                        }
-                    }
-
-                    if (colliderState == ColliderState.Floating)
-                        break;
                 }
             }
-        }
-
-        void ApplyGravity()
-        {
-            if (colliderState == ColliderState.InAir || colliderState == ColliderState.Sliding)
-                gravityVelocity += Physics.gravity * Time.fixedDeltaTime * gravityMultiplier;
             else
-                gravityVelocity = Vector3.zero;
+            {
+                if (characterController.isGrounded)
+                {
+                    if (Vector3.Angle(ccNormal, Vector3.up) > characterController.slopeLimit)
+                    {
+                        slideVelocity.x = ((1f - ccNormal.y) * ccNormal.x);
+                        slideVelocity.z = ((1f - ccNormal.y) * ccNormal.z);
+                        slideVelocity = Vector3.ProjectOnPlane(slideVelocity, ccNormal).normalized * slideSpeed;
+                    }
+                }
+            }
+
+            if (characterController.isGrounded)
+            {
+                gravityVelocity = Physics.gravity * 0.01f;
+            }
+            else
+            {
+                gravityVelocity += Physics.gravity * gravityMultiplier * Time.deltaTime;
+            }
+
+            characterController.Move((inputVelocity + gravityVelocity + slideVelocity) * Time.deltaTime);
+            animator.SetFloat("fallSpeed", gravityVelocity.y);
+            animator.SetBool("isGrounded", characterController.isGrounded);
+
+            isGrounded = characterController.isGrounded;
         }
 
-        void Snap()
+        void OnControllerColliderHit(ControllerColliderHit hit)
         {
-            snapRadius = 0f;
-
-            if (colliderState != ColliderState.Grounded)
-                return;
-
-            snapRadius = Mathf.Clamp((rb.velocity.x * rb.velocity.x + rb.velocity.z * rb.velocity.z) * 0.01f, 0f, capsuleCollider.radius * 0.5f) + 0.01f;
-            RaycastHit hit;
-            if (Physics.SphereCast(rb.position + capsuleCollider.center + Vector3.up * 1f, snapRadius, Vector3.down, out hit, capsuleCollider.center.y + stepHeight + 1f, layerMask))
-            {
-                float d = snapRadius - snapRadius * Mathf.Cos(Vector3.Angle(hit.normal, Vector3.up) * Mathf.Deg2Rad);
-                float y = hit.point.y - d;
-
-                Vector3 pos = rb.position;
-                pos.y = y;
-                rb.position = Vector3.SmoothDamp(rb.position, pos, ref snapVelocity, 0.05f);
-            }
+            ccNormal = hit.normal;
         }
 
         void OnAnimatorMove()
         {
-            if (colliderState == ColliderState.InAir)
-                return;
-
             inputVelocity.x = animator.velocity.x;
             inputVelocity.z = animator.velocity.z;
         }
 
-        void OnDrawGizmos()
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawLine(transform.position + Vector3.up * stepHeight, transform.position + Vector3.down * stepHeight);
-
-            Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(transform.position + Vector3.up * snapRadius, snapRadius);
-
-            
-            Gizmos.color = Color.magenta;
-            foreach (ContactPoint contactPoint in contactPoints)
-                Gizmos.DrawRay(contactPoint.point, contactPoint.normal);
-        }
-
         public void Jump()
         {
-            if (colliderState == ColliderState.Grounded || colliderState == ColliderState.Floating)
-            {
-                colliderState = ColliderState.Jump;
-            }
-        }
-
-        void Land()
-        {
-            jumpVelocity = Vector3.zero;
-
-            if (rb.velocity.y < -landSpeedLimit)
-                animator.SetTrigger("land");
+            gravityVelocity.x = inputVelocity.x;
+            gravityVelocity.z = inputVelocity.z;
+            gravityVelocity.y = Mathf.Sqrt(2 * jumpHeight * -Physics.gravity.y * gravityMultiplier);
+            characterController.Move(gravityVelocity * Time.deltaTime);
+            animator.SetTrigger("jump");
         }
 
         public void Move(Vector2 value)
@@ -307,7 +155,7 @@ namespace ARPG.Movement
             animator.SetFloat("horizontal", h);
             animator.SetFloat("vertical", v);
 
-            if (direction != Vector3.zero && colliderState != ColliderState.InAir)
+            if (direction != Vector3.zero)
             {
                 Quaternion targetRotation = Quaternion.Euler(direction);
                 transform.rotation = targetRotation;
@@ -319,19 +167,14 @@ namespace ARPG.Movement
 
         void RegularMovement(Vector2 value)
         {
-            var ac = CameraSystem.activeCamera.m_XAxis.Value;
-            Vector3 vx = Quaternion.AngleAxis(ac, Vector3.up) * Vector3.right;
-            Vector3 vy = Quaternion.AngleAxis(ac, Vector3.up) * Vector3.forward;
-
             Vector3 targetDirection = Vector3.zero;
-            targetDirection += vx * value.x;
-            targetDirection += vy * value.y;
+            targetDirection += Camera.main.transform.right * value.x;
+            targetDirection += Camera.main.transform.forward * value.y;
             targetDirection.y = 0f;
             targetDirection.Normalize();
 
-            // direction = targetDirection;
             direction = Vector3.SmoothDamp(direction, targetDirection, ref directionVel, 0.1f);
-            if (direction != Vector3.zero && colliderState != ColliderState.InAir)
+            if (direction != Vector3.zero)
             {
                 transform.rotation = Quaternion.LookRotation(direction);
             }
