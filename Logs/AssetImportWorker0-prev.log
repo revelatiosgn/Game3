@@ -15,11 +15,11 @@ D:/Projects/Game3
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-54734
+56165
 Successfully changed project path to: D:/Projects/Game3
 D:/Projects/Game3
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 44.04 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 43.27 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.6f1 (8a2143876886)
 [Subsystems] Discovering subsystems at path D:/Tools/UnityEngine/2020.2.6f1/Editor/Data/Resources/UnitySubsystems
@@ -35,86 +35,1357 @@ Initialize mono
 Mono path[0] = 'D:/Tools/UnityEngine/2020.2.6f1/Editor/Data/Managed'
 Mono path[1] = 'D:/Tools/UnityEngine/2020.2.6f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'D:/Tools/UnityEngine/2020.2.6f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56676
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56220
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: D:/Tools/UnityEngine/2020.2.6f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.000927 seconds.
+Registered in 0.000952 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 48.86 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 48.63 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.811 seconds
+- Completed reload, in  0.880 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.000590 seconds.
+Registered in 0.000587 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 43.77 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 44.05 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.180 seconds
+- Completed reload, in  1.172 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 0.54 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.49 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2250 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 122.3 MB.
-System memory in use after: 122.4 MB.
+Unloading 2241 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 119.9 MB.
+System memory in use after: 120.0 MB.
 
-Unloading 121 unused Assets to reduce memory usage. Loaded Objects now: 2720.
-Total: 2.603600 ms (FindLiveObjects: 0.246000 ms CreateObjectMapping: 0.123400 ms MarkObjects: 1.972100 ms  DeleteObjects: 0.261400 ms)
+Unloading 121 unused Assets to reduce memory usage. Loaded Objects now: 2711.
+Total: 2.304700 ms (FindLiveObjects: 0.215300 ms CreateObjectMapping: 0.096800 ms MarkObjects: 1.725900 ms  DeleteObjects: 0.266000 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/CinemachineExamples/Scenes/OverTheShoulderAim/OverTheShoulderAim.unity
-  artifactKey: Guid(a04cf6ca22a95684e9283ab039f68c66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/CinemachineExamples/Scenes/OverTheShoulderAim/OverTheShoulderAim.unity using Guid(a04cf6ca22a95684e9283ab039f68c66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3845b806e8224b378c7bb29a4da81a88') in 0.009307 seconds
-  Import took 0.013191 seconds .
+  path: Assets/Models/Items/Armor/Legs/Pants.fbx
+  artifactKey: Guid(83f67fc2b9ca576438760c2ffb00c162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Items/Armor/Legs/Pants.fbx using Guid(83f67fc2b9ca576438760c2ffb00c162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55ffe917c237be8a58ef07d2716467dd') in 0.165434 seconds
+  Import took 0.170849 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.442331 seconds.
+  path: Assets/Models/Items/Armor/Legs/Pants.fbx
+  artifactKey: Guid(83f67fc2b9ca576438760c2ffb00c162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Items/Armor/Legs/Pants.fbx using Guid(83f67fc2b9ca576438760c2ffb00c162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c30527518c9f52bcb41481c53f2bbf89') in 0.031072 seconds
+  Import took 0.034104 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.767174 seconds.
+  path: Assets/ScriptableObjects/Items
+  artifactKey: Guid(1b78227df1145044fbef5e425f5355c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ScriptableObjects/Items using Guid(1b78227df1145044fbef5e425f5355c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b0cdac70c5ad006f0a031a9a44022fc') in 0.006174 seconds
+  Import took 0.009047 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.100887 seconds.
+  path: Assets/ScriptableObjects/Items/Armor
+  artifactKey: Guid(9e64b5d0c629d0a44a6818943753f48e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ScriptableObjects/Items/Armor using Guid(9e64b5d0c629d0a44a6818943753f48e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6dcb640aab6c3c6aeb36d1387b84693') in 0.004724 seconds
+  Import took 0.008490 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.930395 seconds.
+  path: Assets/ScriptableObjects/Items/Armor/Legs
+  artifactKey: Guid(4b8ab730e10a36e4fbd309474579e89c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ScriptableObjects/Items/Armor/Legs using Guid(4b8ab730e10a36e4fbd309474579e89c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a751fd7ab795fb3b57a22c3755a9871') in 0.006367 seconds
+  Import took 0.009438 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.958461 seconds.
+  path: Assets/ScriptableObjects/Items/Armor/Legs/BaseLegs.asset
+  artifactKey: Guid(4ddab340f9a195840aedaa4432c3623d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ScriptableObjects/Items/Armor/Legs/BaseLegs.asset using Guid(4ddab340f9a195840aedaa4432c3623d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a579bd0e54934778aefae3c6a6001f77') in 0.014889 seconds
+  Import took 0.018036 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001273 seconds.
+  path: Assets/ScriptableObjects/Items/Armor/Legs/BaseLegs.asset
+  artifactKey: Guid(4ddab340f9a195840aedaa4432c3623d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ScriptableObjects/Items/Armor/Legs/BaseLegs.asset using Guid(4ddab340f9a195840aedaa4432c3623d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a579bd0e54934778aefae3c6a6001f77') in 0.003189 seconds
+  Import took 0.006298 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.552699 seconds.
+  path: Assets/ScriptableObjects/Items/Armor/Legs/BaseLegs 1.asset
+  artifactKey: Guid(96c1c98063353b54280db72ec8ec9aab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ScriptableObjects/Items/Armor/Legs/BaseLegs 1.asset using Guid(96c1c98063353b54280db72ec8ec9aab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47cfa713dfcaedb34df5ec1e7ce898f8') in 0.007473 seconds
+  Import took 0.011241 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003412 seconds.
+  path: Assets/ScriptableObjects/Items/Armor/Legs/BaseLegs 1.asset
+  artifactKey: Guid(96c1c98063353b54280db72ec8ec9aab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ScriptableObjects/Items/Armor/Legs/BaseLegs 1.asset using Guid(96c1c98063353b54280db72ec8ec9aab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47cfa713dfcaedb34df5ec1e7ce898f8') in 0.003057 seconds
+  Import took 0.006755 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.743053 seconds.
+  path: Assets/ScriptableObjects/Items/Armor/Legs/Pants.asset
+  artifactKey: Guid(96c1c98063353b54280db72ec8ec9aab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ScriptableObjects/Items/Armor/Legs/Pants.asset using Guid(96c1c98063353b54280db72ec8ec9aab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bec14297b92541fa38512eb1f97be4da') in 0.003583 seconds
+  Import took 0.007277 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.590772 seconds.
+  path: Assets/Sprites/aim.png
+  artifactKey: Guid(688a0e452a778ce45bd9a715ecf6b1df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/aim.png using Guid(688a0e452a778ce45bd9a715ecf6b1df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31cedbf17547d7b47d5b5c9d0f8fb46c') in 0.032641 seconds
+  Import took 0.035802 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000278 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon1H/ClericWand1.png
+  artifactKey: Guid(bf39b48ca64186243b953670f47ee3ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon1H/ClericWand1.png using Guid(bf39b48ca64186243b953670f47ee3ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7051111ef28e4f3f392360e1b1d900c') in 0.020853 seconds
+  Import took 0.023906 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/Resources/Sprites/Items/Armor/Deserter.png
+  artifactKey: Guid(11f347db312babc418baff1376c9ecd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Armor/Deserter.png using Guid(11f347db312babc418baff1376c9ecd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d1d655e6da24686eeb25b72df27d14f') in 0.016789 seconds
+  Import took 0.019577 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000202 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/EliteGuardArmor [Paint].png
+  artifactKey: Guid(b3b5e71c3f6101f4880ea5e7daf45cb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/EliteGuardArmor [Paint].png using Guid(b3b5e71c3f6101f4880ea5e7daf45cb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e71aeba78e5b74f35bb41dd4402c8af1') in 0.021738 seconds
+  Import took 0.025775 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000273 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon1H/ClericWand2.png
+  artifactKey: Guid(3216a232b3f09614cb032f1bf7c1c03a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon1H/ClericWand2.png using Guid(3216a232b3f09614cb032f1bf7c1c03a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57cdb42c59a5729b3eee61eee401f64e') in 0.015765 seconds
+  Import took 0.018854 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000161 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/ChainmailLightArmor [Paint].png
+  artifactKey: Guid(e4163eba96bfc814aa33440af5156b3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/ChainmailLightArmor [Paint].png using Guid(e4163eba96bfc814aa33440af5156b3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'afae72cee2a9e7bf385a9fe182cfe3f0') in 0.015138 seconds
+  Import took 0.018319 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000265 seconds.
+  path: Assets/Resources/Sprites/Items/Bows/BattleBow.png
+  artifactKey: Guid(2e98c0da41f911048a24ca84e5a8d1b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Bows/BattleBow.png using Guid(2e98c0da41f911048a24ca84e5a8d1b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '501c68883382b923cffc476b5fe63c19') in 0.014454 seconds
+  Import took 0.018212 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000240 seconds.
+  path: Assets/Resources/Sprites/Items/Gloves/Deserter.png
+  artifactKey: Guid(d135d54752979df44874b5bdbf00cfe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Gloves/Deserter.png using Guid(d135d54752979df44874b5bdbf00cfe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3358fb9bcc58702893da4978248eea5') in 0.012050 seconds
+  Import took 0.015174 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000213 seconds.
+  path: Assets/Resources/Sprites/Items/Gloves/ChainmailLightArmor [Paint].png
+  artifactKey: Guid(31df27eeb617abe4681609c14d2f0709) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Gloves/ChainmailLightArmor [Paint].png using Guid(31df27eeb617abe4681609c14d2f0709) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e11dd00440f890cf9f96edb66570d20') in 0.012419 seconds
+  Import took 0.015428 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000236 seconds.
+  path: Assets/Resources/Sprites/Items/Armor/CrusaderChainmail_[Paint].png
+  artifactKey: Guid(4765fdea133e9204fbd36278a8e54f6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Armor/CrusaderChainmail_[Paint].png using Guid(4765fdea133e9204fbd36278a8e54f6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0203d10a409c96e379154d1e94628c83') in 0.016327 seconds
+  Import took 0.019190 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000178 seconds.
+  path: Assets/Resources/Sprites/Items/Gloves/CrusaderChainmail [Paint].png
+  artifactKey: Guid(69e3605a969bb5a4892871664b1f5954) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Gloves/CrusaderChainmail [Paint].png using Guid(69e3605a969bb5a4892871664b1f5954) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1392b2f4f438e676d14b186f1aefc18f') in 0.016093 seconds
+  Import took 0.019267 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000228 seconds.
+  path: Assets/Resources/Sprites/Items/Armor/ChainmailLightArmor_[Paint].png
+  artifactKey: Guid(40b100aab8996e848a4ab93275e48382) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Armor/ChainmailLightArmor_[Paint].png using Guid(40b100aab8996e848a4ab93275e48382) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '766a576ca7879bdacea554a07d4c847c') in 0.016663 seconds
+  Import took 0.020054 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000233 seconds.
+  path: Assets/Resources/Sprites/Items/Armor/Cleric_[Paint].png
+  artifactKey: Guid(8916cfc9d98a6c2438e0a49b22e249b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Armor/Cleric_[Paint].png using Guid(8916cfc9d98a6c2438e0a49b22e249b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '041d454f0c8d6e999e50928e2d49e157') in 0.018021 seconds
+  Import took 0.021135 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000235 seconds.
+  path: Assets/Sprites/Inventory/bg.png
+  artifactKey: Guid(f3d1b698730c32147a6a446f6316adea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Inventory/bg.png using Guid(f3d1b698730c32147a6a446f6316adea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6f27260b2da92cfcf30807fbddeb2de') in 0.015044 seconds
+  Import took 0.018196 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000221 seconds.
+  path: Assets/Resources/Sprites/Items/Helmets/ClericHood_[Paint].png
+  artifactKey: Guid(df4ef87408d1a9240947e0a9e8e5243f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Helmets/ClericHood_[Paint].png using Guid(df4ef87408d1a9240947e0a9e8e5243f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0bbe0faf3d149f1830ede7035a368a3a') in 0.015487 seconds
+  Import took 0.018695 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000179 seconds.
+  path: Assets/Resources/Sprites/Items/Armor/BanditLightArmor_[Paint].png
+  artifactKey: Guid(42bc171e4cb28fe48a7c1bc7438a4999) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Armor/BanditLightArmor_[Paint].png using Guid(42bc171e4cb28fe48a7c1bc7438a4999) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a690aaadb53d61cf13555c7a813dbb0c') in 0.016440 seconds
+  Import took 0.020144 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000222 seconds.
+  path: Assets/Resources/Sprites/Items/Arrows/BattleBow.png
+  artifactKey: Guid(73bec1a4c2a7b2647b259852e8a906ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Arrows/BattleBow.png using Guid(73bec1a4c2a7b2647b259852e8a906ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '434e8a769b1a9b138640168f62fda8bb') in 0.017756 seconds
+  Import took 0.020754 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000226 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/ArielDress [Paint].png
+  artifactKey: Guid(a94b9997d81e80b4681a2cae2780aee5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/ArielDress [Paint].png using Guid(a94b9997d81e80b4681a2cae2780aee5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1b8ad65d8c55ef7814779a27e2ddd89') in 0.015793 seconds
+  Import took 0.018643 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000252 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/Cleric [Paint].png
+  artifactKey: Guid(e2c4fbae698f4554cb8c275366dca843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/Cleric [Paint].png using Guid(e2c4fbae698f4554cb8c275366dca843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c6398b8f3c80b63dcb1f9d7d2647a6e') in 0.014473 seconds
+  Import took 0.017468 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000240 seconds.
+  path: Assets/Resources/Sprites/Items/Helmets/BowmanHat_[Paint].png
+  artifactKey: Guid(e7f3626901ebaa44fa39393d06a97c73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Helmets/BowmanHat_[Paint].png using Guid(e7f3626901ebaa44fa39393d06a97c73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b5d9f4c0e45465fbaa050b24cf94566') in 0.016239 seconds
+  Import took 0.019431 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000234 seconds.
+  path: Assets/Sprites/aim.png
+  artifactKey: Guid(688a0e452a778ce45bd9a715ecf6b1df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/aim.png using Guid(688a0e452a778ce45bd9a715ecf6b1df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31cedbf17547d7b47d5b5c9d0f8fb46c') in 0.006520 seconds
+  Import took 0.009299 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000209 seconds.
+  path: Assets/Resources/Sprites/Items/Armor/ArielDress_[Paint].png
+  artifactKey: Guid(aac71d622c567054b84a9a9ad910a6f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Armor/ArielDress_[Paint].png using Guid(aac71d622c567054b84a9a9ad910a6f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4576c45b7f2d0d4e8bfde19c2d162f4b') in 0.014878 seconds
+  Import took 0.018126 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000228 seconds.
+  path: Assets/Resources/Sprites/Items/Gloves/BanditLightArmor [Paint].png
+  artifactKey: Guid(6fb74f5e27f8f854b878ee6b9c953689) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Gloves/BanditLightArmor [Paint].png using Guid(6fb74f5e27f8f854b878ee6b9c953689) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8aaf925125c82f6af7ee8e8a0bc1c37a') in 0.014327 seconds
+  Import took 0.017384 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000258 seconds.
+  path: Assets/Resources/Sprites/Items/Gloves/Cleric [Paint].png
+  artifactKey: Guid(1f30038c08a11ba438e1bb6b0bc7af65) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Gloves/Cleric [Paint].png using Guid(1f30038c08a11ba438e1bb6b0bc7af65) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00d0d6ada54e08b90726611e355cf7b6') in 0.011595 seconds
+  Import took 0.014691 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000232 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/Deserter.png
+  artifactKey: Guid(9033c790c724fea42ad8ea25a4906b5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/Deserter.png using Guid(9033c790c724fea42ad8ea25a4906b5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72226ea5025fbe341d52d880962ce7af') in 0.016214 seconds
+  Import took 0.019594 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000199 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/CrusaderChainmail [Paint].png
+  artifactKey: Guid(0dab67f1032cfd14f8c45fc2f176f09e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/CrusaderChainmail [Paint].png using Guid(0dab67f1032cfd14f8c45fc2f176f09e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '18b9a79d563acb915dfbee0d996c2d2a') in 0.012213 seconds
+  Import took 0.015303 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000225 seconds.
+  path: Assets/Resources/Sprites/Items/Gloves/ArielDress [Paint].png
+  artifactKey: Guid(3171371942927c7439789fc01d585501) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Gloves/ArielDress [Paint].png using Guid(3171371942927c7439789fc01d585501) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd00960adadbd7278809d508178af712b') in 0.011413 seconds
+  Import took 0.014603 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000218 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon2H/BroadSword.png
+  artifactKey: Guid(8075e1e724c51a14bbd079fc0b3f9c31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon2H/BroadSword.png using Guid(8075e1e724c51a14bbd079fc0b3f9c31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c19e093561e26a27d97ecb956c0bc811') in 0.019422 seconds
+  Import took 0.022425 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000172 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/BanditArmor.png
+  artifactKey: Guid(ba39068f5acb77c469c815f9680250bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/BanditArmor.png using Guid(ba39068f5acb77c469c815f9680250bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aea3ccb758e77194acb979cf322ce457') in 0.013938 seconds
+  Import took 0.016628 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000224 seconds.
+  path: Assets/Resources/Sprites/Items/Gloves/EliteGuardArmor [Paint].png
+  artifactKey: Guid(6fd082c11f6c4c54c99527fd089c5eaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Gloves/EliteGuardArmor [Paint].png using Guid(6fd082c11f6c4c54c99527fd089c5eaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e72a7e7d9ca3e39aca18580368aeaadf') in 0.017327 seconds
+  Import took 0.020654 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000215 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon2H/BroadSword.png
+  artifactKey: Guid(8075e1e724c51a14bbd079fc0b3f9c31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon2H/BroadSword.png using Guid(8075e1e724c51a14bbd079fc0b3f9c31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c19e093561e26a27d97ecb956c0bc811') in 0.011654 seconds
+  Import took 0.014538 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000184 seconds.
+  path: Assets/Sprites/Inventory/close.png
+  artifactKey: Guid(d6474e23db3512241bbd3458950b0d75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Inventory/close.png using Guid(d6474e23db3512241bbd3458950b0d75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b83fb4c491d585a4db0b9c7ab8da0167') in 0.013192 seconds
+  Import took 0.016522 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003663 seconds.
+  path: Assets/Sprites/Inventory/close.png
+  artifactKey: Guid(d6474e23db3512241bbd3458950b0d75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Inventory/close.png using Guid(d6474e23db3512241bbd3458950b0d75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b83fb4c491d585a4db0b9c7ab8da0167') in 0.012875 seconds
+  Import took 0.016003 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.180707 seconds.
+  path: Assets/Resources/Sprites/Items/Armor/EliteGuardArmor_[Paint].png
+  artifactKey: Guid(a23389bdd7122304e995e3f6ba759698) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Armor/EliteGuardArmor_[Paint].png using Guid(a23389bdd7122304e995e3f6ba759698) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '30252bb8d17e6b7eac15ac7b8c17f133') in 0.016389 seconds
+  Import took 0.019579 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000262 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/FalconLightArmor.png
+  artifactKey: Guid(720095a4d2b44c149b56c1e4e23a0072) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/FalconLightArmor.png using Guid(720095a4d2b44c149b56c1e4e23a0072) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8875178624dc1877ed2ffbcf89a7d44b') in 0.017732 seconds
+  Import took 0.020494 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000278 seconds.
+  path: Assets/Resources/Sprites/Items/Gloves/FalconLightArmor.png
+  artifactKey: Guid(972a077a83e854842a080cbf3f47ac5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Gloves/FalconLightArmor.png using Guid(972a077a83e854842a080cbf3f47ac5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dab16f9a6d2bff3a3fc68a303c851d38') in 0.012908 seconds
+  Import took 0.015824 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000218 seconds.
+  path: Assets/Resources/Sprites/Items/Helmets/ExpertHunterHat.png
+  artifactKey: Guid(740c924486e83544f9d789e4511f1e13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Helmets/ExpertHunterHat.png using Guid(740c924486e83544f9d789e4511f1e13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0d3f91844809b4854b2c5f6998b61e9') in 0.017589 seconds
+  Import took 0.021167 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000327 seconds.
+  path: Assets/Resources/Sprites/Items/Armor/FalconLightArmor.png
+  artifactKey: Guid(556241fbb887dbe4a917db9788b0d3f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Armor/FalconLightArmor.png using Guid(556241fbb887dbe4a917db9788b0d3f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b8b32d51e16b365940615ea5d9fc9df') in 0.013557 seconds
+  Import took 0.016862 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000194 seconds.
+  path: Assets/Resources/Sprites/Items/Helmets/ExpertBowmanHat.png
+  artifactKey: Guid(03d6be70bb5f4a047a466189efbe48ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Helmets/ExpertBowmanHat.png using Guid(03d6be70bb5f4a047a466189efbe48ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b774dc9f7dd4c5a245d78d005441e352') in 0.022556 seconds
+  Import took 0.026013 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.028841 seconds.
+  path: Assets/Resources/Sprites/Items/Arrows/FamilyBow.png
+  artifactKey: Guid(fd28009b9b91101488314c76be386f8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Arrows/FamilyBow.png using Guid(fd28009b9b91101488314c76be386f8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ce0542e68ad59035647b8c620cd2f1a') in 0.014224 seconds
+  Import took 0.017429 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon1H/FamilySword.png
+  artifactKey: Guid(3720f36b68c2f54429db161e00bb80a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon1H/FamilySword.png using Guid(3720f36b68c2f54429db161e00bb80a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17597cdbce62f52771a331c54e36c192') in 0.015245 seconds
+  Import took 0.018537 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000714 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/FireAdept.png
+  artifactKey: Guid(d6fb93e41abd9e641bec9ee838adb858) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/FireAdept.png using Guid(d6fb93e41abd9e641bec9ee838adb858) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd20f9679cb422522244ee1b0b855f92f') in 0.022685 seconds
+  Import took 0.025810 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000162 seconds.
+  path: Assets/Resources/Sprites/Items/Armor/FireAdept.png
+  artifactKey: Guid(3e947fb563e591d4496d7c6c38dec115) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Armor/FireAdept.png using Guid(3e947fb563e591d4496d7c6c38dec115) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ff03066dcecd6c14e345577c3762074') in 0.011994 seconds
+  Import took 0.014713 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000233 seconds.
+  path: Assets/Resources/Sprites/Items/Bows/FamilyBow.png
+  artifactKey: Guid(ac69f340cbb6fe34dbd9c4a34128cb0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Bows/FamilyBow.png using Guid(ac69f340cbb6fe34dbd9c4a34128cb0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94e67abcf1ea173ef3a8f8514ba3e7fe') in 0.018310 seconds
+  Import took 0.021191 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000205 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon1H/FireAdeptWand1.png
+  artifactKey: Guid(4b13ba8297bb5f24698d2471ccc65c20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon1H/FireAdeptWand1.png using Guid(4b13ba8297bb5f24698d2471ccc65c20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6185e6ee4116b995e6df3ab5be8096c8') in 0.014342 seconds
+  Import took 0.017229 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017825 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon1H/FireAdeptWand1.png
+  artifactKey: Guid(4b13ba8297bb5f24698d2471ccc65c20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon1H/FireAdeptWand1.png using Guid(4b13ba8297bb5f24698d2471ccc65c20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6185e6ee4116b995e6df3ab5be8096c8') in 0.011005 seconds
+  Import took 0.013998 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.015544 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon1H/FireAdeptWand2.png
+  artifactKey: Guid(ab5dfac76c89a7e49b664c7d7e0cac4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon1H/FireAdeptWand2.png using Guid(ab5dfac76c89a7e49b664c7d7e0cac4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '16e66347a93338a5bff8d21ec97b5dad') in 0.015681 seconds
+  Import took 0.019046 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000178 seconds.
+  path: Assets/Resources/Sprites/Items/Gloves/Hermit.png
+  artifactKey: Guid(f38efd20e0f8aed4da879ec227ab5f70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Gloves/Hermit.png using Guid(f38efd20e0f8aed4da879ec227ab5f70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a6e23915a30312c3a85982c1629f48d8') in 0.014482 seconds
+  Import took 0.017400 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000217 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon1H/HermitWand.png
+  artifactKey: Guid(c2cc3c4f1ee220f4fac7e146639f3501) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon1H/HermitWand.png using Guid(c2cc3c4f1ee220f4fac7e146639f3501) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1420f4fc632f56d60446e14f76f5f55') in 0.017098 seconds
+  Import took 0.020222 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000254 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/GuardArmor [Paint].png
+  artifactKey: Guid(98ddcc026fc3ecb4f82f704af289ec48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/GuardArmor [Paint].png using Guid(98ddcc026fc3ecb4f82f704af289ec48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42250f137fe1e91eaf9d6f3e84583223') in 0.018752 seconds
+  Import took 0.021993 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000231 seconds.
+  path: Assets/Resources/Sprites/Items/Armor/Hermit.png
+  artifactKey: Guid(a62e0f46bbdf1614ebf023be53bbda68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Armor/Hermit.png using Guid(a62e0f46bbdf1614ebf023be53bbda68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab853a95e2c5cac4d8bfe8565e7565e0') in 0.013220 seconds
+  Import took 0.016349 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000219 seconds.
+  path: Assets/Resources/Sprites/Items/Helmets/HunterHat1.png
+  artifactKey: Guid(b8ab0244b73cbaa4cae8351d3ef77271) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Helmets/HunterHat1.png using Guid(b8ab0244b73cbaa4cae8351d3ef77271) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b096e65de60de842c981b6f7d7a5c918') in 0.016728 seconds
+  Import took 0.020309 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000216 seconds.
+  path: Assets/Resources/Sprites/Items/Armor/IronArmor_[Paint].png
+  artifactKey: Guid(01fe44356600ed942b9f7393a7b1374e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Armor/IronArmor_[Paint].png using Guid(01fe44356600ed942b9f7393a7b1374e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '045f3d892663180ab2ef2c2c244184ac') in 0.017617 seconds
+  Import took 0.020593 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000261 seconds.
+  path: Assets/Resources/Sprites/Items/Armor/HunterLightArmor.png
+  artifactKey: Guid(2e6d1f2115b583d43b03eada18c91de5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Armor/HunterLightArmor.png using Guid(2e6d1f2115b583d43b03eada18c91de5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52c7fd274b5901393ddfdcd0030bf76c') in 0.018796 seconds
+  Import took 0.022281 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000214 seconds.
+  path: Assets/Resources/Sprites/Items/Gloves/HunterLightArmor.png
+  artifactKey: Guid(b413d706c2ca20742a4e459676688844) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Gloves/HunterLightArmor.png using Guid(b413d706c2ca20742a4e459676688844) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4413f58e86753b62f6ac39a85be2d9e') in 0.012114 seconds
+  Import took 0.015650 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000227 seconds.
+  path: Assets/Resources/Sprites/Items/Gloves/LeatherJacket.png
+  artifactKey: Guid(3629db35066ad414eb32dcc24dea9862) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Gloves/LeatherJacket.png using Guid(3629db35066ad414eb32dcc24dea9862) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '076b743b82db0e58ce4c5c2dd03d4a99') in 0.014209 seconds
+  Import took 0.017386 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000209 seconds.
+  path: Assets/Resources/Sprites/Items/Helmets/LeatherCap.png
+  artifactKey: Guid(1aff4bed1ebda1b408db8d9ffa5d6dee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Helmets/LeatherCap.png using Guid(1aff4bed1ebda1b408db8d9ffa5d6dee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20b163dc3054695358e7d0b841bf9173') in 0.018157 seconds
+  Import took 0.020945 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000166 seconds.
+  path: Assets/Resources/Sprites/Items/Armor/LeatherJacket.png
+  artifactKey: Guid(a4f109524a8444a44a67a2efe3a621df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Armor/LeatherJacket.png using Guid(a4f109524a8444a44a67a2efe3a621df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '117cb01922347693f069daa15aba9b4b') in 0.013102 seconds
+  Import took 0.015935 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000185 seconds.
+  path: Assets/Resources/Sprites/Items/Armor/KnightArmor.png
+  artifactKey: Guid(f89d01e5c0fd65849bcdf20348ec905a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Armor/KnightArmor.png using Guid(f89d01e5c0fd65849bcdf20348ec905a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ecf2c653e237f2c589d54ed430e0039d') in 0.015783 seconds
+  Import took 0.018535 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000176 seconds.
+  path: Assets/Resources/Sprites/Items/Armor/LeatherLightArmor.png
+  artifactKey: Guid(698bd742df53e1a438fec00b6b75c16f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Armor/LeatherLightArmor.png using Guid(698bd742df53e1a438fec00b6b75c16f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4808d497c76e0e554cead94dbd8b22de') in 0.017625 seconds
+  Import took 0.020464 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000241 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/HunterTunic.png
+  artifactKey: Guid(3a34c8de496940f45a7ebb273b369273) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/HunterTunic.png using Guid(3a34c8de496940f45a7ebb273b369273) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5dd7c4ac5395a1c7a12c2abe46a2ad94') in 0.020593 seconds
+  Import took 0.023827 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/Resources/Sprites/Items/Helmets/HunterHelm_[Paint].png
+  artifactKey: Guid(878daae91d115574091f2523af0cdc47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Helmets/HunterHelm_[Paint].png using Guid(878daae91d115574091f2523af0cdc47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '61861a0310d8bf45d1a2a4f6b7bebefe') in 0.017768 seconds
+  Import took 0.020878 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000246 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/HunterLightArmor.png
+  artifactKey: Guid(06fa0c4232e02b347b8b4c6530707021) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/HunterLightArmor.png using Guid(06fa0c4232e02b347b8b4c6530707021) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '770fce52a06e9d06aa0d6bb80693c9f5') in 0.012520 seconds
+  Import took 0.015477 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000179 seconds.
+  path: Assets/Resources/Sprites/Items/Helmets/LeatherHelm.png
+  artifactKey: Guid(49794a1c200e9dc4ea030339454df88e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Helmets/LeatherHelm.png using Guid(49794a1c200e9dc4ea030339454df88e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56fcca4b3cfc41c8d469afa86a98caca') in 0.017839 seconds
+  Import took 0.020934 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000207 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/IronArmor [Paint].png
+  artifactKey: Guid(95db96f4a09b3be46bb9cf192c0ec17e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/IronArmor [Paint].png using Guid(95db96f4a09b3be46bb9cf192c0ec17e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad99e9d98384b420bf6a824e99148feb') in 0.014384 seconds
+  Import took 0.017481 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000205 seconds.
+  path: Assets/Resources/Sprites/Items/Gloves/KnightArmor.png
+  artifactKey: Guid(9e792fe01c542e8498f6192be33b084a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Gloves/KnightArmor.png using Guid(9e792fe01c542e8498f6192be33b084a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7a341e247ead1c8c3c23b5cd58af89f') in 0.019214 seconds
+  Import took 0.021992 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000172 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon1H/HunterKnife_[Paint].png
+  artifactKey: Guid(69d5188fccc1f52408df53b0b380a830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon1H/HunterKnife_[Paint].png using Guid(69d5188fccc1f52408df53b0b380a830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a547927369406c218bd9cdc4ca4216f') in 0.014036 seconds
+  Import took 0.016820 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000164 seconds.
+  path: Assets/Resources/Sprites/Items/Gloves/Hunter.png
+  artifactKey: Guid(c38c914a18857a549880fd593a882765) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Gloves/Hunter.png using Guid(c38c914a18857a549880fd593a882765) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f53050f3deca744a5ca13560f8e8fcaf') in 0.015421 seconds
+  Import took 0.018291 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000183 seconds.
+  path: Assets/Resources/Sprites/Items/Gloves/HunterTunic.png
+  artifactKey: Guid(eacf26995faa1004e849089bc7985d0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Gloves/HunterTunic.png using Guid(eacf26995faa1004e849089bc7985d0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29832c13241e4b93873514ef1821b024') in 0.012734 seconds
+  Import took 0.015704 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000200 seconds.
+  path: Assets/Resources/Sprites/Items/Gloves/IronArmor [Paint].png
+  artifactKey: Guid(353e4a4b0f25eaf419d1f78656e7a221) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Gloves/IronArmor [Paint].png using Guid(353e4a4b0f25eaf419d1f78656e7a221) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db60613ffa8252309fa6d4db8bef8d14') in 0.012209 seconds
+  Import took 0.015290 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000201 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/Hunter.png
+  artifactKey: Guid(80657b9f4aaf8f449972cbf3823ebb22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/Hunter.png using Guid(80657b9f4aaf8f449972cbf3823ebb22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e59ab7c248081491bd50fa319ab50541') in 0.014753 seconds
+  Import took 0.017839 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000195 seconds.
+  path: Assets/Resources/Sprites/Items/Bows/HunterShortBow.png
+  artifactKey: Guid(bc53e83272d888e4bbb2d11b5af4d5f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Bows/HunterShortBow.png using Guid(bc53e83272d888e4bbb2d11b5af4d5f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '222180562a133ee05673eae03c5058ea') in 0.014666 seconds
+  Import took 0.018534 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000208 seconds.
+  path: Assets/Resources/Sprites/Items/Armor/Hunter.png
+  artifactKey: Guid(4814586a6afd18649a288dd303de408b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Armor/Hunter.png using Guid(4814586a6afd18649a288dd303de408b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c435ac3418338ae793a936740ca1c62') in 0.016321 seconds
+  Import took 0.019335 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000198 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/LeatherJacket.png
+  artifactKey: Guid(5974cd38f133ae84bac93af238df588c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/LeatherJacket.png using Guid(5974cd38f133ae84bac93af238df588c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92b8187423f46c58d9a69fe084f055b3') in 0.011439 seconds
+  Import took 0.014472 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000190 seconds.
+  path: Assets/Resources/Sprites/Items/Arrows/HunterShortBow.png
+  artifactKey: Guid(cd98683fb6d9b4940aef515cd00dea51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Arrows/HunterShortBow.png using Guid(cd98683fb6d9b4940aef515cd00dea51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01276374a41658bac83a4aa72a9ea0f9') in 0.011263 seconds
+  Import took 0.014100 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000172 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon1H/HardwoodWand.png
+  artifactKey: Guid(a93c444cfd5b6c4449cf437c7cf7e2df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon1H/HardwoodWand.png using Guid(a93c444cfd5b6c4449cf437c7cf7e2df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15d9fea2fb7c6a730c56412785772e01') in 0.016274 seconds
+  Import took 0.019773 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000184 seconds.
+  path: Assets/Resources/Sprites/Items/Helmets/HunterHat2.png
+  artifactKey: Guid(5c6170680b8b6f040812c170fe5ff965) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Helmets/HunterHat2.png using Guid(5c6170680b8b6f040812c170fe5ff965) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f59ef1a86468d368765657fc9252cb0') in 0.015662 seconds
+  Import took 0.018701 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000219 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/KnightArmor.png
+  artifactKey: Guid(39a15700984262b4185c330cf65f8508) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/KnightArmor.png using Guid(39a15700984262b4185c330cf65f8508) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e407611d061d4ae72c4a36c021de2ab') in 0.012544 seconds
+  Import took 0.015439 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000205 seconds.
+  path: Assets/Resources/Sprites/Items/Shields/HermitLamp.png
+  artifactKey: Guid(2e126ebd37d6a574d8e89eb5c240bc7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Shields/HermitLamp.png using Guid(2e126ebd37d6a574d8e89eb5c240bc7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '30b1fe140038f4ba05e021aef763cc8d') in 0.016108 seconds
+  Import took 0.018842 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000201 seconds.
+  path: Assets/Resources/Sprites/Items/Helmets/HermitHat.png
+  artifactKey: Guid(334f73a3f5070b646825571a2c0714e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Helmets/HermitHat.png using Guid(334f73a3f5070b646825571a2c0714e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e269379b6b2737b96baf6725269fa772') in 0.015180 seconds
+  Import took 0.018468 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000228 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/Hermit.png
+  artifactKey: Guid(f43eda7ec22dff244bb381d788b000e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/Hermit.png using Guid(f43eda7ec22dff244bb381d788b000e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b21f9eab36755b5bccad72642c183b7a') in 0.017390 seconds
+  Import took 0.020445 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000166 seconds.
+  path: Assets/Resources/Sprites/Items/Gloves/GuardArmor [Paint].png
+  artifactKey: Guid(ebbdb6ca7348d744fa27951a45ace3a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Gloves/GuardArmor [Paint].png using Guid(ebbdb6ca7348d744fa27951a45ace3a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1dec69fe014b06455b462f411bf5eff') in 0.011757 seconds
+  Import took 0.014694 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000192 seconds.
+  path: Assets/Resources/Sprites/Items/Potions/HealthPotion.png
+  artifactKey: Guid(9871b001bc476ce48892c7cebb0ae4d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Potions/HealthPotion.png using Guid(9871b001bc476ce48892c7cebb0ae4d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7e5dae0e7eaa087bc20bc10092e8216') in 0.022956 seconds
+  Import took 0.025812 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000212 seconds.
+  path: Assets/Resources/Sprites/Items/Gloves/LeatherLightArmor.png
+  artifactKey: Guid(0f474fd73d6a7e046a176de55908ad09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Gloves/LeatherLightArmor.png using Guid(0f474fd73d6a7e046a176de55908ad09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8bc33af9f9a38af8851f5ec053aff6a1') in 0.013874 seconds
+  Import took 0.017117 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000225 seconds.
+  path: Assets/Resources/Sprites/Items/Arrows/HunterBow.png
+  artifactKey: Guid(c180d1ad0e195ab4f8fb9ab190cfba76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Arrows/HunterBow.png using Guid(c180d1ad0e195ab4f8fb9ab190cfba76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b42d1a466270aac5b6abd508f2e85fdf') in 0.015827 seconds
+  Import took 0.018873 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/Resources/Sprites/Items/Bows/HunterBow.png
+  artifactKey: Guid(5a3563d34e0d61c499a7221ba5a84430) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Bows/HunterBow.png using Guid(5a3563d34e0d61c499a7221ba5a84430) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '13b67fa323cef345061c4582c9712c2b') in 0.011212 seconds
+  Import took 0.013954 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000209 seconds.
+  path: Assets/Resources/Sprites/Items/Armor/HunterTunic.png
+  artifactKey: Guid(f8d5374fe62209244b88bdffa17d876a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Armor/HunterTunic.png using Guid(f8d5374fe62209244b88bdffa17d876a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '050753a9ddbacb8dad4678fa51a3a652') in 0.013342 seconds
+  Import took 0.016556 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000174 seconds.
+  path: Assets/Resources/Sprites/Items/Armor/GuardArmor_[Paint].png
+  artifactKey: Guid(f0ab653faeb867248abc150bd472beef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Armor/GuardArmor_[Paint].png using Guid(f0ab653faeb867248abc150bd472beef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22add14e7fa17b0c1022c6ab9a2ebe8a') in 0.014809 seconds
+  Import took 0.017882 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.834955 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/LeatherLightArmor.png
+  artifactKey: Guid(633eb6c0a27438b4598b95f253688c6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/LeatherLightArmor.png using Guid(633eb6c0a27438b4598b95f253688c6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f35f12b2181be94b9e569ba743dd7a1') in 0.014087 seconds
+  Import took 0.017542 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000236 seconds.
+  path: Assets/Resources/Sprites/Items/Gloves/LeatherRivetedArmor.png
+  artifactKey: Guid(75915f3be49918c47aa35679084cdc8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Gloves/LeatherRivetedArmor.png using Guid(75915f3be49918c47aa35679084cdc8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ce1b6f5f69e9bc24a0e44640054b75b') in 0.016567 seconds
+  Import took 0.019810 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000189 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/LeatherLightArmor.png
+  artifactKey: Guid(633eb6c0a27438b4598b95f253688c6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/LeatherLightArmor.png using Guid(633eb6c0a27438b4598b95f253688c6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f35f12b2181be94b9e569ba743dd7a1') in 0.012662 seconds
+  Import took 0.015687 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000305 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/LeatherRivetedArmor.png
+  artifactKey: Guid(97446b9eb5b789f4198f97e505643222) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/LeatherRivetedArmor.png using Guid(97446b9eb5b789f4198f97e505643222) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0be4cba4b687fa899c3e2b04886d4b06') in 0.018352 seconds
+  Import took 0.021907 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000319 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon1H/MagicSword_[Paint].png
+  artifactKey: Guid(e7b05400db52041489cc4f0ea2a14c23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon1H/MagicSword_[Paint].png using Guid(e7b05400db52041489cc4f0ea2a14c23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1857966c606e8f298c8fe715f2b4f875') in 0.014866 seconds
+  Import took 0.017792 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000190 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon1H/Machete_[Paint].png
+  artifactKey: Guid(85de590d46fbbce408b8f1dc4d89bed8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon1H/Machete_[Paint].png using Guid(85de590d46fbbce408b8f1dc4d89bed8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c46fa3f9fa0d2232e114ecdfddd3998a') in 0.015543 seconds
+  Import took 0.018601 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000154 seconds.
+  path: Assets/Resources/Sprites/Items/Armor/LeatherRivetedArmor.png
+  artifactKey: Guid(4737ff65cf5bddf46a2cce33d00c81ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Armor/LeatherRivetedArmor.png using Guid(4737ff65cf5bddf46a2cce33d00c81ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1be4d0478c18fa5341403a771141345b') in 0.012614 seconds
+  Import took 0.015731 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000163 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/PeasantClothing.png
+  artifactKey: Guid(8b4f36aa9e7eeb241afd7a785bba2f75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/PeasantClothing.png using Guid(8b4f36aa9e7eeb241afd7a785bba2f75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ac38cc14a62b9c7c99d8bb8043fb132d') in 0.014212 seconds
+  Import took 0.016935 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000190 seconds.
+  path: Assets/Resources/Sprites/Items/Helmets/MilitiamanHelmet2_[Paint].png
+  artifactKey: Guid(25c9eec89391c144caebb25836e3d0c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Helmets/MilitiamanHelmet2_[Paint].png using Guid(25c9eec89391c144caebb25836e3d0c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47ed89f8e30cf6b6d02df8be8eb21bda') in 0.015222 seconds
+  Import took 0.018056 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000161 seconds.
+  path: Assets/Resources/Sprites/Items/Gloves/Robe.png
+  artifactKey: Guid(40028cd388496c84dac2409ac33ba2f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Gloves/Robe.png using Guid(40028cd388496c84dac2409ac33ba2f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9299b22866a72eb740a0e29c7ed17e6d') in 0.015308 seconds
+  Import took 0.018144 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000241 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/Scout [Paint].png
+  artifactKey: Guid(2214c9c0119952d46b1ab29317fbdb09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/Scout [Paint].png using Guid(2214c9c0119952d46b1ab29317fbdb09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1ff6b23880b09e1a07e4c85235933fb') in 0.014564 seconds
+  Import took 0.017506 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000237 seconds.
+  path: Assets/Resources/Sprites/Items/Gloves/Scout [Paint].png
+  artifactKey: Guid(e0b294ef258b592408165488a24a5295) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Gloves/Scout [Paint].png using Guid(e0b294ef258b592408165488a24a5295) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5e3ff332222c10b1cd9ae5ba8cf2c68') in 0.015299 seconds
+  Import took 0.018173 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000156 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/Militiaman.png
+  artifactKey: Guid(9add6c4e2abe1724ea3ffbea2f2f0e22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/Militiaman.png using Guid(9add6c4e2abe1724ea3ffbea2f2f0e22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8300fc44f3580852dd180fe23a251467') in 0.015651 seconds
+  Import took 0.018889 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000248 seconds.
+  path: Assets/Resources/Sprites/Items/Gloves/PeasantClothing.png
+  artifactKey: Guid(98a2a78fbbcdaca499b26cf857f5d2c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Gloves/PeasantClothing.png using Guid(98a2a78fbbcdaca499b26cf857f5d2c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a84beec2b476fa78aae9cff21c9d01ac') in 0.014947 seconds
+  Import took 0.017928 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000218 seconds.
+  path: Assets/Resources/Sprites/Items/Helmets/MilitiamanHelmet1_[Paint].png
+  artifactKey: Guid(7b78caa6273b4ed4da42f1092497fa22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Helmets/MilitiamanHelmet1_[Paint].png using Guid(7b78caa6273b4ed4da42f1092497fa22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da7165bd2deea85c54b055b4415a3df3') in 0.015500 seconds
+  Import took 0.018516 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000229 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon2H/OldPoleaxe.png
+  artifactKey: Guid(b0bdd1b2f6dff5544915d23c14150858) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon2H/OldPoleaxe.png using Guid(b0bdd1b2f6dff5544915d23c14150858) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd286696e3f2bca68a6a5fcb01e52f27') in 0.017005 seconds
+  Import took 0.019936 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000203 seconds.
+  path: Assets/Resources/Sprites/Items/Gloves/Militiaman.png
+  artifactKey: Guid(6779981705e07f442b0bc7833693b0e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Gloves/Militiaman.png using Guid(6779981705e07f442b0bc7833693b0e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e573f7bf9e6e69815441420595926138') in 0.012444 seconds
+  Import took 0.015610 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000192 seconds.
+  path: Assets/Resources/Sprites/Items/Armor/Militiaman.png
+  artifactKey: Guid(7beba599481c71340979c1000d263b7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Armor/Militiaman.png using Guid(7beba599481c71340979c1000d263b7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd72f5bf915945e0475f5b2b074bfe5ba') in 0.012790 seconds
+  Import took 0.015485 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/Resources/Sprites/Items/Armor/Robe.png
+  artifactKey: Guid(12fb6c68cbda56a4396f2e9b23c96673) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Armor/Robe.png using Guid(12fb6c68cbda56a4396f2e9b23c96673) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6871109e7671d6a947b4c01c4706b44f') in 0.015203 seconds
+  Import took 0.018072 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000167 seconds.
+  path: Assets/Resources/Sprites/Items/Helmets/PeasantCap.png
+  artifactKey: Guid(9639c06b3477e4042adf6700b137b313) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Helmets/PeasantCap.png using Guid(9639c06b3477e4042adf6700b137b313) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2250ca5ec4cce022edacdd5168c86a6f') in 0.014847 seconds
+  Import took 0.017713 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000235 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon1H/RustySword.png
+  artifactKey: Guid(33d83b0a8cf858f409e9f511e7fcd78c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon1H/RustySword.png using Guid(33d83b0a8cf858f409e9f511e7fcd78c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bcc0218a16b14b6a4145cfab23835439') in 0.016153 seconds
+  Import took 0.018942 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000198 seconds.
+  path: Assets/Resources/Sprites/Items/Shields/MilitiamanShield.png
+  artifactKey: Guid(c445516ecf95ab544a234bd54fc0c75e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Shields/MilitiamanShield.png using Guid(c445516ecf95ab544a234bd54fc0c75e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '63c0f571e8879c533bda355faebfec13') in 0.015362 seconds
+  Import took 0.018774 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000189 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon1H/MilitiamanShortSword_[Paint].png
+  artifactKey: Guid(29d5fdb074a0a5547b3e54ef387186c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon1H/MilitiamanShortSword_[Paint].png using Guid(29d5fdb074a0a5547b3e54ef387186c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fcb6010e31e080e466dbbcc7e7505609') in 0.019335 seconds
+  Import took 0.022648 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000218 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/Robe.png
+  artifactKey: Guid(813215cad11d84c4b8abab6ccb223133) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/Robe.png using Guid(813215cad11d84c4b8abab6ccb223133) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9770e5cbf0d59a44c6ce56300676e0c') in 0.013334 seconds
+  Import took 0.016582 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000219 seconds.
+  path: Assets/Resources/Sprites/Items/Armor/PeasantClothing.png
+  artifactKey: Guid(e320e2fa6c3cdbd419180cb0d3ae209f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Armor/PeasantClothing.png using Guid(e320e2fa6c3cdbd419180cb0d3ae209f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f19d7446b95194d40ccffe2ce14c710') in 0.013014 seconds
+  Import took 0.016141 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.575182 seconds.
+  path: Assets/Resources/Sprites/Items/Armor/Scout_[Paint].png
+  artifactKey: Guid(59e8288096a0061448d597ac1652103e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Armor/Scout_[Paint].png using Guid(59e8288096a0061448d597ac1652103e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3bb034194c13318b2bf0503b3b09c51e') in 0.015633 seconds
+  Import took 0.019004 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000219 seconds.
+  path: Assets/Resources/Sprites/Items/Helmets/ScoutHelm.png
+  artifactKey: Guid(09fb2f613386af64c8a2f71bd3e1845a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Helmets/ScoutHelm.png using Guid(09fb2f613386af64c8a2f71bd3e1845a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05e62ccaf37de99947652aaf0992959f') in 0.015110 seconds
+  Import took 0.018001 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000243 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon1H/ShortIronKatana_[Paint].png
+  artifactKey: Guid(31f71afa209b3ab4eb514ce34a804004) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon1H/ShortIronKatana_[Paint].png using Guid(31f71afa209b3ab4eb514ce34a804004) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f653af5500546cc043647924405b662') in 0.017506 seconds
+  Import took 0.020382 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000228 seconds.
+  path: Assets/Resources/Sprites/Items/Bows/ScoutShortBow.png
+  artifactKey: Guid(8917bc71b2ec0a448b7b99d625e6f3e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Bows/ScoutShortBow.png using Guid(8917bc71b2ec0a448b7b99d625e6f3e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a5c70065d9a558f5918ab53649ea910') in 0.015062 seconds
+  Import took 0.018144 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000243 seconds.
+  path: Assets/Resources/Sprites/Items/Arrows/ScoutShortBow.png
+  artifactKey: Guid(3697c2e0286dbfc42b63976e854d4d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Arrows/ScoutShortBow.png using Guid(3697c2e0286dbfc42b63976e854d4d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '674ab98a0b80bf21c44561d9c7595249') in 0.012043 seconds
+  Import took 0.015139 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000182 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon1H/ShortDagger_[Paint].png
+  artifactKey: Guid(6935c75825548604b8d4128ead51f522) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon1H/ShortDagger_[Paint].png using Guid(6935c75825548604b8d4128ead51f522) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b54d73270ef97784dff17736b511ae0') in 0.015842 seconds
+  Import took 0.019350 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000221 seconds.
+  path: Assets/Resources/Sprites/Items/Armor/Slave.png
+  artifactKey: Guid(5a68d74c41534054e99188a9a98ef0d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Armor/Slave.png using Guid(5a68d74c41534054e99188a9a98ef0d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e6c8717a14a78ada4d5ae328dfa6e1d') in 0.015951 seconds
+  Import took 0.019436 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000181 seconds.
+  path: Assets/Resources/Sprites/Items/Helmets/SlaveHeadband.png
+  artifactKey: Guid(10f744abe7bef3d41bfe061be74d505b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Helmets/SlaveHeadband.png using Guid(10f744abe7bef3d41bfe061be74d505b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e25d4c4909d65bd6688ec8369f717e68') in 0.016705 seconds
+  Import took 0.019879 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000216 seconds.
+  path: Assets/Resources/Sprites/Items/Gloves/Slave.png
+  artifactKey: Guid(a4a1e4afb7b2a44448d8a12d85f8eedc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Gloves/Slave.png using Guid(a4a1e4afb7b2a44448d8a12d85f8eedc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6066b571cf0d395bedf2c914f9b4c4ee') in 0.014351 seconds
+  Import took 0.017628 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000237 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon1H/ShortSword_[Paint].png
+  artifactKey: Guid(4d0bc4e4125dc6746889ad518d054d8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon1H/ShortSword_[Paint].png using Guid(4d0bc4e4125dc6746889ad518d054d8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c18dfeabff03be8c56ca725b3df2176') in 0.018109 seconds
+  Import took 0.020836 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000229 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon1H/SlaveSword_[Paint].png
+  artifactKey: Guid(0fbe509b768fdf64c8d238cef0432a0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon1H/SlaveSword_[Paint].png using Guid(0fbe509b768fdf64c8d238cef0432a0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c14e6d2aafd797ae693aa69c41ded20') in 0.019516 seconds
+  Import took 0.022696 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000210 seconds.
+  path: Assets/Resources/Sprites/Items/Shields/SteelTowerShield.png
+  artifactKey: Guid(7ebf67f799c627347ac446fee4ae57a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Shields/SteelTowerShield.png using Guid(7ebf67f799c627347ac446fee4ae57a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96e26c15b8ff0f4f8b5c5942866f22f5') in 0.014088 seconds
+  Import took 0.016798 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000231 seconds.
+  path: Assets/Resources/Sprites/Items/Helmets/SteelHelm_[Paint].png
+  artifactKey: Guid(555ed04ec18d3934abebfcdacece3d44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Helmets/SteelHelm_[Paint].png using Guid(555ed04ec18d3934abebfcdacece3d44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e311ef9307b7a90f0ce77f430c22140e') in 0.022301 seconds
+  Import took 0.025233 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000158 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon1H/SmallAxe.png
+  artifactKey: Guid(c8e097644da9b88458c7dc0c10341789) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon1H/SmallAxe.png using Guid(c8e097644da9b88458c7dc0c10341789) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f492246ede5e0cc020017dfbe4b57fdf') in 0.014615 seconds
+  Import took 0.017607 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000235 seconds.
+  path: Assets/Sprites/Inventory/slot_bg.png
+  artifactKey: Guid(d210fe4f374c64942bb6082fc6f201b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Inventory/slot_bg.png using Guid(d210fe4f374c64942bb6082fc6f201b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3776e0a35dd490a6cacad7406390fc71') in 0.015116 seconds
+  Import took 0.018233 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000186 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon2H/SteelAxe.png
+  artifactKey: Guid(75e3044795d0e0949bca05b0b4584fad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon2H/SteelAxe.png using Guid(75e3044795d0e0949bca05b0b4584fad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '829c8afbabf8d540e9cc9b0d9b127ba7') in 0.016185 seconds
+  Import took 0.019301 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000254 seconds.
+  path: Assets/Sprites/Inventory/slot_selected.png
+  artifactKey: Guid(777f5a1546c92944c96ca222b182285f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Inventory/slot_selected.png using Guid(777f5a1546c92944c96ca222b182285f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a2238072c044c8aaec2faf4e20272d8f') in 0.014375 seconds
+  Import took 0.017469 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000260 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/Slave.png
+  artifactKey: Guid(7ecfa8ec602907b4e8f20bda50f4c847) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/Slave.png using Guid(7ecfa8ec602907b4e8f20bda50f4c847) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '571f736010c28572430a3807f7686a76') in 0.013531 seconds
+  Import took 0.016754 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.210169 seconds.
+  path: Assets/Resources/Sprites/Items/Helmets/StrawHat.png
+  artifactKey: Guid(18e62e91160e62b4b91c4485f1d4454a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Helmets/StrawHat.png using Guid(18e62e91160e62b4b91c4485f1d4454a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8cbff440b518d0165f2c6e23b502d03') in 0.015713 seconds
+  Import took 0.020113 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000261 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon1H/WarHammer.png
+  artifactKey: Guid(f61ec6ff89b56ba4a923e81824b3c23e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon1H/WarHammer.png using Guid(f61ec6ff89b56ba4a923e81824b3c23e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e549ba1a043f0f606bc5d65db23e0ac5') in 0.015831 seconds
+  Import took 0.019307 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000189 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon1H/WaterAdeptWand1.png
+  artifactKey: Guid(a24feab6c3fcb624cb94c51e6777916d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon1H/WaterAdeptWand1.png using Guid(a24feab6c3fcb624cb94c51e6777916d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '634b922171aeb2130cf991f50c001295') in 0.016115 seconds
+  Import took 0.018927 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/WaterAdept.png
+  artifactKey: Guid(1cd307770f49b7344a8eff07829748b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/WaterAdept.png using Guid(1cd307770f49b7344a8eff07829748b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e598fe84432294bcd2c8a64c06ff14c5') in 0.015526 seconds
+  Import took 0.018281 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000187 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon1H/TrainingSword_[Paint].png
+  artifactKey: Guid(554bdc5e961d2d440993c6195bf9da59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon1H/TrainingSword_[Paint].png using Guid(554bdc5e961d2d440993c6195bf9da59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7dc5842f028d437e0228eeea361ee154') in 0.016819 seconds
+  Import took 0.019646 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000241 seconds.
+  path: Assets/Resources/Sprites/Items/Armor/WaterAdept.png
+  artifactKey: Guid(b41b96e3647adb7408daf7f532a33938) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Armor/WaterAdept.png using Guid(b41b96e3647adb7408daf7f532a33938) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c27a80bce6f4edcfd3aad20528c3685') in 0.018155 seconds
+  Import took 0.021371 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000309 seconds.
+  path: Assets/Resources/Sprites/Items/Boots/WaterAdept.png
+  artifactKey: Guid(1cd307770f49b7344a8eff07829748b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Boots/WaterAdept.png using Guid(1cd307770f49b7344a8eff07829748b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e598fe84432294bcd2c8a64c06ff14c5') in 0.011874 seconds
+  Import took 0.015001 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.012415 seconds.
+  path: Assets/Resources/Sprites/Items/Armor/WaterAdept.png
+  artifactKey: Guid(b41b96e3647adb7408daf7f532a33938) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Armor/WaterAdept.png using Guid(b41b96e3647adb7408daf7f532a33938) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c27a80bce6f4edcfd3aad20528c3685') in 0.017886 seconds
+  Import took 0.021149 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.344963 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon1H/WaterAdeptWand2.png
+  artifactKey: Guid(4bb4227c694ff2043a521efba108a911) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon1H/WaterAdeptWand2.png using Guid(4bb4227c694ff2043a521efba108a911) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0aa579f30f3d705e7720a43418fa8492') in 0.017864 seconds
+  Import took 0.022050 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000237 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon2H/WoodcutterPoleaxe.png
+  artifactKey: Guid(4a64611788aa58d4697da0384faf7d73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon2H/WoodcutterPoleaxe.png using Guid(4a64611788aa58d4697da0384faf7d73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96f70ba18cea96690b823fbc11fb630b') in 0.014514 seconds
+  Import took 0.017306 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000246 seconds.
+  path: Assets/Resources/Sprites/Items/Shields/WoodenBuckler.png
+  artifactKey: Guid(32d2f708cc0ba6e4fb623ba563b65587) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Shields/WoodenBuckler.png using Guid(32d2f708cc0ba6e4fb623ba563b65587) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5385d7a377b14024958432cebccd4e20') in 0.015095 seconds
+  Import took 0.018335 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000216 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon2H/WoodenMace.png
+  artifactKey: Guid(1221f7624ff805e43962169df942b518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon2H/WoodenMace.png using Guid(1221f7624ff805e43962169df942b518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '32db902715343728bf489cc795565dfe') in 0.017108 seconds
+  Import took 0.020268 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon1H/WoodcutterAxe.png
+  artifactKey: Guid(22709ef56c26b894183fd1a13936121e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon1H/WoodcutterAxe.png using Guid(22709ef56c26b894183fd1a13936121e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6fec88dda7f4ba1f2589dd00ff938a04') in 0.014568 seconds
+  Import took 0.017682 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000271 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon1H/WoodenMace.png
+  artifactKey: Guid(8d5d11172764ea341adcce8bd59cccf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon1H/WoodenMace.png using Guid(8d5d11172764ea341adcce8bd59cccf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '846fb1b9c5b44864bb7fd3d438073632') in 0.016275 seconds
+  Import took 0.019893 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.136342 seconds.
+  path: Assets/Resources/Sprites/Items/Shields/WoodenShield.png
+  artifactKey: Guid(fc6d78fd1ab5b0e41a38e9323dd5c4d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/Shields/WoodenShield.png using Guid(fc6d78fd1ab5b0e41a38e9323dd5c4d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7b967a6301a224a55767ce9abbe4492') in 0.014381 seconds
+  Import took 0.017986 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000236 seconds.
+  path: Assets/Resources/Sprites/Items/MeleeWeapon1H/WoodenSpikedClub.png
+  artifactKey: Guid(30ed63a7a0e97e04e83693287f89dd57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprites/Items/MeleeWeapon1H/WoodenSpikedClub.png using Guid(30ed63a7a0e97e04e83693287f89dd57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03505eaad6c3354dfea144de7080612e') in 0.014715 seconds
+  Import took 0.017678 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 25.164117 seconds.
+  path: Assets/Models/Items/Armor/Legs
+  artifactKey: Guid(aaf4aa17c7938d24694a6be91c611972) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Items/Armor/Legs using Guid(aaf4aa17c7938d24694a6be91c611972) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c06ee2280125b5d77a05c946c4e86133') in 0.001825 seconds
+  Import took 0.004762 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.000751 seconds.
+Registered in 0.001310 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.54 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.52 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.128 seconds
+- Completed reload, in  1.233 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.42 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.43 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2168 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 117.2 MB.
-System memory in use after: 117.2 MB.
+System memory in use before: 132.6 MB.
+System memory in use after: 132.6 MB.
 
-Unloading 105 unused Assets to reduce memory usage. Loaded Objects now: 2722.
-Total: 2.277600 ms (FindLiveObjects: 0.215900 ms CreateObjectMapping: 0.082400 ms MarkObjects: 1.746500 ms  DeleteObjects: 0.231300 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 26.767620 seconds.
-  path: Assets/Scenes/Sandbox.unity
-  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Sandbox.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3056560270bf651f102536b18c5de8c9') in 0.012864 seconds
-  Import took 0.015953 seconds .
+Unloading 106 unused Assets to reduce memory usage. Loaded Objects now: 2761.
+Total: 2.783100 ms (FindLiveObjects: 0.236300 ms CreateObjectMapping: 0.106700 ms MarkObjects: 2.190600 ms  DeleteObjects: 0.247900 ms)
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.000706 seconds.
+Registered in 0.000851 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.67 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.221 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.43 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 132.6 MB.
+System memory in use after: 132.6 MB.
+
+Unloading 105 unused Assets to reduce memory usage. Loaded Objects now: 2763.
+Total: 2.781300 ms (FindLiveObjects: 0.237200 ms CreateObjectMapping: 0.086900 ms MarkObjects: 2.189000 ms  DeleteObjects: 0.266600 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001222 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.45 ms, found 0 plugins.
@@ -123,15 +1394,112 @@ Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.130 seconds
+- Completed reload, in  1.242 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.43 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.74 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2168 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 117.2 MB.
-System memory in use after: 117.3 MB.
+System memory in use before: 132.6 MB.
+System memory in use after: 132.7 MB.
 
-Unloading 105 unused Assets to reduce memory usage. Loaded Objects now: 2724.
-Total: 2.353700 ms (FindLiveObjects: 0.209000 ms CreateObjectMapping: 0.088000 ms MarkObjects: 1.817600 ms  DeleteObjects: 0.238100 ms)
+Unloading 105 unused Assets to reduce memory usage. Loaded Objects now: 2765.
+Total: 2.625500 ms (FindLiveObjects: 0.277700 ms CreateObjectMapping: 0.124600 ms MarkObjects: 1.946900 ms  DeleteObjects: 0.275100 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000824 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.49 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.335 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.44 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 132.6 MB.
+System memory in use after: 132.7 MB.
+
+Unloading 105 unused Assets to reduce memory usage. Loaded Objects now: 2767.
+Total: 3.221600 ms (FindLiveObjects: 0.366400 ms CreateObjectMapping: 0.158400 ms MarkObjects: 2.342200 ms  DeleteObjects: 0.353300 ms)
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 0.72 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 89.6 MB.
+System memory in use after: 89.6 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 2767.
+Total: 2.486100 ms (FindLiveObjects: 0.228900 ms CreateObjectMapping: 0.103200 ms MarkObjects: 1.972000 ms  DeleteObjects: 0.179600 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 11370.203456 seconds.
+  path: Assets/ScriptableObjects/Items/Armor/Foots
+  artifactKey: Guid(eafbb8726423ef342a90943d87eec51a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ScriptableObjects/Items/Armor/Foots using Guid(eafbb8726423ef342a90943d87eec51a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ab5b5a8d3de458e5bd1695387b31f09') in 0.006407 seconds
+  Import took 0.010877 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.010921 seconds.
+  path: Assets/ScriptableObjects/Items/Armor/Foots/BaseFoots.asset
+  artifactKey: Guid(281a6445a9a509d43b660ca2de4c154a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ScriptableObjects/Items/Armor/Foots/BaseFoots.asset using Guid(281a6445a9a509d43b660ca2de4c154a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d78b0adfb26640bdcd151e553c5e252') in 0.010092 seconds
+  Import took 0.013721 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.713670 seconds.
+  path: Assets/ScriptableObjects/Items/Armor/Foots/BaseFoots 1.asset
+  artifactKey: Guid(979ddb2667854db4893a2354c05ee0db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ScriptableObjects/Items/Armor/Foots/BaseFoots 1.asset using Guid(979ddb2667854db4893a2354c05ee0db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ab5ae4b1a7f119678cef4646daccb1c') in 0.006530 seconds
+  Import took 0.009839 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.082559 seconds.
+  path: Assets/ScriptableObjects/Items/Armor/Foots/Shoes.asset
+  artifactKey: Guid(979ddb2667854db4893a2354c05ee0db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ScriptableObjects/Items/Armor/Foots/Shoes.asset using Guid(979ddb2667854db4893a2354c05ee0db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '97e2910bef9e52c7463a7e2c558a24d7') in 0.006710 seconds
+  Import took 0.010471 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.361033 seconds.
+  path: Assets/Models/Items/Armor/Foots
+  artifactKey: Guid(34a6a70f4c9e80149952db4bdde26811) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Items/Armor/Foots using Guid(34a6a70f4c9e80149952db4bdde26811) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aab3e885e51238631872c1fba8ead7c2') in 0.002140 seconds
+  Import took 0.005877 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000651 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.42 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.052 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.44 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 132.6 MB.
+System memory in use after: 132.6 MB.
+
+Unloading 105 unused Assets to reduce memory usage. Loaded Objects now: 2769.
+Total: 2.325700 ms (FindLiveObjects: 0.208900 ms CreateObjectMapping: 0.089700 ms MarkObjects: 1.788700 ms  DeleteObjects: 0.237000 ms)
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

@@ -162,9 +162,6 @@ namespace ARPG.Movement
             }
         }
 
-        Vector3 direction;
-        Vector3 directionVel;
-
         void RegularMovement(Vector2 value)
         {
             Vector3 targetDirection = Vector3.zero;
@@ -173,10 +170,9 @@ namespace ARPG.Movement
             targetDirection.y = 0f;
             targetDirection.Normalize();
 
-            direction = Vector3.SmoothDamp(direction, targetDirection, ref directionVel, 0.1f);
-            if (direction != Vector3.zero)
+            if (targetDirection != Vector3.zero)
             {
-                transform.rotation = Quaternion.LookRotation(direction);
+                transform.rotation = Utils.QuaternionUtil.SmoothDamp(transform.rotation, Quaternion.LookRotation(targetDirection), ref velocityRot, 0.1f);
             }
 
             float vertical = animator.GetFloat("vertical");
