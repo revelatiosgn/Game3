@@ -65,9 +65,11 @@
      <Compile Include="Assets\Scripts\Utils\QuaternionUtil.cs" />
      <Compile Include="Assets\Scripts\Stats\CharacterStats.cs" />
      <Compile Include="Assets\Scripts\Gear\EquipmentChestArmorSlot.cs" />
+     <Compile Include="Assets\Scripts\Gear\EquipmentBeardSlot.cs" />
      <Compile Include="Assets\Scripts\UI\HUDController.cs" />
      <Compile Include="Assets\Scripts\UI\InventoryPanel.cs" />
      <Compile Include="Assets\Scripts\Combat\MeleeCollider.cs" />
+     <Compile Include="Assets\Scripts\Gear\EquipmentHeadArmorSlot.cs" />
      <Compile Include="Assets\Scripts\Combat\Behaviours\RangedBehaviour.cs" />
      <Compile Include="Assets\Scripts\Movement\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Gear\EquipmentArmorSlot.cs" />
@@ -78,6 +80,7 @@
      <Compile Include="Assets\Scripts\Gear\Equipment.cs" />
      <Compile Include="Assets\Scripts\Events\InteractableEvent.cs" />
      <Compile Include="Assets\Scripts\Gear\EquipmentLegsArmorSlot.cs" />
+     <Compile Include="Assets\Scripts\Items\BeardItem.cs" />
      <Compile Include="Assets\Scripts\Items\ShieldItem.cs" />
      <Compile Include="Assets\Scripts\Core\CameraSystem.cs" />
      <Compile Include="Assets\Scripts\Movement\FootIK.cs" />
@@ -98,6 +101,7 @@
      <Compile Include="Assets\Scripts\Core\FollowTarget.cs" />
      <Compile Include="Assets\ExternalAssets\Plugins\Pixel Crushers\Scene Streamer\Example\Scripts\SmoothMouseLook.cs" />
      <Compile Include="Assets\Scripts\AI\States\AIChaseState.cs" />
+     <Compile Include="Assets\Scripts\Gear\EquipmentEyebrowsSlot.cs" />
      <Compile Include="Assets\Scripts\AI\AIState.cs" />
      <Compile Include="Assets\Scripts\Combat\Projectiles\Projectile.cs" />
      <Compile Include="Assets\Scripts\Events\InputActionsEvent.cs" />
@@ -129,6 +133,10 @@
      <Compile Include="Assets\Scripts\Items\ArmorItem.cs" />
      <Compile Include="Assets\Scripts\AI\AIAction.cs" />
      <Compile Include="Assets\ExternalAssets\Plugins\Pixel Crushers\Scene Streamer\Example\Scripts\FPSWalkerEnhanced.cs" />
+     <Compile Include="Assets\Scripts\Items\HeadArmorItem.cs" />
+     <Compile Include="Assets\Scripts\Items\EyebrowsItem.cs" />
+     <Compile Include="Assets\Scripts\Gear\EquipmentFaceSlot.cs" />
+     <Compile Include="Assets\Scripts\Items\FaceItem.cs" />
      <None Include="Assets\Samples\Terrain Tools\0.1.0-preview\Terrain Assets\ThirdPartyNotices.txt" />
      <None Include="Assets\ExternalAssets\PolygonPrototype\Shaders\Prototype_Glass_Global.shader" />
      <None Include="Assets\ExternalAssets\Plugins\Pixel Crushers\Scene Streamer\Example\_IMPORTANT_READ_ME_FIRST.txt" />

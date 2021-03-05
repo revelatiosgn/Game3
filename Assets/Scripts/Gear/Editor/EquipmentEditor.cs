@@ -28,7 +28,7 @@ public class EquipmentsEditor : Editor
         equipmentList.onAddDropdownCallback = OnAddDropdownCallback;
         equipmentList.drawElementCallback = DrawElementCallback;
         equipmentList.elementHeightCallback = ElementHeightCallback;
-        equipmentList.footerHeight = 60f;
+        equipmentList.footerHeight = 100f;
 
         ((ItemEvent) serializedObject.FindProperty("onEquip").objectReferenceValue).onEventRaised += OnEquip;
         ((ItemEvent) serializedObject.FindProperty("onUnequip").objectReferenceValue).onEventRaised += OnUnequip;
@@ -56,7 +56,7 @@ public class EquipmentsEditor : Editor
 
         equipmentList.DoLayoutList();
 
-        float height = equipmentList.GetHeight() - 50f;
+        float height = equipmentList.GetHeight() - 90f;
 
         EditorGUI.LabelField(new Rect(20f, height, 100f, height: EditorGUIUtility.singleLineHeight), "On Equip");
         EditorGUI.PropertyField(position:
@@ -68,6 +68,27 @@ public class EquipmentsEditor : Editor
         EditorGUI.PropertyField(position:
         new Rect(110f, height, 200f, height: EditorGUIUtility.singleLineHeight), property:
             serializedObject.FindProperty("onUnequip"), GUIContent.none, includeChildren: true);
+
+        EditorGUI.BeginChangeCheck();
+
+        height += 25f;
+        EditorGUI.LabelField(new Rect(20f, height, 100f, height: EditorGUIUtility.singleLineHeight), "Skin");
+        EditorGUI.PropertyField(position:
+        new Rect(110f, height, 200f, height: EditorGUIUtility.singleLineHeight), property:
+            serializedObject.FindProperty("skinMaterial"), GUIContent.none, includeChildren: true);
+
+
+        height += 25f;
+        EditorGUI.LabelField(new Rect(20f, height, 100f, height: EditorGUIUtility.singleLineHeight), "Hair");
+        EditorGUI.PropertyField(position:
+        new Rect(110f, height, 200f, height: EditorGUIUtility.singleLineHeight), property:
+            serializedObject.FindProperty("hairMaterial"), GUIContent.none, includeChildren: true);
+
+        if (EditorGUI.EndChangeCheck())
+        {
+            serializedObject.ApplyModifiedProperties();
+            equipment.UpdateMaterials();
+        }
 
         serializedObject.ApplyModifiedProperties();
     }
@@ -98,6 +119,7 @@ public class EquipmentsEditor : Editor
         element.managedReferenceValue = Activator.CreateInstance((Type)type);
 
         serializedObject.ApplyModifiedProperties();
+        equipment.UpdateMaterials();
     }
 
     void DrawElementCallback(Rect rect, int index, bool isActive, bool isFocused)

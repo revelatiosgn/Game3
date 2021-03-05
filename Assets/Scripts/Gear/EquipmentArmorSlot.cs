@@ -12,8 +12,6 @@ namespace ARPG.Gear
         [SerializeField] SkinnedMeshRenderer baseMesh;
         [SerializeField] ArmorItem defaultItem;
 
-        const string namePrefix = "Set Character_";
-
         public override void Equip(EquipmentItem item, GameObject target)
         {
             base.Equip(item, target);
@@ -21,23 +19,21 @@ namespace ARPG.Gear
             ArmorItem armorItem = item as ArmorItem;
 
             GameObject itemInstance = GameObject.Instantiate(armorItem.prefab);
-            itemInstance.name = armorItem.name;
+            itemInstance.name = GetSlotType().ToString();
 
             itemInstance.transform.position = baseMesh.transform.position;
             itemInstance.transform.parent = baseMesh.transform.parent;
 
-            SkinnedMeshRenderer targetMesh = itemInstance.GetComponent<SkinnedMeshRenderer>();
-            targetMesh.rootBone = baseMesh.rootBone;
-            targetMesh.bones = baseMesh.bones;
+            SkinnedMeshRenderer currentMesh = itemInstance.GetComponent<SkinnedMeshRenderer>();
+            currentMesh.rootBone = baseMesh.rootBone;
+            currentMesh.bones = baseMesh.bones;
 
-            Material[] sharedMaterials = targetMesh.sharedMaterials;
-            sharedMaterials[0] = baseMesh.sharedMaterials[0];
-            targetMesh.sharedMaterials = sharedMaterials;
+            UpdateMaterials();
         }
 
         public override void Unequip(GameObject target)
         {
-            Transform transform = baseMesh.transform.parent.Find(item.name);
+            Transform transform = baseMesh.transform.parent.Find(GetSlotType().ToString());
             if (transform != null)
                 Destroy(transform.gameObject);
 
@@ -53,10 +49,24 @@ namespace ARPG.Gear
             }
         }
 
-        private void MatchTransform(Transform obj, Transform target)
+        protected override void UpdateMaterials()
         {
-            obj.position = target.position;
-            obj.rotation = target.rotation;
+            SkinnedMeshRenderer currentMesh = GetCurrentMesh();
+            if (currentMesh == null)
+                return;
+
+            Material[] sharedMaterials = currentMesh.sharedMaterials;
+            sharedMaterials[0] = skinMaterial;
+            currentMesh.sharedMaterials = sharedMaterials;
+        }
+
+        protected SkinnedMeshRenderer GetCurrentMesh()
+        {
+            Transform transform = baseMesh.transform.parent.Find(GetSlotType().ToString());
+            if (transform == null)
+                return null;
+
+            return transform.GetComponent<SkinnedMeshRenderer>();
         }
     }
 }

@@ -18,10 +18,17 @@ namespace ARPG.Gear
             ChestArmor,
             LegsArmor,
             FootsArmor,
-            HandsArmor
+            HandsArmor,
+            HeadArmor,
+            Eyebrows,
+            Beard,
+            Face
         }
 
         public EquipmentItem item;
+
+        protected Material skinMaterial;
+        protected Material hairMaterial;
 
         public virtual SlotType GetSlotType()
         {
@@ -43,6 +50,18 @@ namespace ARPG.Gear
         }
 
         public virtual void AddBehaviour(GameObject target)
+        {
+        }
+
+        public void SetMaterials(Material skinMaterial, Material hairMaterial)
+        {
+            this.skinMaterial = skinMaterial;
+            this.hairMaterial = hairMaterial;
+            
+            UpdateMaterials();
+        }
+
+        protected virtual void UpdateMaterials()
         {
         }
 

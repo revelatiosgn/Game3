@@ -19,6 +19,8 @@ namespace ARPG.Gear
         
         [SerializeField] ItemEvent onEquip = default;
         [SerializeField] ItemEvent onUnequip = default;
+        [SerializeField] Material skinMaterial;
+        [SerializeField] Material hairMaterial;
 
         void Awake()
         {
@@ -28,6 +30,8 @@ namespace ARPG.Gear
         {
             foreach (EquipmentSlot equipmentSlot in equipmentSlots)
                 equipmentSlot.AddBehaviour(gameObject);
+
+            UpdateMaterials();
         }
 
         public void Equip(Item item)
@@ -82,6 +86,12 @@ namespace ARPG.Gear
         public EquipmentSlot GetEquipmentSlot(EquipmentSlot.SlotType slotType)
         {
             return equipmentSlots.Find(equipmentSlot => equipmentSlot.GetSlotType() == slotType);
+        }
+
+        public void UpdateMaterials()
+        {
+            foreach (EquipmentSlot equipmentSlot in equipmentSlots)
+                equipmentSlot.SetMaterials(skinMaterial, hairMaterial);
         }
 
         void ResolveConflict(EquipmentItem item)
