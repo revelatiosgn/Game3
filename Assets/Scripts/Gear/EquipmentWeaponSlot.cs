@@ -3,75 +3,100 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using ARPG.Items;
-using ARPG.Combat;
+using ARPG.Events;
 
 namespace ARPG.Gear
 {
     [System.Serializable]
-    public sealed class EquipmentWeaponSlot : EquipmentSlot
+    public class EquipmentWeaponSlot : EquipmentSlot
     {
-        public enum Hand
+        [System.Serializable]
+        public class WeaponHolder
         {
-            Left,
-            Right
+            public WeaponItem.WeaponType type;
+            public Transform body;
+            public Transform arm;
         }
 
-        [SerializeField] Transform leftHolder;
-        [SerializeField] Transform rightHolder;
-        [SerializeField] WeaponItem defaultItem;
+        [SerializeField] List<WeaponHolder> weaponHolders;
+        public WeaponItem weaponItem;
 
-        public override SlotType GetSlotType()
+        public EquipmentWeaponSlot()
         {
-            return SlotType.Weapon;
+            type = Type.Weapon;
         }
 
-        public override void Equip(EquipmentItem item, GameObject target)
+        public override bool Equip(Equipment equipment, EquipmentItem item)
         {
-            base.Equip(item, target);
+            Unequip(equipment);
 
-            WeaponItem weaponItem = item as WeaponItem;
+            weaponItem = item as WeaponItem;
 
-            Transform parent = weaponItem.hand == Hand.Left ? leftHolder : rightHolder;
+            if (weaponItem == null)
+                return false;
+
+            WeaponHolder weaponHolder = weaponHolders.Find(weaponHolder => weaponHolder.type == weaponItem.GetWeaponType());
+
+            if (weaponHolder == null)
+            {
+                weaponItem = null;
+                return false;
+            }
+
+            WeaponBehaviour weaponBehaviour = GameObject.Instantiate<WeaponBehaviour>(weaponItem.prefab, weaponHolder.arm);
+            weaponBehaviour.Init(weaponItem, equipment.gameObject);
+
+            EquipmentShieldSlot shieldSlot = equipment.GetSlot<EquipmentShieldSlot>();
+            if (shieldSlot != null && weaponItem.GetWeaponType() != WeaponItem.WeaponType.LightMelee)
+                shieldSlot.Unequip(equipment);
+
+            equipment.onEquip.RaiseEvent(weaponItem, equipment.gameObject);
+
+            return true;
+        }
+
+        public override bool Unequip(Equipment equipment, EquipmentItem item)
+        {
+            if (item != weaponItem)
+                return false;
+
+            return Unequip(equipment);
+        }
+
+        public bool Unequip(Equipment equipment)
+        {
+            if (weaponItem == null)
+                return false;
+
+            foreach (WeaponHolder weaponHolder in weaponHolders)
+            {
+                foreach (Transform transform in weaponHolder.body)
+                {
+                    if (transform.GetComponent<WeaponBehaviour>() != null)
+                        Destroy(transform.gameObject);
+                }
+
+                foreach (Transform transform in weaponHolder.arm)
+                {
+                    if (transform.GetComponent<WeaponBehaviour>() != null)
+                        Destroy(transform.gameObject);
+                }
+            }
+
+            equipment.onUnequip.RaiseEvent(weaponItem, equipment.gameObject);
             
-            if (parent != null)
-                GameObject.Instantiate(weaponItem.prefab, parent);
+            weaponItem = null;
 
-            AddBehaviour(target);
-        }
-
-        public override void Unequip(GameObject target)
-        {
-            int childCount = leftHolder.childCount;
-            for (int i = childCount - 1; i >= 0; i--)
-                Destroy(leftHolder.GetChild(i).gameObject);
-
-            childCount = rightHolder.childCount;
-            for (int i = childCount - 1; i >= 0; i--)
-                Destroy(rightHolder.GetChild(i).gameObject);
-
-            target.GetComponent<BaseCombat>().WeaponBehaviour = null;
-
-            base.Unequip(target);
+            return true;
         }
         
-        public override void AddBehaviour(GameObject target)
+        public override bool IsEquipped(EquipmentItem item)
         {
-            if (item == null)
-                return;
-
-            WeaponItem weaponItem = item as WeaponItem;
-            BaseCombat combat = target.GetComponent<BaseCombat>();
-            if (weaponItem as MeleeWeaponItem)
-                combat.WeaponBehaviour = new MeleeBehaviour(combat);
-            else
-                combat.WeaponBehaviour = new RangedBehaviour(combat);
+            return weaponItem != null && item == weaponItem;
         }
         
-        public Transform GetWeaponTransform()
+        public override void Update(Equipment equipment)
         {
-            return leftHolder.GetChild(0) != null ? leftHolder.GetChild(0) : rightHolder.GetChild(0);
         }
     }
 }
-
-

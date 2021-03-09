@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56ac34b3861b2e046bf32d3fbcfffe26, type: 3}
+  m_Script: {fileID: 11500000, guid: 652606fbd04207048b57149570455a7e, type: 3}
   m_Name: BaseChest
   m_EditorClassIdentifier: 
-  title: Base Chest
+  title: Unnamed Item
   icon: {fileID: 0}
-  prefab: {fileID: -4730174318450270264, guid: bcacd3ca521132c4b8fa172c11f230af, type: 3}
+  armorType: 1
+  mesh: {fileID: -1869638722113740606, guid: bcacd3ca521132c4b8fa172c11f230af, type: 3}

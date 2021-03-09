@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e263264c58fc90340a86a09897f35dd4, type: 3}
+  m_Name: RangedWeapon
+  m_EditorClassIdentifier: 
+  title: Unnamed Item
+  icon: {fileID: 0}
+  prefab: {fileID: 6257779825810116627, guid: dac93ac05de79af45bf7a46628311d9c, type: 3}
+  animationLayer: 
+  baseDamage: 0

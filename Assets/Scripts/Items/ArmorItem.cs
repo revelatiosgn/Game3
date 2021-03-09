@@ -5,9 +5,25 @@ using UnityEngine;
 
 namespace ARPG.Items
 {
-    public abstract class ArmorItem : EquipmentItem
+    [CreateAssetMenu(fileName = "Armor", menuName = "Items/Equipment/Armor", order = 1)]
+    public class ArmorItem : EquipmentItem
     {
-        public GameObject prefab;
+        public enum ArmorType
+        {
+            Head,
+            Chest,
+            Hands,
+            Legs,
+            Foots
+        }
+
+        public ArmorType armorType;
+        public SkinnedMeshRenderer mesh;
+
+        public override EquipmentSlot.Type GetSlotType()
+        {
+            return EquipmentSlot.Type.Armor;
+        }
     }
 }
 

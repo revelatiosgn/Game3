@@ -3,52 +3,81 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using ARPG.Items;
-using ARPG.Combat;
+using ARPG.Events;
 
 namespace ARPG.Gear
 {
     [System.Serializable]
-    public sealed class EquipmentShieldSlot : EquipmentSlot
+    public class EquipmentShieldSlot : EquipmentSlot
     {
-        [SerializeField] Transform holder;
+        [SerializeField] Transform body;
+        [SerializeField] Transform arm;
 
-        public override SlotType GetSlotType()
+        ShieldItem shieldItem;
+
+        public EquipmentShieldSlot()
         {
-            return SlotType.Shield;
+            type = Type.Shield;
         }
 
-        public override void Equip(EquipmentItem item, GameObject target)
+        public override bool Equip(Equipment equipment, EquipmentItem item)
         {
-            base.Equip(item, target);
+            Unequip(equipment);
 
-            ShieldItem shieldItem = item as ShieldItem;
+            shieldItem = item as ShieldItem;
 
-            if (holder != null)
-                GameObject.Instantiate(shieldItem.prefab, holder);
+            if (shieldItem == null)
+                return false;
 
-            AddBehaviour(target);
+            GameObject.Instantiate<ShieldBehaviour>(shieldItem.prefab, arm);
+
+            EquipmentWeaponSlot weaponSlot = equipment.GetSlot<EquipmentWeaponSlot>();
+            if (weaponSlot != null && weaponSlot.weaponItem != null && weaponSlot.weaponItem.GetWeaponType() != WeaponItem.WeaponType.LightMelee)
+                weaponSlot.Unequip(equipment);
+
+            equipment.onEquip.RaiseEvent(shieldItem, equipment.gameObject);
+
+            return true;
         }
 
-        public override void Unequip(GameObject target)
+        public override bool Unequip(Equipment equipment, EquipmentItem item)
         {
-            int childCount = holder.childCount;
-            for (int i = childCount - 1; i >= 0; i--)
-                Destroy(holder.GetChild(i).gameObject);
+            if (item != shieldItem)
+                return false;
 
-            target.GetComponent<BaseCombat>().ShieldBehaviour = null;
+            return Unequip(equipment);
+        }
 
-            base.Unequip(target);
+        public bool Unequip(Equipment equipment)
+        {
+            if (shieldItem == null)
+                return false;
+
+            foreach (Transform transform in body)
+            {
+                if (transform.GetComponent<ShieldBehaviour>() != null)
+                    Destroy(transform.gameObject);
+            }
+
+            foreach (Transform transform in arm)
+            {
+                if (transform.GetComponent<ShieldBehaviour>() != null)
+                    Destroy(transform.gameObject);
+            }
+                
+            equipment.onUnequip.RaiseEvent(shieldItem, equipment.gameObject);
+            shieldItem = null;
+
+            return true;
         }
         
-        public override void AddBehaviour(GameObject target)
+        public override bool IsEquipped(EquipmentItem item)
         {
-            if (item == null)
-                return;
-
-            BaseCombat combat = target.GetComponent<BaseCombat>();
-            combat.ShieldBehaviour = new ShieldBehaviour(combat);
+            return shieldItem != null && item == shieldItem;
+        }
+        
+        public override void Update(Equipment equipment)
+        {
         }
     }
 }
-
-

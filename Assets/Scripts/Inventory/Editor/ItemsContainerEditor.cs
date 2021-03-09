@@ -46,29 +46,49 @@ namespace ARPG.Inventory
 
             SerializedProperty element = containerList.serializedProperty.GetArrayElementAtIndex(index);
 
-            EditorGUI.PropertyField(
-                new Rect(rect.x, rect.y, 200, EditorGUIUtility.singleLineHeight),
-                element.FindPropertyRelative("item"), GUIContent.none);
-
-            EditorGUI.PropertyField(
-                new Rect(rect.x + 220, rect.y, 50, EditorGUIUtility.singleLineHeight),
-                element.FindPropertyRelative("count"), GUIContent.none);
-
+            float sl = EditorGUIUtility.singleLineHeight;
+            float x = rect.x;
+            float y = rect.y + EditorGUIUtility.standardVerticalSpacing;
+            
+            x += 10f;
             Equipment equipment = container.GetComponent<Equipment>();
             if (equipment != null)
             {
-                Item item = container.ItemSlots[index].item;
-                if (item as EquipmentItem)
+                EquipmentItem item = container.ItemSlots[index].item as EquipmentItem;
+                if (item != null)
                 {
-                    if (GUI.Button(new Rect(rect.x += 320, rect.y, 100, height: EditorGUIUtility.singleLineHeight), equipment.IsEquipped(item) ? "Unequip" : "Equip"))
-                    {
+                    bool isEquipped = equipment.IsEquipped(item);
+                    if (isEquipped != GUI.Toggle(new Rect(x, y, sl, sl), isEquipped, GUIContent.none))
                         item.OnUse(container.gameObject);
-                        serializedObject.ApplyModifiedProperties();
 
-                        EditorUtility.SetDirty(target);
-                    }
+                    // if (GUI.Toggle(new Rect(x, y, sl, sl), equipment.IsEquipped(item), GUIContent.none))
+                    // {
+                    //     equipment.Equip(item);
+                    // }
+                    // else
+                    // {
+                    //     equipment.Unequip(item);
+                    // }
+                //     if (GUI.Button(new Rect(rect.x += 320, rect.y, 100, height: EditorGUIUtility.singleLineHeight), equipment.IsEquipped(item) ? "Unequip" : "Equip"))
+                //     {
+                //         item.OnUse(container.gameObject);
+                //         serializedObject.ApplyModifiedProperties();
+
+                //         EditorUtility.SetDirty(target);
+                //     }
                 }
             }
+
+            x += 30f;
+            EditorGUI.PropertyField(
+                new Rect(x, y, 200, sl),
+                element.FindPropertyRelative("item"), GUIContent.none);
+
+            x += 210f;
+            EditorGUI.PropertyField(
+                new Rect(x, y, 50, sl),
+                element.FindPropertyRelative("count"), GUIContent.none);
+
         }
 
         void OnAddCallback(ReorderableList list)
@@ -83,10 +103,10 @@ namespace ARPG.Inventory
         {
             if (0 <= focusedElementIndex && focusedElementIndex < containerList.serializedProperty.arraySize)
             {
-                Item item = container.ItemSlots[focusedElementIndex].item;
-                Equipment equipment = container.GetComponent<Equipment>();
-                if (item as EquipmentItem && equipment != null && equipment.IsEquipped(item))
-                    item.OnUse(container.gameObject);
+                // Item item = container.ItemSlots[focusedElementIndex].item;
+                // Equipment equipment = container.GetComponent<Equipment>();
+                // if (item as EquipmentItem && equipment != null && equipment.IsEquipped(item))
+                //     item.OnUse(container.gameObject);
                 containerList.serializedProperty.DeleteArrayElementAtIndex(focusedElementIndex);
             }
         }

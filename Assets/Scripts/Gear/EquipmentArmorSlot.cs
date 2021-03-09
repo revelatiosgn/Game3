@@ -3,72 +3,128 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using ARPG.Items;
+using ARPG.Events;
 
 namespace ARPG.Gear
 {
     [System.Serializable]
-    public abstract class EquipmentArmorSlot : EquipmentSlot
+    public class EquipmentArmorSlot : EquipmentSlot
     {
-        [SerializeField] SkinnedMeshRenderer baseMesh;
-        [SerializeField] ArmorItem defaultItem;
-
-        public override void Equip(EquipmentItem item, GameObject target)
+        [System.Serializable]
+        public class ArmorHolder
         {
-            base.Equip(item, target);
+            public ArmorItem.ArmorType type;
+            public ArmorItem item;
+            public SkinnedMeshRenderer mesh;
+            public SkinnedMeshRenderer defaultMesh;
+        }
 
+        [SerializeField] SkinnedMeshRenderer baseMesh;
+        [SerializeField] Material skinMaterial;
+        [SerializeField] List<ArmorHolder> armorHolders;
+        [SerializeField] List<SkinnedMeshRenderer> baseMeshes;
+
+        public EquipmentArmorSlot()
+        {
+            type = Type.Armor;
+        }
+
+        public override bool Equip(Equipment equipment, EquipmentItem item)
+        {
             ArmorItem armorItem = item as ArmorItem;
+            if (armorItem == null)
+                return false;
 
-            GameObject itemInstance = GameObject.Instantiate(armorItem.prefab);
-            itemInstance.name = GetSlotType().ToString();
+            ArmorHolder armorHolder = armorHolders.Find(armorHolder => armorHolder.type == armorItem.armorType);
+            if (armorHolder == null)
+                return false;
 
+            Unequip(equipment, armorItem.armorType);
+
+            GameObject itemInstance = GameObject.Instantiate(armorItem.mesh.gameObject, baseMesh.transform.parent);
+            itemInstance.name = armorItem.name.ToString();
             itemInstance.transform.position = baseMesh.transform.position;
             itemInstance.transform.parent = baseMesh.transform.parent;
 
-            SkinnedMeshRenderer currentMesh = itemInstance.GetComponent<SkinnedMeshRenderer>();
-            currentMesh.rootBone = baseMesh.rootBone;
-            currentMesh.bones = baseMesh.bones;
+            SkinnedMeshRenderer mesh = itemInstance.GetComponent<SkinnedMeshRenderer>();
+            mesh.rootBone = baseMesh.rootBone;
+            mesh.bones = baseMesh.bones;
+            armorHolder.item = armorItem;
+            armorHolder.mesh = mesh;
 
-            UpdateMaterials();
-        }
-
-        public override void Unequip(GameObject target)
-        {
-            Transform transform = baseMesh.transform.parent.Find(GetSlotType().ToString());
-            if (transform != null)
-                Destroy(transform.gameObject);
-
-            base.Unequip(target);
-        }
-
-        public override void EquipDefault(GameObject target)
-        {
-            if (defaultItem != null)
-            {
-                base.Equip(defaultItem, target);
-                Equip(defaultItem, target);
-            }
-        }
-
-        protected override void UpdateMaterials()
-        {
-            SkinnedMeshRenderer currentMesh = GetCurrentMesh();
-            if (currentMesh == null)
-                return;
-
-            Material[] sharedMaterials = currentMesh.sharedMaterials;
+            Material[] sharedMaterials = mesh.sharedMaterials;
             sharedMaterials[0] = skinMaterial;
-            currentMesh.sharedMaterials = sharedMaterials;
+            mesh.sharedMaterials = sharedMaterials;
+
+            if (armorHolder.defaultMesh != null)
+                armorHolder.defaultMesh.gameObject.SetActive(false);
+
+            equipment.onEquip.RaiseEvent(armorHolder.item, equipment.gameObject);
+
+            return true;
         }
 
-        protected SkinnedMeshRenderer GetCurrentMesh()
+        public override bool Unequip(Equipment equipment, EquipmentItem item)
         {
-            Transform transform = baseMesh.transform.parent.Find(GetSlotType().ToString());
-            if (transform == null)
-                return null;
+            ArmorItem armorItem = item as ArmorItem;
+            if (armorItem == null)
+                return false;
 
-            return transform.GetComponent<SkinnedMeshRenderer>();
+            return Unequip(equipment, armorItem.armorType);
+        }
+
+        public bool Unequip(Equipment equipment, ArmorItem.ArmorType armorType)
+        {
+            ArmorHolder armorHolder = armorHolders.Find(armorHolder => armorHolder.type == armorType);
+
+            if (armorHolder == null || armorHolder.mesh == null)
+                return false;
+
+            equipment.onUnequip.RaiseEvent(armorHolder.item, equipment.gameObject);
+
+            Destroy(armorHolder.mesh.gameObject);
+            armorHolder.item = null;
+            armorHolder.mesh = null;
+            
+            if (armorHolder.defaultMesh != null)
+                armorHolder.defaultMesh.gameObject.SetActive(true);
+
+            return true;
+        }
+
+        public override bool IsEquipped(EquipmentItem item)
+        {
+            return armorHolders.Find(armorHolder => armorHolder.item == item) != null;
+        }
+        
+        public override void Update(Equipment equipment)
+        {
+            foreach (ArmorHolder armorHolder in armorHolders)
+            {
+                if (armorHolder.mesh != null)
+                {
+                    Material[] sharedMaterials = armorHolder.mesh.sharedMaterials;
+                    sharedMaterials[0] = skinMaterial;
+                    armorHolder.mesh.sharedMaterials = sharedMaterials;
+                }
+                
+                if (armorHolder.defaultMesh != null)
+                {
+                    Material[] sharedMaterials = armorHolder.defaultMesh.sharedMaterials;
+                    sharedMaterials[0] = skinMaterial;
+                    armorHolder.defaultMesh.sharedMaterials = sharedMaterials;
+                }
+            }
+
+            foreach (SkinnedMeshRenderer baseMesh in baseMeshes)
+            {
+                if (baseMesh == null)
+                    continue;
+
+                Material[] sharedMaterials = baseMesh.sharedMaterials;
+                sharedMaterials[0] = skinMaterial;
+                baseMesh.sharedMaterials = sharedMaterials;
+            }
         }
     }
 }
-
-

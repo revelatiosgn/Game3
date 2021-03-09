@@ -26,30 +26,32 @@ namespace ARPG.Combat
             }
         }
 
-        public override bool AttackBegin()
+        public override void AttackBegin()
         {
-            if (base.AttackBegin() && (WeaponBehaviour as RangedBehaviour) != null)
-            {
-                StopAllCoroutines();
-                StartCoroutine(AimCamera());
-                GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Aim;
+            base.AttackBegin();
 
-                return true;
-            }
+            // if (base.AttackBegin() && (WeaponBehaviour as RangedBehaviour) != null)
+            // {
+            //     StopAllCoroutines();
+            //     StartCoroutine(AimCamera());
+            //     GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Aim;
 
-            return false;
+            //     return true;
+            // }
+
+            // return false;
         }
 
         public override void OnAttackComplete()
         {
             base.OnAttackComplete();
 
-            if ((WeaponBehaviour as RangedBehaviour) != null)
-            {
-                StopAllCoroutines();
-                StartCoroutine(FreeLookCamera());
-                GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Regular;
-            }
+            // if ((WeaponBehaviour as RangedBehaviour) != null)
+            // {
+            //     StopAllCoroutines();
+            //     StartCoroutine(FreeLookCamera());
+            //     GetComponent<PlayerMovement>().state = PlayerMovement.MovementState.Regular;
+            // }
         }
 
         IEnumerator AimCamera()

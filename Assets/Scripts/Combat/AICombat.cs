@@ -25,16 +25,16 @@ namespace ARPG.Combat
             attackTimer += Time.deltaTime;
         }
 
-        public override bool AttackBegin()
+        public override void AttackBegin()
         {
-            if (base.AttackBegin())
-            {
-                attackTimer = 0f;
+            // if (base.AttackBegin())
+            // {
+            //     attackTimer = 0f;
 
-                return true;
-            }
+            //     return true;
+            // }
 
-            return false;
+            // return false;
         }
     }
 }

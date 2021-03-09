@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56ac34b3861b2e046bf32d3fbcfffe26, type: 3}
+  m_Script: {fileID: 11500000, guid: 652606fbd04207048b57149570455a7e, type: 3}
   m_Name: Shirt
   m_EditorClassIdentifier: 
-  title: Shirt
-  icon: {fileID: 21300000, guid: aac71d622c567054b84a9a9ad910a6f6, type: 3}
-  prefab: {fileID: -5254828769799782702, guid: e30fa48323690de4b8940b21cb4e4482, type: 3}
+  title: Unnamed Item
+  icon: {fileID: 0}
+  armorType: 1
+  mesh: {fileID: 7624106885426737404, guid: e30fa48323690de4b8940b21cb4e4482, type: 3}

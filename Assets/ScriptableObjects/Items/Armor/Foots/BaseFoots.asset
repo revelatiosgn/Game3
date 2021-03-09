@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc4394f336bd88942bc35fa26c8cb369, type: 3}
+  m_Script: {fileID: 11500000, guid: 652606fbd04207048b57149570455a7e, type: 3}
   m_Name: BaseFoots
   m_EditorClassIdentifier: 
-  title: Base Foots
+  title: Unnamed Item
   icon: {fileID: 0}
-  prefab: {fileID: -6042363691717883672, guid: 8b275e2edd1b4eb4294ae6abe5cea4e2, type: 3}
+  armorType: 4
+  mesh: {fileID: 2344413537566042891, guid: 8b275e2edd1b4eb4294ae6abe5cea4e2, type: 3}

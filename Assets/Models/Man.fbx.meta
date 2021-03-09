@@ -135,114 +135,9 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
       in configuration does not match rotation in animation file:\n\t'DEF-spine.004'
-      : rotation error = 12.659544 deg\n"
+      : rotation error = 12.833882 deg\n"
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'MaleRig|Bow' has import animation warnings
-      that might lower retargeting quality:\n\t'DEF-thigh.L' has scale animation
-      that will be discarded.\n\t'DEF-shin.L' has scale animation that will be discarded.\n\t'DEF-foot.L'
-      has scale animation that will be discarded.\n\t'DEF-thigh.R' has scale animation
-      that will be discarded.\n\t'DEF-shin.R' has scale animation that will be discarded.\n\t'DEF-foot.R'
-      has scale animation that will be discarded.\n\t'DEF-upper_arm.L' has scale
-      animation that will be discarded.\n\t'DEF-forearm.L' has scale animation that
-      will be discarded.\n\t'DEF-hand.L' has scale animation that will be discarded.\n\t'DEF-upper_arm.R'
-      has scale animation that will be discarded.\n\t'DEF-forearm.R' has scale animation
-      that will be discarded.\n\t'DEF-hand.R' has scale animation that will be discarded.\n\t'DEF-spine.004'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'MaleRig|CombatPose' has import animation warnings that might lower retargeting
-      quality:\n\t'DEF-thigh.L' has scale animation that will be discarded.\n\t'DEF-shin.L'
-      has scale animation that will be discarded.\n\t'DEF-foot.L' has scale animation
-      that will be discarded.\n\t'DEF-thigh.R' has scale animation that will be discarded.\n\t'DEF-shin.R'
-      has scale animation that will be discarded.\n\t'DEF-foot.R' has scale animation
-      that will be discarded.\n\nClip 'MaleRig|CombatWalkBackward' has import animation
-      warnings that might lower retargeting quality:\n\t'DEF-thigh.L' has scale animation
-      that will be discarded.\n\t'DEF-shin.L' has scale animation that will be discarded.\n\t'DEF-foot.L'
-      has scale animation that will be discarded.\n\t'DEF-thigh.R' has scale animation
-      that will be discarded.\n\t'DEF-shin.R' has scale animation that will be discarded.\n\t'DEF-foot.R'
-      has scale animation that will be discarded.\n\t'DEF-spine.004' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'MaleRig|CombatWalkForward' has import animation warnings that might lower
-      retargeting quality:\n\t'DEF-thigh.L' has scale animation that will be discarded.\n\t'DEF-shin.L'
-      has scale animation that will be discarded.\n\t'DEF-foot.L' has scale animation
-      that will be discarded.\n\t'DEF-thigh.R' has scale animation that will be discarded.\n\t'DEF-shin.R'
-      has scale animation that will be discarded.\n\t'DEF-foot.R' has scale animation
-      that will be discarded.\n\t'DEF-spine.004' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\nClip 'MaleRig|CombatWalkLeft'
-      has import animation warnings that might lower retargeting quality:\n\t'DEF-thigh.L'
-      has scale animation that will be discarded.\n\t'DEF-shin.L' has scale animation
-      that will be discarded.\n\t'DEF-foot.L' has scale animation that will be discarded.\n\t'DEF-thigh.R'
-      has scale animation that will be discarded.\n\t'DEF-shin.R' has scale animation
-      that will be discarded.\n\t'DEF-foot.R' has scale animation that will be discarded.\n\t'DEF-spine.004'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'MaleRig|CombatWalkRight' has import animation warnings that might lower retargeting
-      quality:\n\t'DEF-thigh.L' has scale animation that will be discarded.\n\t'DEF-shin.L'
-      has scale animation that will be discarded.\n\t'DEF-foot.L' has scale animation
-      that will be discarded.\n\t'DEF-thigh.R' has scale animation that will be discarded.\n\t'DEF-shin.R'
-      has scale animation that will be discarded.\n\t'DEF-foot.R' has scale animation
-      that will be discarded.\n\t'DEF-spine.004' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\nClip 'MaleRig|Idle' has
-      import animation warnings that might lower retargeting quality:\n\t'DEF-spine.004'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'MaleRig|Jump' has import animation warnings that might lower retargeting quality:\n\t'DEF-thigh.L'
-      has scale animation that will be discarded.\n\t'DEF-shin.L' has scale animation
-      that will be discarded.\n\t'DEF-foot.L' has scale animation that will be discarded.\n\t'DEF-thigh.R'
-      has scale animation that will be discarded.\n\t'DEF-shin.R' has scale animation
-      that will be discarded.\n\t'DEF-foot.R' has scale animation that will be discarded.\n\t'DEF-upper_arm.L'
-      has scale animation that will be discarded.\n\t'DEF-forearm.L' has scale animation
-      that will be discarded.\n\t'DEF-hand.L' has scale animation that will be discarded.\n\t'DEF-upper_arm.R'
-      has scale animation that will be discarded.\n\t'DEF-forearm.R' has scale animation
-      that will be discarded.\n\t'DEF-hand.R' has scale animation that will be discarded.\n\t'DEF-spine.004'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'MaleRig|RunForward' has import animation warnings that might lower retargeting
-      quality:\n\t'DEF-thigh.L' has scale animation that will be discarded.\n\t'DEF-shin.L'
-      has scale animation that will be discarded.\n\t'DEF-foot.L' has scale animation
-      that will be discarded.\n\t'DEF-thigh.R' has scale animation that will be discarded.\n\t'DEF-shin.R'
-      has scale animation that will be discarded.\n\t'DEF-foot.R' has scale animation
-      that will be discarded.\n\t'DEF-forearm.L' has scale animation that will be
-      discarded.\n\t'DEF-hand.L' has scale animation that will be discarded.\n\t'DEF-forearm.R'
-      has scale animation that will be discarded.\n\t'DEF-hand.R' has scale animation
-      that will be discarded.\n\t'DEF-spine.004' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\nClip 'MaleRig|Shield'
-      has import animation warnings that might lower retargeting quality:\n\t'DEF-thigh.L'
-      has scale animation that will be discarded.\n\t'DEF-shin.L' has scale animation
-      that will be discarded.\n\t'DEF-foot.L' has scale animation that will be discarded.\n\t'DEF-thigh.R'
-      has scale animation that will be discarded.\n\t'DEF-shin.R' has scale animation
-      that will be discarded.\n\t'DEF-foot.R' has scale animation that will be discarded.\n\t'DEF-forearm.L'
-      has scale animation that will be discarded.\n\t'DEF-hand.L' has scale animation
-      that will be discarded.\n\t'DEF-spine.004' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\nClip 'MaleRig|Sword1H'
-      has import animation warnings that might lower retargeting quality:\n\t'DEF-thigh.L'
-      has scale animation that will be discarded.\n\t'DEF-shin.L' has scale animation
-      that will be discarded.\n\t'DEF-foot.L' has scale animation that will be discarded.\n\t'DEF-thigh.R'
-      has scale animation that will be discarded.\n\t'DEF-shin.R' has scale animation
-      that will be discarded.\n\t'DEF-foot.R' has scale animation that will be discarded.\n\t'DEF-upper_arm.L'
-      has scale animation that will be discarded.\n\t'DEF-forearm.L' has scale animation
-      that will be discarded.\n\t'DEF-hand.L' has scale animation that will be discarded.\n\t'DEF-upper_arm.R'
-      has scale animation that will be discarded.\n\t'DEF-forearm.R' has scale animation
-      that will be discarded.\n\t'DEF-hand.R' has scale animation that will be discarded.\n\t'DEF-spine.004'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'MaleRig|Sword2H' has import animation warnings that might lower retargeting
-      quality:\n\t'DEF-thigh.L' has scale animation that will be discarded.\n\t'DEF-shin.L'
-      has scale animation that will be discarded.\n\t'DEF-foot.L' has scale animation
-      that will be discarded.\n\t'DEF-thigh.R' has scale animation that will be discarded.\n\t'DEF-shin.R'
-      has scale animation that will be discarded.\n\t'DEF-foot.R' has scale animation
-      that will be discarded.\n\t'DEF-upper_arm.L' has scale animation that will
-      be discarded.\n\t'DEF-forearm.L' has scale animation that will be discarded.\n\t'DEF-hand.L'
-      has scale animation that will be discarded.\n\t'DEF-upper_arm.R' has scale
-      animation that will be discarded.\n\t'DEF-forearm.R' has scale animation that
-      will be discarded.\n\t'DEF-hand.R' has scale animation that will be discarded.\n\t'DEF-spine.004'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'MaleRig|TPose' has import animation warnings that might lower retargeting
-      quality:\n\t'DEF-neck' has scale animation that will be discarded.\n\nClip
-      'MaleRig|WalkForward' has import animation warnings that might lower retargeting
-      quality:\n\t'DEF-thigh.L' has scale animation that will be discarded.\n\t'DEF-shin.L'
-      has scale animation that will be discarded.\n\t'DEF-foot.L' has scale animation
-      that will be discarded.\n\t'DEF-thigh.R' has scale animation that will be discarded.\n\t'DEF-shin.R'
-      has scale animation that will be discarded.\n\t'DEF-foot.R' has scale animation
-      that will be discarded.\n\t'DEF-forearm.L' has scale animation that will be
-      discarded.\n\t'DEF-hand.L' has scale animation that will be discarded.\n\t'DEF-forearm.R'
-      has scale animation that will be discarded.\n\t'DEF-hand.R' has scale animation
-      that will be discarded.\n\t'DEF-spine.004' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -341,17 +236,7 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: MaleEyebrows
-        weight: 0
-      - path: MaleFace
-        weight: 0
-      - path: MaleFoots
-        weight: 0
-      - path: MaleHair
-        weight: 0
-      - path: MaleHands
-        weight: 0
-      - path: MaleLegs
+      - path: MaleBase
         weight: 0
       - path: MaleRig
         weight: 1
@@ -363,8 +248,12 @@ ModelImporter:
         weight: 1
       - path: MaleRig/root/DEF-spine/DEF-spine.001/DEF-spine.002
         weight: 1
-      - path: MaleRig/root/DEF-spine/DEF-spine.001/DEF-spine.002/DEF-backhold
-        weight: 0
+      - path: MaleRig/root/DEF-spine/DEF-spine.001/DEF-spine.002/DEF-backholdMelee
+        weight: 1
+      - path: MaleRig/root/DEF-spine/DEF-spine.001/DEF-spine.002/DEF-backholdRanged
+        weight: 1
+      - path: MaleRig/root/DEF-spine/DEF-spine.001/DEF-spine.002/DEF-backholdShield
+        weight: 1
       - path: MaleRig/root/DEF-spine/DEF-spine.001/DEF-spine.002/DEF-spine.003
         weight: 1
       - path: MaleRig/root/DEF-spine/DEF-spine.001/DEF-spine.002/DEF-spine.003/DEF-shoulder.L
@@ -376,6 +265,8 @@ ModelImporter:
       - path: MaleRig/root/DEF-spine/DEF-spine.001/DEF-spine.002/DEF-spine.003/DEF-shoulder.L/DEF-upper_arm.L/DEF-forearm.L/DEF-hand.L
         weight: 1
       - path: MaleRig/root/DEF-spine/DEF-spine.001/DEF-spine.002/DEF-spine.003/DEF-shoulder.L/DEF-upper_arm.L/DEF-forearm.L/DEF-hand.L/DEF-handhold.L
+        weight: 0
+      - path: MaleRig/root/DEF-spine/DEF-spine.001/DEF-spine.002/DEF-spine.003/DEF-shoulder.L/DEF-upper_arm.L/DEF-forearm.L/DEF-hand.L/DEF-shieldHolder
         weight: 0
       - path: MaleRig/root/DEF-spine/DEF-spine.001/DEF-spine.002/DEF-spine.003/DEF-shoulder.L/DEF-upper_arm.L/DEF-forearm.L/DEF-hand.L/ORG-palm.01.L
         weight: 1
@@ -402,10 +293,6 @@ ModelImporter:
       - path: MaleRig/root/DEF-spine/DEF-spine.001/DEF-spine.002/DEF-spine.003/DEF-shoulder.L/DEF-upper_arm.L/DEF-forearm.L/DEF-hand.L/ORG-palm.02.L/DEF-f_middle.01.L/DEF-f_middle.02.L/DEF-f_middle.03.L
         weight: 1
       - path: MaleRig/root/DEF-spine/DEF-spine.001/DEF-spine.002/DEF-spine.003/DEF-shoulder.L/DEF-upper_arm.L/DEF-forearm.L/DEF-hand.L/ORG-palm.02.L/DEF-palm.02.L
-        weight: 0
-      - path: MaleRig/root/DEF-spine/DEF-spine.001/DEF-spine.002/DEF-spine.003/DEF-shoulder.L/DEF-upper_arm.L/DEF-forearm.L/DEF-shieldholder
-        weight: 1
-      - path: MaleRig/root/DEF-spine/DEF-spine.001/DEF-spine.002/DEF-spine.003/DEF-shoulder.L/DEF-upper_arm.L/DEF-forearm.L/DEF-shieldholder/Shield
         weight: 0
       - path: MaleRig/root/DEF-spine/DEF-spine.001/DEF-spine.002/DEF-spine.003/DEF-shoulder.R
         weight: 1
@@ -465,8 +352,6 @@ ModelImporter:
         weight: 1
       - path: MaleRig/root/DEF-spine/DEF-thigh.R/DEF-shin.R/DEF-foot.R/DEF-toe.R
         weight: 1
-      - path: MaleTorso
-        weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
@@ -1925,32 +1810,7 @@ ModelImporter:
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: MaleEyebrows
-      parentName: Man(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: MaleFace
-      parentName: Man(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: MaleFoots
-      parentName: Man(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: MaleHair
-      parentName: Man(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: MaleHands
-      parentName: Man(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: MaleLegs
+    - name: MaleBase
       parentName: Man(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
@@ -1980,11 +1840,21 @@ ModelImporter:
       position: {x: 0.0000000041909516, y: 0.1770755, z: -0.000000023748726}
       rotation: {x: -0.17236336, y: 5.3290285e-14, z: 0.000000041094633, w: 0.98503345}
       scale: {x: 0.9999998, y: 0.9999992, z: 1}
-    - name: DEF-backhold
+    - name: DEF-backholdMelee
       parentName: DEF-spine.002
-      position: {x: -0.000000035390258, y: 0.23776732, z: -0.1362032}
-      rotation: {x: -0.6196735, y: 5.077339e-15, z: 0.00000014774172, w: 0.7848598}
-      scale: {x: 1, y: 1.0000004, z: 1.000003}
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0, y: 0, z: 0}
+    - name: DEF-backholdRanged
+      parentName: DEF-spine.002
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0, y: 0, z: 0}
+    - name: DEF-backholdShield
+      parentName: DEF-spine.002
+      position: {x: -0.000000024214387, y: 0.2377673, z: -0.13620324}
+      rotation: {x: -0.61967355, y: 0.0000000022619824, z: 0.0000001662738, w: 0.78485966}
+      scale: {x: 0.99999994, y: 0.9999999, z: 0.9999999}
     - name: DEF-spine.003
       parentName: DEF-spine.002
       position: {x: -0, y: 0.2132829, z: 0}
@@ -2038,7 +1908,7 @@ ModelImporter:
     - name: DEF-f_index.03.L
       parentName: DEF-f_index.02.L
       position: {x: 0.000000067055225, y: 0.042574033, z: 0.000000029802322}
-      rotation: {x: -0.03336188, y: -0.00009575879, z: -0.008135271, w: 0.9994102}
+      rotation: {x: -0.033361882, y: -0.00009575879, z: -0.008135272, w: 0.9994102}
       scale: {x: 1.0000271, y: 0.9894057, z: 1.0112493}
     - name: DEF-palm.01.L
       parentName: ORG-palm.01.L
@@ -2053,7 +1923,7 @@ ModelImporter:
     - name: DEF-thumb.02.L
       parentName: DEF-thumb.01.L
       position: {x: -0.000000011175871, y: 0.03654839, z: 0.000000059604645}
-      rotation: {x: 0.04558817, y: 0.004399209, z: -0.00507532, w: 0.9989377}
+      rotation: {x: 0.045588173, y: 0.004399209, z: -0.0050753206, w: 0.9989377}
       scale: {x: 0.9963236, y: 0.9662161, z: 1.0399927}
     - name: DEF-thumb.03.L
       parentName: DEF-thumb.02.L
@@ -2128,7 +1998,7 @@ ModelImporter:
     - name: DEF-f_index.03.R
       parentName: DEF-f_index.02.R
       position: {x: -0.000000060070306, y: 0.042573966, z: 0.000000055879354}
-      rotation: {x: -0.03336181, y: 0.00009597139, z: 0.008135416, w: 0.9994102}
+      rotation: {x: -0.033361815, y: 0.00009597139, z: 0.008135417, w: 0.9994102}
       scale: {x: 0.9999246, y: 0.99168986, z: 1.008779}
     - name: DEF-palm.01.R
       parentName: ORG-palm.01.R
@@ -2168,7 +2038,7 @@ ModelImporter:
     - name: DEF-f_middle.03.R
       parentName: DEF-f_middle.02.R
       position: {x: -0.000000037252903, y: 0.043172665, z: -0.000000044703484}
-      rotation: {x: 0.042082243, y: -0.0005600899, z: 0.0506451, w: 0.99782956}
+      rotation: {x: 0.042082246, y: -0.0005600899, z: 0.050645106, w: 0.99782956}
       scale: {x: 1.0012316, y: 1.0108949, z: 0.9875304}
     - name: DEF-palm.02.R
       parentName: ORG-palm.02.R
@@ -2230,11 +2100,6 @@ ModelImporter:
       position: {x: 3.1878944e-11, y: 0.13980973, z: -0.0000000018626451}
       rotation: {x: 0.0041768434, y: 0.96741503, z: -0.25265598, w: -0.01599282}
       scale: {x: 1.0001007, y: 0.9168898, z: 1.092437}
-    - name: MaleTorso
-      parentName: Man(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -2248,7 +2113,7 @@ ModelImporter:
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  autoGenerateAvatarMappingIfUnspecified: 1
+  autoGenerateAvatarMappingIfUnspecified: 0
   animationType: 3
   humanoidOversampling: 1
   avatarSetup: 1

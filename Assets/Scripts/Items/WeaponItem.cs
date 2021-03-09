@@ -9,24 +9,24 @@ namespace ARPG.Items
 {
     public abstract class WeaponItem : EquipmentItem
     {
-        public enum Type
+        public enum WeaponType
         {
-            OneHanded,
-            TwoHanded
+            LightMelee,
+            HeavyMelee,
+            Ranged
         }
 
-        public GameObject prefab;
-        public float baseDamage;
-        public float range = 3f;
-        public AnimatorOverrideController animatorContoller;
-        public EquipmentWeaponSlot.Hand hand;
-        public Type type = Type.OneHanded;
-        public string animationLayer = "Sword1H";
+        public WeaponBehaviour prefab;
+        public string animationLayer;
+        public float baseDamage = 0f;
 
-        public override EquipmentSlot.SlotType GetSlotType()
+        public override EquipmentSlot.Type GetSlotType()
         {
-            return EquipmentSlot.SlotType.Weapon;
+            return EquipmentSlot.Type.Weapon;
         }
+
+        public abstract WeaponType GetWeaponType();
+        public abstract string GetAnimatorLayer();
     }
 }
 

@@ -14,8 +14,8 @@ namespace ARPG.UI
     public class InventoryPanel : MonoBehaviour
     {
         [SerializeField] VoidEvent onPlayerUIInventory;
-        [SerializeField] ItemEvent onEquip;
-        [SerializeField] ItemEvent onUnequip;
+        [SerializeField] EquipmentItemEvent onEquip;
+        [SerializeField] EquipmentItemEvent onUnequip;
         [SerializeField] VoidEvent onPlayerUIUseItem;
         [SerializeField] VoidEvent onPlayerUIDropItem;
 
@@ -71,23 +71,23 @@ namespace ARPG.UI
 
         void UpdateSlots()
         {
-            List<ItemSlot> itemSlots = itemsContainer.ItemSlots;
-            for (int i = 0; i < grid.transform.childCount; i++)
-            {
-                InventorySlot slot = grid.transform.GetChild(i).GetComponent<InventorySlot>();
-                if (i < itemSlots.Count)
-                {
-                    slot.ItemSlot = itemSlots[i];
-                    slot.SetEquipped(equipment.IsEquipped(itemSlots[i].item));
-                }
-                else
-                {
-                    slot.ItemSlot = null;
-                }
-                slot.SetSelected(false);
-            }
+            // List<ItemSlot> itemSlots = itemsContainer.ItemSlots;
+            // for (int i = 0; i < grid.transform.childCount; i++)
+            // {
+            //     InventorySlot slot = grid.transform.GetChild(i).GetComponent<InventorySlot>();
+            //     if (i < itemSlots.Count)
+            //     {
+            //         slot.ItemSlot = itemSlots[i];
+            //         slot.SetEquipped(equipment.IsEquipped(itemSlots[i].item));
+            //     }
+            //     else
+            //     {
+            //         slot.ItemSlot = null;
+            //     }
+            //     slot.SetSelected(false);
+            // }
 
-            selectedSlot = null;
+            // selectedSlot = null;
         }
 
         public void OnSlotSelected(InventorySlot slot)
@@ -118,15 +118,21 @@ namespace ARPG.UI
             return null;
         }
 
-        void OnEquip(Item item)
+        void OnEquip(Item item, GameObject target)
         {
+            if (target != itemsContainer.gameObject)
+                return;
+                
             InventorySlot inventorySlot = GetInventorySlot(item);
             if (inventorySlot)
                 inventorySlot.SetEquipped(true);
         }
 
-        void OnUnequip(Item item)
+        void OnUnequip(Item item, GameObject target)
         {
+            if (target != itemsContainer.gameObject)
+                return;
+
             InventorySlot inventorySlot = GetInventorySlot(item);
             if (inventorySlot)
                 inventorySlot.SetEquipped(false);
@@ -140,12 +146,12 @@ namespace ARPG.UI
 
         void OnPlayerUIDropItem()
         {
-            if (selectedSlot != null && selectedSlot.ItemSlot != null)
-            {
-                equipment.UnEquip(selectedSlot.ItemSlot.item);
-                itemsContainer.ReduceItemSlot(selectedSlot.ItemSlot);
-                UpdateSlots();
-            }
+            // if (selectedSlot != null && selectedSlot.ItemSlot != null)
+            // {
+            //     equipment.UnEquip(selectedSlot.ItemSlot.item);
+            //     itemsContainer.ReduceItemSlot(selectedSlot.ItemSlot);
+            //     UpdateSlots();
+            // }
         }
     }
 }

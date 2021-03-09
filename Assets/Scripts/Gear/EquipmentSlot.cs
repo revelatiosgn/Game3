@@ -3,76 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using ARPG.Items;
+using ARPG.Events;
+using ARPG.Combat;
 
 namespace ARPG.Gear
 {
     [System.Serializable]
-    public class EquipmentSlot
+    public abstract class EquipmentSlot
     {
-        public enum SlotType
+        public enum Type
         {
-            None,
             Weapon,
-            Arrow,
             Shield,
-            ChestArmor,
-            LegsArmor,
-            FootsArmor,
-            HandsArmor,
-            HeadArmor,
-            Eyebrows,
-            Beard,
-            Face
+            Armor,
+            Quiver
         }
 
-        public EquipmentItem item;
+        public Type type;
 
-        protected Material skinMaterial;
-        protected Material hairMaterial;
+        public abstract bool Equip(Equipment equipment, EquipmentItem item);
+        public abstract bool Unequip(Equipment equipment, EquipmentItem item);
+        public abstract bool IsEquipped(EquipmentItem item);
+        public abstract void Update(Equipment equipment);
 
-        public virtual SlotType GetSlotType()
-        {
-            return SlotType.None;
-        }
-
-        public virtual void Equip(EquipmentItem item, GameObject target)
-        {
-            this.item = item;
-        }
-
-        public virtual void Unequip(GameObject target)
-        {
-            this.item = null;
-        }
-
-        public virtual void EquipDefault(GameObject target)
-        {
-        }
-
-        public virtual void AddBehaviour(GameObject target)
-        {
-        }
-
-        public void SetMaterials(Material skinMaterial, Material hairMaterial)
-        {
-            this.skinMaterial = skinMaterial;
-            this.hairMaterial = hairMaterial;
-            
-            UpdateMaterials();
-        }
-
-        protected virtual void UpdateMaterials()
-        {
-        }
-
-        protected void Destroy(Object obj)
+        protected void Destroy(GameObject gameObject)
         {
             if (Application.isPlaying)
-                GameObject.Destroy(obj);
+                GameObject.Destroy(gameObject);
             else
-                GameObject.DestroyImmediate(obj);
+                GameObject.DestroyImmediate(gameObject);
         }
     }
 }
-
-

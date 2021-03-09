@@ -9,121 +9,47 @@ namespace ARPG.Gear
 {
     public class Equipment : MonoBehaviour
     {
-        [SerializeReference] List<EquipmentSlot> equipmentSlots;
+        [SerializeReference][SerializeField] List<EquipmentSlot> equipmentSlots = new List<EquipmentSlot>();
+        public List<EquipmentSlot> EquipmentSlots { get { return equipmentSlots; } private set { equipmentSlots = value; } }
 
-        public List<EquipmentSlot> EquipmentSlots
-        {
-            get => equipmentSlots;
-            private set { equipmentSlots = value; }
-        }
-        
-        [SerializeField] ItemEvent onEquip = default;
-        [SerializeField] ItemEvent onUnequip = default;
-        [SerializeField] Material skinMaterial;
-        [SerializeField] Material hairMaterial;
+        public EquipmentItemEvent onEquip;
+        public EquipmentItemEvent onUnequip;
 
-        void Awake()
+        public void Equip(EquipmentItem item)
         {
+            EquipmentSlot slot = GetSlot(item);
+            slot?.Equip(this, item);
         }
 
-        void Start()
+        public void Unequip(EquipmentItem item)
         {
-            foreach (EquipmentSlot equipmentSlot in equipmentSlots)
-                equipmentSlot.AddBehaviour(gameObject);
-
-            UpdateMaterials();
+            EquipmentSlot slot = GetSlot(item);
+            slot?.Unequip(this, item);
         }
 
-        public void Equip(Item item)
+        public bool IsEquipped(EquipmentItem item)
         {
-            EquipmentItem equipmentItem = item as EquipmentItem;
-            if (equipmentItem == null)
-                return;
+            EquipmentSlot slot = GetSlot(item);
+            if (slot != null)
+                return slot.IsEquipped(item);
 
-            EquipmentSlot slot = GetEquipmentSlot(equipmentItem.GetSlotType());
-            if (slot == null)
-                return;
+            return false;
+        }
 
-            if (slot.item != null)
+        public EquipmentSlot GetSlot(EquipmentItem item)
+        {
+            return equipmentSlots.Find(slot => { return slot.type == item.GetSlotType(); });
+        }
+
+        public T GetSlot<T>() where T : EquipmentSlot
+        {
+            foreach (EquipmentSlot slot in equipmentSlots)
             {
-                onUnequip.RaiseEvent(slot.item);
-                slot.Unequip(gameObject);
+                if (slot as T != null)
+                    return slot as T;
             }
 
-            slot.Equip(equipmentItem, gameObject);
-            onEquip.RaiseEvent(equipmentItem);
-
-            ResolveConflict(equipmentItem);
-        }
-
-        public void UnEquip(Item item)
-        {
-            EquipmentItem equipmentItem = item as EquipmentItem;
-            if (equipmentItem == null)
-                return;
-
-            EquipmentSlot slot = GetEquipmentSlot(equipmentItem.GetSlotType());
-            if (slot == null)
-                return;
-
-            onUnequip.RaiseEvent(slot.item);
-            slot.Unequip(gameObject);
-
-            slot.EquipDefault(gameObject);
-            onEquip.RaiseEvent(slot.item);
-        }
-        
-        public bool IsEquipped(Item item)
-        {
-            return GetEquipmentSlot(item) != null;
-        }
-
-        public EquipmentSlot GetEquipmentSlot(Item item)
-        {
-            return equipmentSlots.Find(equipmentSlot => equipmentSlot.item == item);
-        }
-
-        public EquipmentSlot GetEquipmentSlot(EquipmentSlot.SlotType slotType)
-        {
-            return equipmentSlots.Find(equipmentSlot => equipmentSlot.GetSlotType() == slotType);
-        }
-
-        public void UpdateMaterials()
-        {
-            foreach (EquipmentSlot equipmentSlot in equipmentSlots)
-                equipmentSlot.SetMaterials(skinMaterial, hairMaterial);
-        }
-
-        void ResolveConflict(EquipmentItem item)
-        {
-            if ((item as ShieldItem) != null)
-            {
-                EquipmentWeaponSlot weaponSlot = GetEquipmentSlot(EquipmentSlot.SlotType.Weapon) as EquipmentWeaponSlot;
-                if (weaponSlot != null)
-                {
-                    WeaponItem weaponItem = weaponSlot.item as WeaponItem;
-                    if (weaponItem != null && weaponItem.type == WeaponItem.Type.TwoHanded)
-                    {
-                        UnEquip(weaponItem);
-                    }
-                }
-            }
-
-            if ((item as WeaponItem) != null)
-            {
-                if ((item as WeaponItem).type == WeaponItem.Type.TwoHanded)
-                {
-                    EquipmentShieldSlot shieldSlot = GetEquipmentSlot(EquipmentSlot.SlotType.Shield) as EquipmentShieldSlot;
-                    if (shieldSlot != null)
-                    {
-                        ShieldItem shieldItem = shieldSlot.item as ShieldItem;
-                        if (shieldItem != null)
-                        {
-                            UnEquip(shieldItem);
-                        }
-                    }
-                }
-            }
+            return null;
         }
     }
 }
